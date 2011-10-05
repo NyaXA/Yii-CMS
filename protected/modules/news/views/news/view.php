@@ -29,7 +29,7 @@ if ($news->photo)
         </div>
 
 	<?php foreach ($news->files as $file): ?>
-		<a href='' class='link_13'><?php echo $file->file ?></a> <br/>
+		<a href='<?php echo $file->url; ?>' class='link_13'><?php echo $file->title; ?></a> <br/>
 	<?php endforeach ?>
 <?php endif ?>
 

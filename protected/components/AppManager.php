@@ -91,7 +91,7 @@ class AppManager
     {
         $actions = array();
     
-        $controllers_dir = MODULES_PATH . strtolower(str_replace('Module', '', $module_class)) . '/controllers/';
+        $controllers_dir = MODULES_PATH . lcfirst(str_replace('Module', '', $module_class)) . '/controllers/';
         
         $controllers = scandir($controllers_dir);
         foreach ($controllers as $controller) 
@@ -133,6 +133,11 @@ class AppManager
 				{
 					$title.= " (админка)";
 				}
+
+                if (!empty($title))
+                {
+                    $title = $module_class::name() . ':' . $title;
+                }
 
                 $actions[$action_name] = $title;
             }

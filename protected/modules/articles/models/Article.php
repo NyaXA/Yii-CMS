@@ -21,6 +21,7 @@ class Article extends ActiveRecordModel
 		return parent::model($className);
 	}
 
+
 	public function tableName()
 	{
 		return 'articles';

@@ -4,11 +4,12 @@ class FileManagerAdminController extends AdminController
     public static function actionsTitles()
     {
         return array(
-            "UpdateAttr"   => "Редактирование файла файлового менеджера",
-            "Upload"       => "Отображение брендов",
+            "UpdateAttr"   => "Редактирование файла",
+            "Upload"       => "Загрузка файлов",
             "SavePriority" => "Сортировка",
             "Delete"       => "Удаление файла",
-            "ExistFiles"   => "Существующие файлы",
+            "ExistFiles"   => "Загрузка существующих файлов",
+            "Manage"       => "Управление файлами"
         );
     }
 
@@ -180,6 +181,13 @@ class FileManagerAdminController extends AdminController
 
     public function actionManage()
     {
+		$model = new FileManager('search');
+		$model->unsetAttributes();
+		if(isset($_GET['FileManager']))
+        {
+            $model->attributes = $_GET['FileManager'];
+        }
 
+        $this->render('manage', array('model' => $model));
     }
 }

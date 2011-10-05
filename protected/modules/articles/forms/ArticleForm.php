@@ -11,10 +11,10 @@ return array(
             'type'  => 'dropdownlist',
             'items' => CHtml::listData(ArticleSection::model()->findAll(), 'id', 'name')
         ),
-		'title'    => array('type' => 'text'),
-		'text'     => array('type' => 'editor'),
-		'date'     => array('type' => 'date'),
-        'fmanager' => array('type' => 'fmanager')
+		'title' => array('type' => 'text'),
+		'text'  => array('type' => 'editor'),
+		'date'  => array('type' => 'date'),
+        'files' => array('type' => 'file_manager')
 	),
 	'buttons' => array(
 		'submit' => array('type' => 'submit', 'value' => $this->model->isNewRecord ? 'Создать' : 'Сохранить')

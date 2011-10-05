@@ -93,7 +93,7 @@ class NewsAdminController extends AdminController
 
 	public function actionManage()
 	{
-		$model=new News('search');
+		$model = new News('search');
 		$model->unsetAttributes();
 		if(isset($_GET['News']))
         {

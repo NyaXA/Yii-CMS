@@ -72,45 +72,49 @@ class FileManager extends ActiveRecordModel
         return Yii::app()->controller->url('fileManagerAdmin/delete', array('id' => $this->id));
     }
 
-    /**
-     * @param $val
-     * @return void
-     */
+
     public function setExt($val)
     {
         $this->extension = $val;
         $this->mimeType = $this->mimeByExt($val);
     }
 
+
     public function getIsImage()
     {
         return in_array($this->extension, array('png', 'jpeg', 'jpg', 'tiff', 'ief', 'gif'));
     }
+
 
     public function getIsSound()
     {
         return in_array($this->extension, array('wma', 'mp3'));
     }
 
+
     public function getIsExcel()
     {
         return in_array($this->extension, array('xl', 'xla', 'xlb', 'xlc', 'xld', 'xlk', 'xll', 'xlm', 'xls', 'xlt', 'xlv', 'xlw'));
     }
+
 
     public function getIsWord()
     {
         return in_array($this->extension, array('doc', 'dot', 'docx'));
     }
 
+
     public function getIsArchive()
     {
         return in_array($this->extension, array('zip', 'rar', 'tar', 'gz'));
     }
 
+
     public function getUrl()
     {
-        return Yii::app()->baseUrl . substr(self::UPLOAD_PATH, 1) . $this->name;
+        return "/fileManager/";
     }
+
 
     public function getIcon()
     {
@@ -132,11 +136,7 @@ class FileManager extends ActiveRecordModel
         return CHtml::image($folder . $name . '.png', '', array('height' => 24));
     }
 
-    /**
-     * get mime type by file extension
-     * @param $ext
-     * @return string
-     */
+
     public static function mimeByExt($ext)
     {
         switch ($ext) {
@@ -315,12 +315,7 @@ class FileManager extends ActiveRecordModel
         }
     }
 
-    /**
-     * transliting string
-     * @static
-     * @param $string
-     * @return string
-     */
+
     public static function rus2translit($string)
     {
         $converter = array(
@@ -361,6 +356,7 @@ class FileManager extends ActiveRecordModel
         return $str;
     }
 
+
     public function setExtraProperties($field, &$handler, $options)
     {
         $info = getimagesize($_FILES[$field]['tmp_name']);
@@ -386,52 +382,6 @@ class FileManager extends ActiveRecordModel
         }
     }
 
-
-//    public function saveImageOnServer($field, $newName, $options)
-//    {
-//        $this->beforeSaveOnServer($field);
-//
-//        $handler = $this->getHandler($field);
-//        $handler->file_new_name_body = $newName;
-//        $handler->file_name_body_add = self::FILE_POSTFIX;
-//
-//        foreach ($options as $key => $val)
-//        {
-//            $handler->$key = ($val === 'false') ? false : ($val === 'true' ? true : $val);
-//        }
-//
-//        $this->setExtraProperties($field, $handler, $options);
-//
-//        $handler->process(self::UPLOAD_PATH);
-//        if ($handler->processed) {
-//            $this->name = $handler->file_dst_name;
-//            $this->fill();
-//            return true;
-//        } else {
-//            $this->error = $handler->error;
-//            return false;
-//        }
-//    }
-
-//    public function saveSoundOnServer($field, $newName, $options)
-//    {
-//        return $this->saveSimpleFile($field, $newName);
-//    }
-//
-//    public function saveAnyOnServer($field, $newName, $options)
-//    {
-//        return $this->saveSimpleFile($field, $newName);
-//    }
-//
-//    public function saveVideoOnServer($field, $newName, $options)
-//    {
-//        return $this->saveSimpleFile($field, $newName);
-//    }
-//
-//    public function saveDocumentOnServer($field, $newName, $options)
-//    {
-//        return $this->saveSimpleFile($field, $newName);
-//    }
 
     public function saveFile()
     {
@@ -478,25 +428,6 @@ class FileManager extends ActiveRecordModel
         return $ret;
     }
 
-//
-//    public static function getUniqueName($path, $field)
-//    {
-//        $fileName = self::rus2translit($_FILES[$field]['name']);
-//        $newName = $name = pathinfo($fileName, PATHINFO_FILENAME);
-//        $ext = pathinfo($fileName, PATHINFO_EXTENSION);
-//        $count = 0;
-//        while (is_file($path . $newName . self::FILE_POSTFIX . '.' . $ext))
-//        {
-//            $newName = $name . $count;
-//            ++$count;
-//
-//            //no infinite loop
-//            if ($count > 1000) {
-//                throw new CException('Too much images with name ' . $name);
-//        }
-//        return $newName;
-//    }
-
 
     public function getSrc($realFile = false)
     {
@@ -513,11 +444,13 @@ class FileManager extends ActiveRecordModel
         return $src;
     }
 
+
     public function afterFind()
     {
         parent::afterFind();
         $this->fill();
     }
+
 
     public function fill()
     {
@@ -525,6 +458,7 @@ class FileManager extends ActiveRecordModel
         $this->size = ($file && is_file($file)) ? filesize($file) : NULL; //$this->formatSize($this->basePath.$this->name);
         $this->extension = pathinfo($this->name, PATHINFO_EXTENSION);
     }
+
 
     public function getNameWithoutExt()
     {
@@ -536,6 +470,7 @@ class FileManager extends ActiveRecordModel
         }
         return strtr($name, $params);
     }
+
 
     public function beforeSave()
     {
@@ -556,6 +491,7 @@ class FileManager extends ActiveRecordModel
         }
     }
 
+
     public function beforeDelete()
     {
         if (parent::beforeDelete())
@@ -570,4 +506,19 @@ class FileManager extends ActiveRecordModel
 
         return false;
     }
+
+
+	public function search()
+	{
+		$criteria = new CDbCriteria;
+		$criteria->compare('object_id', $this->object_id, true);
+		$criteria->compare('model_id', $this->model_id, true);
+		$criteria->compare('tag', $this->tag, true);
+		$criteria->compare('title', $this->title, true);
+		$criteria->compare('order', $this->order);
+
+		return new ActiveDataProvider(get_class($this), array(
+			'criteria' => $criteria
+		));
+	}
 }

@@ -76,7 +76,13 @@ class News extends ActiveRecordModel
 	{
 		return array(
 			'user'     => array(self::BELONGS_TO, 'User', 'user_id'),
-			'language' => array(self::BELONGS_TO, 'Language', 'lang')
+			'language' => array(self::BELONGS_TO, 'Language', 'lang'),
+            'files'    => array(
+                self::HAS_MANY,
+                'FileManager',
+                'object_id',
+                'condition' => 'model_id = "'. get_class($this) .'"'
+            )
 		);
 	}
 
