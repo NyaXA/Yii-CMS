@@ -109,35 +109,15 @@ $form->attributes['class'] = 'admin_form';
 
             <p>
                 <?php echo $form->getActiveFormWidget()->labelEx($form->model, $element->name); ?>
+
                 <?php
-                $this->widget('application.extensions.elrtef.elRTE', array(
-                    'model'     => $form->model,
+                $this->widget('application.extensions.tinymce.ETinyMce',array(
+                    'editorTemplate' => 'full',
+                    'model' => $form->model,
                     'attribute' => $element->name,
-                    'name'      => "{$model_class}[{$element->name}]",
-                    'options' => array(
-                            'doctype'=>'js:\'<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">\'',
-                            'cssClass' => 'el-rte',
-                            'cssfiles' => array('/css/site/style.css'),
-                            'absoluteURLs'=>true,
-                            'allowSource' => true,
-                            'lang' => 'ru',
-                            'styleWithCss'=>'100%',
-                            'height' => 200,
-                            'fmAllow'=>true, //if you want to use Media-manager
-                            'fmOpen'=>'js:function(callback) {$("<div id=\"elfinder\" />").elfinder(%elfopts%);}',//here used placeholder for settings
-                            'toolbar' => 'maxi',
-                    ),
-                    'elfoptions' => array( //elfinder options
-                        'url'=>'auto',  //if set auto - script tries to connect with native connector
-                        'passkey'=>'mypass', //here passkey from first connector`s line
-                        'lang'=>'ru',
-                        'dialog'=>array('width'=>'900','modal'=>true,'title'=>'Media Manager'),
-                        'closeOnEditorCallback'=>true,
-                        'editorCallback'=>'js:callback'
-                    ),
-                    )
-                );
+                ));
                 ?>
+
                 <?php echo $form->getActiveFormWidget()->error($form->model, $element->name); ?>
             </p>
             <br/>

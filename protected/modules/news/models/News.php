@@ -29,7 +29,9 @@ class News extends ActiveRecordModel
     public function behaviors()
     {
         $behaviors = parent::behaviors();
-        $behaviors['Fmanager'] = array('class' => 'application.components.activeRecordBehaviors.FmanagerBehavior');
+        $behaviors['FileManager'] = array(
+            'class' => 'application.components.activeRecordBehaviors.FileManagerBehavior'
+        );
         return $behaviors;
     }
 
@@ -74,7 +76,6 @@ class News extends ActiveRecordModel
 	{
 		return array(
 			'user'     => array(self::BELONGS_TO, 'User', 'user_id'),
-			'files'    => array(self::HAS_MANY, 'NewsFile', 'news_id'),
 			'language' => array(self::BELONGS_TO, 'Language', 'lang')
 		);
 	}

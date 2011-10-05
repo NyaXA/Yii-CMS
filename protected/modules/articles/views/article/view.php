@@ -21,7 +21,7 @@ $this->crumbs[$this->url("/articles/section/{$article->section['id']}")] = $arti
 	<div style="margin-top:30px;margin-bottom:10px;font-weight:bold"><?php echo Yii::t('ArticlesModule.main', 'Файлы для скачивания'); ?>:</div>
 
 	<?php foreach ($article->files as $file): ?>
-		<a href='/<?php echo ArticleFile::FILES_DIR . "/" . $file->file ?>' class='link_13'><?php echo $file->file ?></a> <br/>
+		<a href='/' class='link_13'><?php echo $file->file ?></a> <br/>
 	<?php endforeach ?>
 <?php endif ?>
 

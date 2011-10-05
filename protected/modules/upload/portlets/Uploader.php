@@ -38,6 +38,12 @@ class Uploader extends CJuiWidget
     public function init()
     {
         parent::init();
+
+        if (!array_key_exists('FileManager', $this->model->behaviors()))
+        {
+            throw new CException('Требуется подключение behavior FileManagerBehavior в моделе!');
+        }
+
         $this->initVars();
         $this->registerScripts();
     }
@@ -73,7 +79,7 @@ class Uploader extends CJuiWidget
             'acceptFileTypes'           => $this->allowType[$this->data_type],
 //            'maxChunkSize'              => 1*1000*1000,
             'sortableSaveUrl'           => UploadHtml::url('filesAdmin/savePriority'),
-            'limitConcurrentUploads'    => 4,
+            'limitConcurrentUploads'    => 0,
             'existFilesUrl'             => UploadHtml::url('filesAdmin/existFiles', array(
                                                 'model_id'  => get_class($this->model),
                                                 'object_id' => $this->model->id ? $this->model->id : 0,
@@ -99,16 +105,17 @@ class Uploader extends CJuiWidget
 
         $params = CJavaScript::encode($this->params);
 
-        Yii::app()->clientScript
-            ->registerScript('uploader_'.$this->id, "$('#{$this->id}').fileupload({$params});");
+        Yii::app()->clientScript->registerScript('uploader_'.$this->id, "$('#{$this->id}').fileupload({$params});");
     }
 
     public function run()
     {
-        if (!self::$isTemplatesRender) {        //only single render
+        if (!self::$isTemplatesRender)
+        {
             $this->render('uploaderTemplates');
             self::$isTemplatesRender = true;
         }
+
         $this->render('uploader');
     }
 

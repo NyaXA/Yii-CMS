@@ -16,11 +16,6 @@ $this->widget('application.components.GridView', array(
 	'filter'=>$model,
 	'template' => '{summary}<br/>{pager}<br/>{items}<br/>{pager}',
 	'columns'=>array(
-		array(
-			'name'  => 'file',
-			'value' => '"{$data->file} <a href=\'/" . ArticleFile::FILES_DIR . $data->file . "\'>открыть</a>";',
-			'type'  => 'raw'
- 		),
 		'created_at',
 		array(
 			'class'=>'CButtonColumn',

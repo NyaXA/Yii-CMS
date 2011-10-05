@@ -18,14 +18,7 @@ $this->widget('application.components.GridView', array(
             'value' => '$data->section->name'
         ),
 		'date',
-        array('name' => 'lang', 'value' => '$data->language->name'),		
-		array(
-			'name'   => 'files',
-			'value'  => '"<a href=\'/articles/articleFileAdmin/manage/article_id/$data->id\'>просмотр</a>";',
-			'type'   => 'raw',
-			'header' => 'Файлы',
-            'filter' => false
-		),
+        array('name' => 'lang', 'value' => '$data->language->name'),
 		array(
 			'class'=>'CButtonColumn',
 		),

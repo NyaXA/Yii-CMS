@@ -5,6 +5,17 @@ class Article extends ActiveRecordModel
     const PAGE_SIZE = 10;
 
 
+    public function behaviors()
+    {
+        $behaviors = parent::behaviors();
+        $behaviors['FileManager'] = array(
+            'class' => 'application.components.activeRecordBehaviors.FileManagerBehavior'
+        );
+
+        return $behaviors;
+    }
+
+
 	public static function model($className=__CLASS__)
 	{
 		return parent::model($className);
@@ -39,7 +50,6 @@ class Article extends ActiveRecordModel
 	{
 		return array(
             'section'  => array(self::BELONGS_TO, 'ArticleSection', 'section_id'),
-			'files'    => array(self::HAS_MANY, 'ArticleFile', 'article_id'),
 			'language' => array(self::BELONGS_TO, 'Language', 'lang')
 		);
 	}
@@ -70,17 +80,6 @@ class Article extends ActiveRecordModel
 			
 			return true;
 		}
-	}
-	
-	
-	public function delete() 
-	{
-		foreach ($this->files as $file) 
-		{
-			$file->delete();
-		}
-	    	
-		parent::delete();
 	}
 
 

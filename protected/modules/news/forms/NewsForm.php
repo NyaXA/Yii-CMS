@@ -8,7 +8,7 @@ return array(
 	),
 	'elements' => array(
 		'title'    => array('type' => 'text', 'class' => 'big'),
-		'text'     => array('type' => 'text'),
+		'text'     => array('type' => 'editor'),
 		'photo'    => array('type' => 'file'),
 		'state'    => array('type' => 'dropdownlist', 'items' => News::$states),
 		'date'     => array('type' => 'date'),

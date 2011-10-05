@@ -35,11 +35,20 @@ class BaseForm extends CForm
             );
         }
 
-        return Yii::app()->controller->renderPartial(
-            'application.views.layouts.' . $tpl,
-            array('form' => $this),
-            true
-        );
+        try
+        {
+            return Yii::app()->controller->renderPartial(
+                'application.views.layouts.' . $tpl,
+                array('form' => $this),
+                true
+            );
+        }
+        catch (CException $e)
+        {
+            die($e->getMessage());
+        }
+
+        return "";
     }
 
 

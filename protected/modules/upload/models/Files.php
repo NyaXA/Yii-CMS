@@ -372,9 +372,9 @@ class Files extends ActiveRecordModel
         }
     }
 
-    private function beforeSaveOnServer($field)
+    private function beforeSaveOnServer()
     {
-        $this->title = $_FILES[$field]['name'];
+        $this->title = $_FILES['file']['name'];
 
         if (!is_dir(self::UPLOAD_PATH))
         {
@@ -383,63 +383,68 @@ class Files extends ActiveRecordModel
     }
 
 
-    public function saveImageOnServer($field, $newName, $options)
+//    public function saveImageOnServer($field, $newName, $options)
+//    {
+//        $this->beforeSaveOnServer($field);
+//
+//        $handler = $this->getHandler($field);
+//        $handler->file_new_name_body = $newName;
+//        $handler->file_name_body_add = self::FILE_POSTFIX;
+//
+//        foreach ($options as $key => $val)
+//        {
+//            $handler->$key = ($val === 'false') ? false : ($val === 'true' ? true : $val);
+//        }
+//
+//        $this->setExtraProperties($field, $handler, $options);
+//
+//        $handler->process(self::UPLOAD_PATH);
+//        if ($handler->processed) {
+//            $this->name = $handler->file_dst_name;
+//            $this->fill();
+//            return true;
+//        } else {
+//            $this->error = $handler->error;
+//            return false;
+//        }
+//    }
+
+//    public function saveSoundOnServer($field, $newName, $options)
+//    {
+//        return $this->saveSimpleFile($field, $newName);
+//    }
+//
+//    public function saveAnyOnServer($field, $newName, $options)
+//    {
+//        return $this->saveSimpleFile($field, $newName);
+//    }
+//
+//    public function saveVideoOnServer($field, $newName, $options)
+//    {
+//        return $this->saveSimpleFile($field, $newName);
+//    }
+//
+//    public function saveDocumentOnServer($field, $newName, $options)
+//    {
+//        return $this->saveSimpleFile($field, $newName);
+//    }
+
+    public function saveFile()
     {
-        $this->beforeSaveOnServer($field);
+        $this->beforeSaveOnServer();
 
-        $handler = $this->getHandler($field);
-        $handler->file_new_name_body = $newName;
-        $handler->file_name_body_add = self::FILE_POSTFIX;
-
-        foreach ($options as $key => $val)
-        {
-            $handler->$key = ($val === 'false') ? false : ($val === 'true' ? true : $val);
-        }
-
-        $this->setExtraProperties($field, $handler, $options);
-
-        $handler->process(self::UPLOAD_PATH);
-        if ($handler->processed) {
-            $this->name = $handler->file_dst_name;
-            $this->fill();
-            return true;
-        } else {
-            $this->error = $handler->error;
-            return false;
-        }
-    }
-
-    public function saveSoundOnServer($field, $newName, $options)
-    {
-        return $this->saveSimpleFile($field, $newName);
-    }
-
-    public function saveAnyOnServer($field, $newName, $options)
-    {
-        return $this->saveSimpleFile($field, $newName);
-    }
-
-    public function saveVideoOnServer($field, $newName, $options)
-    {
-        return $this->saveSimpleFile($field, $newName);
-    }
-
-    public function saveDocumentOnServer($field, $newName, $options)
-    {
-        return $this->saveSimpleFile($field, $newName);
-    }
-
-    public function saveSimpleFile($field, $newName)
-    {
-        $this->beforeSaveOnServer($field);
         $file = CUploadedFile::getInstanceByName('file');
-        $fullNewName = $newName . self::FILE_POSTFIX . '.' . $file->getExtensionName();
 
-        if ($file->saveAs(self::UPLOAD_PATH . $fullNewName)) {
-            $this->name = $fullNewName;
+        $file_name = FileSystem::getUniqFileName($file->name, self::UPLOAD_PATH);
+
+        if ($file->saveAs(self::UPLOAD_PATH . $file_name))
+        {
+            $this->name = $file_name;
             $this->fill();
             return true;
-        } else {
+        }
+        else
+        {
             $this->error = $file->getError();
             return false;
         }
@@ -459,31 +464,34 @@ class Files extends ActiveRecordModel
         $metrics[3] = 'GB';
         $metric = 0;
 
-        while (floor($size / 1024) > 0) {
+        while (floor($size / 1024) > 0)
+        {
             ++$metric;
             $size /= 1024;
         }
+
         $ret = round($size, 1) . " " . (isset($metrics[$metric]) ? $metrics[$metric] : '??');
         return $ret;
     }
 
-
-    public static function getUniqueName($path, $field)
-    {
-        $fileName = self::rus2translit($_FILES[$field]['name']);
-        $newName = $name = pathinfo($fileName, PATHINFO_FILENAME);
-        $ext = pathinfo($fileName, PATHINFO_EXTENSION);
-        $count = 0;
-        while (is_file($path . $newName . self::FILE_POSTFIX . '.' . $ext)) {
-            $newName = $name . $count;
-            ++$count;
-
-            //no infinite loop
-            if ($count > 1000)
-                throw new CException('Too much images with name ' . $name);
-        }
-        return $newName;
-    }
+//
+//    public static function getUniqueName($path, $field)
+//    {
+//        $fileName = self::rus2translit($_FILES[$field]['name']);
+//        $newName = $name = pathinfo($fileName, PATHINFO_FILENAME);
+//        $ext = pathinfo($fileName, PATHINFO_EXTENSION);
+//        $count = 0;
+//        while (is_file($path . $newName . self::FILE_POSTFIX . '.' . $ext))
+//        {
+//            $newName = $name . $count;
+//            ++$count;
+//
+//            //no infinite loop
+//            if ($count > 1000) {
+//                throw new CException('Too much images with name ' . $name);
+//        }
+//        return $newName;
+//    }
 
 
     public function getSrc($realFile = false)

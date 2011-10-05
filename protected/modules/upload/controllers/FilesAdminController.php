@@ -41,10 +41,8 @@ class FilesAdminController extends AdminController
         $model->tag       = $tag;
 
         $options = isset($_GET['options']) ? $_GET['options'] : array();
-        $newName = $model->getUniqueName(Files::UPLOAD_PATH, 'file');
-        $func = 'save'.ucfirst($data_type).'OnServer';
-        
-        if ($model->$func('file', $newName, $options))
+
+        if ($model->saveFile())
         {
             if ($model->save())
             {
