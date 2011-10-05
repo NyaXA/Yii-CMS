@@ -6,6 +6,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6e5a110c-e6df-4e2c-adfe-bd6233fb4d51" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/protected/modules/fileManager/components/UploadHtml.php" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/assets/856dbe23/elRTE.php" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/assets/856dbe23/elfinder/connectors/php/connector.php" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/assets/856dbe23/elfinder/connectors/php/elFinder.class.php" afterPath="" />
@@ -120,128 +121,18 @@
       <change type="DELETED" beforePath="$PROJECT_DIR$/assets/856dbe23/elrte/js/i18n/elrte.zh_TW.js" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/assets/856dbe23/elrte/js/jquery-1.4.4.min.js" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/assets/856dbe23/elrte/js/jquery-ui-1.8.7.custom.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/extensions/elrtef/elRTE.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/extensions/elrtef/elfinder/connectors/php/connector.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/extensions/elrtef/elfinder/connectors/php/elFinder.class.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/extensions/elrtef/elfinder/connectors/python/connector.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/extensions/elrtef/elfinder/connectors/python/elFinder.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/extensions/elrtef/elfinder/css/elfinder.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/extensions/elrtef/elfinder/images/icons-big.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/extensions/elrtef/elfinder/images/icons-small.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/extensions/elrtef/elfinder/images/ql.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/extensions/elrtef/elfinder/images/spinner.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/extensions/elrtef/elfinder/images/toolbar.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/extensions/elrtef/elfinder/js/elfinder.full.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/extensions/elrtef/elfinder/js/elfinder.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/extensions/elrtef/elfinder/js/i18n/elfinder.es.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/extensions/elrtef/elfinder/js/i18n/elfinder.ru.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/extensions/elrtef/elfinder/js/i18n/elfinder.ua.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/extensions/elrtef/elfinder/js/jquery-1.3.2.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/extensions/elrtef/elfinder/js/jquery-1.4.1.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/extensions/elrtef/elfinder/js/jquery-ui-1.7.2.custom.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/extensions/elrtef/elfinder/js/jquery-ui-1.8b1.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/extensions/elrtef/elfinder/js/ui-themes/base/images/ui-bg_flat_0_aaaaaa_40x100.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/extensions/elrtef/elfinder/js/ui-themes/base/images/ui-bg_flat_75_ffffff_40x100.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/extensions/elrtef/elfinder/js/ui-themes/base/images/ui-bg_glass_55_fbf9ee_1x400.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/extensions/elrtef/elfinder/js/ui-themes/base/images/ui-bg_glass_65_ffffff_1x400.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/extensions/elrtef/elfinder/js/ui-themes/base/images/ui-bg_glass_75_dadada_1x400.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/extensions/elrtef/elfinder/js/ui-themes/base/images/ui-bg_glass_75_e6e6e6_1x400.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/extensions/elrtef/elfinder/js/ui-themes/base/images/ui-bg_glass_95_fef1ec_1x400.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/extensions/elrtef/elfinder/js/ui-themes/base/images/ui-bg_highlight-soft_75_cccccc_1x100.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/extensions/elrtef/elfinder/js/ui-themes/base/images/ui-icons_222222_256x240.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/extensions/elrtef/elfinder/js/ui-themes/base/images/ui-icons_2e83ff_256x240.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/extensions/elrtef/elfinder/js/ui-themes/base/images/ui-icons_454545_256x240.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/extensions/elrtef/elfinder/js/ui-themes/base/images/ui-icons_888888_256x240.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/extensions/elrtef/elfinder/js/ui-themes/base/images/ui-icons_cd0a0a_256x240.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/extensions/elrtef/elfinder/js/ui-themes/base/jquery-ui.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/extensions/elrtef/elfinder/js/ui-themes/base/ui.accordion.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/extensions/elrtef/elfinder/js/ui-themes/base/ui.all.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/extensions/elrtef/elfinder/js/ui-themes/base/ui.base.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/extensions/elrtef/elfinder/js/ui-themes/base/ui.core.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/extensions/elrtef/elfinder/js/ui-themes/base/ui.datepicker.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/extensions/elrtef/elfinder/js/ui-themes/base/ui.dialog.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/extensions/elrtef/elfinder/js/ui-themes/base/ui.progressbar.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/extensions/elrtef/elfinder/js/ui-themes/base/ui.resizable.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/extensions/elrtef/elfinder/js/ui-themes/base/ui.slider.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/extensions/elrtef/elfinder/js/ui-themes/base/ui.tabs.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/extensions/elrtef/elfinder/js/ui-themes/base/ui.theme.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/extensions/elrtef/elrte/css/elrte-inner.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/extensions/elrtef/elrte/css/elrte.full.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/extensions/elrtef/elrte/css/elrte.min.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/extensions/elrtef/elrte/css/smoothness/images/ui-bg_flat_0_aaaaaa_40x100.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/extensions/elrtef/elrte/css/smoothness/images/ui-bg_flat_75_ffffff_40x100.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/extensions/elrtef/elrte/css/smoothness/images/ui-bg_glass_55_fbf9ee_1x400.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/extensions/elrtef/elrte/css/smoothness/images/ui-bg_glass_65_ffffff_1x400.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/extensions/elrtef/elrte/css/smoothness/images/ui-bg_glass_75_dadada_1x400.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/extensions/elrtef/elrte/css/smoothness/images/ui-bg_glass_75_e6e6e6_1x400.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/extensions/elrtef/elrte/css/smoothness/images/ui-bg_glass_95_fef1ec_1x400.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/extensions/elrtef/elrte/css/smoothness/images/ui-bg_highlight-soft_75_cccccc_1x100.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/extensions/elrtef/elrte/css/smoothness/images/ui-icons_222222_256x240.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/extensions/elrtef/elrte/css/smoothness/images/ui-icons_2e83ff_256x240.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/extensions/elrtef/elrte/css/smoothness/images/ui-icons_454545_256x240.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/extensions/elrtef/elrte/css/smoothness/images/ui-icons_888888_256x240.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/extensions/elrtef/elrte/css/smoothness/images/ui-icons_cd0a0a_256x240.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/extensions/elrtef/elrte/css/smoothness/jquery-ui-1.8.7.custom.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/extensions/elrtef/elrte/images/elrte-toolbar.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/extensions/elrtef/elrte/images/google-maps.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/extensions/elrtef/elrte/images/iframe.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/extensions/elrtef/elrte/images/loading.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/extensions/elrtef/elrte/images/media-director.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/extensions/elrtef/elrte/images/media-flash.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/extensions/elrtef/elrte/images/media-quicktime.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/extensions/elrtef/elrte/images/media-realaudio.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/extensions/elrtef/elrte/images/media-rutube.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/extensions/elrtef/elrte/images/media-vimeo.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/extensions/elrtef/elrte/images/media-winmedia.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/extensions/elrtef/elrte/images/media-youtube.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/extensions/elrtef/elrte/images/outline-div.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/extensions/elrtef/elrte/images/outline-p.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/extensions/elrtef/elrte/images/pagebreak.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/extensions/elrtef/elrte/images/pixel.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/extensions/elrtef/elrte/images/smileys/evilgrin.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/extensions/elrtef/elrte/images/smileys/grin.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/extensions/elrtef/elrte/images/smileys/happy.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/extensions/elrtef/elrte/images/smileys/smile.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/extensions/elrtef/elrte/images/smileys/surprised.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/extensions/elrtef/elrte/images/smileys/tongue.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/extensions/elrtef/elrte/images/smileys/unhappy.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/extensions/elrtef/elrte/images/smileys/waii.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/extensions/elrtef/elrte/images/smileys/wink.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/extensions/elrtef/elrte/images/yandex-maps.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/extensions/elrtef/elrte/js/elrte.full.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/extensions/elrtef/elrte/js/elrte.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/extensions/elrtef/elrte/js/i18n/elrte.YOUR_LANG.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/extensions/elrtef/elrte/js/i18n/elrte.ar.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/extensions/elrtef/elrte/js/i18n/elrte.cs.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/extensions/elrtef/elrte/js/i18n/elrte.de.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/extensions/elrtef/elrte/js/i18n/elrte.en.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/extensions/elrtef/elrte/js/i18n/elrte.es.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/extensions/elrtef/elrte/js/i18n/elrte.fa.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/extensions/elrtef/elrte/js/i18n/elrte.fr.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/extensions/elrtef/elrte/js/i18n/elrte.hu.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/extensions/elrtef/elrte/js/i18n/elrte.it.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/extensions/elrtef/elrte/js/i18n/elrte.jp.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/extensions/elrtef/elrte/js/i18n/elrte.ko.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/extensions/elrtef/elrte/js/i18n/elrte.lv.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/extensions/elrtef/elrte/js/i18n/elrte.nl.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/extensions/elrtef/elrte/js/i18n/elrte.pl.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/extensions/elrtef/elrte/js/i18n/elrte.pt_BR.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/extensions/elrtef/elrte/js/i18n/elrte.ru.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/extensions/elrtef/elrte/js/i18n/elrte.th.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/extensions/elrtef/elrte/js/i18n/elrte.tr.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/extensions/elrtef/elrte/js/i18n/elrte.ua.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/extensions/elrtef/elrte/js/i18n/elrte.zh_CN.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/extensions/elrtef/elrte/js/i18n/elrte.zh_TW.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/extensions/elrtef/elrte/js/jquery-1.4.4.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/extensions/elrtef/elrte/js/jquery-ui-1.8.7.custom.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/modules/articles/controllers/ArticleFileAdminController.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/modules/articles/forms/ArticleFileForm.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/modules/articles/models/ArticleFile.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/modules/news/controllers/NewsFileAdminController.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/modules/news/forms/NewsFileForm.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/modules/news/models/NewsFile.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/modules/news/views/newsFileAdmin/manage.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/modules/upload/controllers/FilesController.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/modules/upload/components/UploadHtml.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/upload/articles_files/.gitignore" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/upload/articles_files/NATURE-AtTheEdgeOfAtmosphere_1024x768.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/upload/articles_files/OTHER-SmolovSummer2004_1024x768.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/upload/articles_files/ski-resort-bad-hofgastein-1280x1024.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/upload/articles_files/ubuntualien.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/upload/fmanager/27e726d7663503ab263ee6460591c0bd.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/upload/fmanager/2fa58aedcab3d7f1c0cf480a81e24ea2.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/upload/fmanager/4310e422ff709c6599cef497d2ef8995.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/upload/fmanager/4d358cd5640003882a23b316e93df835.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/upload/fmanager/55e7e5e92a0c7d5bcb4d20959baf7825.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/upload/fmanager/92982fa47b8d267cdb7c889b2b3850bb.jpg" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/upload/fmanager/DSCN2060(www.CoolWallpapers.org)-1280x1024.JPG" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/upload/fmanager/DSCN2060(www.CoolWallpapers.org)-1280x10242.JPG" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/upload/fmanager/DSCN2060(www.CoolWallpapers.org)-1280x102420.JPG" afterPath="" />
@@ -254,98 +145,124 @@
       <change type="DELETED" beforePath="$PROJECT_DIR$/upload/fmanager/OTHER-SmolovSummer2004_1024x768.jpg" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/upload/fmanager/awp05_alltolls_blogspot098-1280x1024.jpg" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/upload/fmanager/awp05_alltolls_blogspot098-1280x10240.jpg" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/protected/components/activeRecordBehaviors/FmanagerBehavior.php" afterPath="$PROJECT_DIR$/protected/components/activeRecordBehaviors/FileManagerBehavior.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/90f839/autocomplete/indicator.gif" afterPath="$PROJECT_DIR$/assets/90f839/autocomplete/indicator.gif" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/90f839/jui/css/base/images/ui-bg_flat_0_aaaaaa_40x100.png" afterPath="$PROJECT_DIR$/assets/90f839/jui/css/base/images/ui-bg_flat_0_aaaaaa_40x100.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/90f839/jui/css/base/images/ui-bg_flat_75_ffffff_40x100.png" afterPath="$PROJECT_DIR$/assets/90f839/jui/css/base/images/ui-bg_flat_75_ffffff_40x100.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/90f839/jui/css/base/images/ui-bg_glass_55_fbf9ee_1x400.png" afterPath="$PROJECT_DIR$/assets/90f839/jui/css/base/images/ui-bg_glass_55_fbf9ee_1x400.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/90f839/jui/css/base/images/ui-bg_glass_65_ffffff_1x400.png" afterPath="$PROJECT_DIR$/assets/90f839/jui/css/base/images/ui-bg_glass_65_ffffff_1x400.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/90f839/jui/css/base/images/ui-bg_glass_75_dadada_1x400.png" afterPath="$PROJECT_DIR$/assets/90f839/jui/css/base/images/ui-bg_glass_75_dadada_1x400.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/90f839/jui/css/base/images/ui-bg_glass_75_e6e6e6_1x400.png" afterPath="$PROJECT_DIR$/assets/90f839/jui/css/base/images/ui-bg_glass_75_e6e6e6_1x400.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/90f839/jui/css/base/images/ui-bg_glass_95_fef1ec_1x400.png" afterPath="$PROJECT_DIR$/assets/90f839/jui/css/base/images/ui-bg_glass_95_fef1ec_1x400.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/90f839/jui/css/base/images/ui-bg_highlight-soft_75_cccccc_1x100.png" afterPath="$PROJECT_DIR$/assets/90f839/jui/css/base/images/ui-bg_highlight-soft_75_cccccc_1x100.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/90f839/jui/css/base/images/ui-icons_222222_256x240.png" afterPath="$PROJECT_DIR$/assets/90f839/jui/css/base/images/ui-icons_222222_256x240.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/90f839/jui/css/base/images/ui-icons_2e83ff_256x240.png" afterPath="$PROJECT_DIR$/assets/90f839/jui/css/base/images/ui-icons_2e83ff_256x240.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/90f839/jui/css/base/images/ui-icons_454545_256x240.png" afterPath="$PROJECT_DIR$/assets/90f839/jui/css/base/images/ui-icons_454545_256x240.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/90f839/jui/css/base/images/ui-icons_888888_256x240.png" afterPath="$PROJECT_DIR$/assets/90f839/jui/css/base/images/ui-icons_888888_256x240.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/90f839/jui/css/base/images/ui-icons_cd0a0a_256x240.png" afterPath="$PROJECT_DIR$/assets/90f839/jui/css/base/images/ui-icons_cd0a0a_256x240.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/90f839/rating/delete.gif" afterPath="$PROJECT_DIR$/assets/90f839/rating/delete.gif" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/90f839/rating/star.gif" afterPath="$PROJECT_DIR$/assets/90f839/rating/star.gif" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/90f839/treeview/images/ajax-loader.gif" afterPath="$PROJECT_DIR$/assets/90f839/treeview/images/ajax-loader.gif" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/90f839/treeview/images/file.gif" afterPath="$PROJECT_DIR$/assets/90f839/treeview/images/file.gif" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/90f839/treeview/images/folder-closed.gif" afterPath="$PROJECT_DIR$/assets/90f839/treeview/images/folder-closed.gif" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/90f839/treeview/images/folder.gif" afterPath="$PROJECT_DIR$/assets/90f839/treeview/images/folder.gif" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/90f839/treeview/images/minus.gif" afterPath="$PROJECT_DIR$/assets/90f839/treeview/images/minus.gif" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/90f839/treeview/images/plus.gif" afterPath="$PROJECT_DIR$/assets/90f839/treeview/images/plus.gif" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/90f839/treeview/images/treeview-black-line.gif" afterPath="$PROJECT_DIR$/assets/90f839/treeview/images/treeview-black-line.gif" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/90f839/treeview/images/treeview-black.gif" afterPath="$PROJECT_DIR$/assets/90f839/treeview/images/treeview-black.gif" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/90f839/treeview/images/treeview-default-line.gif" afterPath="$PROJECT_DIR$/assets/90f839/treeview/images/treeview-default-line.gif" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/90f839/treeview/images/treeview-default.gif" afterPath="$PROJECT_DIR$/assets/90f839/treeview/images/treeview-default.gif" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/90f839/treeview/images/treeview-famfamfam-line.gif" afterPath="$PROJECT_DIR$/assets/90f839/treeview/images/treeview-famfamfam-line.gif" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/90f839/treeview/images/treeview-famfamfam.gif" afterPath="$PROJECT_DIR$/assets/90f839/treeview/images/treeview-famfamfam.gif" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/90f839/treeview/images/treeview-gray-line.gif" afterPath="$PROJECT_DIR$/assets/90f839/treeview/images/treeview-gray-line.gif" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/90f839/treeview/images/treeview-gray.gif" afterPath="$PROJECT_DIR$/assets/90f839/treeview/images/treeview-gray.gif" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/90f839/treeview/images/treeview-red-line.gif" afterPath="$PROJECT_DIR$/assets/90f839/treeview/images/treeview-red-line.gif" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/90f839/treeview/images/treeview-red.gif" afterPath="$PROJECT_DIR$/assets/90f839/treeview/images/treeview-red.gif" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/dad6e4f/img/icon.png" afterPath="$PROJECT_DIR$/assets/dad6e4f/img/icon.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/f8a6567a/img/icon.png" afterPath="$PROJECT_DIR$/assets/f8a6567a/img/icon.png" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/upload/fmanager/b4260cef1981207d684c0cb87d6a54ad.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/upload/fmanager/d4c3d360b764f96db3a9c4007c6200ac.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/upload/fmanager/ef54e68026c03ebe379c6bdc3d66ab03.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/upload/news_files/.gitignore" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/upload/news_files/NATURE-AtTheEdgeOfAtmosphere_1024x768.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/upload/news_files/OTHER-SmolovSummer2004_1024x768.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/upload/news_files/awp05_alltolls_blogspot098-1280x1024.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/upload/news_files/ski-resort-bad-hofgastein-1280x1024.jpg" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/protected/modules/upload/UploadModule.php" afterPath="$PROJECT_DIR$/protected/modules/fileManager/FileManagerModule.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/protected/modules/upload/assets/img/hand.png" afterPath="$PROJECT_DIR$/protected/modules/fileManager/assets/img/hand.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/protected/modules/upload/assets/img/icon.png" afterPath="$PROJECT_DIR$/protected/modules/fileManager/assets/img/icon.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/protected/modules/upload/assets/img/lb.png" afterPath="$PROJECT_DIR$/protected/modules/fileManager/assets/img/lb.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/protected/modules/upload/assets/img/lt.png" afterPath="$PROJECT_DIR$/protected/modules/fileManager/assets/img/lt.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/protected/modules/upload/assets/img/ltbr.png" afterPath="$PROJECT_DIR$/protected/modules/fileManager/assets/img/ltbr.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/protected/modules/upload/assets/img/mp3.png" afterPath="$PROJECT_DIR$/protected/modules/fileManager/assets/img/mp3.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/protected/modules/upload/assets/img/rb.png" afterPath="$PROJECT_DIR$/protected/modules/fileManager/assets/img/rb.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/protected/modules/upload/assets/img/rt.png" afterPath="$PROJECT_DIR$/protected/modules/fileManager/assets/img/rt.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/protected/modules/upload/assets/js/plugins/jEditable/contributed/jquery.jeditable.datepicker.js" afterPath="$PROJECT_DIR$/protected/modules/fileManager/assets/js/plugins/jEditable/contributed/jquery.jeditable.datepicker.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/protected/modules/upload/assets/js/plugins/jEditable/contributed/jquery.jeditable.selectdate.js" afterPath="$PROJECT_DIR$/protected/modules/fileManager/assets/js/plugins/jEditable/contributed/jquery.jeditable.selectdate.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/protected/modules/upload/assets/js/plugins/jEditable/contributed/jquery.jeditable.ui-datepicker.js" afterPath="$PROJECT_DIR$/protected/modules/fileManager/assets/js/plugins/jEditable/contributed/jquery.jeditable.ui-datepicker.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/protected/modules/upload/assets/js/plugins/jEditable/css/datePicker.css" afterPath="$PROJECT_DIR$/protected/modules/fileManager/assets/js/plugins/jEditable/css/datePicker.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/protected/modules/upload/assets/js/plugins/jEditable/css/jquery.autocomplete.css" afterPath="$PROJECT_DIR$/protected/modules/fileManager/assets/js/plugins/jEditable/css/jquery.autocomplete.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/protected/modules/upload/assets/js/plugins/jEditable/custom.html" afterPath="$PROJECT_DIR$/protected/modules/fileManager/assets/js/plugins/jEditable/custom.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/protected/modules/upload/assets/js/plugins/jEditable/custom_autocomplete.html" afterPath="$PROJECT_DIR$/protected/modules/fileManager/assets/js/plugins/jEditable/custom_autocomplete.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/protected/modules/upload/assets/js/plugins/jEditable/default.html" afterPath="$PROJECT_DIR$/protected/modules/fileManager/assets/js/plugins/jEditable/default.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/protected/modules/upload/assets/js/plugins/jEditable/img/calendar.png" afterPath="$PROJECT_DIR$/protected/modules/fileManager/assets/js/plugins/jEditable/img/calendar.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/protected/modules/upload/assets/js/plugins/jEditable/img/indicator.gif" afterPath="$PROJECT_DIR$/protected/modules/fileManager/assets/js/plugins/jEditable/img/indicator.gif" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/protected/modules/upload/assets/js/plugins/jEditable/jquery.jeditable.ajaxupload.js" afterPath="$PROJECT_DIR$/protected/modules/fileManager/assets/js/plugins/jEditable/jquery.jeditable.ajaxupload.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/protected/modules/upload/assets/js/plugins/jEditable/jquery.jeditable.autogrow.js" afterPath="$PROJECT_DIR$/protected/modules/fileManager/assets/js/plugins/jEditable/jquery.jeditable.autogrow.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/protected/modules/upload/assets/js/plugins/jEditable/jquery.jeditable.charcounter.js" afterPath="$PROJECT_DIR$/protected/modules/fileManager/assets/js/plugins/jEditable/jquery.jeditable.charcounter.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/protected/modules/upload/assets/js/plugins/jEditable/jquery.jeditable.datepicker.js" afterPath="$PROJECT_DIR$/protected/modules/fileManager/assets/js/plugins/jEditable/jquery.jeditable.datepicker.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/protected/modules/upload/assets/js/plugins/jEditable/jquery.jeditable.js" afterPath="$PROJECT_DIR$/protected/modules/fileManager/assets/js/plugins/jEditable/jquery.jeditable.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/protected/modules/upload/assets/js/plugins/jEditable/jquery.jeditable.masked.js" afterPath="$PROJECT_DIR$/protected/modules/fileManager/assets/js/plugins/jEditable/jquery.jeditable.masked.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/protected/modules/upload/assets/js/plugins/jEditable/jquery.jeditable.time.js" afterPath="$PROJECT_DIR$/protected/modules/fileManager/assets/js/plugins/jEditable/jquery.jeditable.time.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/protected/modules/upload/assets/js/plugins/jEditable/jquery.jeditable.timepicker.js" afterPath="$PROJECT_DIR$/protected/modules/fileManager/assets/js/plugins/jEditable/jquery.jeditable.timepicker.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/protected/modules/upload/assets/js/plugins/jEditable/js/Textile.php" afterPath="$PROJECT_DIR$/protected/modules/fileManager/assets/js/plugins/jEditable/js/Textile.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/protected/modules/upload/assets/js/plugins/jEditable/js/date.js" afterPath="$PROJECT_DIR$/protected/modules/fileManager/assets/js/plugins/jEditable/js/date.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/protected/modules/upload/assets/js/plugins/jEditable/js/jquery.ajaxfileupload.js" afterPath="$PROJECT_DIR$/protected/modules/fileManager/assets/js/plugins/jEditable/js/jquery.ajaxfileupload.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/protected/modules/upload/assets/js/plugins/jEditable/js/jquery.autocomplete.js" afterPath="$PROJECT_DIR$/protected/modules/fileManager/assets/js/plugins/jEditable/js/jquery.autocomplete.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/protected/modules/upload/assets/js/plugins/jEditable/js/jquery.autogrow.js" afterPath="$PROJECT_DIR$/protected/modules/fileManager/assets/js/plugins/jEditable/js/jquery.autogrow.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/protected/modules/upload/assets/js/plugins/jEditable/js/jquery.charcounter.js" afterPath="$PROJECT_DIR$/protected/modules/fileManager/assets/js/plugins/jEditable/js/jquery.charcounter.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/protected/modules/upload/assets/js/plugins/jEditable/js/jquery.datePicker.js" afterPath="$PROJECT_DIR$/protected/modules/fileManager/assets/js/plugins/jEditable/js/jquery.datePicker.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/protected/modules/upload/assets/js/plugins/jEditable/js/jquery.dimensions.js" afterPath="$PROJECT_DIR$/protected/modules/fileManager/assets/js/plugins/jEditable/js/jquery.dimensions.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/protected/modules/upload/assets/js/plugins/jEditable/js/jquery.highlightFade.js" afterPath="$PROJECT_DIR$/protected/modules/fileManager/assets/js/plugins/jEditable/js/jquery.highlightFade.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/protected/modules/upload/assets/js/plugins/jEditable/js/jquery.jeditable.inputs.js" afterPath="$PROJECT_DIR$/protected/modules/fileManager/assets/js/plugins/jEditable/js/jquery.jeditable.inputs.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/protected/modules/upload/assets/js/plugins/jEditable/js/jquery.jeditable.js" afterPath="$PROJECT_DIR$/protected/modules/fileManager/assets/js/plugins/jEditable/js/jquery.jeditable.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/protected/modules/upload/assets/js/plugins/jEditable/js/jquery.maskedinput.js" afterPath="$PROJECT_DIR$/protected/modules/fileManager/assets/js/plugins/jEditable/js/jquery.maskedinput.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/protected/modules/upload/assets/js/plugins/jEditable/js/jquery.timepicker.js" afterPath="$PROJECT_DIR$/protected/modules/fileManager/assets/js/plugins/jEditable/js/jquery.timepicker.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/protected/modules/upload/assets/js/plugins/jEditable/php/Textile.php" afterPath="$PROJECT_DIR$/protected/modules/fileManager/assets/js/plugins/jEditable/php/Textile.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/protected/modules/upload/assets/js/plugins/jEditable/php/config.php" afterPath="$PROJECT_DIR$/protected/modules/fileManager/assets/js/plugins/jEditable/php/config.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/protected/modules/upload/assets/js/plugins/jEditable/php/defaults.php" afterPath="$PROJECT_DIR$/protected/modules/fileManager/assets/js/plugins/jEditable/php/defaults.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/protected/modules/upload/assets/js/plugins/jEditable/php/echo.php" afterPath="$PROJECT_DIR$/protected/modules/fileManager/assets/js/plugins/jEditable/php/echo.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/protected/modules/upload/assets/js/plugins/jEditable/php/json.php" afterPath="$PROJECT_DIR$/protected/modules/fileManager/assets/js/plugins/jEditable/php/json.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/protected/modules/upload/assets/js/plugins/jEditable/php/load.php" afterPath="$PROJECT_DIR$/protected/modules/fileManager/assets/js/plugins/jEditable/php/load.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/protected/modules/upload/assets/js/plugins/jEditable/php/save.php" afterPath="$PROJECT_DIR$/protected/modules/fileManager/assets/js/plugins/jEditable/php/save.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/protected/modules/upload/assets/js/plugins/jEditable/php/upload.php" afterPath="$PROJECT_DIR$/protected/modules/fileManager/assets/js/plugins/jEditable/php/upload.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/protected/modules/upload/assets/js/plugins/jEditable/tests/echo.php" afterPath="$PROJECT_DIR$/protected/modules/fileManager/assets/js/plugins/jEditable/tests/echo.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/protected/modules/upload/assets/js/plugins/jEditable/tests/index.html" afterPath="$PROJECT_DIR$/protected/modules/fileManager/assets/js/plugins/jEditable/tests/index.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/protected/modules/upload/assets/js/plugins/jEditable/tests/load.php" afterPath="$PROJECT_DIR$/protected/modules/fileManager/assets/js/plugins/jEditable/tests/load.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/protected/modules/upload/assets/js/plugins/jEditable/tests/method.php" afterPath="$PROJECT_DIR$/protected/modules/fileManager/assets/js/plugins/jEditable/tests/method.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/protected/modules/upload/assets/js/plugins/jEditable/tests/testrunner.js" afterPath="$PROJECT_DIR$/protected/modules/fileManager/assets/js/plugins/jEditable/tests/testrunner.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/protected/modules/upload/assets/js/plugins/jEditable/tests/testsuite.css" afterPath="$PROJECT_DIR$/protected/modules/fileManager/assets/js/plugins/jEditable/tests/testsuite.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/protected/modules/upload/assets/js/plugins/jFileUpload/cmsUI.fileupload.js" afterPath="$PROJECT_DIR$/protected/modules/fileManager/assets/js/plugins/jFileUpload/cmsUI.fileupload.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/protected/modules/upload/assets/js/plugins/jFileUpload/jquery.fileupload-ui.css" afterPath="$PROJECT_DIR$/protected/modules/fileManager/assets/js/plugins/jFileUpload/jquery.fileupload-ui.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/protected/modules/upload/assets/js/plugins/jFileUpload/jquery.fileupload-ui.js" afterPath="$PROJECT_DIR$/protected/modules/fileManager/assets/js/plugins/jFileUpload/jquery.fileupload-ui.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/protected/modules/upload/assets/js/plugins/jFileUpload/jquery.fileupload.js" afterPath="$PROJECT_DIR$/protected/modules/fileManager/assets/js/plugins/jFileUpload/jquery.fileupload.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/protected/modules/upload/assets/js/plugins/jFileUpload/jquery.iframe-transport.js" afterPath="$PROJECT_DIR$/protected/modules/fileManager/assets/js/plugins/jFileUpload/jquery.iframe-transport.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/protected/modules/upload/assets/js/plugins/jFileUpload/pbar-ani.gif" afterPath="$PROJECT_DIR$/protected/modules/fileManager/assets/js/plugins/jFileUpload/pbar-ani.gif" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/protected/modules/upload/assets/js/plugins/moderniz/moderniz.js" afterPath="$PROJECT_DIR$/protected/modules/fileManager/assets/js/plugins/moderniz/moderniz.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/protected/modules/upload/assets/js/plugins/tmpl/jquery.tmpl.min.js" afterPath="$PROJECT_DIR$/protected/modules/fileManager/assets/js/plugins/tmpl/jquery.tmpl.min.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/protected/modules/upload/controllers/FilesAdminController.php" afterPath="$PROJECT_DIR$/protected/modules/fileManager/controllers/FileManagerAdminController.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/protected/modules/upload/data/docs" afterPath="$PROJECT_DIR$/protected/modules/fileManager/data/docs" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/protected/modules/upload/data/dump.sql" afterPath="$PROJECT_DIR$/protected/modules/fileManager/data/dump.sql" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/protected/modules/upload/extensions/upload/Upload.php" afterPath="$PROJECT_DIR$/protected/modules/fileManager/extensions/upload/Upload.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/protected/modules/upload/extensions/upload/examples.php" afterPath="$PROJECT_DIR$/protected/modules/fileManager/extensions/upload/examples.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/protected/modules/upload/extensions/upload/index.html" afterPath="$PROJECT_DIR$/protected/modules/fileManager/extensions/upload/index.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/protected/modules/upload/extensions/upload/lang/class.upload.ca_CA.php" afterPath="$PROJECT_DIR$/protected/modules/fileManager/extensions/upload/lang/class.upload.ca_CA.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/protected/modules/upload/extensions/upload/lang/class.upload.cs_CS.php" afterPath="$PROJECT_DIR$/protected/modules/fileManager/extensions/upload/lang/class.upload.cs_CS.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/protected/modules/upload/extensions/upload/lang/class.upload.de_DE.php" afterPath="$PROJECT_DIR$/protected/modules/fileManager/extensions/upload/lang/class.upload.de_DE.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/protected/modules/upload/extensions/upload/lang/class.upload.el_GR.php" afterPath="$PROJECT_DIR$/protected/modules/fileManager/extensions/upload/lang/class.upload.el_GR.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/protected/modules/upload/extensions/upload/lang/class.upload.es_ES.php" afterPath="$PROJECT_DIR$/protected/modules/fileManager/extensions/upload/lang/class.upload.es_ES.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/protected/modules/upload/extensions/upload/lang/class.upload.et_EE.php" afterPath="$PROJECT_DIR$/protected/modules/fileManager/extensions/upload/lang/class.upload.et_EE.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/protected/modules/upload/extensions/upload/lang/class.upload.fr_FR.php" afterPath="$PROJECT_DIR$/protected/modules/fileManager/extensions/upload/lang/class.upload.fr_FR.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/protected/modules/upload/extensions/upload/lang/class.upload.he_IL.php" afterPath="$PROJECT_DIR$/protected/modules/fileManager/extensions/upload/lang/class.upload.he_IL.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/protected/modules/upload/extensions/upload/lang/class.upload.hr_HR.php" afterPath="$PROJECT_DIR$/protected/modules/fileManager/extensions/upload/lang/class.upload.hr_HR.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/protected/modules/upload/extensions/upload/lang/class.upload.id_ID.php" afterPath="$PROJECT_DIR$/protected/modules/fileManager/extensions/upload/lang/class.upload.id_ID.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/protected/modules/upload/extensions/upload/lang/class.upload.it_IT.php" afterPath="$PROJECT_DIR$/protected/modules/fileManager/extensions/upload/lang/class.upload.it_IT.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/protected/modules/upload/extensions/upload/lang/class.upload.lt_LT.php" afterPath="$PROJECT_DIR$/protected/modules/fileManager/extensions/upload/lang/class.upload.lt_LT.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/protected/modules/upload/extensions/upload/lang/class.upload.nl_NL.php" afterPath="$PROJECT_DIR$/protected/modules/fileManager/extensions/upload/lang/class.upload.nl_NL.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/protected/modules/upload/extensions/upload/lang/class.upload.no_NO.php" afterPath="$PROJECT_DIR$/protected/modules/fileManager/extensions/upload/lang/class.upload.no_NO.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/protected/modules/upload/extensions/upload/lang/class.upload.pl_PL.php" afterPath="$PROJECT_DIR$/protected/modules/fileManager/extensions/upload/lang/class.upload.pl_PL.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/protected/modules/upload/extensions/upload/lang/class.upload.pt_BR.php" afterPath="$PROJECT_DIR$/protected/modules/fileManager/extensions/upload/lang/class.upload.pt_BR.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/protected/modules/upload/extensions/upload/lang/class.upload.ro_RO.php" afterPath="$PROJECT_DIR$/protected/modules/fileManager/extensions/upload/lang/class.upload.ro_RO.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/protected/modules/upload/extensions/upload/lang/class.upload.ru_RU.php" afterPath="$PROJECT_DIR$/protected/modules/fileManager/extensions/upload/lang/class.upload.ru_RU.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/protected/modules/upload/extensions/upload/lang/class.upload.ru_RU.windows-1251.php" afterPath="$PROJECT_DIR$/protected/modules/fileManager/extensions/upload/lang/class.upload.ru_RU.windows-1251.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/protected/modules/upload/extensions/upload/lang/class.upload.sk_SK.php" afterPath="$PROJECT_DIR$/protected/modules/fileManager/extensions/upload/lang/class.upload.sk_SK.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/protected/modules/upload/extensions/upload/lang/class.upload.sv_SE.php" afterPath="$PROJECT_DIR$/protected/modules/fileManager/extensions/upload/lang/class.upload.sv_SE.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/protected/modules/upload/extensions/upload/lang/class.upload.tr_TR.php" afterPath="$PROJECT_DIR$/protected/modules/fileManager/extensions/upload/lang/class.upload.tr_TR.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/protected/modules/upload/extensions/upload/lang/class.upload.uk_UA.php" afterPath="$PROJECT_DIR$/protected/modules/fileManager/extensions/upload/lang/class.upload.uk_UA.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/protected/modules/upload/extensions/upload/lang/class.upload.uk_UA.windows-1251.php" afterPath="$PROJECT_DIR$/protected/modules/fileManager/extensions/upload/lang/class.upload.uk_UA.windows-1251.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/protected/modules/upload/extensions/upload/lang/class.upload.vn_VN.php" afterPath="$PROJECT_DIR$/protected/modules/fileManager/extensions/upload/lang/class.upload.vn_VN.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/protected/modules/upload/extensions/upload/lang/class.upload.xx_XX.php" afterPath="$PROJECT_DIR$/protected/modules/fileManager/extensions/upload/lang/class.upload.xx_XX.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/protected/modules/upload/extensions/upload/lang/class.upload.zh_CN.gb-2312.php" afterPath="$PROJECT_DIR$/protected/modules/fileManager/extensions/upload/lang/class.upload.zh_CN.gb-2312.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/protected/modules/upload/extensions/upload/lang/class.upload.zh_CN.php" afterPath="$PROJECT_DIR$/protected/modules/fileManager/extensions/upload/lang/class.upload.zh_CN.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/protected/modules/upload/extensions/upload/lang/class.upload.zh_TW.php" afterPath="$PROJECT_DIR$/protected/modules/fileManager/extensions/upload/lang/class.upload.zh_TW.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/protected/modules/upload/messages/en/interface.php" afterPath="$PROJECT_DIR$/protected/modules/fileManager/messages/en/interface.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/protected/modules/upload/models/Files.php" afterPath="$PROJECT_DIR$/protected/modules/fileManager/models/FileManager.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/protected/modules/upload/portlets/FilesList.php" afterPath="$PROJECT_DIR$/protected/modules/fileManager/portlets/FilesList.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/protected/modules/upload/portlets/Uploader.php" afterPath="$PROJECT_DIR$/protected/modules/fileManager/portlets/Uploader.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/protected/modules/upload/portlets/views/filesList.php" afterPath="$PROJECT_DIR$/protected/modules/fileManager/portlets/views/filesList.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/protected/modules/upload/portlets/views/filesListItem.php" afterPath="$PROJECT_DIR$/protected/modules/fileManager/portlets/views/filesListItem.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/protected/modules/upload/portlets/views/uploader.php" afterPath="$PROJECT_DIR$/protected/modules/fileManager/portlets/views/uploader.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/protected/modules/upload/portlets/views/uploaderTemplates.php" afterPath="$PROJECT_DIR$/protected/modules/fileManager/portlets/views/uploaderTemplates.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/90f839/autocomplete/jquery.autocomplete.css" afterPath="$PROJECT_DIR$/assets/90f839/autocomplete/jquery.autocomplete.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/90f839/jquery.ajaxqueue.js" afterPath="$PROJECT_DIR$/assets/90f839/jquery.ajaxqueue.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/90f839/jquery.autocomplete.js" afterPath="$PROJECT_DIR$/assets/90f839/jquery.autocomplete.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/90f839/jquery.ba-bbq.js" afterPath="$PROJECT_DIR$/assets/90f839/jquery.ba-bbq.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/90f839/jquery.bgiframe.js" afterPath="$PROJECT_DIR$/assets/90f839/jquery.bgiframe.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/90f839/jquery.cookie.js" afterPath="$PROJECT_DIR$/assets/90f839/jquery.cookie.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/90f839/jquery.js" afterPath="$PROJECT_DIR$/assets/90f839/jquery.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/90f839/jquery.maskedinput.js" afterPath="$PROJECT_DIR$/assets/90f839/jquery.maskedinput.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/90f839/jquery.metadata.js" afterPath="$PROJECT_DIR$/assets/90f839/jquery.metadata.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/90f839/jquery.min.js" afterPath="$PROJECT_DIR$/assets/90f839/jquery.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/90f839/jquery.multifile.js" afterPath="$PROJECT_DIR$/assets/90f839/jquery.multifile.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/90f839/jquery.rating.js" afterPath="$PROJECT_DIR$/assets/90f839/jquery.rating.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/90f839/jquery.treeview.async.js" afterPath="$PROJECT_DIR$/assets/90f839/jquery.treeview.async.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/90f839/jquery.treeview.edit.js" afterPath="$PROJECT_DIR$/assets/90f839/jquery.treeview.edit.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/90f839/jquery.treeview.js" afterPath="$PROJECT_DIR$/assets/90f839/jquery.treeview.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/90f839/jquery.yii.js" afterPath="$PROJECT_DIR$/assets/90f839/jquery.yii.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/90f839/jquery.yiiactiveform.js" afterPath="$PROJECT_DIR$/assets/90f839/jquery.yiiactiveform.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/90f839/jquery.yiitab.js" afterPath="$PROJECT_DIR$/assets/90f839/jquery.yiitab.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/90f839/jui/MIT-LICENSE.txt" afterPath="$PROJECT_DIR$/assets/90f839/jui/MIT-LICENSE.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/90f839/jui/css/base/jquery-ui.css" afterPath="$PROJECT_DIR$/assets/90f839/jui/css/base/jquery-ui.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/90f839/jui/css/base/jquery.ui.accordion.css" afterPath="$PROJECT_DIR$/assets/90f839/jui/css/base/jquery.ui.accordion.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/90f839/jui/css/base/jquery.ui.all.css" afterPath="$PROJECT_DIR$/assets/90f839/jui/css/base/jquery.ui.all.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/90f839/jui/css/base/jquery.ui.autocomplete.css" afterPath="$PROJECT_DIR$/assets/90f839/jui/css/base/jquery.ui.autocomplete.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/90f839/jui/css/base/jquery.ui.base.css" afterPath="$PROJECT_DIR$/assets/90f839/jui/css/base/jquery.ui.base.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/90f839/jui/css/base/jquery.ui.button.css" afterPath="$PROJECT_DIR$/assets/90f839/jui/css/base/jquery.ui.button.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/90f839/jui/css/base/jquery.ui.core.css" afterPath="$PROJECT_DIR$/assets/90f839/jui/css/base/jquery.ui.core.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/90f839/jui/css/base/jquery.ui.datepicker.css" afterPath="$PROJECT_DIR$/assets/90f839/jui/css/base/jquery.ui.datepicker.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/90f839/jui/css/base/jquery.ui.dialog.css" afterPath="$PROJECT_DIR$/assets/90f839/jui/css/base/jquery.ui.dialog.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/90f839/jui/css/base/jquery.ui.progressbar.css" afterPath="$PROJECT_DIR$/assets/90f839/jui/css/base/jquery.ui.progressbar.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/90f839/jui/css/base/jquery.ui.resizable.css" afterPath="$PROJECT_DIR$/assets/90f839/jui/css/base/jquery.ui.resizable.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/90f839/jui/css/base/jquery.ui.selectable.css" afterPath="$PROJECT_DIR$/assets/90f839/jui/css/base/jquery.ui.selectable.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/90f839/jui/css/base/jquery.ui.slider.css" afterPath="$PROJECT_DIR$/assets/90f839/jui/css/base/jquery.ui.slider.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/90f839/jui/css/base/jquery.ui.tabs.css" afterPath="$PROJECT_DIR$/assets/90f839/jui/css/base/jquery.ui.tabs.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/90f839/jui/css/base/jquery.ui.theme.css" afterPath="$PROJECT_DIR$/assets/90f839/jui/css/base/jquery.ui.theme.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/90f839/jui/js/jquery-ui-i18n.min.js" afterPath="$PROJECT_DIR$/assets/90f839/jui/js/jquery-ui-i18n.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/90f839/jui/js/jquery-ui.min.js" afterPath="$PROJECT_DIR$/assets/90f839/jui/js/jquery-ui.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/90f839/rating/jquery.rating.css" afterPath="$PROJECT_DIR$/assets/90f839/rating/jquery.rating.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/90f839/treeview/jquery.treeview.css" afterPath="$PROJECT_DIR$/assets/90f839/treeview/jquery.treeview.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/90f839/yiitab/jquery.yiitab.css" afterPath="$PROJECT_DIR$/assets/90f839/yiitab/jquery.yiitab.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/dad6e4f/js/filesManage.js" afterPath="$PROJECT_DIR$/assets/dad6e4f/js/filesManage.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/f8a6567a/css/main.css" afterPath="$PROJECT_DIR$/assets/f8a6567a/css/main.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/f8a6567a/css/modules.css" afterPath="$PROJECT_DIR$/assets/f8a6567a/css/modules.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/components/BaseForm.php" afterPath="$PROJECT_DIR$/protected/components/BaseForm.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/libs/tools/FileSystem.php" afterPath="$PROJECT_DIR$/protected/libs/tools/FileSystem.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/articles/forms/ArticleForm.php" afterPath="$PROJECT_DIR$/protected/modules/articles/forms/ArticleForm.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/articles/models/Article.php" afterPath="$PROJECT_DIR$/protected/modules/articles/models/Article.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/articles/views/article/view.php" afterPath="$PROJECT_DIR$/protected/modules/articles/views/article/view.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/articles/views/articleAdmin/manage.php" afterPath="$PROJECT_DIR$/protected/modules/articles/views/articleAdmin/manage.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/articles/views/articleFileAdmin/manage.php" afterPath="$PROJECT_DIR$/protected/modules/articles/views/articleFileAdmin/manage.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/components/WebModule.php" afterPath="$PROJECT_DIR$/protected/components/WebModule.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/components/activeRecordBehaviors/FileManagerBehavior.php" afterPath="$PROJECT_DIR$/protected/components/activeRecordBehaviors/FileManagerBehavior.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/main/controllers/MainAdminController.php" afterPath="$PROJECT_DIR$/protected/modules/main/controllers/MainAdminController.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/news/forms/NewsForm.php" afterPath="$PROJECT_DIR$/protected/modules/news/forms/NewsForm.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/news/models/News.php" afterPath="$PROJECT_DIR$/protected/modules/news/models/News.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/news/views/news/view.php" afterPath="$PROJECT_DIR$/protected/modules/news/views/news/view.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/news/views/newsAdmin/manage.php" afterPath="$PROJECT_DIR$/protected/modules/news/views/newsAdmin/manage.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/upload/controllers/FilesAdminController.php" afterPath="$PROJECT_DIR$/protected/modules/upload/controllers/FilesAdminController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/upload/models/Files.php" afterPath="$PROJECT_DIR$/protected/modules/upload/models/Files.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/upload/portlets/Uploader.php" afterPath="$PROJECT_DIR$/protected/modules/upload/portlets/Uploader.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/views/layouts/_adminForm.php" afterPath="$PROJECT_DIR$/protected/views/layouts/_adminForm.php" />
     </list>
     <ignored path="Yii-CMS.iws" />
@@ -369,10 +286,19 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="_adminForm.php" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/protected/views/layouts/_adminForm.php">
+      <file leaf-file-name="FileManagerModule.php" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/protected/modules/fileManager/FileManagerModule.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="112" column="21" selection-start="2891" selection-end="2891" vertical-scroll-proportion="0.31794873">
+            <state line="14" column="33" selection-start="283" selection-end="283" vertical-scroll-proportion="0.32920793">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="FileManagerAdminController.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/protected/modules/fileManager/controllers/FileManagerAdminController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="6" column="71" selection-start="207" selection-end="207" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -392,22 +318,22 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/protected/modules/articles/views/articleFileAdmin/manage.php" />
-        <option value="$PROJECT_DIR$/protected/modules/news/views/news/view.php" />
-        <option value="$PROJECT_DIR$/protected/modules/articles/forms/ArticleForm.php" />
-        <option value="$PROJECT_DIR$/protected/modules/articles/models/Article.php" />
-        <option value="$PROJECT_DIR$/protected/modules/news/models/News.php" />
-        <option value="$PROJECT_DIR$/assets/856dbe23/elRTE.php" />
-        <option value="$PROJECT_DIR$/index.php" />
-        <option value="$PROJECT_DIR$/protected/extensions/elrtef/elRTE.php" />
-        <option value="$PROJECT_DIR$/protected/extensions/elrte/elRTE.php" />
-        <option value="$PROJECT_DIR$/protected/modules/news/forms/NewsForm.php" />
-        <option value="$PROJECT_DIR$/assets/ed17ba05/elfinder/js/elfinder.min.js" />
-        <option value="$PROJECT_DIR$/assets/ed17ba05/elfinder/js/elfinder.full.js" />
-        <option value="$PROJECT_DIR$/protected/extensions/tinymce/assets/elfinder/js/elfinder.full.js" />
         <option value="$PROJECT_DIR$/assets/ed17ba05/elfinder/connectors/connector.php" />
         <option value="$PROJECT_DIR$/protected/extensions/tinymce/ETinyMce.php" />
+        <option value="$PROJECT_DIR$/protected/modules/fmanager/UploadModule.php" />
+        <option value="$PROJECT_DIR$/protected/modules/fileManager/UploadModule.php" />
+        <option value="$PROJECT_DIR$/protected/components/AppManager.php" />
+        <option value="$PROJECT_DIR$/protected/modules/main/controllers/MainAdminController.php" />
+        <option value="$PROJECT_DIR$/protected/modules/main/views/mainAdmin/index.php" />
+        <option value="$PROJECT_DIR$/protected/components/WebModule.php" />
+        <option value="$PROJECT_DIR$/protected/modules/news/forms/NewsForm.php" />
         <option value="$PROJECT_DIR$/protected/views/layouts/_adminForm.php" />
+        <option value="$PROJECT_DIR$/protected/modules/fileManager/components/UploadHtml.php" />
+        <option value="$PROJECT_DIR$/protected/components/activeRecordBehaviors/FileManagerBehavior.php" />
+        <option value="$PROJECT_DIR$/protected/modules/fileManager/models/FileManager.php" />
+        <option value="$PROJECT_DIR$/protected/modules/fileManager/portlets/Uploader.php" />
+        <option value="$PROJECT_DIR$/protected/modules/fileManager/controllers/FileManagerAdminController.php" />
+        <option value="$PROJECT_DIR$/protected/modules/fileManager/FileManagerModule.php" />
       </list>
     </option>
   </component>
@@ -490,20 +416,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="upload" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Yii-CMS" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Yii-CMS" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="protected" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -522,11 +434,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="layouts" />
+              <option name="myItemId" value="modules" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -544,7 +452,11 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="extensions" />
+              <option name="myItemId" value="modules" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="fileManager" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -558,7 +470,19 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="assets" />
+              <option name="myItemId" value="protected" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="modules" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="fileManager" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="controllers" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -633,7 +557,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-1" y="25" width="1280" height="998" extended-state="4" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Phing Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -641,7 +565,7 @@
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33215547" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20179008" sideWeight="0.66784453" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24735558" sideWeight="0.66784453" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -696,76 +620,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/protected/modules/news/views/news/view.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="31" column="17" selection-start="619" selection-end="619" vertical-scroll-proportion="0.5088063">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/protected/modules/articles/views/articleFileAdmin/manage.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="21" selection-start="610" selection-end="610" vertical-scroll-proportion="0.6485944">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/protected/modules/articles/views/articleAdmin/manage.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="76" selection-start="617" selection-end="617" vertical-scroll-proportion="0.541744">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/protected/modules/articles/views/article/view.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="18" selection-start="743" selection-end="743" vertical-scroll-proportion="0.560241">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/protected/modules/articles/forms/ArticleForm.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="18" selection-start="378" selection-end="378" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/protected/components/activeRecordBehaviors/FileManagerBehavior.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="25" selection-start="32" selection-end="32" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/protected/modules/news/models/News.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="33" column="8" selection-start="721" selection-end="721" vertical-scroll-proportion="0.6497525">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/protected/modules/articles/models/Article.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="26" selection-start="328" selection-end="328" vertical-scroll-proportion="0.32920793">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="43" column="0" selection-start="914" selection-end="914" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/protected/modules/news/forms/NewsForm.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="45" selection-start="291" selection-end="291" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/assets/ed17ba05/elfinder/connectors/connector.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="30" column="64" selection-start="896" selection-end="896" vertical-scroll-proportion="0.634901">
@@ -773,9 +627,105 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/protected/modules/faq/FaqModule.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.45797807">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/protected/components/AppManager.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="20" column="15" selection-start="562" selection-end="562" vertical-scroll-proportion="-14.2">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/protected/modules/main/controllers/MainAdminController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="18" column="5" selection-start="570" selection-end="570" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/protected/modules/fileManager/assets/img/icon.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/protected/modules/main/views/mainAdmin/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="8" column="76" selection-start="280" selection-end="280" vertical-scroll-proportion="-5.428571">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/protected/components/WebModule.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="29" column="9" selection-start="673" selection-end="673" vertical-scroll-proportion="0.66080403">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/protected/views/layouts/adminLogin.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/protected/modules/news/forms/NewsForm.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="15" selection-start="202" selection-end="202" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/protected/views/layouts/_adminForm.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="112" column="21" selection-start="2891" selection-end="2891" vertical-scroll-proportion="0.31794873">
+        <state line="203" column="42" selection-start="6233" selection-end="6233" vertical-scroll-proportion="0.4834437">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/protected/modules/fileManager/components/UploadHtml.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="5" column="40" selection-start="127" selection-end="127" vertical-scroll-proportion="0.17625232">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/protected/components/activeRecordBehaviors/FileManagerBehavior.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="29" column="28" selection-start="704" selection-end="704" vertical-scroll-proportion="0.67113274">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/protected/modules/fileManager/models/FileManager.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="71" column="55" selection-start="1732" selection-end="1732" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/protected/modules/fileManager/portlets/Uploader.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="80" column="71" selection-start="2648" selection-end="2648" vertical-scroll-proportion="0.33333334">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/protected/modules/fileManager/controllers/FileManagerAdminController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="71" selection-start="207" selection-end="207" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/protected/modules/fileManager/FileManagerModule.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="33" selection-start="283" selection-end="283" vertical-scroll-proportion="0.32920793">
           <folding />
         </state>
       </provider>

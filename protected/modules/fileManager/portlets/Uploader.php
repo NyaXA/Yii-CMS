@@ -62,9 +62,9 @@ class Uploader extends CJuiWidget
         if ($this->tag === null)
             throw new CException('Параметр tag является обязательным');
 
-        $this->assets = Yii::app()->getModule('upload')->assetsUrl();
+        $this->assets = Yii::app()->getModule('fileManager')->assetsUrl();
 
-        $this->uploadUrl = UploadHtml::url('filesAdmin/upload', array(
+        $this->uploadUrl = UploadHtml::url('fileManagerAdmin/upload', array(
             'model_id'  => get_class($this->model),
             'object_id' => $this->model->id ? $this->model->id : 0,
             'data_type' => $this->data_type,
@@ -78,9 +78,9 @@ class Uploader extends CJuiWidget
             'maxFileSize'               => $this->maxFileSize,
             'acceptFileTypes'           => $this->allowType[$this->data_type],
 //            'maxChunkSize'              => 1*1000*1000,
-            'sortableSaveUrl'           => UploadHtml::url('filesAdmin/savePriority'),
+            'sortableSaveUrl'           => UploadHtml::url('fileManagerAdmin/savePriority'),
             'limitConcurrentUploads'    => 0,
-            'existFilesUrl'             => UploadHtml::url('filesAdmin/existFiles', array(
+            'existFilesUrl'             => UploadHtml::url('fileManagerAdmin/existFiles', array(
                                                 'model_id'  => get_class($this->model),
                                                 'object_id' => $this->model->id ? $this->model->id : 0,
                                                 'tag'       => $this->tag

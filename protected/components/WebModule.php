@@ -20,7 +20,7 @@ abstract class WebModule extends CWebModule
     {
         if ($this->_assetsUrl === null)
         {
-            $class = strtolower(str_replace('Module', '', get_class($this)));
+            $class = lcfirst(str_replace('Module', '', get_class($this)));
             $path  = Yii::getPathOfAlias($class . '.assets');
 
             if ($path)

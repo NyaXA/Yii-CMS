@@ -1,24 +1,28 @@
 <?php
 
-class Files extends ActiveRecordModel
+class FileManager extends ActiveRecordModel
 {
-    const UPLOAD_PATH = './upload/fmanager/';
+    const UPLOAD_PATH = './upload/fileManager/';
     const FILE_POSTFIX = '';
 
     public $extension;
 
     public $size;
+
     public $error;
+
 
     public static function model($className = __CLASS__)
     {
         return parent::model($className);
     }
 
+
     public function tableName()
     {
-        return 'files';
+        return 'file_manager';
     }
+
 
     public function primaryKey()
     {
@@ -65,7 +69,7 @@ class Files extends ActiveRecordModel
 
     public function getDeleteUrl()
     {
-        return Yii::app()->controller->url('filesAdmin/delete', array('id' => $this->id));
+        return Yii::app()->controller->url('fileManagerAdmin/delete', array('id' => $this->id));
     }
 
     /**
@@ -110,7 +114,7 @@ class Files extends ActiveRecordModel
 
     public function getIcon()
     {
-        $folder = Yii::app()->getModule('upload')->assetsUrl() . '/img/fileIcons/';
+        $folder = Yii::app()->getModule('fileManager')->assetsUrl() . '/img/fileIcons/';
         if ($this->isImage)
             $name = 'image';
         elseif ($this->isSound)
@@ -341,7 +345,7 @@ class Files extends ActiveRecordModel
     public function save()
     {
         if (!parent::save()) {
-            $this->error = Yii::t('UploadModule.main', 'Не удалось сохранить изменения');
+            $this->error = Yii::t('FileManagerModule.main', 'Не удалось сохранить изменения');
             return false;
         }
         return true;
@@ -501,7 +505,7 @@ class Files extends ActiveRecordModel
             $src .= substr(self::UPLOAD_PATH . $this->name, 1);
         elseif ($this->isSound) {
             if ($realFile)
-                $src .= Yii::app()->getModule('upload')->assetsUrl() . '/img/mp3.png';
+                $src .= Yii::app()->getModule('fileManager')->assetsUrl() . '/img/mp3.png';
             else
                 $src .= substr(self::UPLOAD_PATH . $this->name, 1);
         }
@@ -539,7 +543,7 @@ class Files extends ActiveRecordModel
         {
             if ($this->isNewRecord)
             {
-                $model = Files::model()->parent($this->model_id, $this->object_id)->limit(1)->find();
+                $model = FileManager::model()->parent($this->model_id, $this->object_id)->limit(1)->find();
                 $this->order = $model ? $model->order + 1 : 1;
                 $this->title;
             }

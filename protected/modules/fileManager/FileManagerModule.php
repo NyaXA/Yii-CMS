@@ -1,28 +1,37 @@
 <?php
-class UploadModule extends WebModule
+class FileManagerModule extends WebModule
 {
-
     public function init()
     {
         $this->setImport(array(
-            'upload.components.*',
-            'upload.models.*'
+            'fileManager.components.*',
+            'fileManager.models.*'
         ));
     }
 
 
     public static function name()
     {
-        return 'Загрузчик файлов';
+        return 'Файловый менеджер';
     }
+
 
     public static function description()
     {
         return 'Добавляет возможность использования HTML5 загрузчика. Используется для создания своих модулей.';
     }
 
+
     public static function version()
     {
         return '2.0';
+    }
+
+
+    public static function adminMenu()
+    {
+        return array(
+            "Все файлы" => "/fileManager/fileManagerAdmin/manage"
+        );
     }
 }

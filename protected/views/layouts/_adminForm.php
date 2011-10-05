@@ -195,13 +195,13 @@ $form->attributes['class'] = 'admin_form';
 
             <?php $this->widget($element->attributes['widget'], array('model' => $form->model)); ?>
 
-        <?php elseif ($element->type == 'fmanager'): ?>
+        <?php elseif ($element->type == 'file_manager'): ?>
 
             <fieldset>
                 <legend>Файлы:</legend>
 
                 <?php
-                $this->widget('upload.portlets.Uploader', array(
+                $this->widget('fileManager.portlets.Uploader', array(
                     'model'       => $form->model,
                     'id'          => 'uploader',
                     'data_type'   => 'any',

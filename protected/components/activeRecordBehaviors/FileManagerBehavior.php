@@ -7,7 +7,7 @@ class FileManagerBehavior extends CActiveRecordBehavior
         $model = $this->getOwner();
         if ($model->isNewRecord)
         {
-            $files = Files::model()->findAllByAttributes(array(
+            $files = FileManager::model()->findAllByAttributes(array(
                 'object_id' => 'tmp_' . Yii::app()->user->id,
                 'model_id'  => get_class($model)
             ));
@@ -27,7 +27,7 @@ class FileManagerBehavior extends CActiveRecordBehavior
     {
         $model = $this->getOwner();
 
-        $files = Files::model()->findAllByAttributes(array(
+        $files = FileManager::model()->findAllByAttributes(array(
             'model_id'  => get_class($model),
             'object_id' => $model->id
         ));

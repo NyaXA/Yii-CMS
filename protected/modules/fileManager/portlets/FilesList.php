@@ -13,7 +13,7 @@ class FilesList extends Portlet
 
     public function registerScripts()
     {
-        $this->assets = Yii::app()->getModule('upload')->assetsUrl();
+        $this->assets = Yii::app()->getModule('fileManager')->assetsUrl();
 
         Yii::app()->clientScript
             ->registerCssFile($this->assets.'/css/filesList.css');

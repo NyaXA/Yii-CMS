@@ -1,10 +1,10 @@
 <?php
-class FilesAdminController extends AdminController
+class FileManagerAdminController extends AdminController
 {
     public static function actionsTitles()
     {
         return array(
-            "UpdateAttr"   => "Инлайн-редактирование",
+            "UpdateAttr"   => "Редактирование файла файлового менеджера",
             "Upload"       => "Отображение брендов",
             "SavePriority" => "Сортировка",
             "Delete"       => "Удаление файла",
@@ -20,7 +20,7 @@ class FilesAdminController extends AdminController
             $object_id = 'tmp_' . Yii::app()->user->id;
         }
 
-        $existFiles = Files::model()
+        $existFiles = FileManager::model()
             ->parent($model_id, $object_id)
             ->tag($_GET['tag'])
             ->findAll();
@@ -35,7 +35,7 @@ class FilesAdminController extends AdminController
             $object_id = 'tmp_' . Yii::app()->user->id;
         }
 
-        $model = new Files('insert');
+        $model = new FileManager('insert');
         $model->object_id = $object_id;
         $model->model_id  = $model_id;
         $model->tag       = $tag;
@@ -52,7 +52,8 @@ class FilesAdminController extends AdminController
             {
                 echo $model->error;
             }
-        } else
+        }
+        else
         {
             echo json_encode(array(
                 'textStatus' => $model->error
@@ -77,15 +78,15 @@ class FilesAdminController extends AdminController
             );
         }
 
-        header('Vary: Accept');
-        if (isset($_SERVER['HTTP_ACCEPT']) && (strpos($_SERVER['HTTP_ACCEPT'], 'application/json') !== false))
-        {
-            header('Content-type: application/json');
-        }
-        else
-        {
-            header('Content-type: text/plain');
-        }
+//        header('Vary: Accept');
+//        if (isset($_SERVER['HTTP_ACCEPT']) && (strpos($_SERVER['HTTP_ACCEPT'], 'application/json') !== false))
+//        {
+//            header('Content-type: application/json');
+//        }
+//        else
+//        {
+//            header('Content-type: text/plain');
+//        }
 
         echo CJSON::encode($res);
     }
@@ -93,21 +94,31 @@ class FilesAdminController extends AdminController
 
     public function actionSavePriority()
     {
-        $i = 0;
         $success = false;
+
         $ids = array_reverse($_POST['File']);
-        $files = new Files('sort');
+
+        $files = new FileManager('sort');
+
         $transaction = $files->dbConnection->beginTransaction();
-        try {
-            foreach($ids as $id) {
+
+        try
+        {   $i = 0;
+
+            foreach($ids as $id)
+            {
                 $i++;
                 $success = $files->updateAll(array('order'=>$i), 'id='.$id) || $success;
             }
             if (!$success)
+            {
                 throw new CException('Some error ☺');
+            }
 
             $transaction->commit();
-        } catch(Exception $e) {
+        }
+        catch(Exception $e)
+        {
             $transaction->rollBack();
         }
     }
@@ -118,6 +129,7 @@ class FilesAdminController extends AdminController
         $model = $this->loadModel()->delete();
     }
 
+
     public function actionUpdateAttr()
     {
         $model = $this->loadModel();
@@ -126,11 +138,13 @@ class FilesAdminController extends AdminController
 
         $this->performAjaxValidation($model);
 
-        if (isset($_POST[get_class($model)])){
+        if (isset($_POST[get_class($model)]))
+        {
             $attr = $_GET['attr'];
             $model->$attr = $_POST[get_class($model)][$attr];
             
-            if ($model->save()) {
+            if ($model->save())
+            {
                 echo $model->$_GET['attr'];
             }
         }
@@ -138,27 +152,34 @@ class FilesAdminController extends AdminController
 
     public function loadModel()
     {
-
-        if(isset($_GET['id'])) {
+        if(isset($_GET['id']))
+        {
             $condition = '';
-//            if(Yii::app()->user->isGuest)
-//                $condition = 'status='.Season::STATUS_PUBLISHED.' OR status='.Season::STATUS_ARCHIVED;
-            $model = Files::model()->findByPk($_GET['id'], $condition);
+
+            $model = FileManager::model()->findByPk($_GET['id'], $condition);
         }
+
         if($model === null)
+        {
             throw new CHttpException(404,'The requested page does not exist.');
+        }
+
 		return $model;
     }
 
-    /**
-     * @param CModel the model to be validated
-     */
+
     public function performAjaxValidation($model)
     {
-        if (isset($_POST['ajax'])){
+        if (isset($_POST['ajax']))
+        {
             print_r(CActiveForm::validate($model));
             Yii::app()->end();
         }
     }
-    
+
+
+    public function actionManage()
+    {
+
+    }
 }
