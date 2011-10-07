@@ -6,8 +6,120 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6e5a110c-e6df-4e2c-adfe-bd6233fb4d51" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/protected/libs/tools/StringHelper.php" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/commands/SendLettersCommand.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/856dbe23/elRTE.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/856dbe23/elfinder/connectors/php/connector.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/856dbe23/elfinder/connectors/php/elFinder.class.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/856dbe23/elfinder/connectors/python/connector.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/856dbe23/elfinder/connectors/python/elFinder.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/856dbe23/elfinder/css/elfinder.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/856dbe23/elfinder/images/icons-big.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/856dbe23/elfinder/images/icons-small.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/856dbe23/elfinder/images/ql.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/856dbe23/elfinder/images/spinner.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/856dbe23/elfinder/images/toolbar.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/856dbe23/elfinder/js/elfinder.full.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/856dbe23/elfinder/js/elfinder.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/856dbe23/elfinder/js/i18n/elfinder.es.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/856dbe23/elfinder/js/i18n/elfinder.ru.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/856dbe23/elfinder/js/i18n/elfinder.ua.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/856dbe23/elfinder/js/jquery-1.3.2.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/856dbe23/elfinder/js/jquery-1.4.1.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/856dbe23/elfinder/js/jquery-ui-1.7.2.custom.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/856dbe23/elfinder/js/jquery-ui-1.8b1.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/856dbe23/elfinder/js/ui-themes/base/images/ui-bg_flat_0_aaaaaa_40x100.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/856dbe23/elfinder/js/ui-themes/base/images/ui-bg_flat_75_ffffff_40x100.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/856dbe23/elfinder/js/ui-themes/base/images/ui-bg_glass_55_fbf9ee_1x400.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/856dbe23/elfinder/js/ui-themes/base/images/ui-bg_glass_65_ffffff_1x400.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/856dbe23/elfinder/js/ui-themes/base/images/ui-bg_glass_75_dadada_1x400.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/856dbe23/elfinder/js/ui-themes/base/images/ui-bg_glass_75_e6e6e6_1x400.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/856dbe23/elfinder/js/ui-themes/base/images/ui-bg_glass_95_fef1ec_1x400.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/856dbe23/elfinder/js/ui-themes/base/images/ui-bg_highlight-soft_75_cccccc_1x100.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/856dbe23/elfinder/js/ui-themes/base/images/ui-icons_222222_256x240.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/856dbe23/elfinder/js/ui-themes/base/images/ui-icons_2e83ff_256x240.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/856dbe23/elfinder/js/ui-themes/base/images/ui-icons_454545_256x240.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/856dbe23/elfinder/js/ui-themes/base/images/ui-icons_888888_256x240.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/856dbe23/elfinder/js/ui-themes/base/images/ui-icons_cd0a0a_256x240.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/856dbe23/elfinder/js/ui-themes/base/jquery-ui.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/856dbe23/elfinder/js/ui-themes/base/ui.accordion.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/856dbe23/elfinder/js/ui-themes/base/ui.all.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/856dbe23/elfinder/js/ui-themes/base/ui.base.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/856dbe23/elfinder/js/ui-themes/base/ui.core.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/856dbe23/elfinder/js/ui-themes/base/ui.datepicker.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/856dbe23/elfinder/js/ui-themes/base/ui.dialog.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/856dbe23/elfinder/js/ui-themes/base/ui.progressbar.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/856dbe23/elfinder/js/ui-themes/base/ui.resizable.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/856dbe23/elfinder/js/ui-themes/base/ui.slider.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/856dbe23/elfinder/js/ui-themes/base/ui.tabs.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/856dbe23/elfinder/js/ui-themes/base/ui.theme.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/856dbe23/elrte/css/elrte-inner.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/856dbe23/elrte/css/elrte.full.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/856dbe23/elrte/css/elrte.min.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/856dbe23/elrte/css/smoothness/images/ui-bg_flat_0_aaaaaa_40x100.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/856dbe23/elrte/css/smoothness/images/ui-bg_flat_75_ffffff_40x100.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/856dbe23/elrte/css/smoothness/images/ui-bg_glass_55_fbf9ee_1x400.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/856dbe23/elrte/css/smoothness/images/ui-bg_glass_65_ffffff_1x400.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/856dbe23/elrte/css/smoothness/images/ui-bg_glass_75_dadada_1x400.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/856dbe23/elrte/css/smoothness/images/ui-bg_glass_75_e6e6e6_1x400.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/856dbe23/elrte/css/smoothness/images/ui-bg_glass_95_fef1ec_1x400.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/856dbe23/elrte/css/smoothness/images/ui-bg_highlight-soft_75_cccccc_1x100.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/856dbe23/elrte/css/smoothness/images/ui-icons_222222_256x240.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/856dbe23/elrte/css/smoothness/images/ui-icons_2e83ff_256x240.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/856dbe23/elrte/css/smoothness/images/ui-icons_454545_256x240.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/856dbe23/elrte/css/smoothness/images/ui-icons_888888_256x240.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/856dbe23/elrte/css/smoothness/images/ui-icons_cd0a0a_256x240.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/856dbe23/elrte/css/smoothness/jquery-ui-1.8.7.custom.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/856dbe23/elrte/images/elrte-toolbar.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/856dbe23/elrte/images/google-maps.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/856dbe23/elrte/images/iframe.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/856dbe23/elrte/images/loading.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/856dbe23/elrte/images/media-director.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/856dbe23/elrte/images/media-flash.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/856dbe23/elrte/images/media-quicktime.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/856dbe23/elrte/images/media-realaudio.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/856dbe23/elrte/images/media-rutube.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/856dbe23/elrte/images/media-vimeo.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/856dbe23/elrte/images/media-winmedia.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/856dbe23/elrte/images/media-youtube.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/856dbe23/elrte/images/outline-div.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/856dbe23/elrte/images/outline-p.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/856dbe23/elrte/images/pagebreak.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/856dbe23/elrte/images/pixel.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/856dbe23/elrte/images/smileys/evilgrin.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/856dbe23/elrte/images/smileys/grin.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/856dbe23/elrte/images/smileys/happy.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/856dbe23/elrte/images/smileys/smile.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/856dbe23/elrte/images/smileys/surprised.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/856dbe23/elrte/images/smileys/tongue.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/856dbe23/elrte/images/smileys/unhappy.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/856dbe23/elrte/images/smileys/waii.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/856dbe23/elrte/images/smileys/wink.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/856dbe23/elrte/images/yandex-maps.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/856dbe23/elrte/js/elrte.full.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/856dbe23/elrte/js/elrte.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/856dbe23/elrte/js/i18n/elrte.YOUR_LANG.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/856dbe23/elrte/js/i18n/elrte.ar.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/856dbe23/elrte/js/i18n/elrte.cs.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/856dbe23/elrte/js/i18n/elrte.de.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/856dbe23/elrte/js/i18n/elrte.en.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/856dbe23/elrte/js/i18n/elrte.es.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/856dbe23/elrte/js/i18n/elrte.fa.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/856dbe23/elrte/js/i18n/elrte.fr.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/856dbe23/elrte/js/i18n/elrte.hu.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/856dbe23/elrte/js/i18n/elrte.it.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/856dbe23/elrte/js/i18n/elrte.jp.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/856dbe23/elrte/js/i18n/elrte.ko.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/856dbe23/elrte/js/i18n/elrte.lv.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/856dbe23/elrte/js/i18n/elrte.nl.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/856dbe23/elrte/js/i18n/elrte.pl.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/856dbe23/elrte/js/i18n/elrte.pt_BR.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/856dbe23/elrte/js/i18n/elrte.ru.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/856dbe23/elrte/js/i18n/elrte.th.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/856dbe23/elrte/js/i18n/elrte.tr.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/856dbe23/elrte/js/i18n/elrte.ua.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/856dbe23/elrte/js/i18n/elrte.zh_CN.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/856dbe23/elrte/js/i18n/elrte.zh_TW.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/856dbe23/elrte/js/jquery-1.4.4.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/856dbe23/elrte/js/jquery-ui-1.8.7.custom.min.js" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/upload/fileManager/1511dff14d2aa58388938b295d82504d.doc" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/upload/fileManager/1ca05bf7ebe9b1206f38e5ee5db64332.jpg" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/upload/fileManager/4c656c3c839d8139569ff33ad79e3762.jpg" afterPath="" />
@@ -21,14 +133,83 @@
       <change type="DELETED" beforePath="$PROJECT_DIR$/upload/fileManager/c2f132cc09b0fac2f7602030e6f160fb.jpeg" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/upload/fileManager/de7bf352a2b9e25afc14cc8eec90fd95.jpg" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/upload/fileManager/ed40d302ac3a0535e6b97a941f8c48ba.png" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/components/ActiveRecordModel.php" afterPath="$PROJECT_DIR$/protected/components/ActiveRecordModel.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/articles/models/Article.php" afterPath="$PROJECT_DIR$/protected/modules/articles/models/Article.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/fileManager/controllers/FileManagerController.php" afterPath="$PROJECT_DIR$/protected/modules/fileManager/controllers/FileManagerController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/fileManager/models/FileManager.php" afterPath="$PROJECT_DIR$/protected/modules/fileManager/models/FileManager.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/fileManager/views/fileManagerAdmin/manage.php" afterPath="$PROJECT_DIR$/protected/modules/fileManager/views/fileManagerAdmin/manage.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/news/models/News.php" afterPath="$PROJECT_DIR$/protected/modules/news/models/News.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/rbac/views/operationAdmin/manage.php" afterPath="$PROJECT_DIR$/protected/modules/rbac/views/operationAdmin/manage.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/90f839/autocomplete/indicator.gif" afterPath="$PROJECT_DIR$/assets/90f839/autocomplete/indicator.gif" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/90f839/jui/css/base/images/ui-bg_flat_0_aaaaaa_40x100.png" afterPath="$PROJECT_DIR$/assets/90f839/jui/css/base/images/ui-bg_flat_0_aaaaaa_40x100.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/90f839/jui/css/base/images/ui-bg_flat_75_ffffff_40x100.png" afterPath="$PROJECT_DIR$/assets/90f839/jui/css/base/images/ui-bg_flat_75_ffffff_40x100.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/90f839/jui/css/base/images/ui-bg_glass_55_fbf9ee_1x400.png" afterPath="$PROJECT_DIR$/assets/90f839/jui/css/base/images/ui-bg_glass_55_fbf9ee_1x400.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/90f839/jui/css/base/images/ui-bg_glass_65_ffffff_1x400.png" afterPath="$PROJECT_DIR$/assets/90f839/jui/css/base/images/ui-bg_glass_65_ffffff_1x400.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/90f839/jui/css/base/images/ui-bg_glass_75_dadada_1x400.png" afterPath="$PROJECT_DIR$/assets/90f839/jui/css/base/images/ui-bg_glass_75_dadada_1x400.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/90f839/jui/css/base/images/ui-bg_glass_75_e6e6e6_1x400.png" afterPath="$PROJECT_DIR$/assets/90f839/jui/css/base/images/ui-bg_glass_75_e6e6e6_1x400.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/90f839/jui/css/base/images/ui-bg_glass_95_fef1ec_1x400.png" afterPath="$PROJECT_DIR$/assets/90f839/jui/css/base/images/ui-bg_glass_95_fef1ec_1x400.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/90f839/jui/css/base/images/ui-bg_highlight-soft_75_cccccc_1x100.png" afterPath="$PROJECT_DIR$/assets/90f839/jui/css/base/images/ui-bg_highlight-soft_75_cccccc_1x100.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/90f839/jui/css/base/images/ui-icons_222222_256x240.png" afterPath="$PROJECT_DIR$/assets/90f839/jui/css/base/images/ui-icons_222222_256x240.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/90f839/jui/css/base/images/ui-icons_2e83ff_256x240.png" afterPath="$PROJECT_DIR$/assets/90f839/jui/css/base/images/ui-icons_2e83ff_256x240.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/90f839/jui/css/base/images/ui-icons_454545_256x240.png" afterPath="$PROJECT_DIR$/assets/90f839/jui/css/base/images/ui-icons_454545_256x240.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/90f839/jui/css/base/images/ui-icons_888888_256x240.png" afterPath="$PROJECT_DIR$/assets/90f839/jui/css/base/images/ui-icons_888888_256x240.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/90f839/jui/css/base/images/ui-icons_cd0a0a_256x240.png" afterPath="$PROJECT_DIR$/assets/90f839/jui/css/base/images/ui-icons_cd0a0a_256x240.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/90f839/rating/delete.gif" afterPath="$PROJECT_DIR$/assets/90f839/rating/delete.gif" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/90f839/rating/star.gif" afterPath="$PROJECT_DIR$/assets/90f839/rating/star.gif" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/90f839/treeview/images/ajax-loader.gif" afterPath="$PROJECT_DIR$/assets/90f839/treeview/images/ajax-loader.gif" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/90f839/treeview/images/file.gif" afterPath="$PROJECT_DIR$/assets/90f839/treeview/images/file.gif" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/90f839/treeview/images/folder-closed.gif" afterPath="$PROJECT_DIR$/assets/90f839/treeview/images/folder-closed.gif" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/90f839/treeview/images/folder.gif" afterPath="$PROJECT_DIR$/assets/90f839/treeview/images/folder.gif" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/90f839/treeview/images/minus.gif" afterPath="$PROJECT_DIR$/assets/90f839/treeview/images/minus.gif" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/90f839/treeview/images/plus.gif" afterPath="$PROJECT_DIR$/assets/90f839/treeview/images/plus.gif" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/90f839/treeview/images/treeview-black-line.gif" afterPath="$PROJECT_DIR$/assets/90f839/treeview/images/treeview-black-line.gif" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/90f839/treeview/images/treeview-black.gif" afterPath="$PROJECT_DIR$/assets/90f839/treeview/images/treeview-black.gif" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/90f839/treeview/images/treeview-default-line.gif" afterPath="$PROJECT_DIR$/assets/90f839/treeview/images/treeview-default-line.gif" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/90f839/treeview/images/treeview-default.gif" afterPath="$PROJECT_DIR$/assets/90f839/treeview/images/treeview-default.gif" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/90f839/treeview/images/treeview-famfamfam-line.gif" afterPath="$PROJECT_DIR$/assets/90f839/treeview/images/treeview-famfamfam-line.gif" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/90f839/treeview/images/treeview-famfamfam.gif" afterPath="$PROJECT_DIR$/assets/90f839/treeview/images/treeview-famfamfam.gif" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/90f839/treeview/images/treeview-gray-line.gif" afterPath="$PROJECT_DIR$/assets/90f839/treeview/images/treeview-gray-line.gif" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/90f839/treeview/images/treeview-gray.gif" afterPath="$PROJECT_DIR$/assets/90f839/treeview/images/treeview-gray.gif" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/90f839/treeview/images/treeview-red-line.gif" afterPath="$PROJECT_DIR$/assets/90f839/treeview/images/treeview-red-line.gif" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/90f839/treeview/images/treeview-red.gif" afterPath="$PROJECT_DIR$/assets/90f839/treeview/images/treeview-red.gif" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/dad6e4f/img/icon.png" afterPath="$PROJECT_DIR$/assets/dad6e4f/img/icon.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/f8a6567a/img/icon.png" afterPath="$PROJECT_DIR$/assets/f8a6567a/img/icon.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/90f839/autocomplete/jquery.autocomplete.css" afterPath="$PROJECT_DIR$/assets/90f839/autocomplete/jquery.autocomplete.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/90f839/jquery.ajaxqueue.js" afterPath="$PROJECT_DIR$/assets/90f839/jquery.ajaxqueue.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/90f839/jquery.autocomplete.js" afterPath="$PROJECT_DIR$/assets/90f839/jquery.autocomplete.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/90f839/jquery.ba-bbq.js" afterPath="$PROJECT_DIR$/assets/90f839/jquery.ba-bbq.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/90f839/jquery.bgiframe.js" afterPath="$PROJECT_DIR$/assets/90f839/jquery.bgiframe.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/90f839/jquery.cookie.js" afterPath="$PROJECT_DIR$/assets/90f839/jquery.cookie.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/90f839/jquery.js" afterPath="$PROJECT_DIR$/assets/90f839/jquery.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/90f839/jquery.maskedinput.js" afterPath="$PROJECT_DIR$/assets/90f839/jquery.maskedinput.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/90f839/jquery.metadata.js" afterPath="$PROJECT_DIR$/assets/90f839/jquery.metadata.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/90f839/jquery.min.js" afterPath="$PROJECT_DIR$/assets/90f839/jquery.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/90f839/jquery.multifile.js" afterPath="$PROJECT_DIR$/assets/90f839/jquery.multifile.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/90f839/jquery.rating.js" afterPath="$PROJECT_DIR$/assets/90f839/jquery.rating.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/90f839/jquery.treeview.async.js" afterPath="$PROJECT_DIR$/assets/90f839/jquery.treeview.async.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/90f839/jquery.treeview.edit.js" afterPath="$PROJECT_DIR$/assets/90f839/jquery.treeview.edit.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/90f839/jquery.treeview.js" afterPath="$PROJECT_DIR$/assets/90f839/jquery.treeview.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/90f839/jquery.yii.js" afterPath="$PROJECT_DIR$/assets/90f839/jquery.yii.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/90f839/jquery.yiiactiveform.js" afterPath="$PROJECT_DIR$/assets/90f839/jquery.yiiactiveform.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/90f839/jquery.yiitab.js" afterPath="$PROJECT_DIR$/assets/90f839/jquery.yiitab.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/90f839/jui/MIT-LICENSE.txt" afterPath="$PROJECT_DIR$/assets/90f839/jui/MIT-LICENSE.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/90f839/jui/css/base/jquery-ui.css" afterPath="$PROJECT_DIR$/assets/90f839/jui/css/base/jquery-ui.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/90f839/jui/css/base/jquery.ui.accordion.css" afterPath="$PROJECT_DIR$/assets/90f839/jui/css/base/jquery.ui.accordion.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/90f839/jui/css/base/jquery.ui.all.css" afterPath="$PROJECT_DIR$/assets/90f839/jui/css/base/jquery.ui.all.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/90f839/jui/css/base/jquery.ui.autocomplete.css" afterPath="$PROJECT_DIR$/assets/90f839/jui/css/base/jquery.ui.autocomplete.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/90f839/jui/css/base/jquery.ui.base.css" afterPath="$PROJECT_DIR$/assets/90f839/jui/css/base/jquery.ui.base.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/90f839/jui/css/base/jquery.ui.button.css" afterPath="$PROJECT_DIR$/assets/90f839/jui/css/base/jquery.ui.button.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/90f839/jui/css/base/jquery.ui.core.css" afterPath="$PROJECT_DIR$/assets/90f839/jui/css/base/jquery.ui.core.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/90f839/jui/css/base/jquery.ui.datepicker.css" afterPath="$PROJECT_DIR$/assets/90f839/jui/css/base/jquery.ui.datepicker.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/90f839/jui/css/base/jquery.ui.dialog.css" afterPath="$PROJECT_DIR$/assets/90f839/jui/css/base/jquery.ui.dialog.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/90f839/jui/css/base/jquery.ui.progressbar.css" afterPath="$PROJECT_DIR$/assets/90f839/jui/css/base/jquery.ui.progressbar.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/90f839/jui/css/base/jquery.ui.resizable.css" afterPath="$PROJECT_DIR$/assets/90f839/jui/css/base/jquery.ui.resizable.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/90f839/jui/css/base/jquery.ui.selectable.css" afterPath="$PROJECT_DIR$/assets/90f839/jui/css/base/jquery.ui.selectable.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/90f839/jui/css/base/jquery.ui.slider.css" afterPath="$PROJECT_DIR$/assets/90f839/jui/css/base/jquery.ui.slider.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/90f839/jui/css/base/jquery.ui.tabs.css" afterPath="$PROJECT_DIR$/assets/90f839/jui/css/base/jquery.ui.tabs.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/90f839/jui/css/base/jquery.ui.theme.css" afterPath="$PROJECT_DIR$/assets/90f839/jui/css/base/jquery.ui.theme.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/90f839/jui/js/jquery-ui-i18n.min.js" afterPath="$PROJECT_DIR$/assets/90f839/jui/js/jquery-ui-i18n.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/90f839/jui/js/jquery-ui.min.js" afterPath="$PROJECT_DIR$/assets/90f839/jui/js/jquery-ui.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/90f839/rating/jquery.rating.css" afterPath="$PROJECT_DIR$/assets/90f839/rating/jquery.rating.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/90f839/treeview/jquery.treeview.css" afterPath="$PROJECT_DIR$/assets/90f839/treeview/jquery.treeview.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/90f839/yiitab/jquery.yiitab.css" afterPath="$PROJECT_DIR$/assets/90f839/yiitab/jquery.yiitab.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/dad6e4f/js/filesManage.js" afterPath="$PROJECT_DIR$/assets/dad6e4f/js/filesManage.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/f8a6567a/css/main.css" afterPath="$PROJECT_DIR$/assets/f8a6567a/css/main.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/f8a6567a/css/modules.css" afterPath="$PROJECT_DIR$/assets/f8a6567a/css/modules.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/admin/modules_panel.css" afterPath="$PROJECT_DIR$/css/admin/modules_panel.css" />
     </list>
     <ignored path="Yii-CMS.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -50,7 +231,17 @@
     <favorites_list name="Yii-CMS" />
   </component>
   <component name="FileEditorManager">
-    <leaf />
+    <leaf>
+      <file leaf-file-name="modules_panel.css" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/css/admin/modules_panel.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="12" column="75" selection-start="288" selection-end="288" vertical-scroll-proportion="0.42144176">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FindManager">
     <FindUsagesManager>
@@ -64,7 +255,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/protected/components/activeRecordBehaviors/FileManagerBehavior.php" />
         <option value="$PROJECT_DIR$/protected/components/GridView.php" />
         <option value="$PROJECT_DIR$/protected/modules/rbac/views/operationAdmin/manage.php" />
         <option value="$PROJECT_DIR$/protected/modules/news/models/News.php" />
@@ -80,6 +270,7 @@
         <option value="$PROJECT_DIR$/protected/modules/fileManager/portlets/views/uploaderTemplates.php" />
         <option value="$PROJECT_DIR$/protected/modules/fileManager/models/FileManager.php" />
         <option value="$PROJECT_DIR$/protected/modules/fileManager/views/fileManagerAdmin/manage.php" />
+        <option value="$PROJECT_DIR$/css/admin/modules_panel.css" />
       </list>
     </option>
   </component>
@@ -149,6 +340,38 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="Yii-CMS" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Yii-CMS" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Yii-CMS" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="css" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Yii-CMS" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Yii-CMS" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="css" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="admin" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -223,15 +446,15 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-1" y="25" width="1280" height="998" extended-state="4" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Phing Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32979977" sideWeight="0.0" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32979977" sideWeight="0.0" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21643613" sideWeight="0.6702002" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21643613" sideWeight="0.6702002" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -286,13 +509,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/protected/libs/yii/db/ar/CActiveRecord.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="116" column="24" selection-start="3769" selection-end="3769" vertical-scroll-proportion="0.3329208">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/protected/config/main.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="37" column="39" selection-start="1023" selection-end="1023" vertical-scroll-proportion="0.6479902">
@@ -396,6 +612,13 @@
     <entry file="file://$PROJECT_DIR$/protected/modules/fileManager/views/fileManagerAdmin/manage.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="70" column="8" selection-start="1535" selection-end="1535" vertical-scroll-proportion="1.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/admin/modules_panel.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="12" column="75" selection-start="288" selection-end="288" vertical-scroll-proportion="0.42144176">
           <folding />
         </state>
       </provider>
