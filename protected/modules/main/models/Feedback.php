@@ -46,15 +46,18 @@ class Feedback extends ActiveRecordModel
 
 	public function search()
 	{
+        $alias = $this->getTableAlias();
 		$criteria=new CDbCriteria;
-		$criteria->compare('first_name',$this->first_name,true);
-        $criteria->compare('last_name',$this->last_name,true);
-        $criteria->compare('patronymic',$this->patronymic,true);
-        $criteria->compare('company',$this->company,true);
-        $criteria->compare('phone',$this->phone,true);
-        $criteria->compare('position',$this->position,true);
-		$criteria->compare('email',$this->email,true);
-		$criteria->compare('date_create',$this->date_create,true);
+		$criteria->compare($alias.'.first_name',$this->first_name,true);
+        $criteria->compare($alias.'.last_name',$this->last_name,true);
+        $criteria->compare($alias.'.patronymic',$this->patronymic,true);
+        $criteria->compare($alias.'.company',$this->company,true);
+        $criteria->compare($alias.'.phone',$this->phone,true);
+        $criteria->compare($alias.'.position',$this->position,true);
+		$criteria->compare($alias.'.email',$this->email,true);
+		$criteria->compare($alias.'.date_create',$this->date_create,true);
+
+        $criteria->order = $alias.'.date_create DESC';
 
 		return new ActiveDataProvider(get_class($this), array(
 			'criteria' => $criteria
