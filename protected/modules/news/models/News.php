@@ -159,4 +159,10 @@ class News extends ActiveRecordModel
     {
         return Yii::app()->controller->url("/news/{$this->id}");
     }
+
+
+    public function updateUrl()
+    {
+        return "/news/newsAdmin/update/id/{$this->id}";
+    }
 }

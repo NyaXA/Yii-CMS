@@ -2,8 +2,10 @@
 
 class FileManager extends ActiveRecordModel
 {
-    const UPLOAD_PATH = './upload/fileManager/';
+    const UPLOAD_PATH = 'upload/fileManager/';
     const FILE_POSTFIX = '';
+
+    const TAG_FILE = 'files';
 
     public $extension;
 
@@ -28,6 +30,12 @@ class FileManager extends ActiveRecordModel
     {
         return 'id';
     }
+
+
+    public static $tags = array(
+        self::TAG_FILE => 'Файлы'
+    );
+
 
     public function rules()
     {
@@ -66,6 +74,7 @@ class FileManager extends ActiveRecordModel
                                           ));
         return $this;
     }
+
 
     public function getDeleteUrl()
     {
@@ -107,12 +116,6 @@ class FileManager extends ActiveRecordModel
     public function getIsArchive()
     {
         return in_array($this->extension, array('zip', 'rar', 'tar', 'gz'));
-    }
-
-
-    public function getUrl()
-    {
-        return "/fileManager/";
     }
 
 
@@ -433,7 +436,7 @@ class FileManager extends ActiveRecordModel
     {
         $src = Yii::app()->baseUrl;
         if ($this->isImage)
-            $src .= substr(self::UPLOAD_PATH . $this->name, 1);
+            $src = '/' . self::UPLOAD_PATH . $this->name;
         elseif ($this->isSound) {
             if ($realFile)
                 $src .= Yii::app()->getModule('fileManager')->assetsUrl() . '/img/mp3.png';
@@ -498,7 +501,7 @@ class FileManager extends ActiveRecordModel
         {
             if (is_file(self::UPLOAD_PATH . $this->name))
             {
-                unlink(self::UPLOAD_PATH . $this->name);
+                FileSystem::deleteFileWithSimilarNames(self::UPLOAD_PATH, $this->name);
             }
 
             return true;
@@ -521,4 +524,25 @@ class FileManager extends ActiveRecordModel
 			'criteria' => $criteria
 		));
 	}
+
+
+    public function getContent()
+    {
+        if (file_exists($this->path))
+        {
+            return file_get_contents($this->path);
+        }
+    }
+
+
+    public function getPath()
+    {
+        return $_SERVER['DOCUMENT_ROOT'] . self::UPLOAD_PATH . $this->name;
+    }
+
+
+    public function getUrl()
+    {
+        return "http://" . $_SERVER["HTTP_HOST"] . "/" . self::UPLOAD_PATH . $this->name;
+    }
 }

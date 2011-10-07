@@ -39,6 +39,37 @@ class ActiveRecordModel extends CActiveRecord
     }
 
 
+	public function __get($name)
+	{
+        try
+        {
+            return parent::__get($name);
+        }
+        catch (CException $e)
+        {
+            $method_name = StringHelper::underscoreToCamelcase($name);
+
+            if (method_exists($this, 'get' . ucfirst($method_name)))
+            {
+                return $this->$method_name;
+            }
+            else
+            {
+                $attr = StringHelper::camelCaseToUnderscore($name);
+                if (mb_substr($attr, 0, 4) == 'get_')
+                {
+                    $attr = mb_substr($attr, 4);
+                }
+
+                $attr = get_class($this) . '.' .$attr;
+
+
+                throw new CException('Не определено свойство ' . $attr);
+            }
+        }
+	}
+
+
     public function attributeLabels()
     {
         $meta = $this->meta();

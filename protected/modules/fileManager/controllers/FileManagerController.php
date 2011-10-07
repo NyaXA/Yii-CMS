@@ -2,16 +2,22 @@
 
 class FileManagerController extends BaseController
 {
-    public function actionsTitles()
+    public static function actionsTitles()
     {
         return array(
-            "Скачать файл" => "DownloadFile"
+            "DownloadFile" => "Скачать файл"
         );
     }
 
 
-    public function actionDownloadFile()
+    public function actionDownloadFile($id)
     {
+        $model = FileManager::model()->findByPk($id);
+        if (!$model || !file_exists($model->path))
+        {
+            $this->pageNotFound();
+        }
 
+        $this->request->sendFile($model->title, $model->content);
     }
 }

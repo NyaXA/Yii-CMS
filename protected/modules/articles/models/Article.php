@@ -93,4 +93,10 @@ class Article extends ActiveRecordModel
 
         return $this->text;
     }
+
+
+    public function updateUrl()
+    {
+        return "/articles/articleAdmin/update/id/{$this->id}";
+    }
 }

@@ -11,7 +11,6 @@ $this->widget('application.components.GridView', array(
 	'dataProvider' => $model->search(AuthItem::TYPE_OPERATION),
 	'filter'       => $model,
 	'template'     => '{summary}<br/>{pager}<br/>{items}<br/>{pager}',
-	'mass_removal' => true,
 	'columns' => array(
         array(
             'name'  => 'name',
