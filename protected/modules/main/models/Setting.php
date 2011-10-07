@@ -15,6 +15,13 @@ class Setting extends ActiveRecordModel
         self::ELEMENT_EDITOR   => "Редактор"
     );
 
+
+    public function name()
+    {
+        return 'Настройки';
+    }
+
+
 	public static function model($className=__CLASS__)
 	{
 		return parent::model($className);

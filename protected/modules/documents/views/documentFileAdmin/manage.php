@@ -10,7 +10,7 @@ $this->tabs = array(
 <h3><?php echo $document->name; ?></h3>
 
 <?php
-$this->widget('application.components.GridView', array(
+$this->widget('GridView', array(
 	'id'=>'document-file-grid',
 	'dataProvider'=>$model->search($document->id),
 	'filter'=>$model,

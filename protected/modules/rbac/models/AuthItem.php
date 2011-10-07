@@ -25,6 +25,12 @@ class AuthItem extends ActiveRecordModel
     );
 
 
+    public function name()
+    {
+        return 'Элементы авторизации';
+    }
+
+
 	public static function model($className=__CLASS__)
 	{
 		return parent::model($className);

@@ -1,6 +1,6 @@
 <?php
 
-$this->widget('application.components.GridView', array(
+$this->widget('GridView', array(
 	'id' => 'site-action-grid',
 	'dataProvider' => $model->search(),
 	'filter' => $model,

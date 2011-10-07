@@ -1,6 +1,6 @@
 <?php
 
-$this->widget('application.components.GridView', array(
+$this->widget('GridView', array(
 	'id' => 'ymarket-brand-grid',
 	'dataProvider' => $model->search(),
 	'filter' => $model,

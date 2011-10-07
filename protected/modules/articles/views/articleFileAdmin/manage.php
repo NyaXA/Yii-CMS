@@ -10,7 +10,7 @@ $this->tabs = array(
     "добавить"  => $this->createUrl('create', array('article_id' => $article->id)),
 );
 
-$this->widget('application.components.GridView', array(
+$this->widget('GridView', array(
 	'id'=>'article-file-grid',
 	'dataProvider'=>$model->search($article->id),
 	'filter'=>$model,

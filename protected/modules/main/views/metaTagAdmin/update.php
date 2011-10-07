@@ -1,5 +1,4 @@
 <?php
-$this->page_title = 'Редактирование';
 
 $this->tabs = array(
     'управление' => $this->createUrl('manage'),

@@ -29,6 +29,12 @@ class <?php echo $modelClass; ?> extends <?php echo $this->baseClass."\n"; ?>
 	}
 
 
+    public function name()
+    {
+        return 'Название модели <?php echo $modelClass; ?>';
+    }
+
+
 	public function rules()
 	{
 		return array(

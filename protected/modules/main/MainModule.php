@@ -48,12 +48,14 @@ class MainModule extends WebModule
 	public static function adminMenu()
 	{
         return array(
-			'Логирование'      => '/main/logAdmin/view',
-			'Действия сайта'   => '/main/SiteActionAdmin/index',
-			'Обратная связь'   => '/main/feedbackAdmin/manage',
-			'Языки'            => '/main/LanguageAdmin/manage',
-			'Добавить язык'    => '/main/LanguageAdmin/create',
-            'Настройки'        => '/main/SettingAdmin/manage',
+            'Мета-теги'         => '/main/MetaTagAdmin/manage',
+            'Добавить мета-тег' => '/main/MetaTagAdmin/create',
+			'Логирование'       => '/main/logAdmin/manage',
+			'Действия сайта'    => '/main/SiteActionAdmin/manage',
+			'Обратная связь'    => '/main/feedbackAdmin/manage',
+			'Языки'             => '/main/LanguageAdmin/manage',
+			'Добавить язык'     => '/main/LanguageAdmin/create',
+            'Настройки'         => '/main/SettingAdmin/manage',
 		);
 	}
 }

@@ -6,7 +6,7 @@ $this->tabs = array(
     "Добавить все операции модулей" => $this->createUrl("addAllOperations")
 );
 
-$this->widget('application.components.GridView', array(
+$this->widget('GridView', array(
 	'id' => 'operations-grid',
 	'dataProvider' => $model->search(AuthItem::TYPE_OPERATION),
 	'filter'       => $model,

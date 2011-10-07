@@ -5,7 +5,7 @@ $this->tabs = array(
 	'добавить меню' => $this->createUrl('create')
 );
 
-$this->widget('application.components.GridView', array(
+$this->widget('GridView', array(
 	'id' => 'menu-grid',
 	'dataProvider' => $model->search(),
 	'filter' => $model,

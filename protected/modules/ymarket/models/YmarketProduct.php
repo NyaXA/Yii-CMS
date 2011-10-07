@@ -6,6 +6,13 @@ class YmarketProduct extends ActiveRecordModel
 
     const IMAGES_DIR = "upload/ymarket/";
 
+
+    public function name()
+    {
+        return 'Продукты Яндекс-маркета';
+    }
+
+
 	public static function model($className=__CLASS__)
 	{
 		return parent::model($className);

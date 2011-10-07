@@ -18,6 +18,12 @@ class MailerRecipient extends ActiveRecordModel
     );
 
 
+    public function name()
+    {
+        return 'Получатели рассылки';
+    }
+
+
     public function scopes()
     {
         $scopes = array();

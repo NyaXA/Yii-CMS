@@ -11,6 +11,12 @@ class FaqSection extends ActiveRecordModel
 	}
 
 
+    public function name()
+    {
+        return 'Разделы вопросов и ответов';
+    }
+
+
 	public function tableName()
 	{
 		return 'faq_sections';

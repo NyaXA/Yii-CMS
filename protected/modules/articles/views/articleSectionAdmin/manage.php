@@ -6,7 +6,7 @@ $this->tabs = array(
     "управление материалами" => $this->createUrl("articleAdmin/manage"),
 );
 
-$this->widget('application.components.GridView', array(
+$this->widget('GridView', array(
 	'id'=>'article-section-grid',
 	'dataProvider'=>$model->search(),
 	'filter'=>$model,

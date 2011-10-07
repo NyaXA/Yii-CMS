@@ -5,7 +5,7 @@ $this->tabs = array(
     "Добавить задачу" => $this->createUrl("create")
 );
 
-$this->widget('application.components.GridView', array(
+$this->widget('GridView', array(
 	'id' => 'task-grid',
 	'dataProvider' => $model->search(AuthItem::TYPE_TASK),
 	'filter'       => $model,

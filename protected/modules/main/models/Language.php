@@ -5,6 +5,12 @@ class Language extends ActiveRecordModel
     const PAGE_SIZE = 10;
 
 
+    public function name()
+    {
+        return 'Языки';
+    }
+
+
 	public static function model($className=__CLASS__)
 	{
 		return parent::model($className);

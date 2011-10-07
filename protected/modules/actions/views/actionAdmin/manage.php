@@ -4,7 +4,7 @@ $this->tabs = array(
     "Добавить" => $this->createUrl("create")
 );
 
-$this->widget('application.components.GridView', array(
+$this->widget('GridView', array(
 	'id'=>'action-grid',
 	'dataProvider'=>$model->search(),
 	'filter'=>$model,
@@ -27,7 +27,7 @@ $this->widget('application.components.GridView', array(
 			'header' => 'Файлы'
 		),
 		array(
-			'class'=>'CButtonColumn',
+			'class' => 'CButtonColumn',
 		),
 	),
 )); 

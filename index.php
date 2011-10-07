@@ -32,7 +32,9 @@ Yii::createWebApplication($config)->run();
 
 function p($data)
 {
-    CVarDumper::dump($data, 1000, true);
+    echo "<pre>";
+    print_r($data);
+    echo "</pre>";
 }
 
 function v($data)

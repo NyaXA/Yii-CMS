@@ -38,6 +38,12 @@ class User extends ActiveRecordModel
     public $activate_code;
 
 
+    public function name()
+    {
+        return 'Пользователи';
+    }
+
+
     public static function model($className=__CLASS__)
     {
         return parent::model($className);

@@ -21,7 +21,7 @@ $this->tabs = array(
     'добавить' => $this->createUrl('create')
 );
 
-$this->widget('application.components.GridView', array(
+$this->widget('GridView', array(
 	'id' => 'mailer-recipient-grid',
 	'dataProvider' => $model->search(),
 	'filter' => $model,

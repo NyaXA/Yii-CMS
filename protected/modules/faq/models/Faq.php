@@ -5,6 +5,12 @@ class Faq extends ActiveRecordModel
     const PAGE_SIZE = 10;
 
 
+    public function name()
+    {
+        return 'Вопросы и ответы';
+    }
+
+
 	public static function model($className=__CLASS__)
 	{
 		return parent::model($className);

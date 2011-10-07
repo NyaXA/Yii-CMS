@@ -4,7 +4,7 @@ $this->tabs = array(
     'добавить баннер' => $this->createUrl('create')
 );
 
-$this->widget('application.components.GridView', array(
+$this->widget('GridView', array(
 	'id' => 'banner-grid',
 	'dataProvider' => $model->search(),
 	'filter' => $model,

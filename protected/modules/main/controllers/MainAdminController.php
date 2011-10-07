@@ -5,19 +5,20 @@ class MainAdminController extends AdminController
     public static function actionsTitles() 
     {
         return array(
-            "Index"            => "Просмотр главной страницы",
-            "Modules"          => "Просмотр списка модулей",
-            "ChangeOrder"      => "Сортировка",
-            "SessionPerPage"   => "Установки кол-ва элементов на странице",
-            "SessionLanguage"  => "Установка языка",
-            "AdminLinkProcess" => "Переход по ссылке в админ панель"
+            'Index'            => 'Просмотр главной страницы',
+            'Modules'          => 'Просмотр списка модулей',
+            'ChangeOrder'      => 'Сортировка',
+            'SessionPerPage'   => 'Установки кол-ва элементов на странице',
+            'SessionLanguage'  => 'Установка языка',
+            'AdminLinkProcess' => 'Переход по ссылке в админ панель',
+            'GetModelObjects'  => 'Получить объекты модели'
         );
     }    
     
 
     public function actionIndex()
     {
-        $this->render("index", array(
+        $this->render('index', array(
             'modules' => AppManager::getModulesData(true, true)
         ));
     }
@@ -43,7 +44,7 @@ class MainAdminController extends AdminController
 
     public function actionSessionPerPage($model, $per_page, $back_url)
     {
-        Yii::app()->session["{$model}PerPage"] = $per_page;
+        Yii::app()->session['{$model}PerPage'] = $per_page;
 
         $this->redirect(base64_decode($back_url));
     }
@@ -51,14 +52,14 @@ class MainAdminController extends AdminController
 
     public function actionSessionLanguage($lang)
     {
-        $langs = CHtml::listData(Language::model()->findAll(), "id", "name");
+        $langs = CHtml::listData(Language::model()->findAll(), 'id', 'name');
 
         if (isset($langs[$lang]))
         {
-            Yii::app()->session["admin_panel_lang"] = $lang;
+            Yii::app()->session['admin_panel_lang'] = $lang;
         }
 
-        $back_url = base64_decode($_GET["back_url"]);
+        $back_url = base64_decode($_GET['back_url']);
 
         $this->redirect($back_url);
     }
@@ -66,8 +67,23 @@ class MainAdminController extends AdminController
 
     public function actionAdminLinkProcess()
     {
-        Yii::app()->session["admin_panel_lang"] = Yii::app()->session['language'];
+        Yii::app()->session['admin_panel_lang'] = Yii::app()->session['language'];
         $this->redirect($_GET['url']);
+    }
+
+
+    public function actionGetModelObjects($model_id)
+    {
+        $result  = array();
+        $model   = $model_id::model();
+        $objects = $model->findAll();
+
+        foreach ($objects as $i => $object)
+        {
+            $result[$object->id] = (string) $object;
+        }
+
+        echo CJSON::encode($result);
     }
 }
 

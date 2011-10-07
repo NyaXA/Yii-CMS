@@ -5,7 +5,7 @@ $this->tabs = array(
     "добавить страницу" => $this->createUrl('create')
 );
 
-$this->widget('application.components.GridView', array(
+$this->widget('GridView', array(
 	'id' => 'page-grid',
 	'dataProvider' => $model->search(),
 	'filter' => $model,

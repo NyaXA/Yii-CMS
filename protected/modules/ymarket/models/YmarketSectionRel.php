@@ -8,6 +8,12 @@ class YmarketSectionRel extends ActiveRecordModel
     const OBJECT_TYPE_PRODUCT = 'product';
 
 
+    public function name()
+    {
+        return 'Связи разделов Яндекс-маркета';
+    }
+
+
 	public static function model($className=__CLASS__)
 	{
 		return parent::model($className);

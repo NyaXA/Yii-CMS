@@ -16,7 +16,7 @@ if (isset($module_name))
     $this->page_title.= " :: {$module_name}";
 }
 
-$this->widget('application.components.GridView', array(
+$this->widget('GridView', array(
 	'id' => 'settings-grid',
 	'dataProvider' => $model->search(isset($module_id) ? $module_id : null),
 	'filter' => $model,

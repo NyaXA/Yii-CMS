@@ -29,7 +29,7 @@ foreach($this->tableSchema->columns as $column)
     }
     else
     {
-        echo "\t\t'".$column->name."',\n";
+        echo "\t\tarray('name' => '".$column->name."'),\n";
     }
 }
 if($count>=7)

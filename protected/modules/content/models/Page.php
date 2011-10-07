@@ -5,6 +5,12 @@ class Page extends ActiveRecordModel
     const PAGE_SIZE = 10;
 
 
+    public function name()
+    {
+        return 'Страницы';
+    }
+
+
 	public static function model($className=__CLASS__)
 	{
 		return parent::model($className);

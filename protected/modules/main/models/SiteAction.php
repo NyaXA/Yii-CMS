@@ -5,6 +5,12 @@ class SiteAction extends ActiveRecordModel
     const PAGE_SIZE = 10;
 
 
+    public function name()
+    {
+        return 'Действия сайта';
+    }
+
+
 	public static function model($className=__CLASS__)
 	{
 		return parent::model($className);
@@ -42,7 +48,6 @@ class SiteAction extends ActiveRecordModel
 	{
 		$criteria = new CDbCriteria;
 		$criteria->compare('id', $this->id, true);
-		$criteria->compare('user_id', $this->user_id, true);
 		$criteria->compare('object_id', $this->object_id, true);
 		$criteria->compare('title', $this->title, true);
 		$criteria->compare('module', $this->module, true);
@@ -50,7 +55,7 @@ class SiteAction extends ActiveRecordModel
 		$criteria->compare('action', $this->action, true);
 		$criteria->compare('date_create', $this->date_create, true);
         $criteria->order = 'date_create DESC';
-        
+
 		return new ActiveDataProvider(get_class($this), array(
 			'criteria' => $criteria
 		));

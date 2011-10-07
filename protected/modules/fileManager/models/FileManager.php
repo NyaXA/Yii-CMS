@@ -14,6 +14,12 @@ class FileManager extends ActiveRecordModel
     public $error;
 
 
+    public function name()
+    {
+        return 'Файловый менеджер';
+    }
+
+
     public static function model($className = __CLASS__)
     {
         return parent::model($className);

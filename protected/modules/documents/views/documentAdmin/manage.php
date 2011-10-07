@@ -5,7 +5,7 @@ $this->tabs = array(
     "добавить документ" => $this->createUrl('create')
 );
 
-$this->widget('application.components.GridView', array(
+$this->widget('GridView', array(
 	'id'=>'document-grid',
 	'dataProvider'=>$model->search(),
 	'filter'=>$model,

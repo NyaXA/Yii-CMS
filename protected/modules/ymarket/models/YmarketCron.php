@@ -5,6 +5,12 @@ class YmarketCron extends ActiveRecordModel
     const PAGE_SIZE = 10;
 
 
+    public function name()
+    {
+        return 'Фоновые задачи Яндекс-маркета';
+    }
+
+
 	public static function model($className=__CLASS__)
 	{
 		return parent::model($className);

@@ -5,6 +5,12 @@ class PageBlock extends ActiveRecordModel
     const PAGE_SIZE = 10;
 
 
+    public function name()
+    {
+        return 'Блоки страниц';
+    }
+
+
 	public static function model($className=__CLASS__)
 	{
 		return parent::model($className);

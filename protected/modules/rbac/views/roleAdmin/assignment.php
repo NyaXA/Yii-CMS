@@ -25,7 +25,7 @@ function rolesSelect($user)
 	return $html;
 }
 
-$this->widget('application.components.GridView', array(
+$this->widget('GridView', array(
 	'id' => 'assigment-grid',
 	'dataProvider' => $model->search(),
 	'filter'   => $model,

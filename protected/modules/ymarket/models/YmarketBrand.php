@@ -5,6 +5,12 @@ class YmarketBrand extends ActiveRecordModel
     const PAGE_SIZE = 10;
 
 
+    public function name()
+    {
+        return 'Бренды Яндекс-маркета';
+    }
+
+
 	public static function model($className=__CLASS__)
 	{
 		return parent::model($className);

@@ -5,6 +5,12 @@ class AuthAssignment extends ActiveRecordModel
 	const PHOTOS_DIR = 'upload/news';
 
 
+    public function name()
+    {
+        return 'Ассоциации ролей';
+    }
+
+
 	public static function model($className=__CLASS__)
 	{
 		return parent::model($className);

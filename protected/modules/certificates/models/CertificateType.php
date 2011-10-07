@@ -5,6 +5,12 @@ class CertificateType extends ActiveRecordModel
     const PAGE_SIZE = 10;
 
 
+    public function name()
+    {
+        return 'Типы сертификатов';
+    }
+
+
 	public static function model($className=__CLASS__)
 	{
 		return parent::model($className);

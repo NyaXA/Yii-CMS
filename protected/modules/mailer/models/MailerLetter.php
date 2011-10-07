@@ -7,6 +7,12 @@ class MailerLetter extends ActiveRecordModel
     const TEXT_PREVIEW_LENGTH = 150;
     
 
+    public function name()
+    {
+        return 'Отчеты о рассылках';
+    }
+
+
 	public static function model($className=__CLASS__)
 	{
 		return parent::model($className);

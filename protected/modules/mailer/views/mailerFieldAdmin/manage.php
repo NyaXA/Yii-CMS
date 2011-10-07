@@ -5,7 +5,7 @@ $this->tabs = array(
     'добавить поле' => $this->createUrl('create')
 );
 
-$this->widget('application.components.GridView', array(
+$this->widget('GridView', array(
 	'id' => 'mailer-field-grid',
 	'dataProvider' => $model->search(),
 	'filter' => $model,

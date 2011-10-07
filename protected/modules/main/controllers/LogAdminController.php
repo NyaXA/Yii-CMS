@@ -5,12 +5,12 @@ class LogAdminController extends AdminController
     public static function actionsTitles() 
     {
         return array(
-            "View" => "Просмотр логово"
+            "Manage" => "Управление логами"
         );    
     }
 
 
-    public function actionView()
+    public function actionManage()
     {
         $model = new Log('search');
         $model->unsetAttributes();
@@ -20,6 +20,6 @@ class LogAdminController extends AdminController
             $model->attributes = $_GET['Log'];
         }
 
-        $this->render('view', array('model' => $model));
+        $this->render('manage', array('model' => $model));
     }
 }

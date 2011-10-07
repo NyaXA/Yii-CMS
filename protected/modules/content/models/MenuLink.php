@@ -5,7 +5,13 @@ class MenuLink extends ActiveRecordModel
     const PAGE_SIZE = 10;
 
 	public $max_order;
-	
+
+
+    public function name()
+    {
+        return 'Ссылки меню';
+    }
+
 	
 	public static function model($className=__CLASS__)
 	{

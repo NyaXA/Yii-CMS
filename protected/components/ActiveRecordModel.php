@@ -1,6 +1,6 @@
 <?php
 
-class ActiveRecordModel extends CActiveRecord
+abstract class ActiveRecordModel extends CActiveRecord
 {
     const PATTERN_LAT_ALPHA = '/^[A-Za-z]+$/ui';
     
@@ -9,6 +9,9 @@ class ActiveRecordModel extends CActiveRecord
     const PATTERN_RULAT_ALPHA = '/^[а-яa-z]+$/ui';
 
     const PATTERN_RULAT_ALPHA_SPACES = '/^[а-яa-z ]+$/ui';
+
+
+    abstract public function name();
 
 
     public static function model($className = __CLASS__)
@@ -37,37 +40,6 @@ class ActiveRecordModel extends CActiveRecord
             )
         );
     }
-
-
-	public function __get($name)
-	{
-        try
-        {
-            return parent::__get($name);
-        }
-        catch (CException $e)
-        {
-            $method_name = StringHelper::underscoreToCamelcase($name);
-
-            if (method_exists($this, 'get' . ucfirst($method_name)))
-            {
-                return $this->$method_name;
-            }
-            else
-            {
-                $attr = StringHelper::camelCaseToUnderscore($name);
-                if (mb_substr($attr, 0, 4) == 'get_')
-                {
-                    $attr = mb_substr($attr, 4);
-                }
-
-                $attr = get_class($this) . '.' .$attr;
-
-
-                throw new CException('Не определено свойство ' . $attr);
-            }
-        }
-	}
 
 
     public function attributeLabels()
@@ -159,7 +131,59 @@ class ActiveRecordModel extends CActiveRecord
         }
     }
     /*___________________________________________________________________________________*/
-    
+
+
+    /*MAGIC METHODS______________________________________________________________________*/
+    public function __get($name)
+	{
+        try
+        {
+            return parent::__get($name);
+        }
+        catch (CException $e)
+        {
+            $method_name = StringHelper::underscoreToCamelcase($name);
+
+            if (method_exists($this, 'get' . ucfirst($method_name)))
+            {
+                return $this->$method_name;
+            }
+            else
+            {
+                $attr = StringHelper::camelCaseToUnderscore($name);
+                if (mb_substr($attr, 0, 4) == 'get_')
+                {
+                    $attr = mb_substr($attr, 4);
+                }
+
+                $attr = get_class($this) . '.' .$attr;
+
+
+                throw new CException('Не определено свойство ' . $attr);
+            }
+        }
+	}
+
+
+    public function __toString()
+    {
+        $attributes = array(
+            'name',
+            'title',
+            'description',
+            'id'
+        );
+
+        foreach ($attributes as $attribute)
+        {
+            if (isset($this->$attribute))
+            {
+                return $this->$attribute;
+            }
+        }
+    }
+    /*___________________________________________________________________________________*/
+
 
     /*SCOPES_____________________________________________________________________________*/
     public function scopes()

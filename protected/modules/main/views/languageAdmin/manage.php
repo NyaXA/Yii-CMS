@@ -5,7 +5,7 @@ $this->tabs = array(
     'добавить язык' => $this->createUrl('create')
 );
 
-$this->widget('application.components.GridView', array(
+$this->widget('GridView', array(
 	'id' => 'language-grid',
 	'dataProvider' => $model->search(),
 	'filter'   => $model,

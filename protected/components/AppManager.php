@@ -178,6 +178,49 @@ class AppManager
             return $module->name();
         }
     }
+
+
+    public static function getModels()
+    {
+        $result = array();
+
+        $modules_dirs = scandir(MODULES_PATH);
+        foreach ($modules_dirs as $module_dir)
+        {
+            if ($module_dir[0] == '.')
+            {
+                continue;
+            }
+
+            $module_class = ucfirst($module_dir) . 'Module';
+
+            if (!$module_class::$active)
+            {
+                continue;
+            }
+
+            $models_dir = MODULES_PATH . $module_dir . '/models';
+            if (!file_exists($models_dir))
+            {
+                continue;
+            }
+
+            $models_files = scandir($models_dir);
+            foreach ($models_files as $model_file)
+            {
+                if ($model_file[0] == '.')
+                {
+                    continue;
+                }
+
+                $model_class = str_replace('.php', null, $model_file);
+
+                $result[$model_class] = $model_class::name();
+            }
+        }
+
+        return $result;
+    }
 }
 
 

@@ -18,6 +18,12 @@ class News extends ActiveRecordModel
 		self::STATE_ACTIVE => 'Активна',
 		self::STATE_HIDDEN => 'Скрыта'
 	);
+
+
+    public function name()
+    {
+        return 'Новости';
+    }
 	
 	
 	public static function model($className=__CLASS__)

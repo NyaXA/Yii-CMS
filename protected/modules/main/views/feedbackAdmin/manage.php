@@ -1,7 +1,7 @@
 <?php $this->page_title = 'Управление сообщениями'; ?>
 
 <?php
-$this->widget('application.components.GridView', array(
+$this->widget('GridView', array(
 	'id'=>'feedback-grid',
 	'dataProvider'=>$model->search(),
 	'filter'=>$model,
