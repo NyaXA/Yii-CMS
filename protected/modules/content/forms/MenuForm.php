@@ -10,6 +10,6 @@ return array(
         'is_visible' => array('type' => 'checkbox')
     ),
     'buttons' => array(
-        'submit' => array('type' => 'submit', 'value' =>  $this->model->isNewRecord ? 'Далее' : 'Сохранить')
+        'submit' => array('type' => 'submit', 'value' =>  $this->model->isNewRecord ? 'Далее' : 'Сохранить'),
     )
 );

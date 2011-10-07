@@ -15,6 +15,6 @@ return array(
         'date'  => array('type' => 'date'),
     ),
     'buttons' => array(
-        'submit' => array('type' => 'submit', 'value' => $this->model->isNewRecord ? 'Создать' : 'Сохранить')
+        'submit' => array('type' => 'submit', 'value' => $this->model->isNewRecord ? 'Создать' : 'Сохранить'),
     ) 
 );

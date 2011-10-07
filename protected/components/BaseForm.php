@@ -12,13 +12,33 @@ class BaseForm extends CForm
         $this->model = $model;
 
         list($module, $form) = explode(".", $path, 2);
-        parent::__construct("application.modules.{$module}.forms.{$form}", $model);
+
+        $form_path = "application.modules.{$module}.forms.{$form}";
+
+
+        parent::__construct($form_path, $model);
     }
 
 
     public function __ToString()
     {
-        $tpl =  Yii::app()->controller instanceof AdminController ? '_adminForm' : '_form';
+        if (Yii::app()->controller instanceof AdminController)
+        {
+            $tpl = '_adminForm';
+
+            if (!$this->buttons->itemAt('back'))
+            {
+                $this->buttons->add("back", array(
+                    'type'  => 'button',
+                    'value' => 'Отмена',
+                    'url'   => Yii::app()->controller->createUrl('manage'), 'class' => 'back_button')
+                );
+            }
+        }
+        else
+        {
+            $tpl = '_form';
+        }
 
         if ($this->_clear)
         {

@@ -51,6 +51,6 @@ return array(
 	),
 	'elements' => $elements,
 	'buttons'  => array(
-		'submit' => array('type' => 'submit', 'value' => 'Отправить')
+		'submit' => array('type' => 'submit', 'value' => 'Отправить'),
 	)
 );

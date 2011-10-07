@@ -226,6 +226,10 @@ input.submit.long:hover {
     background: url(/images/admin/btnb_.gif) top center no-repeat;
 }
 
+input.back_button.submit.small {
+    background: url(/images/admin/btns_red.gif) top center no-repeat;
+}
+
 .form .editor {
 	border: 1px solid red;
 }

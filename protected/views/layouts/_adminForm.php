@@ -1,3 +1,13 @@
+<script type="text/javascript">
+    $(function()
+    {
+        $('.back_button').click(function()
+        {
+            location.href = $(this).attr('url');
+        });
+    });
+</script>
+
 <?php
 
 function addAttributesToElements(&$elements)
@@ -42,19 +52,22 @@ function addAttributesToButtons(&$buttons)
     {
         $length = mb_strlen($button->value, 'utf-8');
 
+        $class = isset($button->attributes['class']) ? $button->attributes['class'] . " submit" : "submit";
+
         if ($length > 11)
         {
-            $button->attributes['class'] = 'submit long';
+            $class.= ' long';
         }
         elseif ($length > 6)
         {
-            $button->attributes['class'] = 'submit mid';
+            $class.= ' mid';
         }
         else
         {
-            $button->attributes['class'] = 'submit small';
+            $class.= ' small';
         }
 
+        $button->attributes['class'] = $class;
 
         $buttons[$i] = $button;
     }

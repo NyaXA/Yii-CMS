@@ -14,6 +14,6 @@ return array(
 		'is_published' => array('type' => 'checkbox')
 	),
 	'buttons' => array(
-		'submit' => array('type' => 'submit', 'value' => 'Сохранить')
+		'submit' => array('type' => 'submit', 'value' => 'Сохранить'),
 	)
 );

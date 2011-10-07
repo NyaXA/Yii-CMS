@@ -28,6 +28,6 @@ return array(
 		'in_sidebar' => array('type' => 'checkbox')
     ),
     'buttons' => array(
-        'submit' => array('type' => 'submit', 'value' => $this->model->isNewRecord ? 'Создать' : 'Сохранить')
+        'submit' => array('type' => 'submit', 'value' => $this->model->isNewRecord ? 'Создать' : 'Сохранить'),
     )
 );

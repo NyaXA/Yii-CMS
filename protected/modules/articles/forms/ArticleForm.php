@@ -17,6 +17,6 @@ return array(
         'files' => array('type' => 'file_manager')
 	),
 	'buttons' => array(
-		'submit' => array('type' => 'submit', 'value' => $this->model->isNewRecord ? 'Создать' : 'Сохранить')
+		'submit' => array('type' => 'submit', 'value' => $this->model->isNewRecord ? 'Создать' : 'Сохранить'),
 	)
 );
