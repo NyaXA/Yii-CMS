@@ -502,20 +502,21 @@
             $.blueimp.fileupload.prototype._initEventHandlers.call(this);
             var filesList = this.element.find('.files'),
                 eventData = {fileupload: this};
-            filesList.find('.start button')
-                .live(
+            filesList
+                .delegate(
+                    '.start button',
                     'click.' + this.options.namespace,
                     eventData,
                     this._startHandler
-                );
-            filesList.find('.cancel button')
-                .live(
+                )
+                .delegate(
+                    '.cancel button',
                     'click.' + this.options.namespace,
                     eventData,
                     this._cancelHandler
-                );
-            filesList.find('.delete button')
-                .live(
+                )
+                .delegate(
+                    '.delete button',
                     'click.' + this.options.namespace,
                     eventData,
                     this._deleteHandler
