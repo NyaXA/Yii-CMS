@@ -4,12 +4,16 @@ abstract class BaseController extends CController
 {
 	public $layout='//layouts/main';
 
-    public $page_title = '';
+    public $page_title;
 
-    public $meta_title = '';
+    public $meta_title;
+
+    public $meta_description;
+
+    public $meta_keywords;
 
     public $crumbs = array();
-    
+
     abstract public static function actionsTitles();
     
     
