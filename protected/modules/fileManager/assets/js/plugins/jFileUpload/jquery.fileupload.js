@@ -444,7 +444,7 @@
             options.result = result;
             options.textStatus = textStatus;
             options.jqXHR = jqXHR;
-            this.done(options);
+            this._trigger('done', null, options);
         },
 
         _onFail: function (jqXHR, textStatus, errorThrown, options) {
@@ -459,7 +459,6 @@
                 this._total -= options.total || this._getTotal(options.files);
             }
         },
-        done: function() {},
 
         _onAlways: function (result, textStatus, jqXHR, errorThrown, options) {
             this._active -= 1;
