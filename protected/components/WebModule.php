@@ -2,9 +2,9 @@
 
 
 abstract class WebModule extends CWebModule
-{	
-	public static $active = true;
-	
+{
+    public static $active = true;
+
     public static $base_module = false;
 
     public static abstract function name();
@@ -13,29 +13,32 @@ abstract class WebModule extends CWebModule
 
     public static abstract function version();
 
-    protected  $_assetsUrl;
+    protected $_assetsUrl;
 
 
     public function assetsUrl()
     {
-        
+
         if ($this->_assetsUrl === null)
         {
             $class = str_replace('Module', '', get_class($this));
-            if(function_exists('lcfirst') === true) { //PHP 5.3
+            if (function_exists('lcfirst') === true) //PHP 5.3
+            {
                 $class = lcfirst($class);
-            } else {
+            }
+            else
+            {
                 $class[0] = strtolower($class[0]);
             }
 
-            $path  = Yii::getPathOfAlias($class . '.assets');
+            $path = Yii::getPathOfAlias($class . '.assets');
 
             if ($path)
             {
                 $this->_assetsUrl = Yii::app()->getAssetManager()->publish($path);
             }
         }
-        
+
         return $this->_assetsUrl;
     }
 

@@ -50,9 +50,6 @@ class Uploader extends CJuiWidget
 
     public function initVars()
     {
-        if ($this->id === null)
-            throw new CException('Параметр id является обязательным');
-
         if ($this->model === null)
             throw new CException('Параметр model является обязательным');
 
@@ -62,6 +59,7 @@ class Uploader extends CJuiWidget
         if ($this->tag === null)
             throw new CException('Параметр tag является обязательным');
 
+        $this->id = 'uploader_'.get_class($this->model).$this->tag;
         $this->assets = Yii::app()->getModule('fileManager')->assetsUrl();
 
         $this->uploadUrl = UploadHtml::url('fileManagerAdmin/upload', array(
@@ -91,6 +89,7 @@ class Uploader extends CJuiWidget
 
     public function registerScripts()
     {
+
         $plugins = $this->assets.'/js/plugins/';
         Yii::app()->clientScript
             ->registerCoreScript('jquery.ui')

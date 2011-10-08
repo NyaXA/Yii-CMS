@@ -89,7 +89,8 @@ class News extends ActiveRecordModel
                 self::HAS_MANY,
                 'FileManager',
                 'object_id',
-                'condition' => 'model_id = "'. get_class($this) .'"'
+                'condition' => 'files.model_id = "'. get_class($this) .'" AND files.tag="images"',
+                'order' => 'files.order DESC'
             )
 		);
 	}
