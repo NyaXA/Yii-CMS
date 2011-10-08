@@ -21,7 +21,13 @@ abstract class WebModule extends CWebModule
         
         if ($this->_assetsUrl === null)
         {
-            $class = lcfirst(str_replace('Module', '', get_class($this)));
+            $class = str_replace('Module', '', get_class($this));
+            if(function_exists('lcfirst') === true) { //PHP 5.3
+                $class = lcfirst($class);
+            } else {
+                $class[0] = strtolower($class[0]);
+            }
+
             $path  = Yii::getPathOfAlias($class . '.assets');
 
             if ($path)
