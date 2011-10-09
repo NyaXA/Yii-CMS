@@ -37,7 +37,7 @@ class MetaTag extends ActiveRecordModel
 	public function rules()
 	{
 		return array(
-			array('model_id, tag, static_value', 'required'),
+			array('model_id, tag', 'required'),
 			array('object_id, tag', 'length', 'max' => 11),
 			array('model_id', 'length', 'max' => 50),
 			array('static_value, dynamic_value', 'length', 'max' => 500),
@@ -49,8 +49,7 @@ class MetaTag extends ActiveRecordModel
 
 	public function relations()
 	{
-		return array(
-		);
+		return array();
 	}
 
 
@@ -68,4 +67,17 @@ class MetaTag extends ActiveRecordModel
 			'criteria' => $criteria
 		));
 	}
+
+
+    public function getObject()
+    {
+        if (!$this->object_id)
+        {
+            return;
+        }
+
+        $model = $this->model_id;
+
+        return $model::model()->findByPk($this->object_id);
+    }
 }

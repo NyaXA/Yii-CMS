@@ -21,6 +21,7 @@ abstract class BaseController extends CController
     {
         parent::init();
         $this->initLanguage();
+        $this->initMetaTags();
     }
 
 
@@ -36,6 +37,12 @@ abstract class BaseController extends CController
 		{
 			Yii::app()->session['language'] = Yii::app()->language;
 		}
+    }
+
+
+    private function initMetaTags()
+    {
+
     }
     
 

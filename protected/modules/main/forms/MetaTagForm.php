@@ -1,6 +1,6 @@
 <?php
 
-$models = AppManager::getModels();
+$models = AppManager::getModels(array('meta_tags' => true));
 
 return array(
     'activeForm' => array(
@@ -17,10 +17,17 @@ return array(
             'items'  => $models,
             'prompt' => 'не выбрана'
         ),
-        'object_id' => array('type' => 'dropdownlist', 'label' => 'Объект'),
-        'tag' => array('type' => 'dropdownlist', 'items' => MetaTag::$tags),
+        'object_id' => array(
+            'type'  => 'dropdownlist',
+            'label' => 'Объект'
+        ),
+        'tag' => array(
+            'type'  => 'dropdownlist',
+            'items' => MetaTag::$tags
+        ),
         'static_value' => array('type' => 'textarea'),
         'dynamic_value' => array('type' => 'textarea'),
+        'id' => array('type' => 'hidden')
 
     ),
     'buttons' => array(

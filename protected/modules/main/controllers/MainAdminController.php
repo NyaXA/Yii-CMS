@@ -10,8 +10,7 @@ class MainAdminController extends AdminController
             'ChangeOrder'      => 'Сортировка',
             'SessionPerPage'   => 'Установки кол-ва элементов на странице',
             'SessionLanguage'  => 'Установка языка',
-            'AdminLinkProcess' => 'Переход по ссылке в админ панель',
-            'GetModelObjects'  => 'Получить объекты модели'
+            'AdminLinkProcess' => 'Переход по ссылке в админ панель'
         );
     }    
     
@@ -69,21 +68,6 @@ class MainAdminController extends AdminController
     {
         Yii::app()->session['admin_panel_lang'] = Yii::app()->session['language'];
         $this->redirect($_GET['url']);
-    }
-
-
-    public function actionGetModelObjects($model_id)
-    {
-        $result  = array();
-        $model   = $model_id::model();
-        $objects = $model->findAll();
-
-        foreach ($objects as $i => $object)
-        {
-            $result[$object->id] = (string) $object;
-        }
-
-        echo CJSON::encode($result);
     }
 }
 

@@ -180,7 +180,7 @@ class AppManager
     }
 
 
-    public static function getModels()
+    public static function getModels($params = array())
     {
         $result = array();
 
@@ -214,6 +214,14 @@ class AppManager
                 }
 
                 $model_class = str_replace('.php', null, $model_file);
+
+                if (array_key_exists('meta_tags', $params))
+                {
+                    if ($model_class::$meta_tags !== $params['meta_tags'])
+                    {
+                        continue;
+                    }
+                }
 
                 $result[$model_class] = $model_class::name();
             }

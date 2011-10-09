@@ -12,7 +12,9 @@ class News extends ActiveRecordModel
     const PHOTO_SMALL_WIDTH  = "230";
     const PHOTO_SMALL_HEIGHT = "200";
     const PHOTO_BIG_WIDTH    = "580";
-	
+
+    public static $meta_tags = true;
+
     
 	public static $states = array(
 		self::STATE_ACTIVE => 'Активна',

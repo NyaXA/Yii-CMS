@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 3.3.7
+-- version 3.2.3
 -- http://www.phpmyadmin.net
 --
--- Хост: localhost
--- Время создания: Окт 07 2011 г., 22:37
--- Версия сервера: 5.1.49
--- Версия PHP: 5.3.3-1ubuntu9.5
+-- Host: localhost
+-- Generation Time: Oct 10, 2011 at 12:26 AM
+-- Server version: 5.1.54
+-- PHP Version: 5.3.5-1ubuntu7.2
 
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 
@@ -16,13 +16,13 @@ SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 /*!40101 SET NAMES utf8 */;
 
 --
--- База данных: `yii_cms`
+-- Database: `yii_cms`
 --
 
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `actions`
+-- Table structure for table `actions`
 --
 
 CREATE TABLE IF NOT EXISTS `actions` (
@@ -39,14 +39,14 @@ CREATE TABLE IF NOT EXISTS `actions` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 --
--- Дамп данных таблицы `actions`
+-- Dumping data for table `actions`
 --
 
 
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `actions_files`
+-- Table structure for table `actions_files`
 --
 
 CREATE TABLE IF NOT EXISTS `actions_files` (
@@ -59,14 +59,14 @@ CREATE TABLE IF NOT EXISTS `actions_files` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 --
--- Дамп данных таблицы `actions_files`
+-- Dumping data for table `actions_files`
 --
 
 
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `articles`
+-- Table structure for table `articles`
 --
 
 CREATE TABLE IF NOT EXISTS `articles` (
@@ -83,7 +83,7 @@ CREATE TABLE IF NOT EXISTS `articles` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
 
 --
--- Дамп данных таблицы `articles`
+-- Dumping data for table `articles`
 --
 
 INSERT INTO `articles` (`id`, `lang`, `section_id`, `title`, `text`, `date`, `date_create`) VALUES
@@ -92,7 +92,7 @@ INSERT INTO `articles` (`id`, `lang`, `section_id`, `title`, `text`, `date`, `da
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `articles_sections`
+-- Table structure for table `articles_sections`
 --
 
 CREATE TABLE IF NOT EXISTS `articles_sections` (
@@ -109,7 +109,7 @@ CREATE TABLE IF NOT EXISTS `articles_sections` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
 
 --
--- Дамп данных таблицы `articles_sections`
+-- Dumping data for table `articles_sections`
 --
 
 INSERT INTO `articles_sections` (`id`, `lang`, `parent_id`, `name`, `date_create`, `in_sidebar`) VALUES
@@ -118,7 +118,7 @@ INSERT INTO `articles_sections` (`id`, `lang`, `parent_id`, `name`, `date_create
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `AuthAssignment`
+-- Table structure for table `AuthAssignment`
 --
 
 CREATE TABLE IF NOT EXISTS `AuthAssignment` (
@@ -131,7 +131,7 @@ CREATE TABLE IF NOT EXISTS `AuthAssignment` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Дамп данных таблицы `AuthAssignment`
+-- Dumping data for table `AuthAssignment`
 --
 
 INSERT INTO `AuthAssignment` (`itemname`, `userid`, `bizrule`, `data`) VALUES
@@ -142,7 +142,7 @@ INSERT INTO `AuthAssignment` (`itemname`, `userid`, `bizrule`, `data`) VALUES
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `AuthItem`
+-- Table structure for table `AuthItem`
 --
 
 CREATE TABLE IF NOT EXISTS `AuthItem` (
@@ -156,7 +156,7 @@ CREATE TABLE IF NOT EXISTS `AuthItem` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Дамп данных таблицы `AuthItem`
+-- Dumping data for table `AuthItem`
 --
 
 INSERT INTO `AuthItem` (`name`, `type`, `description`, `bizrule`, `data`, `allow_for_all`) VALUES
@@ -380,7 +380,7 @@ INSERT INTO `AuthItem` (`name`, `type`, `description`, `bizrule`, `data`, `allow
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `AuthItemChild`
+-- Table structure for table `AuthItemChild`
 --
 
 CREATE TABLE IF NOT EXISTS `AuthItemChild` (
@@ -391,7 +391,7 @@ CREATE TABLE IF NOT EXISTS `AuthItemChild` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Дамп данных таблицы `AuthItemChild`
+-- Dumping data for table `AuthItemChild`
 --
 
 INSERT INTO `AuthItemChild` (`parent`, `child`) VALUES
@@ -524,7 +524,65 @@ INSERT INTO `AuthItemChild` (`parent`, `child`) VALUES
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `cities`
+-- Table structure for table `certificates_groups`
+--
+
+CREATE TABLE IF NOT EXISTS `certificates_groups` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) NOT NULL DEFAULT '' COMMENT 'Название',
+  `date_create` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT 'Добавлена',
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `name` (`name`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=15 ;
+
+--
+-- Dumping data for table `certificates_groups`
+--
+
+INSERT INTO `certificates_groups` (`id`, `name`, `date_create`) VALUES
+(5, 'Низкое напряжение', '2011-09-21 01:45:52'),
+(6, 'Автоматизация зданий', '2011-09-21 01:45:52'),
+(7, 'Электрооборудование для промышленных установок', '2011-09-21 01:45:52'),
+(8, 'Электроустановочные изделия', '2011-09-21 01:45:52'),
+(9, 'Кабеленесущие системы', '2011-09-21 01:45:52'),
+(10, 'Приводная техника', '2011-09-21 01:45:52'),
+(11, 'Сетевые фильтры и ИБП однофазные', '2011-09-21 01:45:52'),
+(12, 'Промышленная автоматизация', '2011-09-21 01:45:52'),
+(13, 'ИБП трехфазные и  инженерная инфраструктура', '2011-09-21 01:45:52');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `certificates_types`
+--
+
+CREATE TABLE IF NOT EXISTS `certificates_types` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(50) NOT NULL DEFAULT '' COMMENT 'Тип',
+  `date_create` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT 'Добавлен',
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `name` (`name`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=11 ;
+
+--
+-- Dumping data for table `certificates_types`
+--
+
+INSERT INTO `certificates_types` (`id`, `name`, `date_create`) VALUES
+(1, 'ГОСТ', '2011-09-21 01:45:58'),
+(2, 'ПожБ', '2011-09-21 01:45:58'),
+(3, 'Метр', '2011-09-21 01:45:58'),
+(4, 'РТН', '2011-09-21 01:45:58'),
+(5, 'АЭС', '2011-09-21 01:45:58'),
+(6, 'РМРС', '2011-09-21 01:45:58'),
+(7, 'РРР', '2011-09-21 01:45:58'),
+(8, 'СЭЗ', '2011-09-21 01:45:58'),
+(9, 'Минсвязь', '2011-09-21 01:45:58');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `cities`
 --
 
 CREATE TABLE IF NOT EXISTS `cities` (
@@ -535,7 +593,7 @@ CREATE TABLE IF NOT EXISTS `cities` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=22 ;
 
 --
--- Дамп данных таблицы `cities`
+-- Dumping data for table `cities`
 --
 
 INSERT INTO `cities` (`id`, `name`) VALUES
@@ -557,7 +615,7 @@ INSERT INTO `cities` (`id`, `name`) VALUES
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `countries`
+-- Table structure for table `countries`
 --
 
 CREATE TABLE IF NOT EXISTS `countries` (
@@ -568,7 +626,7 @@ CREATE TABLE IF NOT EXISTS `countries` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=352 ;
 
 --
--- Дамп данных таблицы `countries`
+-- Dumping data for table `countries`
 --
 
 INSERT INTO `countries` (`id`, `name`) VALUES
@@ -854,7 +912,7 @@ INSERT INTO `countries` (`id`, `name`) VALUES
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `documents`
+-- Table structure for table `documents`
 --
 
 CREATE TABLE IF NOT EXISTS `documents` (
@@ -870,14 +928,14 @@ CREATE TABLE IF NOT EXISTS `documents` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 --
--- Дамп данных таблицы `documents`
+-- Dumping data for table `documents`
 --
 
 
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `documents_files`
+-- Table structure for table `documents_files`
 --
 
 CREATE TABLE IF NOT EXISTS `documents_files` (
@@ -891,14 +949,14 @@ CREATE TABLE IF NOT EXISTS `documents_files` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 --
--- Дамп данных таблицы `documents_files`
+-- Dumping data for table `documents_files`
 --
 
 
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `faq`
+-- Table structure for table `faq`
 --
 
 CREATE TABLE IF NOT EXISTS `faq` (
@@ -923,14 +981,14 @@ CREATE TABLE IF NOT EXISTS `faq` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 --
--- Дамп данных таблицы `faq`
+-- Dumping data for table `faq`
 --
 
 
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `faq_sections`
+-- Table structure for table `faq_sections`
 --
 
 CREATE TABLE IF NOT EXISTS `faq_sections` (
@@ -944,14 +1002,14 @@ CREATE TABLE IF NOT EXISTS `faq_sections` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 --
--- Дамп данных таблицы `faq_sections`
+-- Dumping data for table `faq_sections`
 --
 
 
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `feedback`
+-- Table structure for table `feedback`
 --
 
 CREATE TABLE IF NOT EXISTS `feedback` (
@@ -969,7 +1027,7 @@ CREATE TABLE IF NOT EXISTS `feedback` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=17 ;
 
 --
--- Дамп данных таблицы `feedback`
+-- Dumping data for table `feedback`
 --
 
 INSERT INTO `feedback` (`id`, `first_name`, `last_name`, `patronymic`, `company`, `position`, `phone`, `email`, `comment`, `date_create`) VALUES
@@ -993,7 +1051,7 @@ INSERT INTO `feedback` (`id`, `first_name`, `last_name`, `patronymic`, `company`
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `file_manager`
+-- Table structure for table `file_manager`
 --
 
 CREATE TABLE IF NOT EXISTS `file_manager` (
@@ -1006,28 +1064,17 @@ CREATE TABLE IF NOT EXISTS `file_manager` (
   `descr` text COMMENT 'Описание',
   `order` int(11) unsigned NOT NULL COMMENT 'Порядок',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=62 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 --
--- Дамп данных таблицы `file_manager`
+-- Dumping data for table `file_manager`
 --
 
-INSERT INTO `file_manager` (`id`, `object_id`, `model_id`, `name`, `tag`, `title`, `descr`, `order`) VALUES
-(51, '2', 'Article', 'be48290ec8a1091914a0b527f9861ec8.jpg', 'files', 'DSCN2060(www.CoolWallpapers.org)-1280x1024.JPG', NULL, 3),
-(52, '2', 'Article', '5b9c9990ef6c3d8abbe2ba8df9c5f0b1.png', 'files', 'GNOME-210SimpleAndElegant_1280x1024.png', NULL, 4),
-(53, '2', 'Article', '567a3d0a0c5076de985b104e7346c093.jpg', 'files', 'DSCN2060(www.CoolWallpapers.org)-1280x10242.JPG', NULL, 5),
-(55, '3', 'News', '7406eb9af4b7c6d0b1dae91773e93e56.xls', 'files', 'yoyoyoyo.xls', NULL, 1),
-(56, '3', 'News', '87c48d6edd0257c5b29a7af1d8788037.jpg', 'files', 'OTHER-SmolovSummer2004_1024x768.jpg', NULL, 2),
-(57, '3', 'News', '30a471e624bcb9c2d25180d4959a2c8c.zip', 'files', 'tinymce_elfinder.zip', NULL, 3),
-(58, '3', 'News', 'f8eb359355011420e8013044e3e63006.jpg', 'files', 'DSCN2060(www.CoolWallpapers.org)-1280x10242.JPG', NULL, 4),
-(59, '3', 'News', '522e9cac6dd527eba0d0e172c4a902d9.jpg', 'files', 'DSCN2060(www.CoolWallpapers.org)-1280x1024.JPG', NULL, 5),
-(60, '3', 'News', 'fe7e1ddcb64ac44c4fed0dd7c8e397e5.jpg', 'files', 'NATURE-AtTheEdgeOfAtmosphere_1024x768.jpg', NULL, 6),
-(61, '3', 'News', '7d9430e1f54dd447c9011c933d82145e.jpg', 'files', 'NATURE-AtTheEdgeOfAtmosphere_1024x768.jpg', NULL, 7);
 
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `languages`
+-- Table structure for table `languages`
 --
 
 CREATE TABLE IF NOT EXISTS `languages` (
@@ -1038,7 +1085,7 @@ CREATE TABLE IF NOT EXISTS `languages` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Дамп данных таблицы `languages`
+-- Dumping data for table `languages`
 --
 
 INSERT INTO `languages` (`id`, `name`) VALUES
@@ -1048,7 +1095,7 @@ INSERT INTO `languages` (`id`, `name`) VALUES
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `log`
+-- Table structure for table `log`
 --
 
 CREATE TABLE IF NOT EXISTS `log` (
@@ -1058,17 +1105,202 @@ CREATE TABLE IF NOT EXISTS `log` (
   `logtime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT 'Время',
   `message` text COMMENT 'Сообщение',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=182 ;
 
 --
--- Дамп данных таблицы `log`
+-- Dumping data for table `log`
 --
 
+INSERT INTO `log` (`id`, `level`, `category`, `logtime`, `message`) VALUES
+(1, 'error', 'exception.CHttpException.404', '2011-10-08 00:08:06', 'exception ''CHttpException'' with message ''Невозможно обработать запрос "favicon.ico".'' in /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php:332\nStack trace:\n#0 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(121): CWebApplication->runController(''favicon.ico'')\n#1 /var/www/Yii-CMS/protected/libs/yii/base/CApplication.php(155): CWebApplication->processRequest()\n#2 /var/www/Yii-CMS/index.php(30): CApplication->run()\n#3 {main} REQUEST_URI=/favicon.ico'),
+(2, 'warning', 'application', '2011-10-08 00:16:47', 'Не удалось присвоить небезопасный атрибут "remember_me".\nin /var/www/Yii-CMS/protected/modules/users/controllers/UserAdminController.php (36)\nin /var/www/Yii-CMS/index.php (30)'),
+(3, 'error', 'exception.CHttpException.404', '2011-10-08 00:16:49', 'exception ''CHttpException'' with message ''Невозможно обработать запрос "favicon.ico".'' in /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php:332\nStack trace:\n#0 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(121): CWebApplication->runController(''favicon.ico'')\n#1 /var/www/Yii-CMS/protected/libs/yii/base/CApplication.php(155): CWebApplication->processRequest()\n#2 /var/www/Yii-CMS/index.php(30): CApplication->run()\n#3 {main} REQUEST_URI=/favicon.ico'),
+(4, 'error', 'exception.CHttpException.404', '2011-10-08 00:17:00', 'exception ''CHttpException'' with message ''Невозможно обработать запрос "favicon.ico".'' in /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php:332\nStack trace:\n#0 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(121): CWebApplication->runController(''favicon.ico'')\n#1 /var/www/Yii-CMS/protected/libs/yii/base/CApplication.php(155): CWebApplication->processRequest()\n#2 /var/www/Yii-CMS/index.php(30): CApplication->run()\n#3 {main} REQUEST_URI=/favicon.ico'),
+(5, 'error', 'exception.CHttpException.404', '2011-10-08 00:17:04', 'exception ''CHttpException'' with message ''Невозможно обработать запрос "favicon.ico".'' in /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php:332\nStack trace:\n#0 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(121): CWebApplication->runController(''favicon.ico'')\n#1 /var/www/Yii-CMS/protected/libs/yii/base/CApplication.php(155): CWebApplication->processRequest()\n#2 /var/www/Yii-CMS/index.php(30): CApplication->run()\n#3 {main} REQUEST_URI=/favicon.ico'),
+(6, 'error', 'exception.CHttpException.404', '2011-10-08 00:17:10', 'exception ''CHttpException'' with message ''Невозможно обработать запрос "favicon.ico".'' in /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php:332\nStack trace:\n#0 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(121): CWebApplication->runController(''favicon.ico'')\n#1 /var/www/Yii-CMS/protected/libs/yii/base/CApplication.php(155): CWebApplication->processRequest()\n#2 /var/www/Yii-CMS/index.php(30): CApplication->run()\n#3 {main} REQUEST_URI=/favicon.ico'),
+(7, 'error', 'exception.CHttpException.404', '2011-10-08 00:19:35', 'exception ''CHttpException'' with message ''Невозможно обработать запрос "favicon.ico".'' in /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php:332\nStack trace:\n#0 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(121): CWebApplication->runController(''favicon.ico'')\n#1 /var/www/Yii-CMS/protected/libs/yii/base/CApplication.php(155): CWebApplication->processRequest()\n#2 /var/www/Yii-CMS/index.php(30): CApplication->run()\n#3 {main} REQUEST_URI=/favicon.ico'),
+(8, 'error', 'exception.CHttpException.404', '2011-10-08 00:19:39', 'exception ''CHttpException'' with message ''Невозможно обработать запрос "favicon.ico".'' in /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php:332\nStack trace:\n#0 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(121): CWebApplication->runController(''favicon.ico'')\n#1 /var/www/Yii-CMS/protected/libs/yii/base/CApplication.php(155): CWebApplication->processRequest()\n#2 /var/www/Yii-CMS/index.php(30): CApplication->run()\n#3 {main} REQUEST_URI=/favicon.ico'),
+(9, 'error', 'exception.CHttpException.404', '2011-10-08 00:20:17', 'exception ''CHttpException'' with message ''Невозможно обработать запрос "favicon.ico".'' in /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php:332\nStack trace:\n#0 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(121): CWebApplication->runController(''favicon.ico'')\n#1 /var/www/Yii-CMS/protected/libs/yii/base/CApplication.php(155): CWebApplication->processRequest()\n#2 /var/www/Yii-CMS/index.php(30): CApplication->run()\n#3 {main} REQUEST_URI=/favicon.ico'),
+(10, 'error', 'exception.CException', '2011-10-08 00:21:38', 'exception ''CException'' with message ''Контроллер LogAdminController не может найти представление "view".'' in /var/www/Yii-CMS/protected/libs/yii/web/CController.php:875\nStack trace:\n#0 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(779): CController->renderPartial(''view'', Array, true)\n#1 /var/www/Yii-CMS/protected/modules/main/controllers/LogAdminController.php(23): CController->render(''view'', Array)\n#2 /var/www/Yii-CMS/protected/libs/yii/web/actions/CInlineAction.php(50): LogAdminController->actionView()\n#3 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(300): CInlineAction->runWithParams(Array)\n#4 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(278): CController->runAction(Object(CInlineAction))\n#5 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(257): CController->runActionWithFilters(Object(CInlineAction), Array)\n#6 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(328): CController->run(''view'')\n#7 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(121): CWebApplication->runController(''main/logAdmin/v...'')\n#8 /var/www/Yii-CMS/protected/libs/yii/base/CApplication.php(155): CWebApplication->processRequest()\n#9 /var/www/Yii-CMS/index.php(30): CApplication->run()\n#10 {main} REQUEST_URI=/main/logAdmin/view'),
+(11, 'error', 'exception.CHttpException.404', '2011-10-08 00:21:39', 'exception ''CHttpException'' with message ''Невозможно обработать запрос "favicon.ico".'' in /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php:332\nStack trace:\n#0 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(121): CWebApplication->runController(''favicon.ico'')\n#1 /var/www/Yii-CMS/protected/libs/yii/base/CApplication.php(155): CWebApplication->processRequest()\n#2 /var/www/Yii-CMS/index.php(30): CApplication->run()\n#3 {main} REQUEST_URI=/favicon.ico'),
+(12, 'error', 'exception.CHttpException.404', '2011-10-08 00:22:35', 'exception ''CHttpException'' with message ''Системе не удалось найти запрашиваемое действие "view".'' in /var/www/Yii-CMS/protected/libs/yii/web/CController.php:477\nStack trace:\n#0 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(262): CController->missingAction(''view'')\n#1 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(328): CController->run(''view'')\n#2 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(121): CWebApplication->runController(''main/logAdmin/v...'')\n#3 /var/www/Yii-CMS/protected/libs/yii/base/CApplication.php(155): CWebApplication->processRequest()\n#4 /var/www/Yii-CMS/index.php(30): CApplication->run()\n#5 {main} REQUEST_URI=/main/logAdmin/view'),
+(13, 'error', 'exception.CHttpException.404', '2011-10-08 00:22:36', 'exception ''CHttpException'' with message ''Невозможно обработать запрос "favicon.ico".'' in /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php:332\nStack trace:\n#0 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(121): CWebApplication->runController(''favicon.ico'')\n#1 /var/www/Yii-CMS/protected/libs/yii/base/CApplication.php(155): CWebApplication->processRequest()\n#2 /var/www/Yii-CMS/index.php(30): CApplication->run()\n#3 {main} REQUEST_URI=/favicon.ico'),
+(14, 'error', 'exception.CHttpException.404', '2011-10-08 00:22:47', 'exception ''CHttpException'' with message ''Системе не удалось найти запрашиваемое действие "view".'' in /var/www/Yii-CMS/protected/libs/yii/web/CController.php:477\nStack trace:\n#0 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(262): CController->missingAction(''view'')\n#1 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(328): CController->run(''view'')\n#2 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(121): CWebApplication->runController(''main/logAdmin/v...'')\n#3 /var/www/Yii-CMS/protected/libs/yii/base/CApplication.php(155): CWebApplication->processRequest()\n#4 /var/www/Yii-CMS/index.php(30): CApplication->run()\n#5 {main} REQUEST_URI=/main/logAdmin/view'),
+(15, 'error', 'exception.CHttpException.404', '2011-10-08 00:22:48', 'exception ''CHttpException'' with message ''Невозможно обработать запрос "favicon.ico".'' in /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php:332\nStack trace:\n#0 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(121): CWebApplication->runController(''favicon.ico'')\n#1 /var/www/Yii-CMS/protected/libs/yii/base/CApplication.php(155): CWebApplication->processRequest()\n#2 /var/www/Yii-CMS/index.php(30): CApplication->run()\n#3 {main} REQUEST_URI=/favicon.ico'),
+(16, 'error', 'exception.CHttpException.404', '2011-10-08 00:22:50', 'exception ''CHttpException'' with message ''Невозможно обработать запрос "favicon.ico".'' in /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php:332\nStack trace:\n#0 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(121): CWebApplication->runController(''favicon.ico'')\n#1 /var/www/Yii-CMS/protected/libs/yii/base/CApplication.php(155): CWebApplication->processRequest()\n#2 /var/www/Yii-CMS/index.php(30): CApplication->run()\n#3 {main} REQUEST_URI=/favicon.ico'),
+(17, 'error', 'exception.CHttpException.Не найден заголовок для дейсвия Manage', '2011-10-08 00:22:52', 'exception ''CHttpException'' in /var/www/Yii-CMS/protected/components/BaseController.php:63\nStack trace:\n#0 /var/www/Yii-CMS/protected/components/BaseController.php(51): BaseController->setTitleAndSaveSiteAction(Object(CInlineAction))\n#1 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(298): BaseController->beforeAction(Object(CInlineAction))\n#2 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(278): CController->runAction(Object(CInlineAction))\n#3 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(257): CController->runActionWithFilters(Object(CInlineAction), Array)\n#4 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(328): CController->run(''manage'')\n#5 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(121): CWebApplication->runController(''main/logAdmin/m...'')\n#6 /var/www/Yii-CMS/protected/libs/yii/base/CApplication.php(155): CWebApplication->processRequest()\n#7 /var/www/Yii-CMS/index.php(30): CApplication->run()\n#8 {main} REQUEST_URI=/main/logAdmin/manage'),
+(18, 'error', 'exception.CHttpException.404', '2011-10-08 00:22:52', 'exception ''CHttpException'' with message ''Невозможно обработать запрос "favicon.ico".'' in /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php:332\nStack trace:\n#0 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(121): CWebApplication->runController(''favicon.ico'')\n#1 /var/www/Yii-CMS/protected/libs/yii/base/CApplication.php(155): CWebApplication->processRequest()\n#2 /var/www/Yii-CMS/index.php(30): CApplication->run()\n#3 {main} REQUEST_URI=/favicon.ico'),
+(19, 'error', 'exception.CException', '2011-10-08 00:22:59', 'exception ''CException'' with message ''Контроллер LogAdminController не может найти представление "view".'' in /var/www/Yii-CMS/protected/libs/yii/web/CController.php:875\nStack trace:\n#0 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(779): CController->renderPartial(''view'', Array, true)\n#1 /var/www/Yii-CMS/protected/modules/main/controllers/LogAdminController.php(23): CController->render(''view'', Array)\n#2 /var/www/Yii-CMS/protected/libs/yii/web/actions/CInlineAction.php(50): LogAdminController->actionManage()\n#3 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(300): CInlineAction->runWithParams(Array)\n#4 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(278): CController->runAction(Object(CInlineAction))\n#5 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(257): CController->runActionWithFilters(Object(CInlineAction), Array)\n#6 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(328): CController->run(''manage'')\n#7 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(121): CWebApplication->runController(''main/logAdmin/m...'')\n#8 /var/www/Yii-CMS/protected/libs/yii/base/CApplication.php(155): CWebApplication->processRequest()\n#9 /var/www/Yii-CMS/index.php(30): CApplication->run()\n#10 {main} REQUEST_URI=/main/logAdmin/manage'),
+(20, 'error', 'exception.CHttpException.404', '2011-10-08 00:23:00', 'exception ''CHttpException'' with message ''Невозможно обработать запрос "favicon.ico".'' in /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php:332\nStack trace:\n#0 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(121): CWebApplication->runController(''favicon.ico'')\n#1 /var/www/Yii-CMS/protected/libs/yii/base/CApplication.php(155): CWebApplication->processRequest()\n#2 /var/www/Yii-CMS/index.php(30): CApplication->run()\n#3 {main} REQUEST_URI=/favicon.ico'),
+(21, 'error', 'exception.CHttpException.404', '2011-10-08 00:23:06', 'exception ''CHttpException'' with message ''Невозможно обработать запрос "favicon.ico".'' in /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php:332\nStack trace:\n#0 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(121): CWebApplication->runController(''favicon.ico'')\n#1 /var/www/Yii-CMS/protected/libs/yii/base/CApplication.php(155): CWebApplication->processRequest()\n#2 /var/www/Yii-CMS/index.php(30): CApplication->run()\n#3 {main} REQUEST_URI=/favicon.ico'),
+(22, 'error', 'exception.CHttpException.404', '2011-10-08 00:23:19', 'exception ''CHttpException'' with message ''Невозможно обработать запрос "favicon.ico".'' in /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php:332\nStack trace:\n#0 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(121): CWebApplication->runController(''favicon.ico'')\n#1 /var/www/Yii-CMS/protected/libs/yii/base/CApplication.php(155): CWebApplication->processRequest()\n#2 /var/www/Yii-CMS/index.php(30): CApplication->run()\n#3 {main} REQUEST_URI=/favicon.ico'),
+(23, 'error', 'exception.CHttpException.404', '2011-10-08 00:23:46', 'exception ''CHttpException'' with message ''Невозможно обработать запрос "favicon.ico".'' in /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php:332\nStack trace:\n#0 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(121): CWebApplication->runController(''favicon.ico'')\n#1 /var/www/Yii-CMS/protected/libs/yii/base/CApplication.php(155): CWebApplication->processRequest()\n#2 /var/www/Yii-CMS/index.php(30): CApplication->run()\n#3 {main} REQUEST_URI=/favicon.ico'),
+(24, 'error', 'exception.CHttpException.404', '2011-10-08 00:24:00', 'exception ''CHttpException'' with message ''Невозможно обработать запрос "favicon.ico".'' in /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php:332\nStack trace:\n#0 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(121): CWebApplication->runController(''favicon.ico'')\n#1 /var/www/Yii-CMS/protected/libs/yii/base/CApplication.php(155): CWebApplication->processRequest()\n#2 /var/www/Yii-CMS/index.php(30): CApplication->run()\n#3 {main} REQUEST_URI=/favicon.ico'),
+(25, 'error', 'exception.CHttpException.404', '2011-10-08 00:24:02', 'exception ''CHttpException'' with message ''Невозможно обработать запрос "favicon.ico".'' in /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php:332\nStack trace:\n#0 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(121): CWebApplication->runController(''favicon.ico'')\n#1 /var/www/Yii-CMS/protected/libs/yii/base/CApplication.php(155): CWebApplication->processRequest()\n#2 /var/www/Yii-CMS/index.php(30): CApplication->run()\n#3 {main} REQUEST_URI=/favicon.ico'),
+(26, 'error', 'exception.CHttpException.404', '2011-10-08 00:24:29', 'exception ''CHttpException'' with message ''Невозможно обработать запрос "favicon.ico".'' in /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php:332\nStack trace:\n#0 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(121): CWebApplication->runController(''favicon.ico'')\n#1 /var/www/Yii-CMS/protected/libs/yii/base/CApplication.php(155): CWebApplication->processRequest()\n#2 /var/www/Yii-CMS/index.php(30): CApplication->run()\n#3 {main} REQUEST_URI=/favicon.ico'),
+(27, 'error', 'exception.CHttpException.404', '2011-10-08 00:24:37', 'exception ''CHttpException'' with message ''Невозможно обработать запрос "favicon.ico".'' in /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php:332\nStack trace:\n#0 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(121): CWebApplication->runController(''favicon.ico'')\n#1 /var/www/Yii-CMS/protected/libs/yii/base/CApplication.php(155): CWebApplication->processRequest()\n#2 /var/www/Yii-CMS/index.php(30): CApplication->run()\n#3 {main} REQUEST_URI=/favicon.ico'),
+(28, 'error', 'exception.CHttpException.404', '2011-10-08 00:25:28', 'exception ''CHttpException'' with message ''Невозможно обработать запрос "favicon.ico".'' in /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php:332\nStack trace:\n#0 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(121): CWebApplication->runController(''favicon.ico'')\n#1 /var/www/Yii-CMS/protected/libs/yii/base/CApplication.php(155): CWebApplication->processRequest()\n#2 /var/www/Yii-CMS/index.php(30): CApplication->run()\n#3 {main} REQUEST_URI=/favicon.ico'),
+(29, 'error', 'exception.CHttpException.404', '2011-10-08 00:25:45', 'exception ''CHttpException'' with message ''Невозможно обработать запрос "favicon.ico".'' in /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php:332\nStack trace:\n#0 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(121): CWebApplication->runController(''favicon.ico'')\n#1 /var/www/Yii-CMS/protected/libs/yii/base/CApplication.php(155): CWebApplication->processRequest()\n#2 /var/www/Yii-CMS/index.php(30): CApplication->run()\n#3 {main} REQUEST_URI=/favicon.ico'),
+(30, 'error', 'exception.CHttpException.404', '2011-10-08 00:25:48', 'exception ''CHttpException'' with message ''Невозможно обработать запрос "favicon.ico".'' in /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php:332\nStack trace:\n#0 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(121): CWebApplication->runController(''favicon.ico'')\n#1 /var/www/Yii-CMS/protected/libs/yii/base/CApplication.php(155): CWebApplication->processRequest()\n#2 /var/www/Yii-CMS/index.php(30): CApplication->run()\n#3 {main} REQUEST_URI=/favicon.ico'),
+(31, 'error', 'exception.CHttpException.404', '2011-10-08 00:27:16', 'exception ''CHttpException'' with message ''Невозможно обработать запрос "favicon.ico".'' in /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php:332\nStack trace:\n#0 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(121): CWebApplication->runController(''favicon.ico'')\n#1 /var/www/Yii-CMS/protected/libs/yii/base/CApplication.php(155): CWebApplication->processRequest()\n#2 /var/www/Yii-CMS/index.php(30): CApplication->run()\n#3 {main} REQUEST_URI=/favicon.ico'),
+(32, 'error', 'exception.CHttpException.404', '2011-10-08 00:28:22', 'exception ''CHttpException'' with message ''Невозможно обработать запрос "favicon.ico".'' in /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php:332\nStack trace:\n#0 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(121): CWebApplication->runController(''favicon.ico'')\n#1 /var/www/Yii-CMS/protected/libs/yii/base/CApplication.php(155): CWebApplication->processRequest()\n#2 /var/www/Yii-CMS/index.php(30): CApplication->run()\n#3 {main} REQUEST_URI=/favicon.ico'),
+(33, 'error', 'exception.CHttpException.404', '2011-10-08 00:28:26', 'exception ''CHttpException'' with message ''Невозможно обработать запрос "favicon.ico".'' in /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php:332\nStack trace:\n#0 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(121): CWebApplication->runController(''favicon.ico'')\n#1 /var/www/Yii-CMS/protected/libs/yii/base/CApplication.php(155): CWebApplication->processRequest()\n#2 /var/www/Yii-CMS/index.php(30): CApplication->run()\n#3 {main} REQUEST_URI=/favicon.ico'),
+(34, 'error', 'exception.CHttpException.404', '2011-10-08 00:28:49', 'exception ''CHttpException'' with message ''Невозможно обработать запрос "favicon.ico".'' in /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php:332\nStack trace:\n#0 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(121): CWebApplication->runController(''favicon.ico'')\n#1 /var/www/Yii-CMS/protected/libs/yii/base/CApplication.php(155): CWebApplication->processRequest()\n#2 /var/www/Yii-CMS/index.php(30): CApplication->run()\n#3 {main} REQUEST_URI=/favicon.ico'),
+(35, 'error', 'exception.CHttpException.404', '2011-10-08 00:28:51', 'exception ''CHttpException'' with message ''Невозможно обработать запрос "favicon.ico".'' in /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php:332\nStack trace:\n#0 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(121): CWebApplication->runController(''favicon.ico'')\n#1 /var/www/Yii-CMS/protected/libs/yii/base/CApplication.php(155): CWebApplication->processRequest()\n#2 /var/www/Yii-CMS/index.php(30): CApplication->run()\n#3 {main} REQUEST_URI=/favicon.ico'),
+(36, 'error', 'exception.CHttpException.404', '2011-10-08 00:28:52', 'exception ''CHttpException'' with message ''Невозможно обработать запрос "favicon.ico".'' in /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php:332\nStack trace:\n#0 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(121): CWebApplication->runController(''favicon.ico'')\n#1 /var/www/Yii-CMS/protected/libs/yii/base/CApplication.php(155): CWebApplication->processRequest()\n#2 /var/www/Yii-CMS/index.php(30): CApplication->run()\n#3 {main} REQUEST_URI=/favicon.ico'),
+(37, 'error', 'exception.CHttpException.404', '2011-10-08 00:30:07', 'exception ''CHttpException'' with message ''Системе не удалось найти запрашиваемое действие "index".'' in /var/www/Yii-CMS/protected/libs/yii/web/CController.php:477\nStack trace:\n#0 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(262): CController->missingAction(''index'')\n#1 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(328): CController->run(''index'')\n#2 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(121): CWebApplication->runController(''main/SiteAction...'')\n#3 /var/www/Yii-CMS/protected/libs/yii/base/CApplication.php(155): CWebApplication->processRequest()\n#4 /var/www/Yii-CMS/index.php(30): CApplication->run()\n#5 {main} REQUEST_URI=/main/SiteActionAdmin/index'),
+(38, 'error', 'exception.CHttpException.404', '2011-10-08 00:30:08', 'exception ''CHttpException'' with message ''Невозможно обработать запрос "favicon.ico".'' in /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php:332\nStack trace:\n#0 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(121): CWebApplication->runController(''favicon.ico'')\n#1 /var/www/Yii-CMS/protected/libs/yii/base/CApplication.php(155): CWebApplication->processRequest()\n#2 /var/www/Yii-CMS/index.php(30): CApplication->run()\n#3 {main} REQUEST_URI=/favicon.ico'),
+(39, 'error', 'exception.CHttpException.404', '2011-10-08 00:30:09', 'exception ''CHttpException'' with message ''Системе не удалось найти запрашиваемое действие "index".'' in /var/www/Yii-CMS/protected/libs/yii/web/CController.php:477\nStack trace:\n#0 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(262): CController->missingAction(''index'')\n#1 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(328): CController->run(''index'')\n#2 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(121): CWebApplication->runController(''main/SiteAction...'')\n#3 /var/www/Yii-CMS/protected/libs/yii/base/CApplication.php(155): CWebApplication->processRequest()\n#4 /var/www/Yii-CMS/index.php(30): CApplication->run()\n#5 {main} REQUEST_URI=/main/SiteActionAdmin/index'),
+(40, 'error', 'exception.CHttpException.404', '2011-10-08 00:30:09', 'exception ''CHttpException'' with message ''Невозможно обработать запрос "favicon.ico".'' in /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php:332\nStack trace:\n#0 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(121): CWebApplication->runController(''favicon.ico'')\n#1 /var/www/Yii-CMS/protected/libs/yii/base/CApplication.php(155): CWebApplication->processRequest()\n#2 /var/www/Yii-CMS/index.php(30): CApplication->run()\n#3 {main} REQUEST_URI=/favicon.ico'),
+(41, 'error', 'exception.CHttpException.404', '2011-10-08 00:30:13', 'exception ''CHttpException'' with message ''Невозможно обработать запрос "favicon.ico".'' in /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php:332\nStack trace:\n#0 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(121): CWebApplication->runController(''favicon.ico'')\n#1 /var/www/Yii-CMS/protected/libs/yii/base/CApplication.php(155): CWebApplication->processRequest()\n#2 /var/www/Yii-CMS/index.php(30): CApplication->run()\n#3 {main} REQUEST_URI=/favicon.ico'),
+(42, 'error', 'exception.CException', '2011-10-08 00:30:17', 'exception ''CException'' with message ''Контроллер SiteActionAdminController не может найти представление "manage".'' in /var/www/Yii-CMS/protected/libs/yii/web/CController.php:875\nStack trace:\n#0 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(779): CController->renderPartial(''manage'', Array, true)\n#1 /var/www/Yii-CMS/protected/modules/main/controllers/SiteActionAdminController.php(24): CController->render(''manage'', Array)\n#2 /var/www/Yii-CMS/protected/libs/yii/web/actions/CInlineAction.php(50): SiteActionAdminController->actionManage()\n#3 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(300): CInlineAction->runWithParams(Array)\n#4 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(278): CController->runAction(Object(CInlineAction))\n#5 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(257): CController->runActionWithFilters(Object(CInlineAction), Array)\n#6 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(328): CController->run(''manage'')\n#7 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(121): CWebApplication->runController(''main/SiteAction...'')\n#8 /var/www/Yii-CMS/protected/libs/yii/base/CApplication.php(155): CWebApplication->processRequest()\n#9 /var/www/Yii-CMS/index.php(30): CApplication->run()\n#10 {main} REQUEST_URI=/main/SiteActionAdmin/manage'),
+(43, 'error', 'exception.CException', '2011-10-08 00:30:18', 'exception ''CException'' with message ''Контроллер SiteActionAdminController не может найти представление "manage".'' in /var/www/Yii-CMS/protected/libs/yii/web/CController.php:875\nStack trace:\n#0 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(779): CController->renderPartial(''manage'', Array, true)\n#1 /var/www/Yii-CMS/protected/modules/main/controllers/SiteActionAdminController.php(24): CController->render(''manage'', Array)\n#2 /var/www/Yii-CMS/protected/libs/yii/web/actions/CInlineAction.php(50): SiteActionAdminController->actionManage()\n#3 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(300): CInlineAction->runWithParams(Array)\n#4 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(278): CController->runAction(Object(CInlineAction))\n#5 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(257): CController->runActionWithFilters(Object(CInlineAction), Array)\n#6 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(328): CController->run(''manage'')\n#7 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(121): CWebApplication->runController(''main/SiteAction...'')\n#8 /var/www/Yii-CMS/protected/libs/yii/base/CApplication.php(155): CWebApplication->processRequest()\n#9 /var/www/Yii-CMS/index.php(30): CApplication->run()\n#10 {main} REQUEST_URI=/main/SiteActionAdmin/manage'),
+(44, 'error', 'exception.CHttpException.404', '2011-10-08 00:30:18', 'exception ''CHttpException'' with message ''Невозможно обработать запрос "favicon.ico".'' in /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php:332\nStack trace:\n#0 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(121): CWebApplication->runController(''favicon.ico'')\n#1 /var/www/Yii-CMS/protected/libs/yii/base/CApplication.php(155): CWebApplication->processRequest()\n#2 /var/www/Yii-CMS/index.php(30): CApplication->run()\n#3 {main} REQUEST_URI=/favicon.ico'),
+(45, 'error', 'exception.CHttpException.404', '2011-10-08 00:30:52', 'exception ''CHttpException'' with message ''Невозможно обработать запрос "favicon.ico".'' in /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php:332\nStack trace:\n#0 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(121): CWebApplication->runController(''favicon.ico'')\n#1 /var/www/Yii-CMS/protected/libs/yii/base/CApplication.php(155): CWebApplication->processRequest()\n#2 /var/www/Yii-CMS/index.php(30): CApplication->run()\n#3 {main} REQUEST_URI=/favicon.ico'),
+(46, 'error', 'exception.CHttpException.404', '2011-10-08 00:31:17', 'exception ''CHttpException'' with message ''Невозможно обработать запрос "favicon.ico".'' in /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php:332\nStack trace:\n#0 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(121): CWebApplication->runController(''favicon.ico'')\n#1 /var/www/Yii-CMS/protected/libs/yii/base/CApplication.php(155): CWebApplication->processRequest()\n#2 /var/www/Yii-CMS/index.php(30): CApplication->run()\n#3 {main} REQUEST_URI=/favicon.ico'),
+(47, 'error', 'exception.CHttpException.404', '2011-10-08 00:31:51', 'exception ''CHttpException'' with message ''Невозможно обработать запрос "favicon.ico".'' in /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php:332\nStack trace:\n#0 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(121): CWebApplication->runController(''favicon.ico'')\n#1 /var/www/Yii-CMS/protected/libs/yii/base/CApplication.php(155): CWebApplication->processRequest()\n#2 /var/www/Yii-CMS/index.php(30): CApplication->run()\n#3 {main} REQUEST_URI=/favicon.ico'),
+(48, 'error', 'exception.CHttpException.404', '2011-10-08 00:33:24', 'exception ''CHttpException'' with message ''Невозможно обработать запрос "favicon.ico".'' in /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php:332\nStack trace:\n#0 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(121): CWebApplication->runController(''favicon.ico'')\n#1 /var/www/Yii-CMS/protected/libs/yii/base/CApplication.php(155): CWebApplication->processRequest()\n#2 /var/www/Yii-CMS/index.php(30): CApplication->run()\n#3 {main} REQUEST_URI=/favicon.ico'),
+(49, 'error', 'exception.CHttpException.404', '2011-10-08 00:34:03', 'exception ''CHttpException'' with message ''Невозможно обработать запрос "favicon.ico".'' in /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php:332\nStack trace:\n#0 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(121): CWebApplication->runController(''favicon.ico'')\n#1 /var/www/Yii-CMS/protected/libs/yii/base/CApplication.php(155): CWebApplication->processRequest()\n#2 /var/www/Yii-CMS/index.php(30): CApplication->run()\n#3 {main} REQUEST_URI=/favicon.ico'),
+(50, 'error', 'exception.CHttpException.404', '2011-10-08 00:34:11', 'exception ''CHttpException'' with message ''Невозможно обработать запрос "favicon.ico".'' in /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php:332\nStack trace:\n#0 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(121): CWebApplication->runController(''favicon.ico'')\n#1 /var/www/Yii-CMS/protected/libs/yii/base/CApplication.php(155): CWebApplication->processRequest()\n#2 /var/www/Yii-CMS/index.php(30): CApplication->run()\n#3 {main} REQUEST_URI=/favicon.ico'),
+(51, 'error', 'exception.CHttpException.404', '2011-10-08 00:34:20', 'exception ''CHttpException'' with message ''Невозможно обработать запрос "favicon.ico".'' in /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php:332\nStack trace:\n#0 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(121): CWebApplication->runController(''favicon.ico'')\n#1 /var/www/Yii-CMS/protected/libs/yii/base/CApplication.php(155): CWebApplication->processRequest()\n#2 /var/www/Yii-CMS/index.php(30): CApplication->run()\n#3 {main} REQUEST_URI=/favicon.ico'),
+(52, 'error', 'exception.CHttpException.404', '2011-10-08 00:34:59', 'exception ''CHttpException'' with message ''Невозможно обработать запрос "favicon.ico".'' in /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php:332\nStack trace:\n#0 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(121): CWebApplication->runController(''favicon.ico'')\n#1 /var/www/Yii-CMS/protected/libs/yii/base/CApplication.php(155): CWebApplication->processRequest()\n#2 /var/www/Yii-CMS/index.php(30): CApplication->run()\n#3 {main} REQUEST_URI=/favicon.ico'),
+(53, 'error', 'exception.CHttpException.404', '2011-10-08 00:34:59', 'exception ''CHttpException'' with message ''Невозможно обработать запрос "favicon.ico".'' in /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php:332\nStack trace:\n#0 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(121): CWebApplication->runController(''favicon.ico'')\n#1 /var/www/Yii-CMS/protected/libs/yii/base/CApplication.php(155): CWebApplication->processRequest()\n#2 /var/www/Yii-CMS/index.php(30): CApplication->run()\n#3 {main} REQUEST_URI=/favicon.ico'),
+(54, 'error', 'system.db.CDbCommand', '2011-10-08 00:35:24', 'Не удалось выполнить CDbCommand::fetchColumn(): SQLSTATE[42S22]: Column not found: 1054 Unknown column ''user.first_name'' in ''where clause''. Выполнявшийся SQL-запрос: SELECT COUNT(*) FROM `site_actions` `t` WHERE user.first_name LIKE :ycp0.\nin /var/www/Yii-CMS/protected/components/GridView.php (33)\nin /var/www/Yii-CMS/protected/modules/main/views/siteActionAdmin/manage.php (21)\nin /var/www/Yii-CMS/protected/modules/main/controllers/SiteActionAdminController.php (24)'),
+(55, 'error', 'exception.CDbException', '2011-10-08 00:35:24', 'exception ''CDbException'' with message ''CDbCommand не удалось исполнить SQL-запрос: SQLSTATE[42S22]: Column not found: 1054 Unknown column ''user.first_name'' in ''where clause''. The SQL statement executed was: SELECT COUNT(*) FROM `site_actions` `t` WHERE user.first_name LIKE :ycp0'' in /var/www/Yii-CMS/protected/libs/yii/db/CDbCommand.php:518\nStack trace:\n#0 /var/www/Yii-CMS/protected/libs/yii/db/CDbCommand.php(413): CDbCommand->queryInternal(''fetchColumn'', 0, Array)\n#1 /var/www/Yii-CMS/protected/libs/yii/db/ar/CActiveRecord.php(1510): CDbCommand->queryScalar()\n#2 /var/www/Yii-CMS/protected/libs/yii/web/CActiveDataProvider.php(165): CActiveRecord->count(Object(CDbCriteria))\n#3 /var/www/Yii-CMS/protected/libs/yii/web/CDataProvider.php(184): CActiveDataProvider->calculateTotalItemCount()\n#4 /var/www/Yii-CMS/protected/libs/yii/web/CActiveDataProvider.php(126): CDataProvider->getTotalItemCount()\n#5 /var/www/Yii-CMS/protected/libs/yii/web/CDataProvider.php(128): CActiveDataProvider->fetchData()\n#6 /var/www/Yii-CMS/protected/libs/yii/zii/widgets/CBaseListView.php(105): CDataProvider->getData()\n#7 /var/www/Yii-CMS/protected/libs/yii/zii/widgets/grid/CGridView.php(258): CBaseListView->init()\n#8 /var/www/Yii-CMS/protected/components/GridView.php(33): CGridView->init()\n#9 /var/www/Yii-CMS/protected/libs/yii/web/CBaseController.php(140): GridView->init()\n#10 /var/www/Yii-CMS/protected/libs/yii/web/CBaseController.php(165): CBaseController->createWidget(''GridView'', Array)\n#11 /var/www/Yii-CMS/protected/modules/main/views/siteActionAdmin/manage.php(21): CBaseController->widget(''GridView'', Array)\n#12 /var/www/Yii-CMS/protected/libs/yii/web/CBaseController.php(119): require(''/var/www/Yii-CM...'')\n#13 /var/www/Yii-CMS/protected/libs/yii/web/CBaseController.php(88): CBaseController->renderInternal(''/var/www/Yii-CM...'', Array, true)\n#14 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(866): CBaseController->renderFile(''/var/www/Yii-CM...'', Array, true)\n#15 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(779): CController->renderPartial(''manage'', Array, true)\n#16 /var/www/Yii-CMS/protected/modules/main/controllers/SiteActionAdminController.php(24): CController->render(''manage'', Array)\n#17 /var/www/Yii-CMS/protected/libs/yii/web/actions/CInlineAction.php(50): SiteActionAdminController->actionManage()\n#18 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(300): CInlineAction->runWithParams(Array)\n#19 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(278): CController->runAction(Object(CInlineAction))\n#20 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(257): CController->runActionWithFilters(Object(CInlineAction), Array)\n#21 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(328): CController->run(''manage'')\n#22 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(121): CWebApplication->runController(''main/SiteAction...'')\n#23 /var/www/Yii-CMS/protected/libs/yii/base/CApplication.php(155): CWebApplication->processRequest()\n#24 /var/www/Yii-CMS/index.php(30): CApplication->run()\n#25 {main} REQUEST_URI=/main/SiteActionAdmin/manage?SiteAction%5Btitle%5D=&SiteAction%5Buser_id%5D=%D0%98%D0%B2%D0%B0%D0%BD%D0%BE%D0%B2+%D0%98%D0%B2%D0%B0&SiteAction%5Bobject_id%5D=&SiteAction%5Bmodule%5D=&SiteAction%5Bcontroller%5D=&SiteAction%5Baction%5D=&SiteAction%5Bdate_create%5D=&SiteAction_page=1&ajax=site-action-grid'),
+(56, 'error', 'system.db.CDbCommand', '2011-10-08 00:35:53', 'Не удалось выполнить CDbCommand::fetchAll(): SQLSTATE[23000]: Integrity constraint violation: 1052 Column ''date_create'' in order clause is ambiguous. Выполнявшийся SQL-запрос: SELECT `t`.`id` AS `t0_c0`, `t`.`user_id` AS `t0_c1`, `t`.`object_id` AS `t0_c2`, `t`.`title` AS `t0_c3`, `t`.`module` AS `t0_c4`, `t`.`controller` AS `t0_c5`, `t`.`action` AS `t0_c6`, `t`.`date_create` AS `t0_c7`, `user`.`id` AS `t1_c0`, `user`.`first_name` AS `t1_c1`, `user`.`last_name` AS `t1_c2`, `user`.`patronymic` AS `t1_c3`, `user`.`email` AS `t1_c4`, `user`.`phone` AS `t1_c5`, `user`.`password` AS `t1_c6`, `user`.`birthdate` AS `t1_c7`, `user`.`gender` AS `t1_c8`, `user`.`status` AS `t1_c9`, `user`.`activate_code` AS `t1_c10`, `user`.`activate_date` AS `t1_c11`, `user`.`password_recover_code` AS `t1_c12`, `user`.`password_recover_date` AS `t1_c13`, `user`.`date_create` AS `t1_c14` FROM `site_actions` `t`  LEFT OUTER JOIN `users` `user` ON (`t`.`user_id`=`user`.`id`)  ORDER BY date_create DESC LIMIT 500.\nin /var/www/Yii-CMS/protected/components/GridView.php (33)\nin /var/www/Yii-CMS/protected/modules/main/views/siteActionAdmin/manage.php (21)\nin /var/www/Yii-CMS/protected/modules/main/controllers/SiteActionAdminController.php (24)'),
+(57, 'error', 'exception.CDbException', '2011-10-08 00:35:53', 'exception ''CDbException'' with message ''CDbCommand не удалось исполнить SQL-запрос: SQLSTATE[23000]: Integrity constraint violation: 1052 Column ''date_create'' in order clause is ambiguous. The SQL statement executed was: SELECT `t`.`id` AS `t0_c0`, `t`.`user_id` AS `t0_c1`, `t`.`object_id` AS `t0_c2`, `t`.`title` AS `t0_c3`, `t`.`module` AS `t0_c4`, `t`.`controller` AS `t0_c5`, `t`.`action` AS `t0_c6`, `t`.`date_create` AS `t0_c7`, `user`.`id` AS `t1_c0`, `user`.`first_name` AS `t1_c1`, `user`.`last_name` AS `t1_c2`, `user`.`patronymic` AS `t1_c3`, `user`.`email` AS `t1_c4`, `user`.`phone` AS `t1_c5`, `user`.`password` AS `t1_c6`, `user`.`birthdate` AS `t1_c7`, `user`.`gender` AS `t1_c8`, `user`.`status` AS `t1_c9`, `user`.`activate_code` AS `t1_c10`, `user`.`activate_date` AS `t1_c11`, `user`.`password_recover_code` AS `t1_c12`, `user`.`password_recover_date` AS `t1_c13`, `user`.`date_create` AS `t1_c14` FROM `site_actions` `t`  LEFT OUTER JOIN `users` `user` ON (`t`.`user_id`=`user`.`id`)  ORDER BY date_create DESC LIMIT 500'' in /var/www/Yii-CMS/protected/libs/yii/db/CDbCommand.php:518\nStack trace:\n#0 /var/www/Yii-CMS/protected/libs/yii/db/CDbCommand.php(376): CDbCommand->queryInternal(''fetchAll'', Array, Array)\n#1 /var/www/Yii-CMS/protected/libs/yii/db/ar/CActiveFinder.php(817): CDbCommand->queryAll()\n#2 /var/www/Yii-CMS/protected/libs/yii/db/ar/CActiveFinder.php(449): CJoinElement->runQuery(Object(CJoinQuery))\n#3 /var/www/Yii-CMS/protected/libs/yii/db/ar/CActiveFinder.php(72): CJoinElement->find(Object(CDbCriteria))\n#4 /var/www/Yii-CMS/protected/libs/yii/db/ar/CActiveRecord.php(1261): CActiveFinder->query(Object(CDbCriteria), true)\n#5 /var/www/Yii-CMS/protected/libs/yii/db/ar/CActiveRecord.php(1380): CActiveRecord->query(Object(CDbCriteria), true)\n#6 /var/www/Yii-CMS/protected/libs/yii/web/CActiveDataProvider.php(136): CActiveRecord->findAll(Object(CDbCriteria))\n#7 /var/www/Yii-CMS/protected/libs/yii/web/CDataProvider.php(128): CActiveDataProvider->fetchData()\n#8 /var/www/Yii-CMS/protected/libs/yii/zii/widgets/CBaseListView.php(105): CDataProvider->getData()\n#9 /var/www/Yii-CMS/protected/libs/yii/zii/widgets/grid/CGridView.php(258): CBaseListView->init()\n#10 /var/www/Yii-CMS/protected/components/GridView.php(33): CGridView->init()\n#11 /var/www/Yii-CMS/protected/libs/yii/web/CBaseController.php(140): GridView->init()\n#12 /var/www/Yii-CMS/protected/libs/yii/web/CBaseController.php(165): CBaseController->createWidget(''GridView'', Array)\n#13 /var/www/Yii-CMS/protected/modules/main/views/siteActionAdmin/manage.php(21): CBaseController->widget(''GridView'', Array)\n#14 /var/www/Yii-CMS/protected/libs/yii/web/CBaseController.php(119): require(''/var/www/Yii-CM...'')\n#15 /var/www/Yii-CMS/protected/libs/yii/web/CBaseController.php(88): CBaseController->renderInternal(''/var/www/Yii-CM...'', Array, true)\n#16 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(866): CBaseController->renderFile(''/var/www/Yii-CM...'', Array, true)\n#17 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(779): CController->renderPartial(''manage'', Array, true)\n#18 /var/www/Yii-CMS/protected/modules/main/controllers/SiteActionAdminController.php(24): CController->render(''manage'', Array)\n#19 /var/www/Yii-CMS/protected/libs/yii/web/actions/CInlineAction.php(50): SiteActionAdminController->actionManage()\n#20 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(300): CInlineAction->runWithParams(Array)\n#21 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(278): CController->runAction(Object(CInlineAction))\n#22 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(257): CController->runActionWithFilters(Object(CInlineAction), Array)\n#23 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(328): CController->run(''manage'')\n#24 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(121): CWebApplication->runController(''main/SiteAction...'')\n#25 /var/www/Yii-CMS/protected/libs/yii/base/CApplication.php(155): CWebApplication->processRequest()\n#26 /var/www/Yii-CMS/index.php(30): CApplication->run()\n#27 {main} REQUEST_URI=/main/SiteActionAdmin/manage'),
+(58, 'error', 'exception.CHttpException.404', '2011-10-08 00:35:54', 'exception ''CHttpException'' with message ''Невозможно обработать запрос "favicon.ico".'' in /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php:332\nStack trace:\n#0 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(121): CWebApplication->runController(''favicon.ico'')\n#1 /var/www/Yii-CMS/protected/libs/yii/base/CApplication.php(155): CWebApplication->processRequest()\n#2 /var/www/Yii-CMS/index.php(30): CApplication->run()\n#3 {main} REQUEST_URI=/favicon.ico'),
+(59, 'error', 'system.db.CDbCommand', '2011-10-08 00:35:55', 'Не удалось выполнить CDbCommand::fetchAll(): SQLSTATE[23000]: Integrity constraint violation: 1052 Column ''date_create'' in order clause is ambiguous. Выполнявшийся SQL-запрос: SELECT `t`.`id` AS `t0_c0`, `t`.`user_id` AS `t0_c1`, `t`.`object_id` AS `t0_c2`, `t`.`title` AS `t0_c3`, `t`.`module` AS `t0_c4`, `t`.`controller` AS `t0_c5`, `t`.`action` AS `t0_c6`, `t`.`date_create` AS `t0_c7`, `user`.`id` AS `t1_c0`, `user`.`first_name` AS `t1_c1`, `user`.`last_name` AS `t1_c2`, `user`.`patronymic` AS `t1_c3`, `user`.`email` AS `t1_c4`, `user`.`phone` AS `t1_c5`, `user`.`password` AS `t1_c6`, `user`.`birthdate` AS `t1_c7`, `user`.`gender` AS `t1_c8`, `user`.`status` AS `t1_c9`, `user`.`activate_code` AS `t1_c10`, `user`.`activate_date` AS `t1_c11`, `user`.`password_recover_code` AS `t1_c12`, `user`.`password_recover_date` AS `t1_c13`, `user`.`date_create` AS `t1_c14` FROM `site_actions` `t`  LEFT OUTER JOIN `users` `user` ON (`t`.`user_id`=`user`.`id`)  ORDER BY date_create DESC LIMIT 500.\nin /var/www/Yii-CMS/protected/components/GridView.php (33)\nin /var/www/Yii-CMS/protected/modules/main/views/siteActionAdmin/manage.php (21)\nin /var/www/Yii-CMS/protected/modules/main/controllers/SiteActionAdminController.php (24)');
+INSERT INTO `log` (`id`, `level`, `category`, `logtime`, `message`) VALUES
+(60, 'error', 'exception.CDbException', '2011-10-08 00:35:55', 'exception ''CDbException'' with message ''CDbCommand не удалось исполнить SQL-запрос: SQLSTATE[23000]: Integrity constraint violation: 1052 Column ''date_create'' in order clause is ambiguous. The SQL statement executed was: SELECT `t`.`id` AS `t0_c0`, `t`.`user_id` AS `t0_c1`, `t`.`object_id` AS `t0_c2`, `t`.`title` AS `t0_c3`, `t`.`module` AS `t0_c4`, `t`.`controller` AS `t0_c5`, `t`.`action` AS `t0_c6`, `t`.`date_create` AS `t0_c7`, `user`.`id` AS `t1_c0`, `user`.`first_name` AS `t1_c1`, `user`.`last_name` AS `t1_c2`, `user`.`patronymic` AS `t1_c3`, `user`.`email` AS `t1_c4`, `user`.`phone` AS `t1_c5`, `user`.`password` AS `t1_c6`, `user`.`birthdate` AS `t1_c7`, `user`.`gender` AS `t1_c8`, `user`.`status` AS `t1_c9`, `user`.`activate_code` AS `t1_c10`, `user`.`activate_date` AS `t1_c11`, `user`.`password_recover_code` AS `t1_c12`, `user`.`password_recover_date` AS `t1_c13`, `user`.`date_create` AS `t1_c14` FROM `site_actions` `t`  LEFT OUTER JOIN `users` `user` ON (`t`.`user_id`=`user`.`id`)  ORDER BY date_create DESC LIMIT 500'' in /var/www/Yii-CMS/protected/libs/yii/db/CDbCommand.php:518\nStack trace:\n#0 /var/www/Yii-CMS/protected/libs/yii/db/CDbCommand.php(376): CDbCommand->queryInternal(''fetchAll'', Array, Array)\n#1 /var/www/Yii-CMS/protected/libs/yii/db/ar/CActiveFinder.php(817): CDbCommand->queryAll()\n#2 /var/www/Yii-CMS/protected/libs/yii/db/ar/CActiveFinder.php(449): CJoinElement->runQuery(Object(CJoinQuery))\n#3 /var/www/Yii-CMS/protected/libs/yii/db/ar/CActiveFinder.php(72): CJoinElement->find(Object(CDbCriteria))\n#4 /var/www/Yii-CMS/protected/libs/yii/db/ar/CActiveRecord.php(1261): CActiveFinder->query(Object(CDbCriteria), true)\n#5 /var/www/Yii-CMS/protected/libs/yii/db/ar/CActiveRecord.php(1380): CActiveRecord->query(Object(CDbCriteria), true)\n#6 /var/www/Yii-CMS/protected/libs/yii/web/CActiveDataProvider.php(136): CActiveRecord->findAll(Object(CDbCriteria))\n#7 /var/www/Yii-CMS/protected/libs/yii/web/CDataProvider.php(128): CActiveDataProvider->fetchData()\n#8 /var/www/Yii-CMS/protected/libs/yii/zii/widgets/CBaseListView.php(105): CDataProvider->getData()\n#9 /var/www/Yii-CMS/protected/libs/yii/zii/widgets/grid/CGridView.php(258): CBaseListView->init()\n#10 /var/www/Yii-CMS/protected/components/GridView.php(33): CGridView->init()\n#11 /var/www/Yii-CMS/protected/libs/yii/web/CBaseController.php(140): GridView->init()\n#12 /var/www/Yii-CMS/protected/libs/yii/web/CBaseController.php(165): CBaseController->createWidget(''GridView'', Array)\n#13 /var/www/Yii-CMS/protected/modules/main/views/siteActionAdmin/manage.php(21): CBaseController->widget(''GridView'', Array)\n#14 /var/www/Yii-CMS/protected/libs/yii/web/CBaseController.php(119): require(''/var/www/Yii-CM...'')\n#15 /var/www/Yii-CMS/protected/libs/yii/web/CBaseController.php(88): CBaseController->renderInternal(''/var/www/Yii-CM...'', Array, true)\n#16 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(866): CBaseController->renderFile(''/var/www/Yii-CM...'', Array, true)\n#17 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(779): CController->renderPartial(''manage'', Array, true)\n#18 /var/www/Yii-CMS/protected/modules/main/controllers/SiteActionAdminController.php(24): CController->render(''manage'', Array)\n#19 /var/www/Yii-CMS/protected/libs/yii/web/actions/CInlineAction.php(50): SiteActionAdminController->actionManage()\n#20 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(300): CInlineAction->runWithParams(Array)\n#21 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(278): CController->runAction(Object(CInlineAction))\n#22 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(257): CController->runActionWithFilters(Object(CInlineAction), Array)\n#23 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(328): CController->run(''manage'')\n#24 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(121): CWebApplication->runController(''main/SiteAction...'')\n#25 /var/www/Yii-CMS/protected/libs/yii/base/CApplication.php(155): CWebApplication->processRequest()\n#26 /var/www/Yii-CMS/index.php(30): CApplication->run()\n#27 {main} REQUEST_URI=/main/SiteActionAdmin/manage'),
+(61, 'error', 'exception.CHttpException.404', '2011-10-08 00:36:42', 'exception ''CHttpException'' with message ''Невозможно обработать запрос "favicon.ico".'' in /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php:332\nStack trace:\n#0 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(121): CWebApplication->runController(''favicon.ico'')\n#1 /var/www/Yii-CMS/protected/libs/yii/base/CApplication.php(155): CWebApplication->processRequest()\n#2 /var/www/Yii-CMS/index.php(30): CApplication->run()\n#3 {main} REQUEST_URI=/favicon.ico'),
+(62, 'error', 'exception.CHttpException.404', '2011-10-08 00:50:31', 'exception ''CHttpException'' with message ''Невозможно обработать запрос "favicon.ico".'' in /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php:332\nStack trace:\n#0 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(121): CWebApplication->runController(''favicon.ico'')\n#1 /var/www/Yii-CMS/protected/libs/yii/base/CApplication.php(155): CWebApplication->processRequest()\n#2 /var/www/Yii-CMS/index.php(30): CApplication->run()\n#3 {main} REQUEST_URI=/favicon.ico'),
+(63, 'error', 'exception.CHttpException.404', '2011-10-08 00:50:36', 'exception ''CHttpException'' with message ''Невозможно обработать запрос "favicon.ico".'' in /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php:332\nStack trace:\n#0 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(121): CWebApplication->runController(''favicon.ico'')\n#1 /var/www/Yii-CMS/protected/libs/yii/base/CApplication.php(155): CWebApplication->processRequest()\n#2 /var/www/Yii-CMS/index.php(30): CApplication->run()\n#3 {main} REQUEST_URI=/favicon.ico'),
+(64, 'error', 'exception.CHttpException.404', '2011-10-08 00:50:39', 'exception ''CHttpException'' with message ''Невозможно обработать запрос "favicon.ico".'' in /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php:332\nStack trace:\n#0 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(121): CWebApplication->runController(''favicon.ico'')\n#1 /var/www/Yii-CMS/protected/libs/yii/base/CApplication.php(155): CWebApplication->processRequest()\n#2 /var/www/Yii-CMS/index.php(30): CApplication->run()\n#3 {main} REQUEST_URI=/favicon.ico'),
+(65, 'error', 'exception.CHttpException.404', '2011-10-08 00:50:56', 'exception ''CHttpException'' with message ''Невозможно обработать запрос "favicon.ico".'' in /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php:332\nStack trace:\n#0 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(121): CWebApplication->runController(''favicon.ico'')\n#1 /var/www/Yii-CMS/protected/libs/yii/base/CApplication.php(155): CWebApplication->processRequest()\n#2 /var/www/Yii-CMS/index.php(30): CApplication->run()\n#3 {main} REQUEST_URI=/favicon.ico'),
+(66, 'error', 'exception.CHttpException.404', '2011-10-08 00:51:23', 'exception ''CHttpException'' with message ''Невозможно обработать запрос "favicon.ico".'' in /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php:332\nStack trace:\n#0 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(121): CWebApplication->runController(''favicon.ico'')\n#1 /var/www/Yii-CMS/protected/libs/yii/base/CApplication.php(155): CWebApplication->processRequest()\n#2 /var/www/Yii-CMS/index.php(30): CApplication->run()\n#3 {main} REQUEST_URI=/favicon.ico'),
+(67, 'error', 'exception.CHttpException.404', '2011-10-08 00:51:28', 'exception ''CHttpException'' with message ''Невозможно обработать запрос "favicon.ico".'' in /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php:332\nStack trace:\n#0 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(121): CWebApplication->runController(''favicon.ico'')\n#1 /var/www/Yii-CMS/protected/libs/yii/base/CApplication.php(155): CWebApplication->processRequest()\n#2 /var/www/Yii-CMS/index.php(30): CApplication->run()\n#3 {main} REQUEST_URI=/favicon.ico'),
+(68, 'error', 'exception.CHttpException.404', '2011-10-08 00:51:36', 'exception ''CHttpException'' with message ''Невозможно обработать запрос "favicon.ico".'' in /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php:332\nStack trace:\n#0 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(121): CWebApplication->runController(''favicon.ico'')\n#1 /var/www/Yii-CMS/protected/libs/yii/base/CApplication.php(155): CWebApplication->processRequest()\n#2 /var/www/Yii-CMS/index.php(30): CApplication->run()\n#3 {main} REQUEST_URI=/favicon.ico'),
+(69, 'error', 'exception.CHttpException.404', '2011-10-08 00:51:44', 'exception ''CHttpException'' with message ''Невозможно обработать запрос "favicon.ico".'' in /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php:332\nStack trace:\n#0 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(121): CWebApplication->runController(''favicon.ico'')\n#1 /var/www/Yii-CMS/protected/libs/yii/base/CApplication.php(155): CWebApplication->processRequest()\n#2 /var/www/Yii-CMS/index.php(30): CApplication->run()\n#3 {main} REQUEST_URI=/favicon.ico'),
+(70, 'error', 'exception.CHttpException.404', '2011-10-08 00:58:14', 'exception ''CHttpException'' with message ''Невозможно обработать запрос "favicon.ico".'' in /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php:332\nStack trace:\n#0 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(121): CWebApplication->runController(''favicon.ico'')\n#1 /var/www/Yii-CMS/protected/libs/yii/base/CApplication.php(155): CWebApplication->processRequest()\n#2 /var/www/Yii-CMS/index.php(30): CApplication->run()\n#3 {main} REQUEST_URI=/favicon.ico'),
+(71, 'error', 'exception.CHttpException.404', '2011-10-08 00:58:22', 'exception ''CHttpException'' with message ''Невозможно обработать запрос "favicon.ico".'' in /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php:332\nStack trace:\n#0 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(121): CWebApplication->runController(''favicon.ico'')\n#1 /var/www/Yii-CMS/protected/libs/yii/base/CApplication.php(155): CWebApplication->processRequest()\n#2 /var/www/Yii-CMS/index.php(30): CApplication->run()\n#3 {main} REQUEST_URI=/favicon.ico'),
+(72, 'error', 'exception.CHttpException.404', '2011-10-08 01:17:17', 'exception ''CHttpException'' with message ''Невозможно обработать запрос "favicon.ico".'' in /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php:332\nStack trace:\n#0 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(121): CWebApplication->runController(''favicon.ico'')\n#1 /var/www/Yii-CMS/protected/libs/yii/base/CApplication.php(155): CWebApplication->processRequest()\n#2 /var/www/Yii-CMS/index.php(30): CApplication->run()\n#3 {main} REQUEST_URI=/favicon.ico'),
+(73, 'error', 'exception.CDbException', '2011-10-08 01:17:20', 'exception ''CDbException'' with message ''Отношение "" класса Active record "MetaTag" сконфигурировано не верно. Вы должны указать тип отношения, связанный отношением класс active record и внешний ключ.'' in /var/www/Yii-CMS/protected/libs/yii/db/ar/CActiveRecord.php:2273\nStack trace:\n#0 /var/www/Yii-CMS/protected/libs/yii/db/ar/CActiveRecord.php(2252): CActiveRecordMetaData->addRelation('''', '''')\n#1 /var/www/Yii-CMS/protected/libs/yii/db/ar/CActiveRecord.php(371): CActiveRecordMetaData->__construct(Object(MetaTag))\n#2 /var/www/Yii-CMS/protected/libs/yii/db/ar/CActiveRecord.php(386): CActiveRecord::model(''MetaTag'')\n#3 /var/www/Yii-CMS/protected/libs/yii/db/ar/CActiveRecord.php(62): CActiveRecord->getMetaData()\n#4 /var/www/Yii-CMS/protected/modules/main/controllers/MetaTagAdminController.php(91): CActiveRecord->__construct(''search'')\n#5 /var/www/Yii-CMS/protected/libs/yii/web/actions/CInlineAction.php(50): MetaTagAdminController->actionManage()\n#6 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(300): CInlineAction->runWithParams(Array)\n#7 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(278): CController->runAction(Object(CInlineAction))\n#8 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(257): CController->runActionWithFilters(Object(CInlineAction), Array)\n#9 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(328): CController->run(''manage'')\n#10 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(121): CWebApplication->runController(''main/MetaTagAdm...'')\n#11 /var/www/Yii-CMS/protected/libs/yii/base/CApplication.php(155): CWebApplication->processRequest()\n#12 /var/www/Yii-CMS/index.php(30): CApplication->run()\n#13 {main} REQUEST_URI=/main/MetaTagAdmin/manage'),
+(74, 'error', 'exception.CHttpException.404', '2011-10-08 01:17:21', 'exception ''CHttpException'' with message ''Невозможно обработать запрос "favicon.ico".'' in /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php:332\nStack trace:\n#0 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(121): CWebApplication->runController(''favicon.ico'')\n#1 /var/www/Yii-CMS/protected/libs/yii/base/CApplication.php(155): CWebApplication->processRequest()\n#2 /var/www/Yii-CMS/index.php(30): CApplication->run()\n#3 {main} REQUEST_URI=/favicon.ico'),
+(75, 'error', 'exception.CHttpException.404', '2011-10-08 01:17:36', 'exception ''CHttpException'' with message ''Невозможно обработать запрос "favicon.ico".'' in /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php:332\nStack trace:\n#0 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(121): CWebApplication->runController(''favicon.ico'')\n#1 /var/www/Yii-CMS/protected/libs/yii/base/CApplication.php(155): CWebApplication->processRequest()\n#2 /var/www/Yii-CMS/index.php(30): CApplication->run()\n#3 {main} REQUEST_URI=/favicon.ico'),
+(76, 'error', 'exception.CHttpException.404', '2011-10-08 01:18:48', 'exception ''CHttpException'' with message ''Невозможно обработать запрос "favicon.ico".'' in /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php:332\nStack trace:\n#0 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(121): CWebApplication->runController(''favicon.ico'')\n#1 /var/www/Yii-CMS/protected/libs/yii/base/CApplication.php(155): CWebApplication->processRequest()\n#2 /var/www/Yii-CMS/index.php(30): CApplication->run()\n#3 {main} REQUEST_URI=/favicon.ico'),
+(77, 'error', 'exception.CHttpException.404', '2011-10-08 01:19:15', 'exception ''CHttpException'' with message ''Невозможно обработать запрос "favicon.ico".'' in /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php:332\nStack trace:\n#0 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(121): CWebApplication->runController(''favicon.ico'')\n#1 /var/www/Yii-CMS/protected/libs/yii/base/CApplication.php(155): CWebApplication->processRequest()\n#2 /var/www/Yii-CMS/index.php(30): CApplication->run()\n#3 {main} REQUEST_URI=/favicon.ico'),
+(78, 'error', 'exception.CHttpException.404', '2011-10-08 01:19:19', 'exception ''CHttpException'' with message ''Невозможно обработать запрос "favicon.ico".'' in /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php:332\nStack trace:\n#0 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(121): CWebApplication->runController(''favicon.ico'')\n#1 /var/www/Yii-CMS/protected/libs/yii/base/CApplication.php(155): CWebApplication->processRequest()\n#2 /var/www/Yii-CMS/index.php(30): CApplication->run()\n#3 {main} REQUEST_URI=/favicon.ico'),
+(79, 'error', 'exception.CHttpException.404', '2011-10-08 01:20:11', 'exception ''CHttpException'' with message ''Невозможно обработать запрос "favicon.ico".'' in /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php:332\nStack trace:\n#0 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(121): CWebApplication->runController(''favicon.ico'')\n#1 /var/www/Yii-CMS/protected/libs/yii/base/CApplication.php(155): CWebApplication->processRequest()\n#2 /var/www/Yii-CMS/index.php(30): CApplication->run()\n#3 {main} REQUEST_URI=/favicon.ico'),
+(80, 'error', 'php', '2011-10-08 01:23:44', 'Undefined variable: modules_dir (/var/www/Yii-CMS/protected/components/AppManager.php:188)\nStack trace:\n#0 /var/www/Yii-CMS/protected/libs/yii/web/form/CFormElement.php(45): BaseForm->configure()\n#1 /var/www/Yii-CMS/protected/libs/yii/web/form/CForm.php(141): BaseForm->__construct()\n#2 /var/www/Yii-CMS/protected/components/BaseForm.php(19): BaseForm->__construct()\n#3 /var/www/Yii-CMS/protected/modules/main/controllers/MetaTagAdminController.php(29): BaseForm->__construct()\n#4 /var/www/Yii-CMS/protected/libs/yii/web/actions/CInlineAction.php(50): MetaTagAdminController->actionCreate()\n#5 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(300): CInlineAction->runWithParams()\n#6 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(278): MetaTagAdminController->runAction()\n#7 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(257): MetaTagAdminController->runActionWithFilters()\n#8 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(328): MetaTagAdminController->run()\n#9 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(121): CWebApplication->runController()\n#10 /var/www/Yii-CMS/protected/libs/yii/base/CApplication.php(155): CWebApplication->processRequest()\n#11 /var/www/Yii-CMS/index.php(30): CWebApplication->run()\nREQUEST_URI=/main/metaTagAdmin/create\nin /var/www/Yii-CMS/protected/components/AppManager.php (188)\nin /var/www/Yii-CMS/protected/modules/main/forms/MetaTagForm.php (3)\nin /var/www/Yii-CMS/protected/components/BaseForm.php (19)'),
+(81, 'error', 'exception.CHttpException.404', '2011-10-08 01:23:45', 'exception ''CHttpException'' with message ''Невозможно обработать запрос "favicon.ico".'' in /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php:332\nStack trace:\n#0 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(121): CWebApplication->runController(''favicon.ico'')\n#1 /var/www/Yii-CMS/protected/libs/yii/base/CApplication.php(155): CWebApplication->processRequest()\n#2 /var/www/Yii-CMS/index.php(30): CApplication->run()\n#3 {main} REQUEST_URI=/favicon.ico'),
+(82, 'error', 'exception.CHttpException.404', '2011-10-08 01:23:57', 'exception ''CHttpException'' with message ''Невозможно обработать запрос "favicon.ico".'' in /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php:332\nStack trace:\n#0 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(121): CWebApplication->runController(''favicon.ico'')\n#1 /var/www/Yii-CMS/protected/libs/yii/base/CApplication.php(155): CWebApplication->processRequest()\n#2 /var/www/Yii-CMS/index.php(30): CApplication->run()\n#3 {main} REQUEST_URI=/favicon.ico'),
+(83, 'error', 'exception.CHttpException.404', '2011-10-08 01:24:58', 'exception ''CHttpException'' with message ''Невозможно обработать запрос "favicon.ico".'' in /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php:332\nStack trace:\n#0 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(121): CWebApplication->runController(''favicon.ico'')\n#1 /var/www/Yii-CMS/protected/libs/yii/base/CApplication.php(155): CWebApplication->processRequest()\n#2 /var/www/Yii-CMS/index.php(30): CApplication->run()\n#3 {main} REQUEST_URI=/favicon.ico'),
+(84, 'error', 'exception.CHttpException.404', '2011-10-08 01:25:07', 'exception ''CHttpException'' with message ''Невозможно обработать запрос "favicon.ico".'' in /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php:332\nStack trace:\n#0 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(121): CWebApplication->runController(''favicon.ico'')\n#1 /var/www/Yii-CMS/protected/libs/yii/base/CApplication.php(155): CWebApplication->processRequest()\n#2 /var/www/Yii-CMS/index.php(30): CApplication->run()\n#3 {main} REQUEST_URI=/favicon.ico'),
+(85, 'error', 'php', '2011-10-08 01:25:29', 'include(FormsModule.php): failed to open stream: No such file or directory (/var/www/Yii-CMS/protected/libs/yii/YiiBase.php:396)\nStack trace:\n#0 /var/www/Yii-CMS/protected/components/AppManager.php(195): spl_autoload_call()\n#1 /var/www/Yii-CMS/protected/modules/main/forms/MetaTagForm.php(3): getModels()\n#2 /var/www/Yii-CMS/protected/libs/yii/web/form/CFormElement.php(117): require()\n#3 /var/www/Yii-CMS/protected/libs/yii/web/form/CFormElement.php(45): BaseForm->configure()\n#4 /var/www/Yii-CMS/protected/libs/yii/web/form/CForm.php(141): BaseForm->__construct()\n#5 /var/www/Yii-CMS/protected/components/BaseForm.php(19): BaseForm->__construct()\n#6 /var/www/Yii-CMS/protected/modules/main/controllers/MetaTagAdminController.php(29): BaseForm->__construct()\n#7 /var/www/Yii-CMS/protected/libs/yii/web/actions/CInlineAction.php(50): MetaTagAdminController->actionCreate()\n#8 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(300): CInlineAction->runWithParams()\n#9 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(278): MetaTagAdminController->runAction()\n#10 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(257): MetaTagAdminController->runActionWithFilters()\n#11 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(328): MetaTagAdminController->run()\n#12 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(121): CWebApplication->runController()\n#13 /var/www/Yii-CMS/protected/libs/yii/base/CApplication.php(155): CWebApplication->processRequest()\n#14 /var/www/Yii-CMS/index.php(30): CWebApplication->run()\nREQUEST_URI=/main/metaTagAdmin/create\nin /var/www/Yii-CMS/protected/components/AppManager.php (195)\nin /var/www/Yii-CMS/protected/modules/main/forms/MetaTagForm.php (3)\nin /var/www/Yii-CMS/protected/components/BaseForm.php (19)'),
+(86, 'error', 'exception.CHttpException.404', '2011-10-08 01:25:29', 'exception ''CHttpException'' with message ''Невозможно обработать запрос "favicon.ico".'' in /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php:332\nStack trace:\n#0 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(121): CWebApplication->runController(''favicon.ico'')\n#1 /var/www/Yii-CMS/protected/libs/yii/base/CApplication.php(155): CWebApplication->processRequest()\n#2 /var/www/Yii-CMS/index.php(30): CApplication->run()\n#3 {main} REQUEST_URI=/favicon.ico'),
+(87, 'error', 'exception.CHttpException.404', '2011-10-08 01:25:52', 'exception ''CHttpException'' with message ''Невозможно обработать запрос "favicon.ico".'' in /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php:332\nStack trace:\n#0 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(121): CWebApplication->runController(''favicon.ico'')\n#1 /var/www/Yii-CMS/protected/libs/yii/base/CApplication.php(155): CWebApplication->processRequest()\n#2 /var/www/Yii-CMS/index.php(30): CApplication->run()\n#3 {main} REQUEST_URI=/favicon.ico'),
+(88, 'error', 'exception.CHttpException.404', '2011-10-08 01:26:24', 'exception ''CHttpException'' with message ''Невозможно обработать запрос "favicon.ico".'' in /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php:332\nStack trace:\n#0 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(121): CWebApplication->runController(''favicon.ico'')\n#1 /var/www/Yii-CMS/protected/libs/yii/base/CApplication.php(155): CWebApplication->processRequest()\n#2 /var/www/Yii-CMS/index.php(30): CApplication->run()\n#3 {main} REQUEST_URI=/favicon.ico'),
+(89, 'error', 'php', '2011-10-08 01:27:17', 'scandir(articles): failed to open dir: No such file or directory (/var/www/Yii-CMS/protected/components/AppManager.php:206)\nStack trace:\n#0 /var/www/Yii-CMS/protected/libs/yii/web/form/CFormElement.php(117): require()\n#1 /var/www/Yii-CMS/protected/libs/yii/web/form/CFormElement.php(45): BaseForm->configure()\n#2 /var/www/Yii-CMS/protected/libs/yii/web/form/CForm.php(141): BaseForm->__construct()\n#3 /var/www/Yii-CMS/protected/components/BaseForm.php(19): BaseForm->__construct()\n#4 /var/www/Yii-CMS/protected/modules/main/controllers/MetaTagAdminController.php(29): BaseForm->__construct()\n#5 /var/www/Yii-CMS/protected/libs/yii/web/actions/CInlineAction.php(50): MetaTagAdminController->actionCreate()\n#6 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(300): CInlineAction->runWithParams()\n#7 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(278): MetaTagAdminController->runAction()\n#8 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(257): MetaTagAdminController->runActionWithFilters()\n#9 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(328): MetaTagAdminController->run()\n#10 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(121): CWebApplication->runController()\n#11 /var/www/Yii-CMS/protected/libs/yii/base/CApplication.php(155): CWebApplication->processRequest()\n#12 /var/www/Yii-CMS/index.php(30): CWebApplication->run()\nREQUEST_URI=/main/metaTagAdmin/create\nin /var/www/Yii-CMS/protected/components/AppManager.php (206)\nin /var/www/Yii-CMS/protected/modules/main/forms/MetaTagForm.php (3)\nin /var/www/Yii-CMS/protected/components/BaseForm.php (19)'),
+(90, 'error', 'exception.CHttpException.404', '2011-10-08 01:27:18', 'exception ''CHttpException'' with message ''Невозможно обработать запрос "favicon.ico".'' in /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php:332\nStack trace:\n#0 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(121): CWebApplication->runController(''favicon.ico'')\n#1 /var/www/Yii-CMS/protected/libs/yii/base/CApplication.php(155): CWebApplication->processRequest()\n#2 /var/www/Yii-CMS/index.php(30): CApplication->run()\n#3 {main} REQUEST_URI=/favicon.ico'),
+(91, 'error', 'exception.CHttpException.404', '2011-10-08 01:27:29', 'exception ''CHttpException'' with message ''Невозможно обработать запрос "favicon.ico".'' in /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php:332\nStack trace:\n#0 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(121): CWebApplication->runController(''favicon.ico'')\n#1 /var/www/Yii-CMS/protected/libs/yii/base/CApplication.php(155): CWebApplication->processRequest()\n#2 /var/www/Yii-CMS/index.php(30): CApplication->run()\n#3 {main} REQUEST_URI=/favicon.ico'),
+(92, 'error', 'php', '2011-10-08 01:30:13', 'include(Article.php.php): failed to open stream: No such file or directory (/var/www/Yii-CMS/protected/libs/yii/YiiBase.php:396)\nStack trace:\n#0 /var/www/Yii-CMS/protected/components/AppManager.php(216): spl_autoload_call()\n#1 /var/www/Yii-CMS/protected/modules/main/forms/MetaTagForm.php(3): getModels()\n#2 /var/www/Yii-CMS/protected/libs/yii/web/form/CFormElement.php(117): require()\n#3 /var/www/Yii-CMS/protected/libs/yii/web/form/CFormElement.php(45): BaseForm->configure()\n#4 /var/www/Yii-CMS/protected/libs/yii/web/form/CForm.php(141): BaseForm->__construct()\n#5 /var/www/Yii-CMS/protected/components/BaseForm.php(19): BaseForm->__construct()\n#6 /var/www/Yii-CMS/protected/modules/main/controllers/MetaTagAdminController.php(29): BaseForm->__construct()\n#7 /var/www/Yii-CMS/protected/libs/yii/web/actions/CInlineAction.php(50): MetaTagAdminController->actionCreate()\n#8 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(300): CInlineAction->runWithParams()\n#9 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(278): MetaTagAdminController->runAction()\n#10 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(257): MetaTagAdminController->runActionWithFilters()\n#11 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(328): MetaTagAdminController->run()\n#12 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(121): CWebApplication->runController()\n#13 /var/www/Yii-CMS/protected/libs/yii/base/CApplication.php(155): CWebApplication->processRequest()\n#14 /var/www/Yii-CMS/index.php(30): CWebApplication->run()\nREQUEST_URI=/main/metaTagAdmin/create\nin /var/www/Yii-CMS/protected/components/AppManager.php (216)\nin /var/www/Yii-CMS/protected/modules/main/forms/MetaTagForm.php (3)\nin /var/www/Yii-CMS/protected/components/BaseForm.php (19)'),
+(93, 'error', 'exception.CHttpException.404', '2011-10-08 01:30:14', 'exception ''CHttpException'' with message ''Невозможно обработать запрос "favicon.ico".'' in /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php:332\nStack trace:\n#0 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(121): CWebApplication->runController(''favicon.ico'')\n#1 /var/www/Yii-CMS/protected/libs/yii/base/CApplication.php(155): CWebApplication->processRequest()\n#2 /var/www/Yii-CMS/index.php(30): CApplication->run()\n#3 {main} REQUEST_URI=/favicon.ico'),
+(94, 'error', 'exception.CHttpException.404', '2011-10-08 01:30:39', 'exception ''CHttpException'' with message ''Невозможно обработать запрос "favicon.ico".'' in /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php:332\nStack trace:\n#0 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(121): CWebApplication->runController(''favicon.ico'')\n#1 /var/www/Yii-CMS/protected/libs/yii/base/CApplication.php(155): CWebApplication->processRequest()\n#2 /var/www/Yii-CMS/index.php(30): CApplication->run()\n#3 {main} REQUEST_URI=/favicon.ico'),
+(95, 'error', 'exception.CHttpException.404', '2011-10-08 01:41:26', 'exception ''CHttpException'' with message ''Невозможно обработать запрос "favicon.ico".'' in /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php:332\nStack trace:\n#0 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(121): CWebApplication->runController(''favicon.ico'')\n#1 /var/www/Yii-CMS/protected/libs/yii/base/CApplication.php(155): CWebApplication->processRequest()\n#2 /var/www/Yii-CMS/index.php(30): CApplication->run()\n#3 {main} REQUEST_URI=/favicon.ico'),
+(96, 'error', 'exception.CHttpException.404', '2011-10-08 01:53:15', 'exception ''CHttpException'' with message ''Невозможно обработать запрос "favicon.ico".'' in /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php:332\nStack trace:\n#0 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(121): CWebApplication->runController(''favicon.ico'')\n#1 /var/www/Yii-CMS/protected/libs/yii/base/CApplication.php(155): CWebApplication->processRequest()\n#2 /var/www/Yii-CMS/index.php(30): CApplication->run()\n#3 {main} REQUEST_URI=/favicon.ico'),
+(97, 'error', 'exception.CHttpException.404', '2011-10-08 01:53:52', 'exception ''CHttpException'' with message ''Невозможно обработать запрос "favicon.ico".'' in /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php:332\nStack trace:\n#0 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(121): CWebApplication->runController(''favicon.ico'')\n#1 /var/www/Yii-CMS/protected/libs/yii/base/CApplication.php(155): CWebApplication->processRequest()\n#2 /var/www/Yii-CMS/index.php(30): CApplication->run()\n#3 {main} REQUEST_URI=/favicon.ico'),
+(98, 'error', 'exception.CHttpException.404', '2011-10-08 01:54:16', 'exception ''CHttpException'' with message ''Невозможно обработать запрос "favicon.ico".'' in /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php:332\nStack trace:\n#0 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(121): CWebApplication->runController(''favicon.ico'')\n#1 /var/www/Yii-CMS/protected/libs/yii/base/CApplication.php(155): CWebApplication->processRequest()\n#2 /var/www/Yii-CMS/index.php(30): CApplication->run()\n#3 {main} REQUEST_URI=/favicon.ico'),
+(99, 'error', 'exception.CHttpException.404', '2011-10-08 01:54:35', 'exception ''CHttpException'' with message ''Невозможно обработать запрос "favicon.ico".'' in /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php:332\nStack trace:\n#0 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(121): CWebApplication->runController(''favicon.ico'')\n#1 /var/www/Yii-CMS/protected/libs/yii/base/CApplication.php(155): CWebApplication->processRequest()\n#2 /var/www/Yii-CMS/index.php(30): CApplication->run()\n#3 {main} REQUEST_URI=/favicon.ico'),
+(100, 'error', 'exception.CHttpException.404', '2011-10-08 01:56:09', 'exception ''CHttpException'' with message ''Невозможно обработать запрос "favicon.ico".'' in /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php:332\nStack trace:\n#0 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(121): CWebApplication->runController(''favicon.ico'')\n#1 /var/www/Yii-CMS/protected/libs/yii/base/CApplication.php(155): CWebApplication->processRequest()\n#2 /var/www/Yii-CMS/index.php(30): CApplication->run()\n#3 {main} REQUEST_URI=/favicon.ico'),
+(101, 'error', 'exception.CHttpException.404', '2011-10-08 02:00:57', 'exception ''CHttpException'' with message ''Невозможно обработать запрос "assets/f8a6567ajs/MetaTagForm.js".'' in /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php:332\nStack trace:\n#0 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(121): CWebApplication->runController(''assets/f8a6567a...'')\n#1 /var/www/Yii-CMS/protected/libs/yii/base/CApplication.php(155): CWebApplication->processRequest()\n#2 /var/www/Yii-CMS/index.php(30): CApplication->run()\n#3 {main} REQUEST_URI=/assets/f8a6567ajs/MetaTagForm.js'),
+(102, 'error', 'exception.CHttpException.404', '2011-10-08 02:00:58', 'exception ''CHttpException'' with message ''Невозможно обработать запрос "favicon.ico".'' in /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php:332\nStack trace:\n#0 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(121): CWebApplication->runController(''favicon.ico'')\n#1 /var/www/Yii-CMS/protected/libs/yii/base/CApplication.php(155): CWebApplication->processRequest()\n#2 /var/www/Yii-CMS/index.php(30): CApplication->run()\n#3 {main} REQUEST_URI=/favicon.ico'),
+(103, 'error', 'exception.CHttpException.404', '2011-10-08 02:01:44', 'exception ''CHttpException'' with message ''Невозможно обработать запрос "assets/f8a6567ajs/MetaTagForm.js".'' in /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php:332\nStack trace:\n#0 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(121): CWebApplication->runController(''assets/f8a6567a...'')\n#1 /var/www/Yii-CMS/protected/libs/yii/base/CApplication.php(155): CWebApplication->processRequest()\n#2 /var/www/Yii-CMS/index.php(30): CApplication->run()\n#3 {main} REQUEST_URI=/assets/f8a6567ajs/MetaTagForm.js'),
+(104, 'error', 'exception.CHttpException.404', '2011-10-08 02:01:45', 'exception ''CHttpException'' with message ''Невозможно обработать запрос "favicon.ico".'' in /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php:332\nStack trace:\n#0 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(121): CWebApplication->runController(''favicon.ico'')\n#1 /var/www/Yii-CMS/protected/libs/yii/base/CApplication.php(155): CWebApplication->processRequest()\n#2 /var/www/Yii-CMS/index.php(30): CApplication->run()\n#3 {main} REQUEST_URI=/favicon.ico'),
+(105, 'error', 'exception.CHttpException.404', '2011-10-08 02:02:02', 'exception ''CHttpException'' with message ''Невозможно обработать запрос "assets/f8a6567ajs/MetaTagForm.js".'' in /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php:332\nStack trace:\n#0 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(121): CWebApplication->runController(''assets/f8a6567a...'')\n#1 /var/www/Yii-CMS/protected/libs/yii/base/CApplication.php(155): CWebApplication->processRequest()\n#2 /var/www/Yii-CMS/index.php(30): CApplication->run()\n#3 {main} REQUEST_URI=/assets/f8a6567ajs/MetaTagForm.js'),
+(106, 'error', 'exception.CHttpException.404', '2011-10-08 02:02:03', 'exception ''CHttpException'' with message ''Невозможно обработать запрос "favicon.ico".'' in /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php:332\nStack trace:\n#0 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(121): CWebApplication->runController(''favicon.ico'')\n#1 /var/www/Yii-CMS/protected/libs/yii/base/CApplication.php(155): CWebApplication->processRequest()\n#2 /var/www/Yii-CMS/index.php(30): CApplication->run()\n#3 {main} REQUEST_URI=/favicon.ico'),
+(107, 'error', 'exception.CHttpException.404', '2011-10-08 02:02:16', 'exception ''CHttpException'' with message ''Невозможно обработать запрос "favicon.ico".'' in /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php:332\nStack trace:\n#0 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(121): CWebApplication->runController(''favicon.ico'')\n#1 /var/www/Yii-CMS/protected/libs/yii/base/CApplication.php(155): CWebApplication->processRequest()\n#2 /var/www/Yii-CMS/index.php(30): CApplication->run()\n#3 {main} REQUEST_URI=/favicon.ico'),
+(108, 'error', 'exception.CHttpException.404', '2011-10-08 02:02:24', 'exception ''CHttpException'' with message ''Невозможно обработать запрос "favicon.ico".'' in /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php:332\nStack trace:\n#0 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(121): CWebApplication->runController(''favicon.ico'')\n#1 /var/www/Yii-CMS/protected/libs/yii/base/CApplication.php(155): CWebApplication->processRequest()\n#2 /var/www/Yii-CMS/index.php(30): CApplication->run()\n#3 {main} REQUEST_URI=/favicon.ico'),
+(109, 'error', 'exception.CHttpException.404', '2011-10-08 02:03:07', 'exception ''CHttpException'' with message ''Невозможно обработать запрос "favicon.ico".'' in /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php:332\nStack trace:\n#0 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(121): CWebApplication->runController(''favicon.ico'')\n#1 /var/www/Yii-CMS/protected/libs/yii/base/CApplication.php(155): CWebApplication->processRequest()\n#2 /var/www/Yii-CMS/index.php(30): CApplication->run()\n#3 {main} REQUEST_URI=/favicon.ico'),
+(110, 'error', 'exception.CHttpException.404', '2011-10-08 02:03:55', 'exception ''CHttpException'' with message ''Невозможно обработать запрос "favicon.ico".'' in /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php:332\nStack trace:\n#0 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(121): CWebApplication->runController(''favicon.ico'')\n#1 /var/www/Yii-CMS/protected/libs/yii/base/CApplication.php(155): CWebApplication->processRequest()\n#2 /var/www/Yii-CMS/index.php(30): CApplication->run()\n#3 {main} REQUEST_URI=/favicon.ico'),
+(111, 'error', 'exception.CHttpException.404', '2011-10-08 02:06:46', 'exception ''CHttpException'' with message ''Невозможно обработать запрос "favicon.ico".'' in /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php:332\nStack trace:\n#0 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(121): CWebApplication->runController(''favicon.ico'')\n#1 /var/www/Yii-CMS/protected/libs/yii/base/CApplication.php(155): CWebApplication->processRequest()\n#2 /var/www/Yii-CMS/index.php(30): CApplication->run()\n#3 {main} REQUEST_URI=/favicon.ico'),
+(112, 'error', 'exception.CHttpException.404', '2011-10-08 02:07:19', 'exception ''CHttpException'' with message ''Невозможно обработать запрос "favicon.ico".'' in /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php:332\nStack trace:\n#0 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(121): CWebApplication->runController(''favicon.ico'')\n#1 /var/www/Yii-CMS/protected/libs/yii/base/CApplication.php(155): CWebApplication->processRequest()\n#2 /var/www/Yii-CMS/index.php(30): CApplication->run()\n#3 {main} REQUEST_URI=/favicon.ico'),
+(113, 'error', 'exception.CHttpException.404', '2011-10-08 02:12:28', 'exception ''CHttpException'' with message ''Невозможно обработать запрос "favicon.ico".'' in /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php:332\nStack trace:\n#0 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(121): CWebApplication->runController(''favicon.ico'')\n#1 /var/www/Yii-CMS/protected/libs/yii/base/CApplication.php(155): CWebApplication->processRequest()\n#2 /var/www/Yii-CMS/index.php(30): CApplication->run()\n#3 {main} REQUEST_URI=/favicon.ico'),
+(114, 'error', 'exception.CHttpException.404', '2011-10-08 02:24:47', 'exception ''CHttpException'' with message ''Системе не удалось найти запрашиваемое действие "getModelObjects".'' in /var/www/Yii-CMS/protected/libs/yii/web/CController.php:477\nStack trace:\n#0 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(262): CController->missingAction(''getModelObjects'')\n#1 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(328): CController->run(''getModelObjects'')\n#2 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(121): CWebApplication->runController(''main/MainAdmin/...'')\n#3 /var/www/Yii-CMS/protected/libs/yii/base/CApplication.php(155): CWebApplication->processRequest()\n#4 /var/www/Yii-CMS/index.php(30): CApplication->run()\n#5 {main} REQUEST_URI=/main/MainAdmin/getModelObjects'),
+(115, 'error', 'exception.CHttpException.404', '2011-10-08 02:24:48', 'exception ''CHttpException'' with message ''Невозможно обработать запрос "favicon.ico".'' in /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php:332\nStack trace:\n#0 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(121): CWebApplication->runController(''favicon.ico'')\n#1 /var/www/Yii-CMS/protected/libs/yii/base/CApplication.php(155): CWebApplication->processRequest()\n#2 /var/www/Yii-CMS/index.php(30): CApplication->run()\n#3 {main} REQUEST_URI=/favicon.ico'),
+(116, 'error', 'exception.CHttpException.Не найден заголовок для дейсвия GetModelObjects', '2011-10-08 02:25:05', 'exception ''CHttpException'' in /var/www/Yii-CMS/protected/components/BaseController.php:63\nStack trace:\n#0 /var/www/Yii-CMS/protected/components/BaseController.php(51): BaseController->setTitleAndSaveSiteAction(Object(CInlineAction))\n#1 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(298): BaseController->beforeAction(Object(CInlineAction))\n#2 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(278): CController->runAction(Object(CInlineAction))\n#3 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(257): CController->runActionWithFilters(Object(CInlineAction), Array)\n#4 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(328): CController->run(''getModelObjects'')\n#5 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(121): CWebApplication->runController(''main/MainAdmin/...'')\n#6 /var/www/Yii-CMS/protected/libs/yii/base/CApplication.php(155): CWebApplication->processRequest()\n#7 /var/www/Yii-CMS/index.php(30): CApplication->run()\n#8 {main} REQUEST_URI=/main/MainAdmin/getModelObjects'),
+(117, 'error', 'exception.CHttpException.404', '2011-10-08 02:25:06', 'exception ''CHttpException'' with message ''Невозможно обработать запрос "favicon.ico".'' in /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php:332\nStack trace:\n#0 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(121): CWebApplication->runController(''favicon.ico'')\n#1 /var/www/Yii-CMS/protected/libs/yii/base/CApplication.php(155): CWebApplication->processRequest()\n#2 /var/www/Yii-CMS/index.php(30): CApplication->run()\n#3 {main} REQUEST_URI=/favicon.ico'),
+(118, 'error', 'exception.CHttpException.404', '2011-10-08 02:25:52', 'exception ''CHttpException'' with message ''Невозможно обработать запрос "favicon.ico".'' in /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php:332\nStack trace:\n#0 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(121): CWebApplication->runController(''favicon.ico'')\n#1 /var/www/Yii-CMS/protected/libs/yii/base/CApplication.php(155): CWebApplication->processRequest()\n#2 /var/www/Yii-CMS/index.php(30): CApplication->run()\n#3 {main} REQUEST_URI=/favicon.ico'),
+(119, 'error', 'exception.CHttpException.400', '2011-10-08 02:26:01', 'exception ''CHttpException'' with message ''Некорректный запрос.'' in /var/www/Yii-CMS/protected/libs/yii/web/CController.php:328\nStack trace:\n#0 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(301): CController->invalidActionParams(Object(CInlineAction))\n#1 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(278): CController->runAction(Object(CInlineAction))\n#2 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(257): CController->runActionWithFilters(Object(CInlineAction), Array)\n#3 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(328): CController->run(''getModelObjects'')\n#4 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(121): CWebApplication->runController(''main/MainAdmin/...'')\n#5 /var/www/Yii-CMS/protected/libs/yii/base/CApplication.php(155): CWebApplication->processRequest()\n#6 /var/www/Yii-CMS/index.php(30): CApplication->run()\n#7 {main} REQUEST_URI=/main/MainAdmin/getModelObjects'),
+(120, 'error', 'exception.CHttpException.404', '2011-10-08 02:26:02', 'exception ''CHttpException'' with message ''Невозможно обработать запрос "favicon.ico".'' in /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php:332\nStack trace:\n#0 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(121): CWebApplication->runController(''favicon.ico'')\n#1 /var/www/Yii-CMS/protected/libs/yii/base/CApplication.php(155): CWebApplication->processRequest()\n#2 /var/www/Yii-CMS/index.php(30): CApplication->run()\n#3 {main} REQUEST_URI=/favicon.ico'),
+(121, 'error', 'exception.CHttpException.404', '2011-10-08 02:26:14', 'exception ''CHttpException'' with message ''Невозможно обработать запрос "favicon.ico".'' in /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php:332\nStack trace:\n#0 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(121): CWebApplication->runController(''favicon.ico'')\n#1 /var/www/Yii-CMS/protected/libs/yii/base/CApplication.php(155): CWebApplication->processRequest()\n#2 /var/www/Yii-CMS/index.php(30): CApplication->run()\n#3 {main} REQUEST_URI=/favicon.ico'),
+(122, 'error', 'exception.CHttpException.404', '2011-10-08 02:26:21', 'exception ''CHttpException'' with message ''Невозможно обработать запрос "favicon.ico".'' in /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php:332\nStack trace:\n#0 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(121): CWebApplication->runController(''favicon.ico'')\n#1 /var/www/Yii-CMS/protected/libs/yii/base/CApplication.php(155): CWebApplication->processRequest()\n#2 /var/www/Yii-CMS/index.php(30): CApplication->run()\n#3 {main} REQUEST_URI=/favicon.ico'),
+(123, 'error', 'exception.CHttpException.404', '2011-10-08 02:32:44', 'exception ''CHttpException'' with message ''Невозможно обработать запрос "favicon.ico".'' in /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php:332\nStack trace:\n#0 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(121): CWebApplication->runController(''favicon.ico'')\n#1 /var/www/Yii-CMS/protected/libs/yii/base/CApplication.php(155): CWebApplication->processRequest()\n#2 /var/www/Yii-CMS/index.php(30): CApplication->run()\n#3 {main} REQUEST_URI=/favicon.ico'),
+(124, 'error', 'php', '2011-10-08 02:34:04', 'include(news.php): failed to open stream: No such file or directory (/var/www/Yii-CMS/protected/libs/yii/YiiBase.php:396)\nStack trace:\n#0 /var/www/Yii-CMS/protected/modules/main/controllers/MainAdminController.php(77): spl_autoload_call()\n#1 unknown(0): MainAdminController->actionGetModelObjects()\n#2 /var/www/Yii-CMS/protected/libs/yii/web/actions/CAction.php(104): ReflectionMethod->invokeArgs()\n#3 /var/www/Yii-CMS/protected/libs/yii/web/actions/CInlineAction.php(48): CInlineAction->runWithParamsInternal()\n#4 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(300): CInlineAction->runWithParams()\n#5 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(278): MainAdminController->runAction()\n#6 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(257): MainAdminController->runActionWithFilters()\n#7 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(328): MainAdminController->run()\n#8 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(121): CWebApplication->runController()\n#9 /var/www/Yii-CMS/protected/libs/yii/base/CApplication.php(155): CWebApplication->processRequest()\n#10 /var/www/Yii-CMS/index.php(30): CWebApplication->run()\nREQUEST_URI=/main/MainAdmin/getModelObjects/model_id/news\nin /var/www/Yii-CMS/protected/modules/main/controllers/MainAdminController.php (77)\nin /var/www/Yii-CMS/index.php (30)');
+INSERT INTO `log` (`id`, `level`, `category`, `logtime`, `message`) VALUES
+(125, 'error', 'exception.CHttpException.404', '2011-10-08 02:34:05', 'exception ''CHttpException'' with message ''Невозможно обработать запрос "favicon.ico".'' in /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php:332\nStack trace:\n#0 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(121): CWebApplication->runController(''favicon.ico'')\n#1 /var/www/Yii-CMS/protected/libs/yii/base/CApplication.php(155): CWebApplication->processRequest()\n#2 /var/www/Yii-CMS/index.php(30): CApplication->run()\n#3 {main} REQUEST_URI=/favicon.ico'),
+(126, 'error', 'exception.CException', '2011-10-08 02:34:10', 'exception ''CException'' with message ''News не содержит метода "toString".'' in /var/www/Yii-CMS/protected/libs/yii/base/CComponent.php:266\nStack trace:\n#0 /var/www/Yii-CMS/protected/libs/yii/db/ar/CActiveRecord.php(213): CComponent->__call(''toString'', Array)\n#1 /var/www/Yii-CMS/protected/modules/main/controllers/MainAdminController.php(82): CActiveRecord->__call(''toString'', Array)\n#2 /var/www/Yii-CMS/protected/modules/main/controllers/MainAdminController.php(82): News->toString()\n#3 [internal function]: MainAdminController->actionGetModelObjects(''News'')\n#4 /var/www/Yii-CMS/protected/libs/yii/web/actions/CAction.php(104): ReflectionMethod->invokeArgs(Object(MainAdminController), Array)\n#5 /var/www/Yii-CMS/protected/libs/yii/web/actions/CInlineAction.php(48): CAction->runWithParamsInternal(Object(MainAdminController), Object(ReflectionMethod), Array)\n#6 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(300): CInlineAction->runWithParams(Array)\n#7 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(278): CController->runAction(Object(CInlineAction))\n#8 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(257): CController->runActionWithFilters(Object(CInlineAction), Array)\n#9 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(328): CController->run(''getModelObjects'')\n#10 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(121): CWebApplication->runController(''main/MainAdmin/...'')\n#11 /var/www/Yii-CMS/protected/libs/yii/base/CApplication.php(155): CWebApplication->processRequest()\n#12 /var/www/Yii-CMS/index.php(30): CApplication->run()\n#13 {main} REQUEST_URI=/main/MainAdmin/getModelObjects/model_id/News'),
+(127, 'error', 'exception.CHttpException.404', '2011-10-08 02:34:11', 'exception ''CHttpException'' with message ''Невозможно обработать запрос "favicon.ico".'' in /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php:332\nStack trace:\n#0 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(121): CWebApplication->runController(''favicon.ico'')\n#1 /var/www/Yii-CMS/protected/libs/yii/base/CApplication.php(155): CWebApplication->processRequest()\n#2 /var/www/Yii-CMS/index.php(30): CApplication->run()\n#3 {main} REQUEST_URI=/favicon.ico'),
+(128, 'error', 'exception.CException', '2011-10-08 02:34:15', 'exception ''CException'' with message ''News не содержит метода "__toString".'' in /var/www/Yii-CMS/protected/libs/yii/base/CComponent.php:266\nStack trace:\n#0 /var/www/Yii-CMS/protected/libs/yii/db/ar/CActiveRecord.php(213): CComponent->__call(''__toString'', Array)\n#1 /var/www/Yii-CMS/protected/modules/main/controllers/MainAdminController.php(82): CActiveRecord->__call(''__toString'', Array)\n#2 /var/www/Yii-CMS/protected/modules/main/controllers/MainAdminController.php(82): News->__toString()\n#3 [internal function]: MainAdminController->actionGetModelObjects(''News'')\n#4 /var/www/Yii-CMS/protected/libs/yii/web/actions/CAction.php(104): ReflectionMethod->invokeArgs(Object(MainAdminController), Array)\n#5 /var/www/Yii-CMS/protected/libs/yii/web/actions/CInlineAction.php(48): CAction->runWithParamsInternal(Object(MainAdminController), Object(ReflectionMethod), Array)\n#6 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(300): CInlineAction->runWithParams(Array)\n#7 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(278): CController->runAction(Object(CInlineAction))\n#8 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(257): CController->runActionWithFilters(Object(CInlineAction), Array)\n#9 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(328): CController->run(''getModelObjects'')\n#10 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(121): CWebApplication->runController(''main/MainAdmin/...'')\n#11 /var/www/Yii-CMS/protected/libs/yii/base/CApplication.php(155): CWebApplication->processRequest()\n#12 /var/www/Yii-CMS/index.php(30): CApplication->run()\n#13 {main} REQUEST_URI=/main/MainAdmin/getModelObjects/model_id/News'),
+(129, 'error', 'exception.CHttpException.404', '2011-10-08 02:34:16', 'exception ''CHttpException'' with message ''Невозможно обработать запрос "favicon.ico".'' in /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php:332\nStack trace:\n#0 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(121): CWebApplication->runController(''favicon.ico'')\n#1 /var/www/Yii-CMS/protected/libs/yii/base/CApplication.php(155): CWebApplication->processRequest()\n#2 /var/www/Yii-CMS/index.php(30): CApplication->run()\n#3 {main} REQUEST_URI=/favicon.ico'),
+(130, 'error', 'exception.CHttpException.404', '2011-10-08 02:38:41', 'exception ''CHttpException'' with message ''Невозможно обработать запрос "favicon.ico".'' in /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php:332\nStack trace:\n#0 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(121): CWebApplication->runController(''favicon.ico'')\n#1 /var/www/Yii-CMS/protected/libs/yii/base/CApplication.php(155): CWebApplication->processRequest()\n#2 /var/www/Yii-CMS/index.php(30): CApplication->run()\n#3 {main} REQUEST_URI=/favicon.ico'),
+(131, 'error', 'exception.CHttpException.404', '2011-10-08 02:38:56', 'exception ''CHttpException'' with message ''Невозможно обработать запрос "favicon.ico".'' in /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php:332\nStack trace:\n#0 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(121): CWebApplication->runController(''favicon.ico'')\n#1 /var/www/Yii-CMS/protected/libs/yii/base/CApplication.php(155): CWebApplication->processRequest()\n#2 /var/www/Yii-CMS/index.php(30): CApplication->run()\n#3 {main} REQUEST_URI=/favicon.ico'),
+(132, 'error', 'exception.CHttpException.404', '2011-10-08 02:49:01', 'exception ''CHttpException'' with message ''Невозможно обработать запрос "favicon.ico".'' in /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php:332\nStack trace:\n#0 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(121): CWebApplication->runController(''favicon.ico'')\n#1 /var/www/Yii-CMS/protected/libs/yii/base/CApplication.php(155): CWebApplication->processRequest()\n#2 /var/www/Yii-CMS/index.php(30): CApplication->run()\n#3 {main} REQUEST_URI=/favicon.ico'),
+(133, 'error', 'exception.CHttpException.404', '2011-10-08 02:49:27', 'exception ''CHttpException'' with message ''Невозможно обработать запрос "favicon.ico".'' in /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php:332\nStack trace:\n#0 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(121): CWebApplication->runController(''favicon.ico'')\n#1 /var/www/Yii-CMS/protected/libs/yii/base/CApplication.php(155): CWebApplication->processRequest()\n#2 /var/www/Yii-CMS/index.php(30): CApplication->run()\n#3 {main} REQUEST_URI=/favicon.ico'),
+(134, 'error', 'exception.CHttpException.404', '2011-10-08 02:50:02', 'exception ''CHttpException'' with message ''Невозможно обработать запрос "favicon.ico".'' in /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php:332\nStack trace:\n#0 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(121): CWebApplication->runController(''favicon.ico'')\n#1 /var/www/Yii-CMS/protected/libs/yii/base/CApplication.php(155): CWebApplication->processRequest()\n#2 /var/www/Yii-CMS/index.php(30): CApplication->run()\n#3 {main} REQUEST_URI=/favicon.ico'),
+(135, 'error', 'exception.CHttpException.404', '2011-10-08 02:52:00', 'exception ''CHttpException'' with message ''Невозможно обработать запрос "favicon.ico".'' in /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php:332\nStack trace:\n#0 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(121): CWebApplication->runController(''favicon.ico'')\n#1 /var/www/Yii-CMS/protected/libs/yii/base/CApplication.php(155): CWebApplication->processRequest()\n#2 /var/www/Yii-CMS/index.php(30): CApplication->run()\n#3 {main} REQUEST_URI=/favicon.ico'),
+(136, 'error', 'exception.CHttpException.404', '2011-10-08 02:54:51', 'exception ''CHttpException'' with message ''Невозможно обработать запрос "favicon.ico".'' in /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php:332\nStack trace:\n#0 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(121): CWebApplication->runController(''favicon.ico'')\n#1 /var/www/Yii-CMS/protected/libs/yii/base/CApplication.php(155): CWebApplication->processRequest()\n#2 /var/www/Yii-CMS/index.php(30): CApplication->run()\n#3 {main} REQUEST_URI=/favicon.ico'),
+(137, 'error', 'php', '2011-10-08 02:54:52', 'include(news.php): failed to open stream: No such file or directory (/var/www/Yii-CMS/protected/libs/yii/YiiBase.php:396)\nStack trace:\n#0 /var/www/Yii-CMS/protected/modules/main/controllers/MainAdminController.php(78): spl_autoload_call()\n#1 unknown(0): MainAdminController->actionGetModelObjects()\n#2 /var/www/Yii-CMS/protected/libs/yii/web/actions/CAction.php(104): ReflectionMethod->invokeArgs()\n#3 /var/www/Yii-CMS/protected/libs/yii/web/actions/CInlineAction.php(48): CInlineAction->runWithParamsInternal()\n#4 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(300): CInlineAction->runWithParams()\n#5 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(278): MainAdminController->runAction()\n#6 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(257): MainAdminController->runActionWithFilters()\n#7 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(328): MainAdminController->run()\n#8 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(121): CWebApplication->runController()\n#9 /var/www/Yii-CMS/protected/libs/yii/base/CApplication.php(155): CWebApplication->processRequest()\n#10 /var/www/Yii-CMS/index.php(30): CWebApplication->run()\nREQUEST_URI=/main/MainAdmin/getModelObjects/model_id/news\nin /var/www/Yii-CMS/protected/modules/main/controllers/MainAdminController.php (78)\nin /var/www/Yii-CMS/index.php (30)'),
+(138, 'error', 'exception.CHttpException.404', '2011-10-08 02:54:53', 'exception ''CHttpException'' with message ''Невозможно обработать запрос "favicon.ico".'' in /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php:332\nStack trace:\n#0 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(121): CWebApplication->runController(''favicon.ico'')\n#1 /var/www/Yii-CMS/protected/libs/yii/base/CApplication.php(155): CWebApplication->processRequest()\n#2 /var/www/Yii-CMS/index.php(30): CApplication->run()\n#3 {main} REQUEST_URI=/favicon.ico'),
+(139, 'error', 'exception.CHttpException.400', '2011-10-08 02:54:53', 'exception ''CHttpException'' with message ''Некорректный запрос.'' in /var/www/Yii-CMS/protected/libs/yii/web/CController.php:328\nStack trace:\n#0 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(301): CController->invalidActionParams(Object(CInlineAction))\n#1 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(278): CController->runAction(Object(CInlineAction))\n#2 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(257): CController->runActionWithFilters(Object(CInlineAction), Array)\n#3 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(328): CController->run(''getModelObjects'')\n#4 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(121): CWebApplication->runController(''main/MainAdmin/...'')\n#5 /var/www/Yii-CMS/protected/libs/yii/base/CApplication.php(155): CWebApplication->processRequest()\n#6 /var/www/Yii-CMS/index.php(30): CApplication->run()\n#7 {main} REQUEST_URI=/main/MainAdmin/getModelObjects'),
+(140, 'error', 'exception.CHttpException.404', '2011-10-08 02:54:54', 'exception ''CHttpException'' with message ''Невозможно обработать запрос "favicon.ico".'' in /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php:332\nStack trace:\n#0 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(121): CWebApplication->runController(''favicon.ico'')\n#1 /var/www/Yii-CMS/protected/libs/yii/base/CApplication.php(155): CWebApplication->processRequest()\n#2 /var/www/Yii-CMS/index.php(30): CApplication->run()\n#3 {main} REQUEST_URI=/favicon.ico'),
+(141, 'error', 'exception.CHttpException.404', '2011-10-08 02:54:57', 'exception ''CHttpException'' with message ''Невозможно обработать запрос "favicon.ico".'' in /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php:332\nStack trace:\n#0 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(121): CWebApplication->runController(''favicon.ico'')\n#1 /var/www/Yii-CMS/protected/libs/yii/base/CApplication.php(155): CWebApplication->processRequest()\n#2 /var/www/Yii-CMS/index.php(30): CApplication->run()\n#3 {main} REQUEST_URI=/favicon.ico'),
+(142, 'error', 'exception.CHttpException.404', '2011-10-09 18:39:41', 'exception ''CHttpException'' with message ''Невозможно обработать запрос "favicon.ico".'' in /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php:332\nStack trace:\n#0 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(121): CWebApplication->runController(''favicon.ico'')\n#1 /var/www/Yii-CMS/protected/libs/yii/base/CApplication.php(155): CWebApplication->processRequest()\n#2 /var/www/Yii-CMS/index.php(30): CApplication->run()\n#3 {main} REQUEST_URI=/favicon.ico'),
+(143, 'warning', 'application', '2011-10-09 18:39:45', 'Не удалось присвоить небезопасный атрибут "remember_me".\nin /var/www/Yii-CMS/protected/modules/users/controllers/UserAdminController.php (36)\nin /var/www/Yii-CMS/index.php (30)'),
+(144, 'error', 'exception.CHttpException.404', '2011-10-09 18:39:47', 'exception ''CHttpException'' with message ''Невозможно обработать запрос "favicon.ico".'' in /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php:332\nStack trace:\n#0 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(121): CWebApplication->runController(''favicon.ico'')\n#1 /var/www/Yii-CMS/protected/libs/yii/base/CApplication.php(155): CWebApplication->processRequest()\n#2 /var/www/Yii-CMS/index.php(30): CApplication->run()\n#3 {main} REQUEST_URI=/favicon.ico'),
+(145, 'error', 'exception.CHttpException.404', '2011-10-09 18:50:31', 'exception ''CHttpException'' with message ''Невозможно обработать запрос "favicon.ico".'' in /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php:332\nStack trace:\n#0 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(121): CWebApplication->runController(''favicon.ico'')\n#1 /var/www/Yii-CMS/protected/libs/yii/base/CApplication.php(155): CWebApplication->processRequest()\n#2 /var/www/Yii-CMS/index.php(30): CApplication->run()\n#3 {main} REQUEST_URI=/favicon.ico'),
+(146, 'error', 'exception.CHttpException.404', '2011-10-09 22:47:08', 'exception ''CHttpException'' with message ''Невозможно обработать запрос "favicon.ico".'' in /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php:332\nStack trace:\n#0 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(121): CWebApplication->runController(''favicon.ico'')\n#1 /var/www/Yii-CMS/protected/libs/yii/base/CApplication.php(155): CWebApplication->processRequest()\n#2 /var/www/Yii-CMS/index.php(30): CApplication->run()\n#3 {main} REQUEST_URI=/favicon.ico'),
+(147, 'warning', 'application', '2011-10-09 22:47:11', 'Не удалось присвоить небезопасный атрибут "remember_me".\nin /var/www/Yii-CMS/protected/modules/users/controllers/UserAdminController.php (36)\nin /var/www/Yii-CMS/index.php (30)'),
+(148, 'error', 'exception.CHttpException.404', '2011-10-09 22:47:13', 'exception ''CHttpException'' with message ''Невозможно обработать запрос "favicon.ico".'' in /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php:332\nStack trace:\n#0 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(121): CWebApplication->runController(''favicon.ico'')\n#1 /var/www/Yii-CMS/protected/libs/yii/base/CApplication.php(155): CWebApplication->processRequest()\n#2 /var/www/Yii-CMS/index.php(30): CApplication->run()\n#3 {main} REQUEST_URI=/favicon.ico'),
+(149, 'error', 'exception.CHttpException.404', '2011-10-09 22:47:23', 'exception ''CHttpException'' with message ''Невозможно обработать запрос "favicon.ico".'' in /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php:332\nStack trace:\n#0 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(121): CWebApplication->runController(''favicon.ico'')\n#1 /var/www/Yii-CMS/protected/libs/yii/base/CApplication.php(155): CWebApplication->processRequest()\n#2 /var/www/Yii-CMS/index.php(30): CApplication->run()\n#3 {main} REQUEST_URI=/favicon.ico'),
+(150, 'error', 'system.db.CDbCommand', '2011-10-09 22:47:26', 'Не удалось выполнить CDbCommand::fetchAll(): SQLSTATE[42S02]: Base table or view not found: 1146 Table ''yii_cms.banners'' doesn''t exist. Выполнявшийся SQL-запрос: SHOW COLUMNS FROM `banners`.\nin /var/www/Yii-CMS/protected/components/ActiveRecordModel.php (19)\nin /var/www/Yii-CMS/protected/modules/banners/models/Banner.php (16)\nin /var/www/Yii-CMS/protected/modules/main/controllers/MainAdminController.php (78)'),
+(151, 'error', 'exception.CDbException', '2011-10-09 22:47:26', 'exception ''CDbException'' with message ''Таблица "banners", упомянутая в записи active record класса "Banner", не найдена в базе данных.'' in /var/www/Yii-CMS/protected/libs/yii/db/ar/CActiveRecord.php:2237\nStack trace:\n#0 /var/www/Yii-CMS/protected/libs/yii/db/ar/CActiveRecord.php(371): CActiveRecordMetaData->__construct(Object(Banner))\n#1 /var/www/Yii-CMS/protected/components/ActiveRecordModel.php(19): CActiveRecord::model(''Banner'')\n#2 /var/www/Yii-CMS/protected/modules/banners/models/Banner.php(16): ActiveRecordModel::model(''Banner'')\n#3 /var/www/Yii-CMS/protected/modules/main/controllers/MainAdminController.php(78): Banner::model()\n#4 [internal function]: MainAdminController->actionGetModelObjects(''Banner'')\n#5 /var/www/Yii-CMS/protected/libs/yii/web/actions/CAction.php(104): ReflectionMethod->invokeArgs(Object(MainAdminController), Array)\n#6 /var/www/Yii-CMS/protected/libs/yii/web/actions/CInlineAction.php(48): CAction->runWithParamsInternal(Object(MainAdminController), Object(ReflectionMethod), Array)\n#7 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(300): CInlineAction->runWithParams(Array)\n#8 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(278): CController->runAction(Object(CInlineAction))\n#9 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(257): CController->runActionWithFilters(Object(CInlineAction), Array)\n#10 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(328): CController->run(''getModelObjects'')\n#11 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(121): CWebApplication->runController(''main/MainAdmin/...'')\n#12 /var/www/Yii-CMS/protected/libs/yii/base/CApplication.php(155): CWebApplication->processRequest()\n#13 /var/www/Yii-CMS/index.php(30): CApplication->run()\n#14 {main} REQUEST_URI=/main/MainAdmin/getModelObjects?model_id=Banner'),
+(152, 'error', 'exception.CHttpException.404', '2011-10-09 22:47:28', 'exception ''CHttpException'' with message ''Невозможно обработать запрос "favicon.ico".'' in /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php:332\nStack trace:\n#0 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(121): CWebApplication->runController(''favicon.ico'')\n#1 /var/www/Yii-CMS/protected/libs/yii/base/CApplication.php(155): CWebApplication->processRequest()\n#2 /var/www/Yii-CMS/index.php(30): CApplication->run()\n#3 {main} REQUEST_URI=/favicon.ico'),
+(153, 'error', 'system.db.CDbCommand', '2011-10-09 22:47:32', 'Не удалось выполнить CDbCommand::fetchAll(): SQLSTATE[42S02]: Base table or view not found: 1146 Table ''yii_cms.certificates_types'' doesn''t exist. Выполнявшийся SQL-запрос: SHOW COLUMNS FROM `certificates_types`.\nin /var/www/Yii-CMS/protected/components/ActiveRecordModel.php (19)\nin /var/www/Yii-CMS/protected/modules/certificates/models/CertificateType.php (16)\nin /var/www/Yii-CMS/protected/modules/main/controllers/MainAdminController.php (78)'),
+(154, 'error', 'exception.CDbException', '2011-10-09 22:47:32', 'exception ''CDbException'' with message ''Таблица "certificates_types", упомянутая в записи active record класса "CertificateType", не найдена в базе данных.'' in /var/www/Yii-CMS/protected/libs/yii/db/ar/CActiveRecord.php:2237\nStack trace:\n#0 /var/www/Yii-CMS/protected/libs/yii/db/ar/CActiveRecord.php(371): CActiveRecordMetaData->__construct(Object(CertificateType))\n#1 /var/www/Yii-CMS/protected/components/ActiveRecordModel.php(19): CActiveRecord::model(''CertificateType'')\n#2 /var/www/Yii-CMS/protected/modules/certificates/models/CertificateType.php(16): ActiveRecordModel::model(''CertificateType'')\n#3 /var/www/Yii-CMS/protected/modules/main/controllers/MainAdminController.php(78): CertificateType::model()\n#4 [internal function]: MainAdminController->actionGetModelObjects(''CertificateType'')\n#5 /var/www/Yii-CMS/protected/libs/yii/web/actions/CAction.php(104): ReflectionMethod->invokeArgs(Object(MainAdminController), Array)\n#6 /var/www/Yii-CMS/protected/libs/yii/web/actions/CInlineAction.php(48): CAction->runWithParamsInternal(Object(MainAdminController), Object(ReflectionMethod), Array)\n#7 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(300): CInlineAction->runWithParams(Array)\n#8 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(278): CController->runAction(Object(CInlineAction))\n#9 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(257): CController->runActionWithFilters(Object(CInlineAction), Array)\n#10 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(328): CController->run(''getModelObjects'')\n#11 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(121): CWebApplication->runController(''main/MainAdmin/...'')\n#12 /var/www/Yii-CMS/protected/libs/yii/base/CApplication.php(155): CWebApplication->processRequest()\n#13 /var/www/Yii-CMS/index.php(30): CApplication->run()\n#14 {main} REQUEST_URI=/main/MainAdmin/getModelObjects?model_id=CertificateType'),
+(155, 'error', 'exception.CHttpException.404', '2011-10-09 22:47:34', 'exception ''CHttpException'' with message ''Невозможно обработать запрос "favicon.ico".'' in /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php:332\nStack trace:\n#0 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(121): CWebApplication->runController(''favicon.ico'')\n#1 /var/www/Yii-CMS/protected/libs/yii/base/CApplication.php(155): CWebApplication->processRequest()\n#2 /var/www/Yii-CMS/index.php(30): CApplication->run()\n#3 {main} REQUEST_URI=/favicon.ico'),
+(156, 'error', 'exception.CHttpException.404', '2011-10-09 22:48:20', 'exception ''CHttpException'' with message ''Невозможно обработать запрос "favicon.ico".'' in /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php:332\nStack trace:\n#0 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(121): CWebApplication->runController(''favicon.ico'')\n#1 /var/www/Yii-CMS/protected/libs/yii/base/CApplication.php(155): CWebApplication->processRequest()\n#2 /var/www/Yii-CMS/index.php(30): CApplication->run()\n#3 {main} REQUEST_URI=/favicon.ico'),
+(157, 'error', 'system.db.CDbCommand', '2011-10-09 22:48:22', 'Не удалось выполнить CDbCommand::fetchAll(): SQLSTATE[42S02]: Base table or view not found: 1146 Table ''yii_cms.banners'' doesn''t exist. Выполнявшийся SQL-запрос: SHOW COLUMNS FROM `banners`.\nin /var/www/Yii-CMS/protected/components/ActiveRecordModel.php (19)\nin /var/www/Yii-CMS/protected/modules/banners/models/Banner.php (16)\nin /var/www/Yii-CMS/protected/modules/main/controllers/MainAdminController.php (78)'),
+(158, 'error', 'exception.CDbException', '2011-10-09 22:48:22', 'exception ''CDbException'' with message ''Таблица "banners", упомянутая в записи active record класса "Banner", не найдена в базе данных.'' in /var/www/Yii-CMS/protected/libs/yii/db/ar/CActiveRecord.php:2237\nStack trace:\n#0 /var/www/Yii-CMS/protected/libs/yii/db/ar/CActiveRecord.php(371): CActiveRecordMetaData->__construct(Object(Banner))\n#1 /var/www/Yii-CMS/protected/components/ActiveRecordModel.php(19): CActiveRecord::model(''Banner'')\n#2 /var/www/Yii-CMS/protected/modules/banners/models/Banner.php(16): ActiveRecordModel::model(''Banner'')\n#3 /var/www/Yii-CMS/protected/modules/main/controllers/MainAdminController.php(78): Banner::model()\n#4 [internal function]: MainAdminController->actionGetModelObjects(''Banner'')\n#5 /var/www/Yii-CMS/protected/libs/yii/web/actions/CAction.php(104): ReflectionMethod->invokeArgs(Object(MainAdminController), Array)\n#6 /var/www/Yii-CMS/protected/libs/yii/web/actions/CInlineAction.php(48): CAction->runWithParamsInternal(Object(MainAdminController), Object(ReflectionMethod), Array)\n#7 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(300): CInlineAction->runWithParams(Array)\n#8 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(278): CController->runAction(Object(CInlineAction))\n#9 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(257): CController->runActionWithFilters(Object(CInlineAction), Array)\n#10 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(328): CController->run(''getModelObjects'')\n#11 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(121): CWebApplication->runController(''main/MainAdmin/...'')\n#12 /var/www/Yii-CMS/protected/libs/yii/base/CApplication.php(155): CWebApplication->processRequest()\n#13 /var/www/Yii-CMS/index.php(30): CApplication->run()\n#14 {main} REQUEST_URI=/main/MainAdmin/getModelObjects?model_id=Banner'),
+(159, 'error', 'exception.CHttpException.404', '2011-10-09 22:48:25', 'exception ''CHttpException'' with message ''Невозможно обработать запрос "favicon.ico".'' in /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php:332\nStack trace:\n#0 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(121): CWebApplication->runController(''favicon.ico'')\n#1 /var/www/Yii-CMS/protected/libs/yii/base/CApplication.php(155): CWebApplication->processRequest()\n#2 /var/www/Yii-CMS/index.php(30): CApplication->run()\n#3 {main} REQUEST_URI=/favicon.ico'),
+(160, 'error', 'exception.CHttpException.404', '2011-10-09 22:56:17', 'exception ''CHttpException'' with message ''Невозможно обработать запрос "favicon.ico".'' in /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php:332\nStack trace:\n#0 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(121): CWebApplication->runController(''favicon.ico'')\n#1 /var/www/Yii-CMS/protected/libs/yii/base/CApplication.php(155): CWebApplication->processRequest()\n#2 /var/www/Yii-CMS/index.php(30): CApplication->run()\n#3 {main} REQUEST_URI=/favicon.ico'),
+(161, 'error', 'exception.CHttpException.404', '2011-10-09 22:56:17', 'exception ''CHttpException'' with message ''Невозможно обработать запрос "favicon.ico".'' in /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php:332\nStack trace:\n#0 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(121): CWebApplication->runController(''favicon.ico'')\n#1 /var/www/Yii-CMS/protected/libs/yii/base/CApplication.php(155): CWebApplication->processRequest()\n#2 /var/www/Yii-CMS/index.php(30): CApplication->run()\n#3 {main} REQUEST_URI=/favicon.ico'),
+(162, 'error', 'exception.CHttpException.404', '2011-10-09 22:57:23', 'exception ''CHttpException'' with message ''Невозможно обработать запрос "favicon.ico".'' in /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php:332\nStack trace:\n#0 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(121): CWebApplication->runController(''favicon.ico'')\n#1 /var/www/Yii-CMS/protected/libs/yii/base/CApplication.php(155): CWebApplication->processRequest()\n#2 /var/www/Yii-CMS/index.php(30): CApplication->run()\n#3 {main} REQUEST_URI=/favicon.ico'),
+(163, 'error', 'exception.CHttpException.Не найден заголовок для дейсвия GetModelObjects', '2011-10-09 22:57:25', 'exception ''CHttpException'' in /var/www/Yii-CMS/protected/components/BaseController.php:63\nStack trace:\n#0 /var/www/Yii-CMS/protected/components/BaseController.php(51): BaseController->setTitleAndSaveSiteAction(Object(CInlineAction))\n#1 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(298): BaseController->beforeAction(Object(CInlineAction))\n#2 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(278): CController->runAction(Object(CInlineAction))\n#3 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(257): CController->runActionWithFilters(Object(CInlineAction), Array)\n#4 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(328): CController->run(''getModelObjects'')\n#5 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(121): CWebApplication->runController(''main/MetaTagAdm...'')\n#6 /var/www/Yii-CMS/protected/libs/yii/base/CApplication.php(155): CWebApplication->processRequest()\n#7 /var/www/Yii-CMS/index.php(30): CApplication->run()\n#8 {main} REQUEST_URI=/main/MetaTagAdmin/getModelObjects?model_id=Page'),
+(164, 'error', 'exception.CHttpException.404', '2011-10-09 23:00:35', 'exception ''CHttpException'' with message ''Невозможно обработать запрос "favicon.ico".'' in /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php:332\nStack trace:\n#0 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(121): CWebApplication->runController(''favicon.ico'')\n#1 /var/www/Yii-CMS/protected/libs/yii/base/CApplication.php(155): CWebApplication->processRequest()\n#2 /var/www/Yii-CMS/index.php(30): CApplication->run()\n#3 {main} REQUEST_URI=/favicon.ico'),
+(165, 'error', 'exception.CHttpException.Не найден заголовок для дейсвия GetModelObjects', '2011-10-09 23:00:40', 'exception ''CHttpException'' in /var/www/Yii-CMS/protected/components/BaseController.php:63\nStack trace:\n#0 /var/www/Yii-CMS/protected/components/BaseController.php(51): BaseController->setTitleAndSaveSiteAction(Object(CInlineAction))\n#1 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(298): BaseController->beforeAction(Object(CInlineAction))\n#2 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(278): CController->runAction(Object(CInlineAction))\n#3 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(257): CController->runActionWithFilters(Object(CInlineAction), Array)\n#4 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(328): CController->run(''getModelObjects'')\n#5 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(121): CWebApplication->runController(''main/MetaTagAdm...'')\n#6 /var/www/Yii-CMS/protected/libs/yii/base/CApplication.php(155): CWebApplication->processRequest()\n#7 /var/www/Yii-CMS/index.php(30): CApplication->run()\n#8 {main} REQUEST_URI=/main/MetaTagAdmin/getModelObjects?model_id=Page'),
+(166, 'error', 'exception.CHttpException.404', '2011-10-09 23:00:44', 'exception ''CHttpException'' with message ''Невозможно обработать запрос "favicon.ico".'' in /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php:332\nStack trace:\n#0 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(121): CWebApplication->runController(''favicon.ico'')\n#1 /var/www/Yii-CMS/protected/libs/yii/base/CApplication.php(155): CWebApplication->processRequest()\n#2 /var/www/Yii-CMS/index.php(30): CApplication->run()\n#3 {main} REQUEST_URI=/favicon.ico'),
+(167, 'error', 'exception.CHttpException.404', '2011-10-09 23:01:22', 'exception ''CHttpException'' with message ''Невозможно обработать запрос "favicon.ico".'' in /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php:332\nStack trace:\n#0 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(121): CWebApplication->runController(''favicon.ico'')\n#1 /var/www/Yii-CMS/protected/libs/yii/base/CApplication.php(155): CWebApplication->processRequest()\n#2 /var/www/Yii-CMS/index.php(30): CApplication->run()\n#3 {main} REQUEST_URI=/favicon.ico'),
+(168, 'error', 'exception.CHttpException.404', '2011-10-09 23:01:23', 'exception ''CHttpException'' with message ''Невозможно обработать запрос "favicon.ico".'' in /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php:332\nStack trace:\n#0 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(121): CWebApplication->runController(''favicon.ico'')\n#1 /var/www/Yii-CMS/protected/libs/yii/base/CApplication.php(155): CWebApplication->processRequest()\n#2 /var/www/Yii-CMS/index.php(30): CApplication->run()\n#3 {main} REQUEST_URI=/favicon.ico'),
+(169, 'warning', 'application', '2011-10-09 23:01:24', 'Не удалось присвоить небезопасный атрибут "remember_me".\nin /var/www/Yii-CMS/protected/modules/users/controllers/UserAdminController.php (36)\nin /var/www/Yii-CMS/index.php (30)'),
+(170, 'warning', 'application', '2011-10-09 23:01:32', 'Не удалось присвоить небезопасный атрибут "remember_me".\nin /var/www/Yii-CMS/protected/modules/users/controllers/UserAdminController.php (36)\nin /var/www/Yii-CMS/index.php (30)'),
+(171, 'error', 'exception.CHttpException.Не найден заголовок для дейсвия GetModelObjects', '2011-10-09 23:04:26', 'exception ''CHttpException'' in /var/www/Yii-CMS/protected/components/BaseController.php:63\nStack trace:\n#0 /var/www/Yii-CMS/protected/components/BaseController.php(51): BaseController->setTitleAndSaveSiteAction(Object(CInlineAction))\n#1 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(298): BaseController->beforeAction(Object(CInlineAction))\n#2 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(278): CController->runAction(Object(CInlineAction))\n#3 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(257): CController->runActionWithFilters(Object(CInlineAction), Array)\n#4 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(328): CController->run(''getModelObjects'')\n#5 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(121): CWebApplication->runController(''main/MetaTagAdm...'')\n#6 /var/www/Yii-CMS/protected/libs/yii/base/CApplication.php(155): CWebApplication->processRequest()\n#7 /var/www/Yii-CMS/index.php(30): CApplication->run()\n#8 {main} REQUEST_URI=/main/MetaTagAdmin/getModelObjects?model_id=Page'),
+(172, 'error', 'exception.CException', '2011-10-09 23:23:50', 'exception ''CException'' with message ''Не определено свойство MetaTag.object'' in /var/www/Yii-CMS/protected/components/ActiveRecordModel.php:161\nStack trace:\n#0 /var/www/Yii-CMS/protected/modules/main/views/metaTagAdmin/view.php(7): ActiveRecordModel->__get(''object'')\n#1 /var/www/Yii-CMS/protected/libs/yii/web/CBaseController.php(119): require(''/var/www/Yii-CM...'')\n#2 /var/www/Yii-CMS/protected/libs/yii/web/CBaseController.php(88): CBaseController->renderInternal(''/var/www/Yii-CM...'', Array, true)\n#3 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(866): CBaseController->renderFile(''/var/www/Yii-CM...'', Array, true)\n#4 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(779): CController->renderPartial(''view'', Array, true)\n#5 /var/www/Yii-CMS/protected/modules/main/controllers/MetaTagAdminController.php(22): CController->render(''view'', Array)\n#6 [internal function]: MetaTagAdminController->actionView(''1'')\n#7 /var/www/Yii-CMS/protected/libs/yii/web/actions/CAction.php(104): ReflectionMethod->invokeArgs(Object(MetaTagAdminController), Array)\n#8 /var/www/Yii-CMS/protected/libs/yii/web/actions/CInlineAction.php(48): CAction->runWithParamsInternal(Object(MetaTagAdminController), Object(ReflectionMethod), Array)\n#9 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(300): CInlineAction->runWithParams(Array)\n#10 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(278): CController->runAction(Object(CInlineAction))\n#11 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(257): CController->runActionWithFilters(Object(CInlineAction), Array)\n#12 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(328): CController->run(''view'')\n#13 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(121): CWebApplication->runController(''main/metaTagAdm...'')\n#14 /var/www/Yii-CMS/protected/libs/yii/base/CApplication.php(155): CWebApplication->processRequest()\n#15 /var/www/Yii-CMS/index.php(30): CApplication->run()\n#16 {main} REQUEST_URI=/main/metaTagAdmin/view/id/1'),
+(173, 'error', 'exception.CException', '2011-10-09 23:24:40', 'exception ''CException'' with message ''Не определено свойство MetaTag.model_id'' in /var/www/Yii-CMS/protected/components/ActiveRecordModel.php:161\nStack trace:\n#0 /var/www/Yii-CMS/protected/modules/main/models/MetaTag.php(53): ActiveRecordModel->__get(''model_id'')\n#1 /var/www/Yii-CMS/protected/libs/yii/db/ar/CActiveRecord.php(2250): MetaTag->relations()\n#2 /var/www/Yii-CMS/protected/libs/yii/db/ar/CActiveRecord.php(371): CActiveRecordMetaData->__construct(Object(MetaTag))\n#3 /var/www/Yii-CMS/protected/components/ActiveRecordModel.php(18): CActiveRecord::model(''MetaTag'')\n#4 /var/www/Yii-CMS/protected/modules/main/models/MetaTag.php(27): ActiveRecordModel::model(''MetaTag'')\n#5 /var/www/Yii-CMS/protected/modules/main/controllers/MetaTagAdminController.php(107): MetaTag::model()\n#6 /var/www/Yii-CMS/protected/modules/main/controllers/MetaTagAdminController.php(21): MetaTagAdminController->loadModel(''1'')\n#7 [internal function]: MetaTagAdminController->actionView(''1'')\n#8 /var/www/Yii-CMS/protected/libs/yii/web/actions/CAction.php(104): ReflectionMethod->invokeArgs(Object(MetaTagAdminController), Array)\n#9 /var/www/Yii-CMS/protected/libs/yii/web/actions/CInlineAction.php(48): CAction->runWithParamsInternal(Object(MetaTagAdminController), Object(ReflectionMethod), Array)\n#10 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(300): CInlineAction->runWithParams(Array)\n#11 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(278): CController->runAction(Object(CInlineAction))\n#12 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(257): CController->runActionWithFilters(Object(CInlineAction), Array)\n#13 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(328): CController->run(''view'')\n#14 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(121): CWebApplication->runController(''main/metaTagAdm...'')\n#15 /var/www/Yii-CMS/protected/libs/yii/base/CApplication.php(155): CWebApplication->processRequest()\n#16 /var/www/Yii-CMS/index.php(30): CApplication->run()\n#17 {main} REQUEST_URI=/main/metaTagAdmin/view/id/1'),
+(174, 'error', 'exception.CException', '2011-10-09 23:25:55', 'exception ''CException'' with message ''Не определено свойство MetaTag.model_id'' in /var/www/Yii-CMS/protected/components/ActiveRecordModel.php:161\nStack trace:\n#0 /var/www/Yii-CMS/protected/modules/main/models/MetaTag.php(51): ActiveRecordModel->__get(''model_id'')\n#1 /var/www/Yii-CMS/protected/libs/yii/db/ar/CActiveRecord.php(2250): MetaTag->relations()\n#2 /var/www/Yii-CMS/protected/libs/yii/db/ar/CActiveRecord.php(371): CActiveRecordMetaData->__construct(Object(MetaTag))\n#3 /var/www/Yii-CMS/protected/components/ActiveRecordModel.php(18): CActiveRecord::model(''MetaTag'')\n#4 /var/www/Yii-CMS/protected/modules/main/models/MetaTag.php(27): ActiveRecordModel::model(''MetaTag'')\n#5 /var/www/Yii-CMS/protected/modules/main/controllers/MetaTagAdminController.php(107): MetaTag::model()\n#6 /var/www/Yii-CMS/protected/modules/main/controllers/MetaTagAdminController.php(21): MetaTagAdminController->loadModel(''1'')\n#7 [internal function]: MetaTagAdminController->actionView(''1'')\n#8 /var/www/Yii-CMS/protected/libs/yii/web/actions/CAction.php(104): ReflectionMethod->invokeArgs(Object(MetaTagAdminController), Array)\n#9 /var/www/Yii-CMS/protected/libs/yii/web/actions/CInlineAction.php(48): CAction->runWithParamsInternal(Object(MetaTagAdminController), Object(ReflectionMethod), Array)\n#10 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(300): CInlineAction->runWithParams(Array)\n#11 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(278): CController->runAction(Object(CInlineAction))\n#12 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(257): CController->runActionWithFilters(Object(CInlineAction), Array)\n#13 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(328): CController->run(''view'')\n#14 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(121): CWebApplication->runController(''main/metaTagAdm...'')\n#15 /var/www/Yii-CMS/protected/libs/yii/base/CApplication.php(155): CWebApplication->processRequest()\n#16 /var/www/Yii-CMS/index.php(30): CApplication->run()\n#17 {main} REQUEST_URI=/main/metaTagAdmin/view/id/1'),
+(175, 'error', 'php', '2011-10-09 23:26:12', 'Trying to get property of non-object (/var/www/Yii-CMS/protected/libs/yii/db/ar/CActiveRecord.php:730)\nStack trace:\n#0 /var/www/Yii-CMS/protected/components/ActiveRecordModel.php(140): MetaTag->__get()\n#1 /var/www/Yii-CMS/protected/modules/main/models/MetaTag.php(51): MetaTag->__get()\n#2 /var/www/Yii-CMS/protected/libs/yii/db/ar/CActiveRecord.php(2250): MetaTag->relations()\n#3 /var/www/Yii-CMS/protected/libs/yii/db/ar/CActiveRecord.php(371): CActiveRecordMetaData->__construct()\n#4 /var/www/Yii-CMS/protected/components/ActiveRecordModel.php(18): model()\n#5 /var/www/Yii-CMS/protected/modules/main/models/MetaTag.php(27): model()\n#6 /var/www/Yii-CMS/protected/modules/main/controllers/MetaTagAdminController.php(107): model()\n#7 /var/www/Yii-CMS/protected/modules/main/controllers/MetaTagAdminController.php(21): MetaTagAdminController->loadModel()\n#8 unknown(0): MetaTagAdminController->actionView()\n#9 /var/www/Yii-CMS/protected/libs/yii/web/actions/CAction.php(104): ReflectionMethod->invokeArgs()\n#10 /var/www/Yii-CMS/protected/libs/yii/web/actions/CInlineAction.php(48): CInlineAction->runWithParamsInternal()\n#11 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(300): CInlineAction->runWithParams()\n#12 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(278): MetaTagAdminController->runAction()\n#13 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(257): MetaTagAdminController->runActionWithFilters()\n#14 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(328): MetaTagAdminController->run()\n#15 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(121): CWebApplication->runController()\n#16 /var/www/Yii-CMS/protected/libs/yii/base/CApplication.php(155): CWebApplication->processRequest()\n#17 /var/www/Yii-CMS/index.php(30): CWebApplication->run()\nREQUEST_URI=/main/metaTagAdmin/view/id/1\nin /var/www/Yii-CMS/protected/components/ActiveRecordModel.php (140)\nin /var/www/Yii-CMS/protected/modules/main/models/MetaTag.php (51)\nin /var/www/Yii-CMS/protected/components/ActiveRecordModel.php (18)'),
+(176, 'error', 'php', '2011-10-09 23:41:08', 'call_user_func() expects parameter 1 to be a valid callback, function ''Page'' not found or invalid function name (/var/www/Yii-CMS/protected/libs/yii/base/CComponent.php(616) : eval()''d code:1)\nStack trace:\n#0 /var/www/Yii-CMS/protected/libs/yii/zii/widgets/grid/CDataColumn.php(132): CDataColumn->evaluateExpression()\n#1 /var/www/Yii-CMS/protected/libs/yii/zii/widgets/grid/CGridColumn.php(135): CDataColumn->renderDataCellContent()\n#2 /var/www/Yii-CMS/protected/components/GridView.php(248): CDataColumn->renderDataCell()\n#3 /var/www/Yii-CMS/protected/libs/yii/zii/widgets/grid/CGridView.php(475): GridView->renderTableRow()\n#4 /var/www/Yii-CMS/protected/components/GridView.php(168): GridView->renderTableBody()\n#5 /var/www/Yii-CMS/protected/libs/yii/zii/widgets/CBaseListView.php(158): GridView->renderItems()\n#6 unknown(0): GridView->renderSection()\n#7 /var/www/Yii-CMS/protected/libs/yii/zii/widgets/CBaseListView.php(141): preg_replace_callback()\n#8 /var/www/Yii-CMS/protected/libs/yii/zii/widgets/CBaseListView.php(126): GridView->renderContent()\n#9 /var/www/Yii-CMS/protected/libs/yii/web/CBaseController.php(166): GridView->run()\n#10 /var/www/Yii-CMS/protected/modules/main/views/metaTagAdmin/manage.php(25): MetaTagAdminController->widget()\n#11 /var/www/Yii-CMS/protected/libs/yii/web/CBaseController.php(119): require()\n#12 /var/www/Yii-CMS/protected/libs/yii/web/CBaseController.php(88): MetaTagAdminController->renderInternal()\n#13 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(866): MetaTagAdminController->renderFile()\n#14 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(779): MetaTagAdminController->renderPartial()\n#15 /var/www/Yii-CMS/protected/modules/main/controllers/MetaTagAdminController.php(101): MetaTagAdminController->render()\n#16 /var/www/Yii-CMS/protected/libs/yii/web/actions/CInlineAction.php(50): MetaTagAdminController->actionManage()\n#17 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(300): CInlineAction->runWithParams()\n#18 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(278): MetaTagAdminController->runAction()\n#19 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(257): MetaTagAdminController->runActionWithFilters()\n#20 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(328): MetaTagAdminController->run()\n#21 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(121): CWebApplication->runController()\n#22 /var/www/Yii-CMS/protected/libs/yii/base/CApplication.php(155): CWebApplication->processRequest()\n#23 /var/www/Yii-CMS/index.php(30): CWebApplication->run()\nREQUEST_URI=/main/metaTagAdmin/manage\nin /var/www/Yii-CMS/protected/components/GridView.php (248)\nin /var/www/Yii-CMS/protected/components/GridView.php (168)\nin /var/www/Yii-CMS/protected/modules/main/views/metaTagAdmin/manage.php (25)');
+INSERT INTO `log` (`id`, `level`, `category`, `logtime`, `message`) VALUES
+(177, 'error', 'php', '2011-10-09 23:41:29', 'call_user_func() expects parameter 1 to be a valid callback, function ''''Page'''' not found or invalid function name (/var/www/Yii-CMS/protected/libs/yii/base/CComponent.php(616) : eval()''d code:1)\nStack trace:\n#0 /var/www/Yii-CMS/protected/libs/yii/zii/widgets/grid/CDataColumn.php(132): CDataColumn->evaluateExpression()\n#1 /var/www/Yii-CMS/protected/libs/yii/zii/widgets/grid/CGridColumn.php(135): CDataColumn->renderDataCellContent()\n#2 /var/www/Yii-CMS/protected/components/GridView.php(248): CDataColumn->renderDataCell()\n#3 /var/www/Yii-CMS/protected/libs/yii/zii/widgets/grid/CGridView.php(475): GridView->renderTableRow()\n#4 /var/www/Yii-CMS/protected/components/GridView.php(168): GridView->renderTableBody()\n#5 /var/www/Yii-CMS/protected/libs/yii/zii/widgets/CBaseListView.php(158): GridView->renderItems()\n#6 unknown(0): GridView->renderSection()\n#7 /var/www/Yii-CMS/protected/libs/yii/zii/widgets/CBaseListView.php(141): preg_replace_callback()\n#8 /var/www/Yii-CMS/protected/libs/yii/zii/widgets/CBaseListView.php(126): GridView->renderContent()\n#9 /var/www/Yii-CMS/protected/libs/yii/web/CBaseController.php(166): GridView->run()\n#10 /var/www/Yii-CMS/protected/modules/main/views/metaTagAdmin/manage.php(25): MetaTagAdminController->widget()\n#11 /var/www/Yii-CMS/protected/libs/yii/web/CBaseController.php(119): require()\n#12 /var/www/Yii-CMS/protected/libs/yii/web/CBaseController.php(88): MetaTagAdminController->renderInternal()\n#13 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(866): MetaTagAdminController->renderFile()\n#14 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(779): MetaTagAdminController->renderPartial()\n#15 /var/www/Yii-CMS/protected/modules/main/controllers/MetaTagAdminController.php(101): MetaTagAdminController->render()\n#16 /var/www/Yii-CMS/protected/libs/yii/web/actions/CInlineAction.php(50): MetaTagAdminController->actionManage()\n#17 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(300): CInlineAction->runWithParams()\n#18 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(278): MetaTagAdminController->runAction()\n#19 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(257): MetaTagAdminController->runActionWithFilters()\n#20 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(328): MetaTagAdminController->run()\n#21 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(121): CWebApplication->runController()\n#22 /var/www/Yii-CMS/protected/libs/yii/base/CApplication.php(155): CWebApplication->processRequest()\n#23 /var/www/Yii-CMS/index.php(30): CWebApplication->run()\nREQUEST_URI=/main/metaTagAdmin/manage\nin /var/www/Yii-CMS/protected/components/GridView.php (248)\nin /var/www/Yii-CMS/protected/components/GridView.php (168)\nin /var/www/Yii-CMS/protected/modules/main/views/metaTagAdmin/manage.php (25)'),
+(178, 'error', 'php', '2011-10-09 23:41:47', 'htmlspecialchars() expects parameter 1 to be string, object given (/var/www/Yii-CMS/protected/libs/yii/web/helpers/CHtml.php:66)\nStack trace:\n#0 /var/www/Yii-CMS/protected/libs/yii/utils/CFormatter.php(102): CFormatter->formatText()\n#1 /var/www/Yii-CMS/protected/libs/yii/zii/widgets/grid/CDataColumn.php(135): CFormatter->format()\n#2 /var/www/Yii-CMS/protected/libs/yii/zii/widgets/grid/CGridColumn.php(135): CDataColumn->renderDataCellContent()\n#3 /var/www/Yii-CMS/protected/components/GridView.php(248): CDataColumn->renderDataCell()\n#4 /var/www/Yii-CMS/protected/libs/yii/zii/widgets/grid/CGridView.php(475): GridView->renderTableRow()\n#5 /var/www/Yii-CMS/protected/components/GridView.php(168): GridView->renderTableBody()\n#6 /var/www/Yii-CMS/protected/libs/yii/zii/widgets/CBaseListView.php(158): GridView->renderItems()\n#7 unknown(0): GridView->renderSection()\n#8 /var/www/Yii-CMS/protected/libs/yii/zii/widgets/CBaseListView.php(141): preg_replace_callback()\n#9 /var/www/Yii-CMS/protected/libs/yii/zii/widgets/CBaseListView.php(126): GridView->renderContent()\n#10 /var/www/Yii-CMS/protected/libs/yii/web/CBaseController.php(166): GridView->run()\n#11 /var/www/Yii-CMS/protected/modules/main/views/metaTagAdmin/manage.php(25): MetaTagAdminController->widget()\n#12 /var/www/Yii-CMS/protected/libs/yii/web/CBaseController.php(119): require()\n#13 /var/www/Yii-CMS/protected/libs/yii/web/CBaseController.php(88): MetaTagAdminController->renderInternal()\n#14 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(866): MetaTagAdminController->renderFile()\n#15 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(779): MetaTagAdminController->renderPartial()\n#16 /var/www/Yii-CMS/protected/modules/main/controllers/MetaTagAdminController.php(101): MetaTagAdminController->render()\n#17 /var/www/Yii-CMS/protected/libs/yii/web/actions/CInlineAction.php(50): MetaTagAdminController->actionManage()\n#18 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(300): CInlineAction->runWithParams()\n#19 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(278): MetaTagAdminController->runAction()\n#20 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(257): MetaTagAdminController->runActionWithFilters()\n#21 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(328): MetaTagAdminController->run()\n#22 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(121): CWebApplication->runController()\n#23 /var/www/Yii-CMS/protected/libs/yii/base/CApplication.php(155): CWebApplication->processRequest()\n#24 /var/www/Yii-CMS/index.php(30): CWebApplication->run()\nREQUEST_URI=/main/metaTagAdmin/manage\nin /var/www/Yii-CMS/protected/components/GridView.php (248)\nin /var/www/Yii-CMS/protected/components/GridView.php (168)\nin /var/www/Yii-CMS/protected/modules/main/views/metaTagAdmin/manage.php (25)'),
+(179, 'error', 'php', '2011-10-09 23:42:04', 'htmlspecialchars() expects parameter 1 to be string, object given (/var/www/Yii-CMS/protected/libs/yii/web/helpers/CHtml.php:66)\nStack trace:\n#0 /var/www/Yii-CMS/protected/libs/yii/utils/CFormatter.php(102): CFormatter->formatText()\n#1 /var/www/Yii-CMS/protected/libs/yii/zii/widgets/grid/CDataColumn.php(135): CFormatter->format()\n#2 /var/www/Yii-CMS/protected/libs/yii/zii/widgets/grid/CGridColumn.php(135): CDataColumn->renderDataCellContent()\n#3 /var/www/Yii-CMS/protected/components/GridView.php(248): CDataColumn->renderDataCell()\n#4 /var/www/Yii-CMS/protected/libs/yii/zii/widgets/grid/CGridView.php(475): GridView->renderTableRow()\n#5 /var/www/Yii-CMS/protected/components/GridView.php(168): GridView->renderTableBody()\n#6 /var/www/Yii-CMS/protected/libs/yii/zii/widgets/CBaseListView.php(158): GridView->renderItems()\n#7 unknown(0): GridView->renderSection()\n#8 /var/www/Yii-CMS/protected/libs/yii/zii/widgets/CBaseListView.php(141): preg_replace_callback()\n#9 /var/www/Yii-CMS/protected/libs/yii/zii/widgets/CBaseListView.php(126): GridView->renderContent()\n#10 /var/www/Yii-CMS/protected/libs/yii/web/CBaseController.php(166): GridView->run()\n#11 /var/www/Yii-CMS/protected/modules/main/views/metaTagAdmin/manage.php(25): MetaTagAdminController->widget()\n#12 /var/www/Yii-CMS/protected/libs/yii/web/CBaseController.php(119): require()\n#13 /var/www/Yii-CMS/protected/libs/yii/web/CBaseController.php(88): MetaTagAdminController->renderInternal()\n#14 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(866): MetaTagAdminController->renderFile()\n#15 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(779): MetaTagAdminController->renderPartial()\n#16 /var/www/Yii-CMS/protected/modules/main/controllers/MetaTagAdminController.php(101): MetaTagAdminController->render()\n#17 /var/www/Yii-CMS/protected/libs/yii/web/actions/CInlineAction.php(50): MetaTagAdminController->actionManage()\n#18 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(300): CInlineAction->runWithParams()\n#19 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(278): MetaTagAdminController->runAction()\n#20 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(257): MetaTagAdminController->runActionWithFilters()\n#21 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(328): MetaTagAdminController->run()\n#22 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(121): CWebApplication->runController()\n#23 /var/www/Yii-CMS/protected/libs/yii/base/CApplication.php(155): CWebApplication->processRequest()\n#24 /var/www/Yii-CMS/index.php(30): CWebApplication->run()\nREQUEST_URI=/main/metaTagAdmin/manage\nin /var/www/Yii-CMS/protected/components/GridView.php (248)\nin /var/www/Yii-CMS/protected/components/GridView.php (168)\nin /var/www/Yii-CMS/protected/modules/main/views/metaTagAdmin/manage.php (25)'),
+(180, 'warning', 'application', '2011-10-10 00:14:00', 'Не удалось присвоить небезопасный атрибут "id".\nin /var/www/Yii-CMS/protected/modules/main/controllers/MetaTagAdminController.php (59)\nin /var/www/Yii-CMS/index.php (30)'),
+(181, 'error', 'exception.CException', '2011-10-10 00:15:49', 'exception ''CException'' with message ''PageController не содержит метода "inutMetaTags".'' in /var/www/Yii-CMS/protected/libs/yii/base/CComponent.php:266\nStack trace:\n#0 /var/www/Yii-CMS/protected/components/BaseController.php(24): CComponent->__call(''inutMetaTags'', Array)\n#1 /var/www/Yii-CMS/protected/components/BaseController.php(24): PageController->inutMetaTags()\n#2 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(327): BaseController->init()\n#3 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(121): CWebApplication->runController(''content/page/vi...'')\n#4 /var/www/Yii-CMS/protected/libs/yii/base/CApplication.php(155): CWebApplication->processRequest()\n#5 /var/www/Yii-CMS/index.php(30): CApplication->run()\n#6 {main} REQUEST_URI=/ru/page/2');
 
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `mailer_fields`
+-- Table structure for table `mailer_fields`
 --
 
 CREATE TABLE IF NOT EXISTS `mailer_fields` (
@@ -1083,7 +1315,7 @@ CREATE TABLE IF NOT EXISTS `mailer_fields` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=11 ;
 
 --
--- Дамп данных таблицы `mailer_fields`
+-- Dumping data for table `mailer_fields`
 --
 
 INSERT INTO `mailer_fields` (`id`, `code`, `name`, `value`) VALUES
@@ -1099,7 +1331,7 @@ INSERT INTO `mailer_fields` (`id`, `code`, `name`, `value`) VALUES
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `mailer_letters`
+-- Table structure for table `mailer_letters`
 --
 
 CREATE TABLE IF NOT EXISTS `mailer_letters` (
@@ -1113,7 +1345,7 @@ CREATE TABLE IF NOT EXISTS `mailer_letters` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=6 ;
 
 --
--- Дамп данных таблицы `mailer_letters`
+-- Dumping data for table `mailer_letters`
 --
 
 INSERT INTO `mailer_letters` (`id`, `template_id`, `subject`, `text`, `date_create`) VALUES
@@ -1122,7 +1354,7 @@ INSERT INTO `mailer_letters` (`id`, `template_id`, `subject`, `text`, `date_crea
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `mailer_recipients`
+-- Table structure for table `mailer_recipients`
 --
 
 CREATE TABLE IF NOT EXISTS `mailer_recipients` (
@@ -1138,7 +1370,7 @@ CREATE TABLE IF NOT EXISTS `mailer_recipients` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=11 ;
 
 --
--- Дамп данных таблицы `mailer_recipients`
+-- Dumping data for table `mailer_recipients`
 --
 
 INSERT INTO `mailer_recipients` (`id`, `letter_id`, `user_id`, `status`, `date_create`) VALUES
@@ -1148,7 +1380,7 @@ INSERT INTO `mailer_recipients` (`id`, `letter_id`, `user_id`, `status`, `date_c
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `mailer_templates`
+-- Table structure for table `mailer_templates`
 --
 
 CREATE TABLE IF NOT EXISTS `mailer_templates` (
@@ -1163,14 +1395,14 @@ CREATE TABLE IF NOT EXISTS `mailer_templates` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 --
--- Дамп данных таблицы `mailer_templates`
+-- Dumping data for table `mailer_templates`
 --
 
 
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `mailer_templates_recipients`
+-- Table structure for table `mailer_templates_recipients`
 --
 
 CREATE TABLE IF NOT EXISTS `mailer_templates_recipients` (
@@ -1184,14 +1416,14 @@ CREATE TABLE IF NOT EXISTS `mailer_templates_recipients` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 --
--- Дамп данных таблицы `mailer_templates_recipients`
+-- Dumping data for table `mailer_templates_recipients`
 --
 
 
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `menu`
+-- Table structure for table `menu`
 --
 
 CREATE TABLE IF NOT EXISTS `menu` (
@@ -1202,7 +1434,7 @@ CREATE TABLE IF NOT EXISTS `menu` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=7 ;
 
 --
--- Дамп данных таблицы `menu`
+-- Dumping data for table `menu`
 --
 
 INSERT INTO `menu` (`id`, `name`, `is_visible`) VALUES
@@ -1211,7 +1443,7 @@ INSERT INTO `menu` (`id`, `name`, `is_visible`) VALUES
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `menu_links`
+-- Table structure for table `menu_links`
 --
 
 CREATE TABLE IF NOT EXISTS `menu_links` (
@@ -1236,7 +1468,7 @@ CREATE TABLE IF NOT EXISTS `menu_links` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=14 ;
 
 --
--- Дамп данных таблицы `menu_links`
+-- Dumping data for table `menu_links`
 --
 
 INSERT INTO `menu_links` (`id`, `lang`, `parent_id`, `page_id`, `menu_id`, `title`, `url`, `user_role`, `not_user_role`, `order`, `is_visible`) VALUES
@@ -1255,7 +1487,33 @@ INSERT INTO `menu_links` (`id`, `lang`, `parent_id`, `page_id`, `menu_id`, `titl
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `news`
+-- Table structure for table `meta_tags`
+--
+
+CREATE TABLE IF NOT EXISTS `meta_tags` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `object_id` int(11) unsigned DEFAULT NULL COMMENT 'ID объекта',
+  `model_id` varchar(50) NOT NULL COMMENT 'Модель',
+  `tag` enum('title','description','keywords') NOT NULL COMMENT 'Тег',
+  `static_value` varchar(500) DEFAULT NULL COMMENT 'Статическое значение',
+  `dynamic_value` varchar(500) DEFAULT NULL COMMENT 'Динамическое значение',
+  `date_create` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT 'Создано',
+  `date_update` datetime DEFAULT NULL COMMENT 'Отредактирован',
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `object_id` (`object_id`,`model_id`,`tag`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+
+--
+-- Dumping data for table `meta_tags`
+--
+
+INSERT INTO `meta_tags` (`id`, `object_id`, `model_id`, `tag`, `static_value`, `dynamic_value`, `date_create`, `date_update`) VALUES
+(1, 2, 'Page', 'title', 'Это заголовок о нас!!!!!!!!\r\n', NULL, '2011-10-09 23:13:08', NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `news`
 --
 
 CREATE TABLE IF NOT EXISTS `news` (
@@ -1274,7 +1532,7 @@ CREATE TABLE IF NOT EXISTS `news` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=13 ;
 
 --
--- Дамп данных таблицы `news`
+-- Dumping data for table `news`
 --
 
 INSERT INTO `news` (`id`, `lang`, `user_id`, `title`, `text`, `photo`, `state`, `date`, `date_create`) VALUES
@@ -1288,15 +1546,12 @@ INSERT INTO `news` (`id`, `lang`, `user_id`, `title`, `text`, `photo`, `state`, 
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `pages`
+-- Table structure for table `pages`
 --
 
 CREATE TABLE IF NOT EXISTS `pages` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `lang` char(2) DEFAULT 'ru' COMMENT 'Язык',
-  `meta_title` varchar(250) DEFAULT NULL COMMENT 'META заголовок',
-  `meta_description` varchar(250) DEFAULT NULL COMMENT 'META описание',
-  `meta_keywords` varchar(250) DEFAULT NULL COMMENT 'META ключевые слова',
   `title` varchar(200) NOT NULL COMMENT 'Заголовок',
   `url` varchar(250) DEFAULT NULL COMMENT 'Адрес',
   `text` text NOT NULL COMMENT 'Текст',
@@ -1307,19 +1562,19 @@ CREATE TABLE IF NOT EXISTS `pages` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
 
 --
--- Дамп данных таблицы `pages`
+-- Dumping data for table `pages`
 --
 
-INSERT INTO `pages` (`id`, `lang`, `meta_title`, `meta_description`, `meta_keywords`, `title`, `url`, `text`, `is_published`, `date_create`) VALUES
-(1, 'ru', 'Главная страница', 'Главная страница', NULL, 'Главная страница', '/', 'Yii — это высокоэффективный основанный на компонентной структуре PHP-фреймворк для\r\n    разработки масштабных веб-приложений. Он позволяет максимально применить концепцию повторного\r\n    использования кода и может существенно ускорить процесс веб-разработки. Название Yii\r\n    (произносится как Yee или [ji:]) означает простой (easy), эффективный (efficient) и расширяемый\r\n    (extensible).    ', 1, '2011-06-25 16:23:15'),
-(2, 'ru', 'О нас', 'О нас', 'О нас', 'О нас', '', 'История Yii началась 1 января 2008 года, как проект по исправлению некоторых изъянов в фреймворке PRADO (победителя «<a href="http://ru.wikipedia.org/wiki/Zend_Technologies" title="Zend Technologies">Zend</a> PHP 5 coding contest»<sup><a href="http://ru.wikipedia.org/wiki/Yii#cite_note-1">[2]</a></sup>). Например, PRADO медленно обрабатывал сложные страницы, имел крутую кривую обучения и был довольно труден в настройке.<sup><a href="http://ru.wikipedia.org/wiki/Yii#cite_note-2">[3]</a></sup> В октябре 2008 года, после более 10 месяцев закрытой разработки, вышла первая <a href="http://ru.wikipedia.org/wiki/%D0%90%D0%BB%D1%8C%D1%84%D0%B0-%D0%B2%D0%B5%D1%80%D1%81%D0%B8%D1%8F" title="Альфа-версия">альфа-версия</a>. 3 декабря 2008 был выпущен Yii 1.0<sup><a href="http://ru.wikipedia.org/wiki/Yii#cite_note-about-yii-0">[1]</a></sup>    ', 1, '2011-09-10 17:11:25'),
-(3, 'en', NULL, NULL, NULL, 'Main page', '/', '<p><strong>Yii</strong> is pronounced as Yee or [ji:], and is an acroynym for "<strong>Yes It Is!</strong>". This is often the accurate, and most concise response to inquires from those new to Yii: <br />Is it fast? ... Is it secure? ... Is it professional? ... Is it right for my next project? ... <strong>Yes, it is!</strong></p>\r\n  <p>Yii is a free, open-source Web application development framework written in PHP5 that promotes clean, <a href="http://en.wikipedia.org/wiki/Don%27t_repeat_yourself" rel="nofollow">DRY</a>\r\n design and encourages rapid development. It works to streamline your \r\napplication development and helps to ensure an extremely efficient, \r\nextensible, and maintainable end product.</p>\r\n  <p>Being extremely performance optimized, Yii is a perfect choice for \r\nany sized project. However, it has been built with sophisticated, \r\nenterprise applications in mind. You have full control over the \r\nconfiguration from head-to-toe (presentation-to-persistence) to conform \r\nto your enterprise development guidelines. It comes packaged with tools \r\nto help test and debug your application, and has clear and comprehensive\r\n documentation.</p>\r\n  <p>To learn more about what Yii brings to the table, check out the <a href="http://www.yiiframework.com/features/">features section</a>.</p>  ', 1, '2011-09-11 00:00:53'),
-(4, 'en', NULL, NULL, NULL, 'About us', '', '<p>Yii is the brainchild of its founder, Qiang Xue, who started the Yii project on January 1, 2008. Qiang previously developed and\r\n  maintained the <a href="http://www.pradosoft.com/" rel="nofollow">Prado</a>\r\n framework. The years of experience gained and developer feedback \r\ngathered from that project solidified the need for an extremely fast, \r\nsecure and professional framework that is tailor-made to meet the \r\nexpectations of Web 2.0 application development. On December 3, 2008, \r\nafter nearly one year''s\r\n  development, Yii 1.0 was formally released to the public.</p>\r\n  <p>Its extremely impressive performance metrics when compared to other \r\nPHP-based frameworks immediately drew very positive attention and its \r\npopularity and adoption continues to grow at an ever increasing rate.</p>    ', 1, '2011-09-11 00:33:10');
+INSERT INTO `pages` (`id`, `lang`, `title`, `url`, `text`, `is_published`, `date_create`) VALUES
+(1, 'ru', 'Главная страница', '/', 'Yii — это высокоэффективный основанный на компонентной структуре PHP-фреймворк для\r\n    разработки масштабных веб-приложений. Он позволяет максимально применить концепцию повторного\r\n    использования кода и может существенно ускорить процесс веб-разработки. Название Yii\r\n    (произносится как Yee или [ji:]) означает простой (easy), эффективный (efficient) и расширяемый\r\n    (extensible).    ', 1, '2011-06-25 16:23:15'),
+(2, 'ru', 'О нас', '', 'История Yii началась 1 января 2008 года, как проект по исправлению некоторых изъянов в фреймворке PRADO (победителя «<a href="http://ru.wikipedia.org/wiki/Zend_Technologies" title="Zend Technologies">Zend</a> PHP 5 coding contest»<sup><a href="http://ru.wikipedia.org/wiki/Yii#cite_note-1">[2]</a></sup>). Например, PRADO медленно обрабатывал сложные страницы, имел крутую кривую обучения и был довольно труден в настройке.<sup><a href="http://ru.wikipedia.org/wiki/Yii#cite_note-2">[3]</a></sup> В октябре 2008 года, после более 10 месяцев закрытой разработки, вышла первая <a href="http://ru.wikipedia.org/wiki/%D0%90%D0%BB%D1%8C%D1%84%D0%B0-%D0%B2%D0%B5%D1%80%D1%81%D0%B8%D1%8F" title="Альфа-версия">альфа-версия</a>. 3 декабря 2008 был выпущен Yii 1.0<sup><a href="http://ru.wikipedia.org/wiki/Yii#cite_note-about-yii-0">[1]</a></sup>    ', 1, '2011-09-10 17:11:25'),
+(3, 'en', 'Main page', '/', '<p><strong>Yii</strong> is pronounced as Yee or [ji:], and is an acroynym for "<strong>Yes It Is!</strong>". This is often the accurate, and most concise response to inquires from those new to Yii: <br />Is it fast? ... Is it secure? ... Is it professional? ... Is it right for my next project? ... <strong>Yes, it is!</strong></p>\r\n  <p>Yii is a free, open-source Web application development framework written in PHP5 that promotes clean, <a href="http://en.wikipedia.org/wiki/Don%27t_repeat_yourself" rel="nofollow">DRY</a>\r\n design and encourages rapid development. It works to streamline your \r\napplication development and helps to ensure an extremely efficient, \r\nextensible, and maintainable end product.</p>\r\n  <p>Being extremely performance optimized, Yii is a perfect choice for \r\nany sized project. However, it has been built with sophisticated, \r\nenterprise applications in mind. You have full control over the \r\nconfiguration from head-to-toe (presentation-to-persistence) to conform \r\nto your enterprise development guidelines. It comes packaged with tools \r\nto help test and debug your application, and has clear and comprehensive\r\n documentation.</p>\r\n  <p>To learn more about what Yii brings to the table, check out the <a href="http://www.yiiframework.com/features/">features section</a>.</p>  ', 1, '2011-09-11 00:00:53'),
+(4, 'en', 'About us', '', '<p>Yii is the brainchild of its founder, Qiang Xue, who started the Yii project on January 1, 2008. Qiang previously developed and\r\n  maintained the <a href="http://www.pradosoft.com/" rel="nofollow">Prado</a>\r\n framework. The years of experience gained and developer feedback \r\ngathered from that project solidified the need for an extremely fast, \r\nsecure and professional framework that is tailor-made to meet the \r\nexpectations of Web 2.0 application development. On December 3, 2008, \r\nafter nearly one year''s\r\n  development, Yii 1.0 was formally released to the public.</p>\r\n  <p>Its extremely impressive performance metrics when compared to other \r\nPHP-based frameworks immediately drew very positive attention and its \r\npopularity and adoption continues to grow at an ever increasing rate.</p>    ', 1, '2011-09-11 00:33:10');
 
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `pages_blocks`
+-- Table structure for table `pages_blocks`
 --
 
 CREATE TABLE IF NOT EXISTS `pages_blocks` (
@@ -1336,7 +1591,7 @@ CREATE TABLE IF NOT EXISTS `pages_blocks` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=6 ;
 
 --
--- Дамп данных таблицы `pages_blocks`
+-- Dumping data for table `pages_blocks`
 --
 
 INSERT INTO `pages_blocks` (`id`, `lang`, `title`, `name`, `text`, `date_create`) VALUES
@@ -1348,7 +1603,7 @@ INSERT INTO `pages_blocks` (`id`, `lang`, `title`, `name`, `text`, `date_create`
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `settings`
+-- Table structure for table `settings`
 --
 
 CREATE TABLE IF NOT EXISTS `settings` (
@@ -1365,7 +1620,7 @@ CREATE TABLE IF NOT EXISTS `settings` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=25 ;
 
 --
--- Дамп данных таблицы `settings`
+-- Dumping data for table `settings`
 --
 
 INSERT INTO `settings` (`id`, `module_id`, `code`, `name`, `value`, `element`, `hidden`) VALUES
@@ -1391,7 +1646,7 @@ INSERT INTO `settings` (`id`, `module_id`, `code`, `name`, `value`, `element`, `
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `site_actions`
+-- Table structure for table `site_actions`
 --
 
 CREATE TABLE IF NOT EXISTS `site_actions` (
@@ -1405,10 +1660,10 @@ CREATE TABLE IF NOT EXISTS `site_actions` (
   `date_create` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT 'Дата',
   PRIMARY KEY (`id`),
   KEY `user_id` (`user_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=7669 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=8058 ;
 
 --
--- Дамп данных таблицы `site_actions`
+-- Dumping data for table `site_actions`
 --
 
 INSERT INTO `site_actions` (`id`, `user_id`, `object_id`, `title`, `module`, `controller`, `action`, `date_create`) VALUES
@@ -9095,12 +9350,402 @@ INSERT INTO `site_actions` (`id`, `user_id`, `object_id`, `title`, `module`, `co
 (7665, 1, NULL, 'Управление пользователями', 'users', 'userAdmin', 'manage', '2011-10-07 22:30:01'),
 (7666, 1, NULL, 'Управление пользователями', 'users', 'userAdmin', 'manage', '2011-10-07 22:30:02'),
 (7667, 1, 1, 'Редактирование пользователя', 'users', 'userAdmin', 'update', '2011-10-07 22:30:03'),
-(7668, 1, NULL, 'Управление пользователями', 'users', 'userAdmin', 'manage', '2011-10-07 22:30:06');
+(7668, 1, NULL, 'Управление пользователями', 'users', 'userAdmin', 'manage', '2011-10-07 22:30:06'),
+(7669, NULL, NULL, 'Авторизация', 'users', 'userAdmin', 'login', '2011-10-08 00:08:04'),
+(7670, NULL, NULL, 'Ошибка на странице', 'main', 'main', 'error', '2011-10-08 00:08:05'),
+(7671, NULL, NULL, 'Авторизация', 'users', 'userAdmin', 'login', '2011-10-08 00:16:47'),
+(7672, 1, NULL, 'Просмотр главной страницы', 'main', 'mainAdmin', 'index', '2011-10-08 00:16:47'),
+(7673, 1, NULL, 'Ошибка на странице', 'main', 'main', 'error', '2011-10-08 00:16:49'),
+(7674, 1, NULL, 'Просмотр логово', 'main', 'logAdmin', 'view', '2011-10-08 00:16:59'),
+(7675, 1, NULL, 'Ошибка на странице', 'main', 'main', 'error', '2011-10-08 00:17:00');
+INSERT INTO `site_actions` (`id`, `user_id`, `object_id`, `title`, `module`, `controller`, `action`, `date_create`) VALUES
+(7676, 1, NULL, 'Просмотр действий сайта', 'main', 'siteActionAdmin', 'index', '2011-10-08 00:17:02'),
+(7677, 1, NULL, 'Ошибка на странице', 'main', 'main', 'error', '2011-10-08 00:17:03'),
+(7678, 1, NULL, 'Просмотр действий сайта', 'main', 'siteActionAdmin', 'index', '2011-10-08 00:17:09'),
+(7679, 1, NULL, 'Ошибка на странице', 'main', 'main', 'error', '2011-10-08 00:17:10'),
+(7680, 1, NULL, 'Отчеты о рассылках', 'mailer', 'mailerLetterAdmin', 'manage', '2011-10-08 00:19:34'),
+(7681, 1, NULL, 'Ошибка на странице', 'main', 'main', 'error', '2011-10-08 00:19:35'),
+(7682, 1, NULL, 'Управление пользователями', 'users', 'userAdmin', 'manage', '2011-10-08 00:19:37'),
+(7683, 1, NULL, 'Ошибка на странице', 'main', 'main', 'error', '2011-10-08 00:19:38'),
+(7684, 1, NULL, 'Просмотр логово', 'main', 'logAdmin', 'view', '2011-10-08 00:20:16'),
+(7685, 1, NULL, 'Ошибка на странице', 'main', 'main', 'error', '2011-10-08 00:20:17'),
+(7686, 1, NULL, 'Просмотр логово', 'main', 'logAdmin', 'view', '2011-10-08 00:21:38'),
+(7687, 1, NULL, 'Ошибка на странице', 'main', 'main', 'error', '2011-10-08 00:21:39'),
+(7688, 1, NULL, 'Ошибка на странице', 'main', 'main', 'error', '2011-10-08 00:22:35'),
+(7689, 1, NULL, 'Ошибка на странице', 'main', 'main', 'error', '2011-10-08 00:22:36'),
+(7690, 1, NULL, 'Ошибка на странице', 'main', 'main', 'error', '2011-10-08 00:22:47'),
+(7691, 1, NULL, 'Ошибка на странице', 'main', 'main', 'error', '2011-10-08 00:22:48'),
+(7692, 1, NULL, 'Управление пользователями', 'users', 'userAdmin', 'manage', '2011-10-08 00:22:48'),
+(7693, 1, NULL, 'Ошибка на странице', 'main', 'main', 'error', '2011-10-08 00:22:50'),
+(7694, 1, NULL, 'Ошибка на странице', 'main', 'main', 'error', '2011-10-08 00:22:51'),
+(7695, 1, NULL, 'Ошибка на странице', 'main', 'main', 'error', '2011-10-08 00:22:52'),
+(7696, 1, NULL, 'Управление логами', 'main', 'logAdmin', 'manage', '2011-10-08 00:22:59'),
+(7697, 1, NULL, 'Ошибка на странице', 'main', 'main', 'error', '2011-10-08 00:22:59'),
+(7698, 1, NULL, 'Управление логами', 'main', 'logAdmin', 'manage', '2011-10-08 00:23:04'),
+(7699, 1, NULL, 'Ошибка на странице', 'main', 'main', 'error', '2011-10-08 00:23:05'),
+(7700, 1, NULL, 'Управление логами', 'main', 'logAdmin', 'manage', '2011-10-08 00:23:17'),
+(7701, 1, NULL, 'Ошибка на странице', 'main', 'main', 'error', '2011-10-08 00:23:19'),
+(7702, 1, NULL, 'Управление логами', 'main', 'logAdmin', 'manage', '2011-10-08 00:23:45'),
+(7703, 1, NULL, 'Ошибка на странице', 'main', 'main', 'error', '2011-10-08 00:23:46'),
+(7704, 1, NULL, 'Управление пользователями', 'users', 'userAdmin', 'manage', '2011-10-08 00:23:59'),
+(7705, 1, NULL, 'Ошибка на странице', 'main', 'main', 'error', '2011-10-08 00:24:00'),
+(7706, 1, NULL, 'Управление логами', 'main', 'logAdmin', 'manage', '2011-10-08 00:24:01'),
+(7707, 1, NULL, 'Ошибка на странице', 'main', 'main', 'error', '2011-10-08 00:24:02'),
+(7708, 1, NULL, 'Управление логами', 'main', 'logAdmin', 'manage', '2011-10-08 00:24:27'),
+(7709, 1, NULL, 'Ошибка на странице', 'main', 'main', 'error', '2011-10-08 00:24:28'),
+(7710, 1, NULL, 'Управление логами', 'main', 'logAdmin', 'manage', '2011-10-08 00:24:35'),
+(7711, 1, NULL, 'Ошибка на странице', 'main', 'main', 'error', '2011-10-08 00:24:37'),
+(7712, 1, NULL, 'Управление логами', 'main', 'logAdmin', 'manage', '2011-10-08 00:25:26'),
+(7713, 1, NULL, 'Ошибка на странице', 'main', 'main', 'error', '2011-10-08 00:25:28'),
+(7714, 1, NULL, 'Управление логами', 'main', 'logAdmin', 'manage', '2011-10-08 00:25:43'),
+(7715, 1, NULL, 'Ошибка на странице', 'main', 'main', 'error', '2011-10-08 00:25:44'),
+(7716, 1, NULL, 'Управление логами', 'main', 'logAdmin', 'manage', '2011-10-08 00:25:47'),
+(7717, 1, NULL, 'Ошибка на странице', 'main', 'main', 'error', '2011-10-08 00:25:48'),
+(7718, 1, NULL, 'Управление логами', 'main', 'logAdmin', 'manage', '2011-10-08 00:26:57'),
+(7719, 1, NULL, 'Управление логами', 'main', 'logAdmin', 'manage', '2011-10-08 00:27:09'),
+(7720, 1, NULL, 'Управление логами', 'main', 'logAdmin', 'manage', '2011-10-08 00:27:15'),
+(7721, 1, NULL, 'Ошибка на странице', 'main', 'main', 'error', '2011-10-08 00:27:16'),
+(7722, 1, NULL, 'Управление логами', 'main', 'logAdmin', 'manage', '2011-10-08 00:27:21'),
+(7723, 1, NULL, 'Управление логами', 'main', 'logAdmin', 'manage', '2011-10-08 00:27:30'),
+(7724, 1, NULL, 'Управление логами', 'main', 'logAdmin', 'manage', '2011-10-08 00:27:37'),
+(7725, 1, NULL, 'Управление логами', 'main', 'logAdmin', 'manage', '2011-10-08 00:27:45'),
+(7726, 1, NULL, 'Управление логами', 'main', 'logAdmin', 'manage', '2011-10-08 00:27:47'),
+(7727, 1, NULL, 'Управление логами', 'main', 'logAdmin', 'manage', '2011-10-08 00:28:21'),
+(7728, 1, NULL, 'Ошибка на странице', 'main', 'main', 'error', '2011-10-08 00:28:22'),
+(7729, 1, NULL, 'Просмотр действий сайта', 'main', 'siteActionAdmin', 'index', '2011-10-08 00:28:24'),
+(7730, 1, NULL, 'Ошибка на странице', 'main', 'main', 'error', '2011-10-08 00:28:25'),
+(7731, 1, NULL, 'Просмотр действий сайта', 'main', 'siteActionAdmin', 'index', '2011-10-08 00:28:32'),
+(7732, 1, NULL, 'Просмотр действий сайта', 'main', 'siteActionAdmin', 'index', '2011-10-08 00:28:47'),
+(7733, 1, NULL, 'Ошибка на странице', 'main', 'main', 'error', '2011-10-08 00:28:48'),
+(7734, 1, NULL, 'Просмотр действий сайта', 'main', 'siteActionAdmin', 'index', '2011-10-08 00:28:49'),
+(7735, 1, NULL, 'Ошибка на странице', 'main', 'main', 'error', '2011-10-08 00:28:51'),
+(7736, 1, NULL, 'Просмотр действий сайта', 'main', 'siteActionAdmin', 'index', '2011-10-08 00:28:51'),
+(7737, 1, NULL, 'Ошибка на странице', 'main', 'main', 'error', '2011-10-08 00:28:52'),
+(7738, 1, NULL, 'Просмотр действий сайта', 'main', 'siteActionAdmin', 'index', '2011-10-08 00:29:02'),
+(7739, 1, NULL, 'Просмотр действий сайта', 'main', 'siteActionAdmin', 'index', '2011-10-08 00:29:25'),
+(7740, 1, NULL, 'Ошибка на странице', 'main', 'main', 'error', '2011-10-08 00:30:07'),
+(7741, 1, NULL, 'Ошибка на странице', 'main', 'main', 'error', '2011-10-08 00:30:08'),
+(7742, 1, NULL, 'Ошибка на странице', 'main', 'main', 'error', '2011-10-08 00:30:09'),
+(7743, 1, NULL, 'Ошибка на странице', 'main', 'main', 'error', '2011-10-08 00:30:09'),
+(7744, 1, NULL, 'Управление логами', 'main', 'logAdmin', 'manage', '2011-10-08 00:30:12'),
+(7745, 1, NULL, 'Ошибка на странице', 'main', 'main', 'error', '2011-10-08 00:30:12'),
+(7746, 1, NULL, 'Управление логами', 'main', 'logAdmin', 'manage', '2011-10-08 00:30:13'),
+(7747, 1, NULL, 'Просмотр действий сайта', 'main', 'siteActionAdmin', 'manage', '2011-10-08 00:30:17'),
+(7748, 1, NULL, 'Просмотр действий сайта', 'main', 'siteActionAdmin', 'manage', '2011-10-08 00:30:18'),
+(7749, 1, NULL, 'Ошибка на странице', 'main', 'main', 'error', '2011-10-08 00:30:18'),
+(7750, 1, NULL, 'Просмотр действий сайта', 'main', 'siteActionAdmin', 'manage', '2011-10-08 00:30:50'),
+(7751, 1, NULL, 'Просмотр действий сайта', 'main', 'siteActionAdmin', 'manage', '2011-10-08 00:30:51'),
+(7752, 1, NULL, 'Ошибка на странице', 'main', 'main', 'error', '2011-10-08 00:30:52'),
+(7753, 1, NULL, 'Просмотр действий сайта', 'main', 'siteActionAdmin', 'manage', '2011-10-08 00:31:15'),
+(7754, 1, NULL, 'Просмотр действий сайта', 'main', 'siteActionAdmin', 'manage', '2011-10-08 00:31:16'),
+(7755, 1, NULL, 'Ошибка на странице', 'main', 'main', 'error', '2011-10-08 00:31:17'),
+(7756, 1, NULL, 'Просмотр действий сайта', 'main', 'siteActionAdmin', 'manage', '2011-10-08 00:31:22'),
+(7757, 1, NULL, 'Установки кол-ва элементов на странице', 'main', 'mainAdmin', 'SessionPerPage', '2011-10-08 00:31:34'),
+(7758, 1, NULL, 'Просмотр действий сайта', 'main', 'siteActionAdmin', 'manage', '2011-10-08 00:31:34'),
+(7759, 1, NULL, 'Просмотр действий сайта', 'main', 'siteActionAdmin', 'manage', '2011-10-08 00:31:43'),
+(7760, 1, NULL, 'Ошибка на странице', 'main', 'main', 'error', '2011-10-08 00:31:51'),
+(7761, 1, NULL, 'Просмотр действий сайта', 'main', 'siteActionAdmin', 'manage', '2011-10-08 00:33:18'),
+(7762, 1, NULL, 'Ошибка на странице', 'main', 'main', 'error', '2011-10-08 00:33:24'),
+(7763, 1, NULL, 'Просмотр действий сайта', 'main', 'siteActionAdmin', 'manage', '2011-10-08 00:33:54'),
+(7764, 1, NULL, 'Ошибка на странице', 'main', 'main', 'error', '2011-10-08 00:34:03'),
+(7765, 1, NULL, 'Просмотр действий сайта', 'main', 'siteActionAdmin', 'manage', '2011-10-08 00:34:03'),
+(7766, 1, NULL, 'Ошибка на странице', 'main', 'main', 'error', '2011-10-08 00:34:10'),
+(7767, 1, NULL, 'Просмотр действий сайта', 'main', 'siteActionAdmin', 'manage', '2011-10-08 00:34:16'),
+(7768, 1, NULL, 'Ошибка на странице', 'main', 'main', 'error', '2011-10-08 00:34:20'),
+(7769, 1, NULL, 'Просмотр действий сайта', 'main', 'siteActionAdmin', 'manage', '2011-10-08 00:34:50'),
+(7770, 1, NULL, 'Ошибка на странице', 'main', 'main', 'error', '2011-10-08 00:34:59'),
+(7771, 1, NULL, 'Ошибка на странице', 'main', 'main', 'error', '2011-10-08 00:34:59'),
+(7772, 1, NULL, 'Просмотр действий сайта', 'main', 'siteActionAdmin', 'manage', '2011-10-08 00:35:00'),
+(7773, 1, NULL, 'Просмотр действий сайта', 'main', 'siteActionAdmin', 'manage', '2011-10-08 00:35:24'),
+(7774, 1, NULL, 'Просмотр действий сайта', 'main', 'siteActionAdmin', 'manage', '2011-10-08 00:35:53'),
+(7775, 1, NULL, 'Ошибка на странице', 'main', 'main', 'error', '2011-10-08 00:35:54'),
+(7776, 1, NULL, 'Просмотр действий сайта', 'main', 'siteActionAdmin', 'manage', '2011-10-08 00:35:55'),
+(7777, 1, NULL, 'Просмотр действий сайта', 'main', 'siteActionAdmin', 'manage', '2011-10-08 00:36:24'),
+(7778, 1, NULL, 'Просмотр действий сайта', 'main', 'siteActionAdmin', 'manage', '2011-10-08 00:36:33'),
+(7779, 1, NULL, 'Ошибка на странице', 'main', 'main', 'error', '2011-10-08 00:36:41'),
+(7780, 1, NULL, 'Ошибка на странице', 'main', 'main', 'error', '2011-10-08 00:50:31'),
+(7781, 1, NULL, 'Ошибка на странице', 'main', 'main', 'error', '2011-10-08 00:50:36'),
+(7782, 1, NULL, 'Ошибка на странице', 'main', 'main', 'error', '2011-10-08 00:50:39'),
+(7783, 1, NULL, 'Ошибка на странице', 'main', 'main', 'error', '2011-10-08 00:50:56'),
+(7784, 1, NULL, 'Ошибка на странице', 'main', 'main', 'error', '2011-10-08 00:51:22'),
+(7785, 1, NULL, 'Ошибка на странице', 'main', 'main', 'error', '2011-10-08 00:51:27'),
+(7786, 1, NULL, 'Ошибка на странице', 'main', 'main', 'error', '2011-10-08 00:51:36'),
+(7787, 1, NULL, 'Ошибка на странице', 'main', 'main', 'error', '2011-10-08 00:51:44'),
+(7788, 1, NULL, 'Ошибка на странице', 'main', 'main', 'error', '2011-10-08 00:58:14'),
+(7789, 1, NULL, 'Просмотр главной страницы', 'main', 'mainAdmin', 'index', '2011-10-08 00:58:20'),
+(7790, 1, NULL, 'Ошибка на странице', 'main', 'main', 'error', '2011-10-08 00:58:22'),
+(7791, 1, NULL, 'Просмотр главной страницы', 'main', 'mainAdmin', 'index', '2011-10-08 01:17:15'),
+(7792, 1, NULL, 'Ошибка на странице', 'main', 'main', 'error', '2011-10-08 01:17:17'),
+(7793, 1, NULL, 'Управление чем?', 'main', 'metaTagAdmin', 'manage', '2011-10-08 01:17:20'),
+(7794, 1, NULL, 'Ошибка на странице', 'main', 'main', 'error', '2011-10-08 01:17:21'),
+(7795, 1, NULL, 'Управление чем?', 'main', 'metaTagAdmin', 'manage', '2011-10-08 01:17:35'),
+(7796, 1, NULL, 'Ошибка на странице', 'main', 'main', 'error', '2011-10-08 01:17:36'),
+(7797, 1, NULL, 'Управление чем?', 'main', 'metaTagAdmin', 'manage', '2011-10-08 01:18:47'),
+(7798, 1, NULL, 'Ошибка на странице', 'main', 'main', 'error', '2011-10-08 01:18:48'),
+(7799, 1, NULL, 'Управление мета-тегами', 'main', 'metaTagAdmin', 'manage', '2011-10-08 01:19:14'),
+(7800, 1, NULL, 'Ошибка на странице', 'main', 'main', 'error', '2011-10-08 01:19:15'),
+(7801, 1, NULL, 'Создание мета-тега', 'main', 'metaTagAdmin', 'create', '2011-10-08 01:19:18'),
+(7802, 1, NULL, 'Ошибка на странице', 'main', 'main', 'error', '2011-10-08 01:19:19'),
+(7803, 1, NULL, 'Создание мета-тега', 'main', 'metaTagAdmin', 'create', '2011-10-08 01:20:10'),
+(7804, 1, NULL, 'Ошибка на странице', 'main', 'main', 'error', '2011-10-08 01:20:11'),
+(7805, 1, NULL, 'Создание мета-тега', 'main', 'metaTagAdmin', 'create', '2011-10-08 01:23:44'),
+(7806, 1, NULL, 'Ошибка на странице', 'main', 'main', 'error', '2011-10-08 01:23:45'),
+(7807, 1, NULL, 'Создание мета-тега', 'main', 'metaTagAdmin', 'create', '2011-10-08 01:23:56'),
+(7808, 1, NULL, 'Ошибка на странице', 'main', 'main', 'error', '2011-10-08 01:23:57'),
+(7809, 1, NULL, 'Создание мета-тега', 'main', 'metaTagAdmin', 'create', '2011-10-08 01:24:57'),
+(7810, 1, NULL, 'Ошибка на странице', 'main', 'main', 'error', '2011-10-08 01:24:58'),
+(7811, 1, NULL, 'Создание мета-тега', 'main', 'metaTagAdmin', 'create', '2011-10-08 01:25:07'),
+(7812, 1, NULL, 'Ошибка на странице', 'main', 'main', 'error', '2011-10-08 01:25:07'),
+(7813, 1, NULL, 'Создание мета-тега', 'main', 'metaTagAdmin', 'create', '2011-10-08 01:25:29'),
+(7814, 1, NULL, 'Ошибка на странице', 'main', 'main', 'error', '2011-10-08 01:25:29'),
+(7815, 1, NULL, 'Создание мета-тега', 'main', 'metaTagAdmin', 'create', '2011-10-08 01:25:50'),
+(7816, 1, NULL, 'Ошибка на странице', 'main', 'main', 'error', '2011-10-08 01:25:51'),
+(7817, 1, NULL, 'Создание мета-тега', 'main', 'metaTagAdmin', 'create', '2011-10-08 01:26:22'),
+(7818, 1, NULL, 'Ошибка на странице', 'main', 'main', 'error', '2011-10-08 01:26:23'),
+(7819, 1, NULL, 'Создание мета-тега', 'main', 'metaTagAdmin', 'create', '2011-10-08 01:27:17'),
+(7820, 1, NULL, 'Ошибка на странице', 'main', 'main', 'error', '2011-10-08 01:27:18'),
+(7821, 1, NULL, 'Создание мета-тега', 'main', 'metaTagAdmin', 'create', '2011-10-08 01:27:27'),
+(7822, 1, NULL, 'Ошибка на странице', 'main', 'main', 'error', '2011-10-08 01:27:29'),
+(7823, 1, NULL, 'Создание мета-тега', 'main', 'metaTagAdmin', 'create', '2011-10-08 01:30:13'),
+(7824, 1, NULL, 'Ошибка на странице', 'main', 'main', 'error', '2011-10-08 01:30:14'),
+(7825, 1, NULL, 'Создание мета-тега', 'main', 'metaTagAdmin', 'create', '2011-10-08 01:30:38'),
+(7826, 1, NULL, 'Ошибка на странице', 'main', 'main', 'error', '2011-10-08 01:30:39'),
+(7827, 1, NULL, 'Создание мета-тега', 'main', 'metaTagAdmin', 'create', '2011-10-08 01:41:25'),
+(7828, 1, NULL, 'Ошибка на странице', 'main', 'main', 'error', '2011-10-08 01:41:26'),
+(7829, 1, NULL, 'Создание мета-тега', 'main', 'metaTagAdmin', 'create', '2011-10-08 01:53:13'),
+(7830, 1, NULL, 'Ошибка на странице', 'main', 'main', 'error', '2011-10-08 01:53:15'),
+(7831, 1, NULL, 'Создание мета-тега', 'main', 'metaTagAdmin', 'create', '2011-10-08 01:53:50'),
+(7832, 1, NULL, 'Ошибка на странице', 'main', 'main', 'error', '2011-10-08 01:53:51'),
+(7833, 1, NULL, 'Создание мета-тега', 'main', 'metaTagAdmin', 'create', '2011-10-08 01:54:14'),
+(7834, 1, NULL, 'Ошибка на странице', 'main', 'main', 'error', '2011-10-08 01:54:15'),
+(7835, 1, NULL, 'Создание мета-тега', 'main', 'metaTagAdmin', 'create', '2011-10-08 01:54:34'),
+(7836, 1, NULL, 'Ошибка на странице', 'main', 'main', 'error', '2011-10-08 01:54:35'),
+(7837, 1, NULL, 'Создание мета-тега', 'main', 'metaTagAdmin', 'create', '2011-10-08 01:56:08'),
+(7838, 1, NULL, 'Ошибка на странице', 'main', 'main', 'error', '2011-10-08 01:56:09'),
+(7839, 1, NULL, 'Создание мета-тега', 'main', 'metaTagAdmin', 'create', '2011-10-08 02:00:56'),
+(7840, 1, NULL, 'Ошибка на странице', 'main', 'main', 'error', '2011-10-08 02:00:57'),
+(7841, 1, NULL, 'Ошибка на странице', 'main', 'main', 'error', '2011-10-08 02:00:57'),
+(7842, 1, NULL, 'Создание мета-тега', 'main', 'metaTagAdmin', 'create', '2011-10-08 02:01:43'),
+(7843, 1, NULL, 'Ошибка на странице', 'main', 'main', 'error', '2011-10-08 02:01:44'),
+(7844, 1, NULL, 'Ошибка на странице', 'main', 'main', 'error', '2011-10-08 02:01:45'),
+(7845, 1, NULL, 'Создание мета-тега', 'main', 'metaTagAdmin', 'create', '2011-10-08 02:02:01'),
+(7846, 1, NULL, 'Ошибка на странице', 'main', 'main', 'error', '2011-10-08 02:02:02'),
+(7847, 1, NULL, 'Ошибка на странице', 'main', 'main', 'error', '2011-10-08 02:02:03'),
+(7848, 1, NULL, 'Создание мета-тега', 'main', 'metaTagAdmin', 'create', '2011-10-08 02:02:13'),
+(7849, 1, NULL, 'Ошибка на странице', 'main', 'main', 'error', '2011-10-08 02:02:16'),
+(7850, 1, NULL, 'Создание мета-тега', 'main', 'metaTagAdmin', 'create', '2011-10-08 02:02:20'),
+(7851, 1, NULL, 'Ошибка на странице', 'main', 'main', 'error', '2011-10-08 02:02:24'),
+(7852, 1, NULL, 'Создание мета-тега', 'main', 'metaTagAdmin', 'create', '2011-10-08 02:03:04'),
+(7853, 1, NULL, 'Ошибка на странице', 'main', 'main', 'error', '2011-10-08 02:03:07'),
+(7854, 1, NULL, 'Создание мета-тега', 'main', 'metaTagAdmin', 'create', '2011-10-08 02:03:53'),
+(7855, 1, NULL, 'Ошибка на странице', 'main', 'main', 'error', '2011-10-08 02:03:55'),
+(7856, 1, NULL, 'Создание мета-тега', 'main', 'metaTagAdmin', 'create', '2011-10-08 02:06:43'),
+(7857, 1, NULL, 'Ошибка на странице', 'main', 'main', 'error', '2011-10-08 02:06:46'),
+(7858, 1, NULL, 'Создание мета-тега', 'main', 'metaTagAdmin', 'create', '2011-10-08 02:07:18'),
+(7859, 1, NULL, 'Ошибка на странице', 'main', 'main', 'error', '2011-10-08 02:07:19'),
+(7860, 1, NULL, 'Создание мета-тега', 'main', 'metaTagAdmin', 'create', '2011-10-08 02:12:26'),
+(7861, 1, NULL, 'Ошибка на странице', 'main', 'main', 'error', '2011-10-08 02:12:27'),
+(7862, 1, NULL, 'Ошибка на странице', 'main', 'main', 'error', '2011-10-08 02:24:46'),
+(7863, 1, NULL, 'Ошибка на странице', 'main', 'main', 'error', '2011-10-08 02:24:47'),
+(7864, 1, NULL, 'Ошибка на странице', 'main', 'main', 'error', '2011-10-08 02:25:05'),
+(7865, 1, NULL, 'Ошибка на странице', 'main', 'main', 'error', '2011-10-08 02:25:06'),
+(7866, 1, NULL, 'Получить объекты модели', 'main', 'mainAdmin', 'getModelObjects', '2011-10-08 02:25:51'),
+(7867, 1, NULL, 'Ошибка на странице', 'main', 'main', 'error', '2011-10-08 02:25:51'),
+(7868, 1, NULL, 'Получить объекты модели', 'main', 'mainAdmin', 'getModelObjects', '2011-10-08 02:26:01'),
+(7869, 1, NULL, 'Ошибка на странице', 'main', 'main', 'error', '2011-10-08 02:26:01'),
+(7870, 1, NULL, 'Ошибка на странице', 'main', 'main', 'error', '2011-10-08 02:26:02'),
+(7871, 1, NULL, 'Получить объекты модели', 'main', 'mainAdmin', 'getModelObjects', '2011-10-08 02:26:13'),
+(7872, 1, NULL, 'Ошибка на странице', 'main', 'main', 'error', '2011-10-08 02:26:13'),
+(7873, 1, NULL, 'Получить объекты модели', 'main', 'mainAdmin', 'getModelObjects', '2011-10-08 02:26:21'),
+(7874, 1, NULL, 'Ошибка на странице', 'main', 'main', 'error', '2011-10-08 02:26:21'),
+(7875, 1, NULL, 'Получить объекты модели', 'main', 'mainAdmin', 'getModelObjects', '2011-10-08 02:32:43'),
+(7876, 1, NULL, 'Ошибка на странице', 'main', 'main', 'error', '2011-10-08 02:32:43'),
+(7877, 1, NULL, 'Получить объекты модели', 'main', 'mainAdmin', 'getModelObjects', '2011-10-08 02:34:04'),
+(7878, 1, NULL, 'Ошибка на странице', 'main', 'main', 'error', '2011-10-08 02:34:05'),
+(7879, 1, NULL, 'Получить объекты модели', 'main', 'mainAdmin', 'getModelObjects', '2011-10-08 02:34:10'),
+(7880, 1, NULL, 'Ошибка на странице', 'main', 'main', 'error', '2011-10-08 02:34:11'),
+(7881, 1, NULL, 'Получить объекты модели', 'main', 'mainAdmin', 'getModelObjects', '2011-10-08 02:34:15'),
+(7882, 1, NULL, 'Ошибка на странице', 'main', 'main', 'error', '2011-10-08 02:34:16'),
+(7883, 1, NULL, 'Получить объекты модели', 'main', 'mainAdmin', 'getModelObjects', '2011-10-08 02:38:40'),
+(7884, 1, NULL, 'Ошибка на странице', 'main', 'main', 'error', '2011-10-08 02:38:41'),
+(7885, 1, NULL, 'Получить объекты модели', 'main', 'mainAdmin', 'getModelObjects', '2011-10-08 02:38:55'),
+(7886, 1, NULL, 'Ошибка на странице', 'main', 'main', 'error', '2011-10-08 02:38:56'),
+(7887, 1, NULL, 'Получить объекты модели', 'main', 'mainAdmin', 'getModelObjects', '2011-10-08 02:49:01'),
+(7888, 1, NULL, 'Ошибка на странице', 'main', 'main', 'error', '2011-10-08 02:49:01'),
+(7889, 1, NULL, 'Получить объекты модели', 'main', 'mainAdmin', 'getModelObjects', '2011-10-08 02:49:26'),
+(7890, 1, NULL, 'Ошибка на странице', 'main', 'main', 'error', '2011-10-08 02:49:27'),
+(7891, 1, NULL, 'Получить объекты модели', 'main', 'mainAdmin', 'getModelObjects', '2011-10-08 02:50:01'),
+(7892, 1, NULL, 'Ошибка на странице', 'main', 'main', 'error', '2011-10-08 02:50:02'),
+(7893, 1, NULL, 'Получить объекты модели', 'main', 'mainAdmin', 'getModelObjects', '2011-10-08 02:51:59'),
+(7894, 1, NULL, 'Ошибка на странице', 'main', 'main', 'error', '2011-10-08 02:52:00'),
+(7895, 1, NULL, 'Получить объекты модели', 'main', 'mainAdmin', 'getModelObjects', '2011-10-08 02:54:50'),
+(7896, 1, NULL, 'Ошибка на странице', 'main', 'main', 'error', '2011-10-08 02:54:51'),
+(7897, 1, NULL, 'Получить объекты модели', 'main', 'mainAdmin', 'getModelObjects', '2011-10-08 02:54:52'),
+(7898, 1, NULL, 'Ошибка на странице', 'main', 'main', 'error', '2011-10-08 02:54:52'),
+(7899, 1, NULL, 'Получить объекты модели', 'main', 'mainAdmin', 'getModelObjects', '2011-10-08 02:54:53'),
+(7900, 1, NULL, 'Ошибка на странице', 'main', 'main', 'error', '2011-10-08 02:54:53'),
+(7901, 1, NULL, 'Ошибка на странице', 'main', 'main', 'error', '2011-10-08 02:54:54'),
+(7902, 1, NULL, 'Создание мета-тега', 'main', 'metaTagAdmin', 'create', '2011-10-08 02:54:55'),
+(7903, 1, NULL, 'Ошибка на странице', 'main', 'main', 'error', '2011-10-08 02:54:56'),
+(7904, NULL, NULL, 'Авторизация', 'users', 'userAdmin', 'login', '2011-10-09 18:39:40'),
+(7905, NULL, NULL, 'Ошибка на странице', 'main', 'main', 'error', '2011-10-09 18:39:41'),
+(7906, NULL, NULL, 'Авторизация', 'users', 'userAdmin', 'login', '2011-10-09 18:39:45'),
+(7907, 1, NULL, 'Просмотр главной страницы', 'main', 'mainAdmin', 'index', '2011-10-09 18:39:45'),
+(7908, 1, NULL, 'Ошибка на странице', 'main', 'main', 'error', '2011-10-09 18:39:46'),
+(7909, 1, NULL, 'Просмотр главной страницы', 'main', 'mainAdmin', 'index', '2011-10-09 18:50:29'),
+(7910, 1, NULL, 'Ошибка на странице', 'main', 'main', 'error', '2011-10-09 18:50:30'),
+(7911, NULL, NULL, 'Авторизация', 'users', 'userAdmin', 'login', '2011-10-09 22:47:07'),
+(7912, NULL, NULL, 'Ошибка на странице', 'main', 'main', 'error', '2011-10-09 22:47:08'),
+(7913, NULL, NULL, 'Авторизация', 'users', 'userAdmin', 'login', '2011-10-09 22:47:10'),
+(7914, 1, NULL, 'Просмотр главной страницы', 'main', 'mainAdmin', 'index', '2011-10-09 22:47:11'),
+(7915, 1, NULL, 'Ошибка на странице', 'main', 'main', 'error', '2011-10-09 22:47:12'),
+(7916, 1, NULL, 'Создание мета-тега', 'main', 'metaTagAdmin', 'create', '2011-10-09 22:47:22'),
+(7917, 1, NULL, 'Ошибка на странице', 'main', 'main', 'error', '2011-10-09 22:47:23'),
+(7918, 1, NULL, 'Получить объекты модели', 'main', 'mainAdmin', 'getModelObjects', '2011-10-09 22:47:26'),
+(7919, 1, NULL, 'Ошибка на странице', 'main', 'main', 'error', '2011-10-09 22:47:28'),
+(7920, 1, NULL, 'Создание мета-тега', 'main', 'metaTagAdmin', 'create', '2011-10-09 22:47:29'),
+(7921, 1, NULL, 'Получить объекты модели', 'main', 'mainAdmin', 'getModelObjects', '2011-10-09 22:47:31'),
+(7922, 1, NULL, 'Ошибка на странице', 'main', 'main', 'error', '2011-10-09 22:47:34'),
+(7923, 1, NULL, 'Создание мета-тега', 'main', 'metaTagAdmin', 'create', '2011-10-09 22:48:18'),
+(7924, 1, NULL, 'Создание мета-тега', 'main', 'metaTagAdmin', 'create', '2011-10-09 22:48:19'),
+(7925, 1, NULL, 'Ошибка на странице', 'main', 'main', 'error', '2011-10-09 22:48:20'),
+(7926, 1, NULL, 'Получить объекты модели', 'main', 'mainAdmin', 'getModelObjects', '2011-10-09 22:48:22'),
+(7927, 1, NULL, 'Ошибка на странице', 'main', 'main', 'error', '2011-10-09 22:48:25'),
+(7928, 1, NULL, 'Создание мета-тега', 'main', 'metaTagAdmin', 'create', '2011-10-09 22:56:15'),
+(7929, 1, NULL, 'Ошибка на странице', 'main', 'main', 'error', '2011-10-09 22:56:16'),
+(7930, 1, NULL, 'Ошибка на странице', 'main', 'main', 'error', '2011-10-09 22:56:17'),
+(7931, 1, NULL, 'Создание мета-тега', 'main', 'metaTagAdmin', 'create', '2011-10-09 22:56:45'),
+(7932, 1, NULL, 'Ошибка на странице', 'main', 'main', 'error', '2011-10-09 22:56:46'),
+(7933, 1, NULL, 'Ошибка на странице', 'main', 'main', 'error', '2011-10-09 22:56:46'),
+(7934, 1, NULL, 'Создание мета-тега', 'main', 'metaTagAdmin', 'create', '2011-10-09 22:57:20'),
+(7935, 1, NULL, 'Создание мета-тега', 'main', 'metaTagAdmin', 'create', '2011-10-09 22:57:22'),
+(7936, 1, NULL, 'Ошибка на странице', 'main', 'main', 'error', '2011-10-09 22:57:23'),
+(7937, 1, NULL, 'Ошибка на странице', 'main', 'main', 'error', '2011-10-09 22:57:25'),
+(7938, 1, NULL, 'Создание мета-тега', 'main', 'metaTagAdmin', 'create', '2011-10-09 23:00:33'),
+(7939, 1, NULL, 'Ошибка на странице', 'main', 'main', 'error', '2011-10-09 23:00:35'),
+(7940, 1, NULL, 'Создание мета-тега', 'main', 'metaTagAdmin', 'create', '2011-10-09 23:00:36'),
+(7941, 1, NULL, 'Ошибка на странице', 'main', 'main', 'error', '2011-10-09 23:00:39'),
+(7942, 1, NULL, 'Ошибка на странице', 'main', 'main', 'error', '2011-10-09 23:00:44'),
+(7943, NULL, NULL, 'Авторизация', 'users', 'userAdmin', 'login', '2011-10-09 23:01:18'),
+(7944, NULL, NULL, 'Ошибка на странице', 'main', 'main', 'error', '2011-10-09 23:01:22'),
+(7945, NULL, NULL, 'Ошибка на странице', 'main', 'main', 'error', '2011-10-09 23:01:23'),
+(7946, NULL, NULL, 'Авторизация', 'users', 'userAdmin', 'login', '2011-10-09 23:01:24'),
+(7947, NULL, NULL, 'Авторизация', 'users', 'userAdmin', 'login', '2011-10-09 23:01:32'),
+(7948, 1, NULL, 'Просмотр главной страницы', 'main', 'mainAdmin', 'index', '2011-10-09 23:01:32'),
+(7949, 1, NULL, 'Просмотр главной страницы', 'main', 'mainAdmin', 'index', '2011-10-09 23:04:04'),
+(7950, 1, NULL, 'Создание мета-тега', 'main', 'metaTagAdmin', 'create', '2011-10-09 23:04:16'),
+(7951, 1, NULL, 'Ошибка на странице', 'main', 'main', 'error', '2011-10-09 23:04:26'),
+(7952, 1, NULL, 'Создание мета-тега', 'main', 'metaTagAdmin', 'create', '2011-10-09 23:05:08'),
+(7953, 1, NULL, 'Получение объектов модели', 'main', 'metaTagAdmin', 'getModelObjects', '2011-10-09 23:05:12'),
+(7954, 1, NULL, 'Главная страница', 'content', 'page', 'main', '2011-10-09 23:05:25'),
+(7955, 1, NULL, 'Создание мета-тега', 'main', 'metaTagAdmin', 'create', '2011-10-09 23:06:14'),
+(7956, 1, NULL, 'Получение объектов модели', 'main', 'metaTagAdmin', 'getModelObjects', '2011-10-09 23:06:18'),
+(7957, 1, NULL, 'Создание мета-тега', 'main', 'metaTagAdmin', 'create', '2011-10-09 23:06:52'),
+(7958, 1, NULL, 'Получение объектов модели', 'main', 'metaTagAdmin', 'getModelObjects', '2011-10-09 23:06:56'),
+(7959, 1, NULL, 'Получение объектов модели', 'main', 'metaTagAdmin', 'getModelObjects', '2011-10-09 23:07:00'),
+(7960, 1, NULL, 'Получение объектов модели', 'main', 'metaTagAdmin', 'getModelObjects', '2011-10-09 23:07:04'),
+(7961, 1, NULL, 'Получение объектов модели', 'main', 'metaTagAdmin', 'getModelObjects', '2011-10-09 23:07:05'),
+(7962, 1, NULL, 'Создание мета-тега', 'main', 'metaTagAdmin', 'create', '2011-10-09 23:08:38'),
+(7963, 1, NULL, 'Получение объектов модели', 'main', 'metaTagAdmin', 'getModelObjects', '2011-10-09 23:12:27'),
+(7964, 1, NULL, 'Создание мета-тега', 'main', 'metaTagAdmin', 'create', '2011-10-09 23:13:07'),
+(7965, 1, 1, 'Просмотр мета-тега', 'main', 'metaTagAdmin', 'view', '2011-10-09 23:13:08'),
+(7966, 1, 1, 'Просмотр мета-тега', 'main', 'metaTagAdmin', 'view', '2011-10-09 23:18:27'),
+(7967, 1, 1, 'Просмотр мета-тега', 'main', 'metaTagAdmin', 'view', '2011-10-09 23:18:51'),
+(7968, 1, 1, 'Просмотр мета-тега', 'main', 'metaTagAdmin', 'view', '2011-10-09 23:18:56'),
+(7969, 1, 1, 'Просмотр мета-тега', 'main', 'metaTagAdmin', 'view', '2011-10-09 23:19:11'),
+(7970, 1, 1, 'Просмотр мета-тега', 'main', 'metaTagAdmin', 'view', '2011-10-09 23:19:17'),
+(7971, 1, NULL, 'Главная страница', 'content', 'page', 'main', '2011-10-09 23:19:51'),
+(7972, 1, 1, 'Просмотр мета-тега', 'main', 'metaTagAdmin', 'view', '2011-10-09 23:19:53'),
+(7973, 1, 1, 'Просмотр мета-тега', 'main', 'metaTagAdmin', 'view', '2011-10-09 23:19:55'),
+(7974, 1, 1, 'Просмотр мета-тега', 'main', 'metaTagAdmin', 'view', '2011-10-09 23:20:01'),
+(7975, 1, 1, 'Просмотр мета-тега', 'main', 'metaTagAdmin', 'view', '2011-10-09 23:20:39'),
+(7976, 1, 1, 'Просмотр мета-тега', 'main', 'metaTagAdmin', 'view', '2011-10-09 23:20:53'),
+(7977, 1, 1, 'Просмотр мета-тега', 'main', 'metaTagAdmin', 'view', '2011-10-09 23:21:38'),
+(7978, 1, 1, 'Просмотр мета-тега', 'main', 'metaTagAdmin', 'view', '2011-10-09 23:22:04'),
+(7979, 1, 1, 'Просмотр мета-тега', 'main', 'metaTagAdmin', 'view', '2011-10-09 23:22:14'),
+(7980, 1, 1, 'Просмотр мета-тега', 'main', 'metaTagAdmin', 'view', '2011-10-09 23:23:49'),
+(7981, 1, 1, 'Просмотр мета-тега', 'main', 'metaTagAdmin', 'view', '2011-10-09 23:24:39'),
+(7982, 1, 1, 'Просмотр мета-тега', 'main', 'metaTagAdmin', 'view', '2011-10-09 23:25:55'),
+(7983, 1, 1, 'Просмотр мета-тега', 'main', 'metaTagAdmin', 'view', '2011-10-09 23:26:12'),
+(7984, 1, 1, 'Просмотр мета-тега', 'main', 'metaTagAdmin', 'view', '2011-10-09 23:27:41'),
+(7985, 1, 1, 'Просмотр мета-тега', 'main', 'metaTagAdmin', 'view', '2011-10-09 23:27:56'),
+(7986, 1, 1, 'Просмотр мета-тега', 'main', 'metaTagAdmin', 'view', '2011-10-09 23:28:27'),
+(7987, 1, 1, 'Просмотр мета-тега', 'main', 'metaTagAdmin', 'view', '2011-10-09 23:28:54'),
+(7988, 1, 1, 'Просмотр мета-тега', 'main', 'metaTagAdmin', 'view', '2011-10-09 23:29:05'),
+(7989, 1, 1, 'Просмотр мета-тега', 'main', 'metaTagAdmin', 'view', '2011-10-09 23:29:34'),
+(7990, 1, 1, 'Просмотр мета-тега', 'main', 'metaTagAdmin', 'view', '2011-10-09 23:29:42'),
+(7991, 1, 1, 'Просмотр мета-тега', 'main', 'metaTagAdmin', 'view', '2011-10-09 23:30:02'),
+(7992, 1, 1, 'Просмотр мета-тега', 'main', 'metaTagAdmin', 'view', '2011-10-09 23:30:20'),
+(7993, 1, 1, 'Просмотр мета-тега', 'main', 'metaTagAdmin', 'view', '2011-10-09 23:30:52'),
+(7994, 1, 1, 'Просмотр мета-тега', 'main', 'metaTagAdmin', 'view', '2011-10-09 23:32:00'),
+(7995, 1, 1, 'Просмотр мета-тега', 'main', 'metaTagAdmin', 'view', '2011-10-09 23:32:09'),
+(7996, 1, 1, 'Просмотр мета-тега', 'main', 'metaTagAdmin', 'view', '2011-10-09 23:32:43'),
+(7997, 1, NULL, 'Главная страница', 'content', 'page', 'main', '2011-10-09 23:32:59'),
+(7998, 1, 2, 'Просмотр страницы', 'content', 'page', 'view', '2011-10-09 23:33:02'),
+(7999, 1, 1, 'Просмотр мета-тега', 'main', 'metaTagAdmin', 'view', '2011-10-09 23:36:58'),
+(8000, 1, NULL, 'Управление мета-тегами', 'main', 'metaTagAdmin', 'manage', '2011-10-09 23:37:01'),
+(8001, 1, 1, 'Просмотр мета-тега', 'main', 'metaTagAdmin', 'view', '2011-10-09 23:37:04'),
+(8002, 1, 1, 'Просмотр мета-тега', 'main', 'metaTagAdmin', 'view', '2011-10-09 23:37:26'),
+(8003, 1, NULL, 'Управление мета-тегами', 'main', 'metaTagAdmin', 'manage', '2011-10-09 23:37:43'),
+(8004, 1, NULL, 'Управление мета-тегами', 'main', 'metaTagAdmin', 'manage', '2011-10-09 23:38:45'),
+(8005, 1, NULL, 'Управление мета-тегами', 'main', 'metaTagAdmin', 'manage', '2011-10-09 23:39:13'),
+(8006, 1, NULL, 'Управление мета-тегами', 'main', 'metaTagAdmin', 'manage', '2011-10-09 23:39:19'),
+(8007, 1, NULL, 'Управление мета-тегами', 'main', 'metaTagAdmin', 'manage', '2011-10-09 23:39:25'),
+(8008, 1, NULL, 'Управление мета-тегами', 'main', 'metaTagAdmin', 'manage', '2011-10-09 23:39:50'),
+(8009, 1, NULL, 'Управление мета-тегами', 'main', 'metaTagAdmin', 'manage', '2011-10-09 23:40:46'),
+(8010, 1, NULL, 'Управление мета-тегами', 'main', 'metaTagAdmin', 'manage', '2011-10-09 23:41:08'),
+(8011, 1, NULL, 'Управление мета-тегами', 'main', 'metaTagAdmin', 'manage', '2011-10-09 23:41:29'),
+(8012, 1, NULL, 'Управление мета-тегами', 'main', 'metaTagAdmin', 'manage', '2011-10-09 23:41:46'),
+(8013, 1, NULL, 'Управление мета-тегами', 'main', 'metaTagAdmin', 'manage', '2011-10-09 23:41:58'),
+(8014, 1, NULL, 'Управление мета-тегами', 'main', 'metaTagAdmin', 'manage', '2011-10-09 23:42:03'),
+(8015, 1, NULL, 'Управление мета-тегами', 'main', 'metaTagAdmin', 'manage', '2011-10-09 23:43:07'),
+(8016, 1, NULL, 'Управление мета-тегами', 'main', 'metaTagAdmin', 'manage', '2011-10-09 23:43:34'),
+(8017, 1, NULL, 'Управление мета-тегами', 'main', 'metaTagAdmin', 'manage', '2011-10-09 23:44:03'),
+(8018, 1, 1, 'Просмотр мета-тега', 'main', 'metaTagAdmin', 'view', '2011-10-09 23:44:16'),
+(8019, 1, NULL, 'Управление мета-тегами', 'main', 'metaTagAdmin', 'manage', '2011-10-09 23:44:18'),
+(8020, 1, 1, 'Редактирование мета-тега', 'main', 'metaTagAdmin', 'update', '2011-10-09 23:44:20'),
+(8021, 1, 1, 'Редактирование мета-тега', 'main', 'metaTagAdmin', 'update', '2011-10-09 23:44:57'),
+(8022, 1, 1, 'Редактирование мета-тега', 'main', 'metaTagAdmin', 'update', '2011-10-09 23:45:25'),
+(8023, 1, 1, 'Редактирование мета-тега', 'main', 'metaTagAdmin', 'update', '2011-10-09 23:46:53'),
+(8024, 1, 1, 'Редактирование мета-тега', 'main', 'metaTagAdmin', 'update', '2011-10-09 23:47:40'),
+(8025, 1, 1, 'Редактирование мета-тега', 'main', 'metaTagAdmin', 'update', '2011-10-09 23:51:56'),
+(8026, 1, 1, 'Редактирование мета-тега', 'main', 'metaTagAdmin', 'update', '2011-10-09 23:55:36'),
+(8027, 1, 1, 'Редактирование мета-тега', 'main', 'metaTagAdmin', 'update', '2011-10-09 23:56:01'),
+(8028, 1, 1, 'Редактирование мета-тега', 'main', 'metaTagAdmin', 'update', '2011-10-10 00:02:54'),
+(8029, 1, 1, 'Редактирование мета-тега', 'main', 'metaTagAdmin', 'update', '2011-10-10 00:03:12'),
+(8030, 1, 1, 'Редактирование мета-тега', 'main', 'metaTagAdmin', 'update', '2011-10-10 00:03:12'),
+(8031, 1, 1, 'Редактирование мета-тега', 'main', 'metaTagAdmin', 'update', '2011-10-10 00:03:55'),
+(8032, 1, 1, 'Редактирование мета-тега', 'main', 'metaTagAdmin', 'update', '2011-10-10 00:04:08'),
+(8033, 1, 1, 'Редактирование мета-тега', 'main', 'metaTagAdmin', 'update', '2011-10-10 00:04:44'),
+(8034, 1, NULL, 'Получение объектов модели', 'main', 'metaTagAdmin', 'getModelObjects', '2011-10-10 00:04:51'),
+(8035, 1, 1, 'Редактирование мета-тега', 'main', 'metaTagAdmin', 'update', '2011-10-10 00:06:00'),
+(8036, 1, NULL, 'Получение объектов модели', 'main', 'metaTagAdmin', 'getModelObjects', '2011-10-10 00:06:02'),
+(8037, 1, 1, 'Редактирование мета-тега', 'main', 'metaTagAdmin', 'update', '2011-10-10 00:10:00'),
+(8038, 1, NULL, 'Получение объектов модели', 'main', 'metaTagAdmin', 'getModelObjects', '2011-10-10 00:10:03'),
+(8039, 1, 1, 'Редактирование мета-тега', 'main', 'metaTagAdmin', 'update', '2011-10-10 00:10:32'),
+(8040, 1, NULL, 'Получение объектов модели', 'main', 'metaTagAdmin', 'getModelObjects', '2011-10-10 00:10:34'),
+(8041, 1, 1, 'Редактирование мета-тега', 'main', 'metaTagAdmin', 'update', '2011-10-10 00:11:01'),
+(8042, 1, NULL, 'Получение объектов модели', 'main', 'metaTagAdmin', 'getModelObjects', '2011-10-10 00:11:04'),
+(8043, 1, 1, 'Редактирование мета-тега', 'main', 'metaTagAdmin', 'update', '2011-10-10 00:11:40'),
+(8044, 1, NULL, 'Получение объектов модели', 'main', 'metaTagAdmin', 'getModelObjects', '2011-10-10 00:11:43'),
+(8045, 1, 1, 'Редактирование мета-тега', 'main', 'metaTagAdmin', 'update', '2011-10-10 00:11:59'),
+(8046, 1, NULL, 'Получение объектов модели', 'main', 'metaTagAdmin', 'getModelObjects', '2011-10-10 00:12:01'),
+(8047, 1, 1, 'Редактирование мета-тега', 'main', 'metaTagAdmin', 'update', '2011-10-10 00:12:34'),
+(8048, 1, NULL, 'Получение объектов модели', 'main', 'metaTagAdmin', 'getModelObjects', '2011-10-10 00:12:37'),
+(8049, 1, 1, 'Редактирование мета-тега', 'main', 'metaTagAdmin', 'update', '2011-10-10 00:13:29'),
+(8050, 1, NULL, 'Получение объектов модели', 'main', 'metaTagAdmin', 'getModelObjects', '2011-10-10 00:13:31'),
+(8051, 1, 1, 'Редактирование мета-тега', 'main', 'metaTagAdmin', 'update', '2011-10-10 00:13:49'),
+(8052, 1, NULL, 'Получение объектов модели', 'main', 'metaTagAdmin', 'getModelObjects', '2011-10-10 00:13:51'),
+(8053, 1, 1, 'Редактирование мета-тега', 'main', 'metaTagAdmin', 'update', '2011-10-10 00:14:00'),
+(8054, 1, 1, 'Просмотр мета-тега', 'main', 'metaTagAdmin', 'view', '2011-10-10 00:14:00'),
+(8055, 1, 2, 'Просмотр страницы', 'content', 'page', 'view', '2011-10-10 00:14:05'),
+(8056, 1, NULL, 'Управление мета-тегами', 'main', 'metaTagAdmin', 'manage', '2011-10-10 00:14:31'),
+(8057, 1, 2, 'Просмотр страницы', 'content', 'page', 'view', '2011-10-10 00:24:01');
 
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `users`
+-- Table structure for table `users`
 --
 
 CREATE TABLE IF NOT EXISTS `users` (
@@ -9124,7 +9769,7 @@ CREATE TABLE IF NOT EXISTS `users` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=19 ;
 
 --
--- Дамп данных таблицы `users`
+-- Dumping data for table `users`
 --
 
 INSERT INTO `users` (`id`, `first_name`, `last_name`, `patronymic`, `email`, `phone`, `password`, `birthdate`, `gender`, `status`, `activate_code`, `activate_date`, `password_recover_code`, `password_recover_date`, `date_create`) VALUES
@@ -9135,7 +9780,7 @@ INSERT INTO `users` (`id`, `first_name`, `last_name`, `patronymic`, `email`, `ph
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `ymarket_brands`
+-- Table structure for table `ymarket_brands`
 --
 
 CREATE TABLE IF NOT EXISTS `ymarket_brands` (
@@ -9146,7 +9791,7 @@ CREATE TABLE IF NOT EXISTS `ymarket_brands` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=138 ;
 
 --
--- Дамп данных таблицы `ymarket_brands`
+-- Dumping data for table `ymarket_brands`
 --
 
 INSERT INTO `ymarket_brands` (`id`, `name`) VALUES
@@ -9291,7 +9936,7 @@ INSERT INTO `ymarket_brands` (`id`, `name`) VALUES
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `ymarket_crons`
+-- Table structure for table `ymarket_crons`
 --
 
 CREATE TABLE IF NOT EXISTS `ymarket_crons` (
@@ -9308,7 +9953,7 @@ CREATE TABLE IF NOT EXISTS `ymarket_crons` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
 
 --
--- Дамп данных таблицы `ymarket_crons`
+-- Dumping data for table `ymarket_crons`
 --
 
 INSERT INTO `ymarket_crons` (`id`, `name`, `method`, `is_active`, `priority`, `interval`, `date_of`) VALUES
@@ -9318,7 +9963,7 @@ INSERT INTO `ymarket_crons` (`id`, `name`, `method`, `is_active`, `priority`, `i
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `ymarket_ips`
+-- Table structure for table `ymarket_ips`
 --
 
 CREATE TABLE IF NOT EXISTS `ymarket_ips` (
@@ -9331,7 +9976,7 @@ CREATE TABLE IF NOT EXISTS `ymarket_ips` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=32 ;
 
 --
--- Дамп данных таблицы `ymarket_ips`
+-- Dumping data for table `ymarket_ips`
 --
 
 INSERT INTO `ymarket_ips` (`id`, `ip`, `last_date_use`, `date_create`) VALUES
@@ -9370,7 +10015,7 @@ INSERT INTO `ymarket_ips` (`id`, `ip`, `last_date_use`, `date_create`) VALUES
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `ymarket_pages`
+-- Table structure for table `ymarket_pages`
 --
 
 CREATE TABLE IF NOT EXISTS `ymarket_pages` (
@@ -9385,7 +10030,7 @@ CREATE TABLE IF NOT EXISTS `ymarket_pages` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=28 ;
 
 --
--- Дамп данных таблицы `ymarket_pages`
+-- Dumping data for table `ymarket_pages`
 --
 
 INSERT INTO `ymarket_pages` (`id`, `section_id`, `url`, `num`, `date_create`, `date_parse`) VALUES
@@ -9420,7 +10065,7 @@ INSERT INTO `ymarket_pages` (`id`, `section_id`, `url`, `num`, `date_create`, `d
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `ymarket_products`
+-- Table structure for table `ymarket_products`
 --
 
 CREATE TABLE IF NOT EXISTS `ymarket_products` (
@@ -9436,7 +10081,7 @@ CREATE TABLE IF NOT EXISTS `ymarket_products` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1811 ;
 
 --
--- Дамп данных таблицы `ymarket_products`
+-- Dumping data for table `ymarket_products`
 --
 
 INSERT INTO `ymarket_products` (`id`, `brand_id`, `name`, `image`, `desc_html`, `date_create`, `date_update`) VALUES
@@ -9474,7 +10119,7 @@ INSERT INTO `ymarket_products` (`id`, `brand_id`, `name`, `image`, `desc_html`, 
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `ymarket_sections`
+-- Table structure for table `ymarket_sections`
 --
 
 CREATE TABLE IF NOT EXISTS `ymarket_sections` (
@@ -9496,7 +10141,7 @@ CREATE TABLE IF NOT EXISTS `ymarket_sections` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
 
 --
--- Дамп данных таблицы `ymarket_sections`
+-- Dumping data for table `ymarket_sections`
 --
 
 INSERT INTO `ymarket_sections` (`id`, `name`, `yandex_name`, `url`, `all_models_url`, `brands_url`, `breadcrumbs`, `date_create`, `date_update`, `date_brand_update`, `date_pages_parse`) VALUES
@@ -9507,7 +10152,7 @@ INSERT INTO `ymarket_sections` (`id`, `name`, `yandex_name`, `url`, `all_models_
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `ymarket_sections_rels`
+-- Table structure for table `ymarket_sections_rels`
 --
 
 CREATE TABLE IF NOT EXISTS `ymarket_sections_rels` (
@@ -9521,7 +10166,7 @@ CREATE TABLE IF NOT EXISTS `ymarket_sections_rels` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=176 ;
 
 --
--- Дамп данных таблицы `ymarket_sections_rels`
+-- Dumping data for table `ymarket_sections_rels`
 --
 
 INSERT INTO `ymarket_sections_rels` (`id`, `section_id`, `object_id`, `object_type`) VALUES
@@ -9702,96 +10347,96 @@ INSERT INTO `ymarket_sections_rels` (`id`, `section_id`, `object_id`, `object_ty
 (172, 3, 137, 'brand');
 
 --
--- Ограничения внешнего ключа сохраненных таблиц
+-- Constraints for dumped tables
 --
 
 --
--- Ограничения внешнего ключа таблицы `actions`
+-- Constraints for table `actions`
 --
 ALTER TABLE `actions`
   ADD CONSTRAINT `actions_ibfk_1` FOREIGN KEY (`lang`) REFERENCES `languages` (`id`) ON DELETE SET NULL ON UPDATE CASCADE;
 
 --
--- Ограничения внешнего ключа таблицы `actions_files`
+-- Constraints for table `actions_files`
 --
 ALTER TABLE `actions_files`
   ADD CONSTRAINT `actions_files_ibfk_1` FOREIGN KEY (`action_id`) REFERENCES `actions` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Ограничения внешнего ключа таблицы `articles`
+-- Constraints for table `articles`
 --
 ALTER TABLE `articles`
   ADD CONSTRAINT `articles_ibfk_1` FOREIGN KEY (`lang`) REFERENCES `languages` (`id`) ON DELETE SET NULL ON UPDATE CASCADE,
   ADD CONSTRAINT `articles_ibfk_2` FOREIGN KEY (`section_id`) REFERENCES `articles_sections` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Ограничения внешнего ключа таблицы `articles_sections`
+-- Constraints for table `articles_sections`
 --
 ALTER TABLE `articles_sections`
   ADD CONSTRAINT `articles_sections_ibfk_1` FOREIGN KEY (`parent_id`) REFERENCES `articles_sections` (`id`) ON DELETE SET NULL ON UPDATE CASCADE,
   ADD CONSTRAINT `articles_sections_ibfk_2` FOREIGN KEY (`lang`) REFERENCES `languages` (`id`) ON DELETE SET NULL ON UPDATE CASCADE;
 
 --
--- Ограничения внешнего ключа таблицы `AuthAssignment`
+-- Constraints for table `AuthAssignment`
 --
 ALTER TABLE `AuthAssignment`
   ADD CONSTRAINT `AuthAssignment_ibfk_1` FOREIGN KEY (`itemname`) REFERENCES `AuthItem` (`name`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `AuthAssignment_ibfk_2` FOREIGN KEY (`userid`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Ограничения внешнего ключа таблицы `AuthItemChild`
+-- Constraints for table `AuthItemChild`
 --
 ALTER TABLE `AuthItemChild`
   ADD CONSTRAINT `AuthItemChild_ibfk_1` FOREIGN KEY (`parent`) REFERENCES `AuthItem` (`name`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `AuthItemChild_ibfk_2` FOREIGN KEY (`child`) REFERENCES `AuthItem` (`name`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Ограничения внешнего ключа таблицы `documents`
+-- Constraints for table `documents`
 --
 ALTER TABLE `documents`
   ADD CONSTRAINT `documents_ibfk_1` FOREIGN KEY (`lang`) REFERENCES `languages` (`id`) ON DELETE SET NULL ON UPDATE CASCADE;
 
 --
--- Ограничения внешнего ключа таблицы `documents_files`
+-- Constraints for table `documents_files`
 --
 ALTER TABLE `documents_files`
   ADD CONSTRAINT `documents_files_ibfk_1` FOREIGN KEY (`document_id`) REFERENCES `documents` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Ограничения внешнего ключа таблицы `faq`
+-- Constraints for table `faq`
 --
 ALTER TABLE `faq`
   ADD CONSTRAINT `faq_ibfk_1` FOREIGN KEY (`lang`) REFERENCES `languages` (`id`) ON DELETE SET NULL ON UPDATE CASCADE,
   ADD CONSTRAINT `faq_ibfk_2` FOREIGN KEY (`section_id`) REFERENCES `faq_sections` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Ограничения внешнего ключа таблицы `faq_sections`
+-- Constraints for table `faq_sections`
 --
 ALTER TABLE `faq_sections`
   ADD CONSTRAINT `faq_sections_ibfk_1` FOREIGN KEY (`lang`) REFERENCES `languages` (`id`) ON DELETE SET NULL ON UPDATE CASCADE;
 
 --
--- Ограничения внешнего ключа таблицы `mailer_letters`
+-- Constraints for table `mailer_letters`
 --
 ALTER TABLE `mailer_letters`
   ADD CONSTRAINT `mailer_letters_ibfk_1` FOREIGN KEY (`template_id`) REFERENCES `mailer_templates` (`id`) ON DELETE SET NULL ON UPDATE CASCADE;
 
 --
--- Ограничения внешнего ключа таблицы `mailer_recipients`
+-- Constraints for table `mailer_recipients`
 --
 ALTER TABLE `mailer_recipients`
   ADD CONSTRAINT `mailer_recipients_ibfk_1` FOREIGN KEY (`letter_id`) REFERENCES `mailer_letters` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `mailer_recipients_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Ограничения внешнего ключа таблицы `mailer_templates_recipients`
+-- Constraints for table `mailer_templates_recipients`
 --
 ALTER TABLE `mailer_templates_recipients`
   ADD CONSTRAINT `mailer_templates_recipients_ibfk_1` FOREIGN KEY (`template_id`) REFERENCES `mailer_templates` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `mailer_templates_recipients_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Ограничения внешнего ключа таблицы `menu_links`
+-- Constraints for table `menu_links`
 --
 ALTER TABLE `menu_links`
   ADD CONSTRAINT `menu_links_ibfk_1` FOREIGN KEY (`parent_id`) REFERENCES `menu_links` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
@@ -9802,44 +10447,44 @@ ALTER TABLE `menu_links`
   ADD CONSTRAINT `menu_links_ibfk_6` FOREIGN KEY (`lang`) REFERENCES `languages` (`id`) ON DELETE SET NULL ON UPDATE CASCADE;
 
 --
--- Ограничения внешнего ключа таблицы `news`
+-- Constraints for table `news`
 --
 ALTER TABLE `news`
   ADD CONSTRAINT `news_ibfk_1` FOREIGN KEY (`lang`) REFERENCES `languages` (`id`) ON DELETE SET NULL ON UPDATE CASCADE,
   ADD CONSTRAINT `news_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Ограничения внешнего ключа таблицы `pages`
+-- Constraints for table `pages`
 --
 ALTER TABLE `pages`
   ADD CONSTRAINT `pages_ibfk_1` FOREIGN KEY (`lang`) REFERENCES `languages` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Ограничения внешнего ключа таблицы `pages_blocks`
+-- Constraints for table `pages_blocks`
 --
 ALTER TABLE `pages_blocks`
   ADD CONSTRAINT `pages_blocks_ibfk_1` FOREIGN KEY (`lang`) REFERENCES `languages` (`id`) ON DELETE SET NULL ON UPDATE CASCADE;
 
 --
--- Ограничения внешнего ключа таблицы `site_actions`
+-- Constraints for table `site_actions`
 --
 ALTER TABLE `site_actions`
   ADD CONSTRAINT `site_actions_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Ограничения внешнего ключа таблицы `ymarket_pages`
+-- Constraints for table `ymarket_pages`
 --
 ALTER TABLE `ymarket_pages`
   ADD CONSTRAINT `ymarket_pages_ibfk_1` FOREIGN KEY (`section_id`) REFERENCES `ymarket_sections` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Ограничения внешнего ключа таблицы `ymarket_products`
+-- Constraints for table `ymarket_products`
 --
 ALTER TABLE `ymarket_products`
   ADD CONSTRAINT `barnd_fk` FOREIGN KEY (`brand_id`) REFERENCES `ymarket_brands` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Ограничения внешнего ключа таблицы `ymarket_sections_rels`
+-- Constraints for table `ymarket_sections_rels`
 --
 ALTER TABLE `ymarket_sections_rels`
   ADD CONSTRAINT `section_fk` FOREIGN KEY (`section_id`) REFERENCES `ymarket_sections` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;

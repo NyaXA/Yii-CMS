@@ -19,7 +19,7 @@ class MainModule extends WebModule
 
     public static function name()
     {
-        return 'Сайт';
+        return 'Система';
     }
 
 

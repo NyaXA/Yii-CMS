@@ -4,6 +4,8 @@ class Page extends ActiveRecordModel
 {
     const PAGE_SIZE = 10;
 
+    public static $meta_tags = true;
+
 
     public function name()
     {
@@ -28,11 +30,11 @@ class Page extends ActiveRecordModel
 		return array(
 			array('title, lang', 'required'),
 			array('is_published', 'numerical', 'integerOnly' => true),
-			array('meta_title, meta_description, meta_keywords, url', 'length', 'max' => 250),
+			array('url', 'length', 'max' => 250),
 			array('title', 'length', 'max'=>200),
 			array('text', 'safe'),
-            array('title, meta_title, meta_description, meta_keywords, url', 'filter', 'filter' => 'strip_tags'),
-			array('id, meta_title, meta_description, meta_keywords, title, url, text, is_published, date_create', 'safe', 'on'=>'search'),
+            array('title, url', 'filter', 'filter' => 'strip_tags'),
+			array('id, title, url, text, is_published, date_create', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -49,9 +51,6 @@ class Page extends ActiveRecordModel
 	{	
 		$criteria = new CDbCriteria;
 		$criteria->compare('id',$this->id,true);
-		$criteria->compare('meta_title',$this->meta_title,true);
-		$criteria->compare('meta_description',$this->meta_description,true);
-		$criteria->compare('meta_keywords',$this->meta_keywords,true);
 		$criteria->compare('title',$this->title,true);
 		$criteria->compare('url',$this->url,true);
 		$criteria->compare('text',$this->text,true);

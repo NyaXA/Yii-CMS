@@ -5,11 +5,12 @@ class MetaTagAdminController extends AdminController
     public static function actionsTitles()
     {
         return array(
-            'View'   => 'Просмотр мета-тега',
-            'Create' => 'Создание мета-тега',
-            'Update' => 'Редактирование мета-тега',
-            'Delete' => 'Удаление мета-тега',
-            'Manage' => 'Управление мета-тегами',
+            'View'            => 'Просмотр мета-тега',
+            'Create'          => 'Создание мета-тега',
+            'Update'          => 'Редактирование мета-тега',
+            'Delete'          => 'Удаление мета-тега',
+            'Manage'          => 'Управление мета-тегами',
+            'GetModelObjects' => 'Получение объектов модели'
         );
     }
 
@@ -121,4 +122,19 @@ class MetaTagAdminController extends AdminController
 			Yii::app()->end();
 		}
 	}
+
+
+    public function actionGetModelObjects($model_id)
+    {
+        $result  = array();
+        $model   = $model_id::model();
+        $objects = $model->findAll();
+
+        foreach ($objects as $i => $object)
+        {
+            $result[$object->id] = (string) $object;
+        }
+
+        echo CJSON::encode($result);
+    }
 }

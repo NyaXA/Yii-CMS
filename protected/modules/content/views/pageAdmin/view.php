@@ -12,10 +12,7 @@ $this->widget('application.components.DetailView', array(
 	'data'=>$model,
 	'attributes'=>array(
         'title',
-		array('name' => 'lang', 'value' => $model->language->name),        
-		'meta_title',
-		'meta_description',
-		'meta_keywords',
+		array('name' => 'lang', 'value' => $model->language->name),
 		'url',
 		array(
             'name'  => 'is_published',
