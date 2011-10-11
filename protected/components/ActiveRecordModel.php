@@ -36,6 +36,9 @@ abstract class ActiveRecordModel extends CActiveRecord
             ),
             'DateFormat' => array(
                 'class' => 'application.components.activeRecordBehaviors.DateFormatBehavior'
+            ),
+            'Timestamp' => array(
+                'class' => 'application.components.activeRecordBehaviors.TimestampBehavior'
             )
         );
     }
