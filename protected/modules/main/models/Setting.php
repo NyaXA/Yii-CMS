@@ -87,9 +87,9 @@ class Setting extends ActiveRecordModel
     }
 
 
-    public function getValue($code)
+    public static function getValue($code)
     {
-        $setting = $this->findByAttributes(array('code' => $code));
+        $setting = self::model()->findByAttributes(array('code' => $code));
         if ($setting)
         {
             return $setting->value;
