@@ -2,6 +2,18 @@
 
 class FileManagerBehavior extends CActiveRecordBehavior
 {
+    public function getFileManagerRelation($tag)
+    {
+        $model = $this->getOwner();
+        return array(
+            CActiveRecord::HAS_MANY,
+            'FileManager',
+            'object_id',
+            'condition' => "{$tag}.model_id = '". get_class($model) ."' AND {$tag}.tag='images'",
+            'order' => "{$tag}.order DESC"
+        );
+    }
+
     public function afterSave($event)
     {
         $model = $this->getOwner();

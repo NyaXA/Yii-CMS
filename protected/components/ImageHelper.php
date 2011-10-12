@@ -1,5 +1,5 @@
 <?php
-
+ini_set("memory_limit", -1); //GD - memory killer
 class ImageHelper 
 {
 	public static function thumb($dir, $file, $width = null, $height = null, $crop = false, $attr_string = "border='0'") 

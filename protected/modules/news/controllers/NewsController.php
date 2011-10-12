@@ -26,8 +26,7 @@ class NewsController extends BaseController
 			'news_list' => $news_list,
 			'news'      => $news
 		));	
-	}	
-
+	}
 	
 	public function actionIndex() 
 	{
