@@ -551,4 +551,16 @@ class FileManager extends ActiveRecordModel
     {
         return "http://" . $_SERVER["HTTP_HOST"] . "/" . self::UPLOAD_PATH . $this->name;
     }
+
+    public static function getStdRelation($model, $tag)
+    {
+        return array(
+            CActiveRecord::HAS_MANY,
+            'FileManager',
+            'object_id',
+            'condition' => "{$tag}.model_id = '". get_class($model) ."' AND {$tag}.tag='{$tag}'",
+            'order' => "{$tag}.order DESC"
+        );
+    }
+
 }
