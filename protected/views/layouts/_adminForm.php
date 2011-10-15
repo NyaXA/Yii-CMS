@@ -230,7 +230,7 @@ $form->attributes['class'] = 'admin_form';
                 <?php
                 $this->widget('MaskedTextField', array(
                     'model'       => $form->model,
-                    'element'     => $element,
+                    'attribute'   => $element->name,
                     'type'        => 'phone'
                 ));
                 ?>
