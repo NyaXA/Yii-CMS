@@ -1612,7 +1612,7 @@ CREATE TABLE IF NOT EXISTS `settings` (
   `code` varchar(50) NOT NULL COMMENT 'Код',
   `name` varchar(100) NOT NULL COMMENT 'Заголовок',
   `value` text NOT NULL COMMENT 'Значение',
-  `element` enum('text','textarea','editor') NOT NULL COMMENT 'Элемент',
+  `element` enum('text','textarea','editor','phone') NOT NULL COMMENT 'Элемент',
   `hidden` tinyint(1) NOT NULL DEFAULT '0' COMMENT 'Скрыта',
   PRIMARY KEY (`id`),
   UNIQUE KEY `const` (`code`),

@@ -14,7 +14,7 @@ ul.yiiPager
 	font-size:11px;
 	border:0;
 	margin:0;
-	padding:0;
+	padding:0 !important;
 	line-height:100%;
 	display:inline;
 }
@@ -46,6 +46,7 @@ ul.yiiPager a:hover
 
 ul.yiiPager .selected a
 {
+    display: none;
 	color:#FFFFFF !important;
 	font-weight:bold;
 	text-decoration: none;
@@ -56,6 +57,7 @@ ul.yiiPager .selected a
 ul.yiiPager .hidden a
 {
 	/*border:solid 1px #DEDEDE;*/
+    display: none;
 	color:#888888 !important;
 }
 

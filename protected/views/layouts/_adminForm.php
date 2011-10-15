@@ -224,6 +224,20 @@ $form->attributes['class'] = 'admin_form';
                 ?>
             </fieldset>
 
+        <?php elseif ($element->type == 'phone'): ?>
+
+            <p>
+                <?php
+                $this->widget('MaskedTextField', array(
+                    'model'       => $form->model,
+                    'element'     => $element,
+                    'type'        => 'phone'
+                ));
+                ?>
+                <?php echo $form->getActiveFormWidget()->error($form->model, $element->name); ?>
+            </p>
+            <br/>
+
         <?php else: ?>
             <p>
                 <?php echo $element->render(); ?>
