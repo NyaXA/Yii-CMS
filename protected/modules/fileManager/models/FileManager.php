@@ -37,12 +37,6 @@ class FileManager extends ActiveRecordModel
         return 'id';
     }
 
-
-    public static $tags = array(
-        self::TAG_FILE => 'Файлы'
-    );
-
-
     public function rules()
     {
         return array(

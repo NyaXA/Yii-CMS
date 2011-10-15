@@ -21,7 +21,7 @@ function getFileLink($data)
 {
     if (file_exists($data->path))
     {
-         if ($data->is_image)
+         if ($data->isImage)
          {
              $basename = pathinfo($data->path, PATHINFO_BASENAME);
 
@@ -62,7 +62,7 @@ $this->widget('GridView', array(
         ),
         array(
             'name'   => 'tag',
-            'value'  => 'FileManager::$tags[$data->tag]',
+            'value'  => '$data->tag',
             'filter' => false
         ),
         array(
