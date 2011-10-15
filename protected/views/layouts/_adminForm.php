@@ -124,11 +124,12 @@ $form->attributes['class'] = 'admin_form';
                 <?php echo $form->getActiveFormWidget()->labelEx($form->model, $element->name); ?>
 
                 <?php
-                $this->widget('application.extensions.tinymce.ETinyMce',array(
-                    'editorTemplate' => 'full',
+                $this->widget('application.extensions.tiny_mce.TinyMCE',array(
+    //                'editorTemplate' => 'full',
                     'model' => $form->model,
                     'attribute' => $element->name,
                 ));
+
                 ?>
 
                 <?php echo $form->getActiveFormWidget()->error($form->model, $element->name); ?>
