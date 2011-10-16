@@ -35,6 +35,8 @@ return array(
         $modules_includes,
         array(
             'application.components.*',
+            'application.components.zii.*',
+            'application.components.formElements.*',
             'application.libs.tools.*',
             'ext.yiiext.filters.setReturnUrl.ESetReturnUrlFilter',
             'application.modules.srbac.controllers.SBaseController',
