@@ -32,9 +32,9 @@
     $cs->registerCoreScript('jquery.ui');
     $cs->registerScriptFile('/js/plugins/jquery.slidingmessage/jquery.slidingmessage.min.js');
     
-    $cs->registerScriptFile('/js/plugins/jquery-loadmask-0.4/jquery.loadmask.min.js');
-    $cs->registerScriptFile('/js/plugins/jquery-loadmask-0.4/loadmask.js');
-    $cs->registerCssFile('/js/plugins/jquery-loadmask-0.4/jquery.loadmask.css');
+//    $cs->registerScriptFile('/js/plugins/jquery-loadmask-0.4/jquery.loadmask.min.js');
+//    $cs->registerScriptFile('/js/plugins/jquery-loadmask-0.4/loadmask.js');
+//    $cs->registerCssFile('/js/plugins/jquery-loadmask-0.4/jquery.loadmask.css');
     ?>
 	
 </head>

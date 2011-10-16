@@ -166,7 +166,7 @@ class News extends ActiveRecordModel
 
     public function getUrl()
     {
-        return Yii::app()->controller->url("/news/{$this->id}");
+        return Yii::app()->controller->url("/news/news/view/", array('id' => $this->id));
     }
 
 
