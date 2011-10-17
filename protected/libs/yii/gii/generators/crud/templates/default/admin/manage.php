@@ -6,7 +6,7 @@ $this->tabs = array(
 );';
 ?>
 
-<?php echo "\n"; ?>$this->widget('application.components.GridView', array(
+<?php echo "\n"; ?>$this->widget('GridView', array(
 	'id' => '<?php echo $this->class2id($this->modelClass); ?>-grid',
 	'dataProvider' => $model->search(),
 	'filter' => $model,

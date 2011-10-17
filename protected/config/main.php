@@ -13,6 +13,7 @@ foreach ($modules_dirs as $module)
     $modules_includes[] = "application.modules.{$module}.portlets.*";
     $modules_includes[] = "application.modules.{$module}.forms.*";
     $modules_includes[] = "application.modules.{$module}.components.*";
+    $modules_includes[] = "application.modules.{$module}.components.zii.*";
 }
 
 

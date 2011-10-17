@@ -9,7 +9,7 @@ $this->tabs = array(
     'добавить мета-тег' => $this->createUrl('create')
 );
 
-$this->widget('application.components.GridView', array(
+$this->widget('GridView', array(
 	'id' => 'meta-tag-grid',
 	'dataProvider' => $model->search(),
 	'filter' => $model,
