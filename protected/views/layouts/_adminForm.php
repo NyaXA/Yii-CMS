@@ -204,9 +204,11 @@ $form->attributes['class'] = 'admin_form';
             </div>    
             <br clear="all" />
 
-        <?php elseif ($element->type == "widget" && isset($element->attributes['widget'])): ?>
+       <?php elseif ($element->type == "widget"): ?>
 
-            <?php $this->widget($element->attributes['widget'], array('model' => $form->model)); ?>
+            <?php if (isset($element->attributes['widget'])): ?>
+                <?php $this->widget($element->attributes['widget'], array('model' => $form->model)); ?>
+            <?php endif ?>
 
         <?php elseif ($element->type == 'file_manager'): ?>
 

@@ -39,7 +39,10 @@ class Uploader extends CJuiWidget
     {
         parent::init();
 
-        if (!array_key_exists('FileManager', $this->model->behaviors()))
+        $behaviors = $this->model->behaviors();
+        $behaviors = ArrayHelper::extract($behaviors, 'class');
+
+        if (!in_array('application.components.activeRecordBehaviors.FileManagerBehavior', $behaviors))
         {
             throw new CException('Требуется подключение behavior FileManagerBehavior в моделе!');
         }
