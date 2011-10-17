@@ -843,3 +843,7 @@ fieldset legend {
     padding: 0 10px 0 10px;
     font-weight: bold;
 }
+
+.action_link {
+    text-decoration: underline !important;
+}
