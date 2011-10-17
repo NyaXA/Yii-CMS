@@ -7,7 +7,7 @@ $this->tabs = array(
     'добавить'      => $this->createUrl('create')
 );
 
-$this->widget('application.components.DetailView', array(
+$this->widget('DetailView', array(
     'data' => $model,
     'attributes' => array(
         'name',

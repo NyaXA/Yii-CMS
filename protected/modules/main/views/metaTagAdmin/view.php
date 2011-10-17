@@ -7,7 +7,7 @@ $this->tabs = array(
 
 $model_id = $model->model_id;
 
-$this->widget('application.components.DetailView', array(
+$this->widget('DetailView', array(
 	'data' => $model,
 	'attributes' => array(
 		array('name' => 'model_id', 'value' => $model_id::name()),

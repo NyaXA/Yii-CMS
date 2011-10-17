@@ -2,6 +2,15 @@
 
 $models = AppManager::getModels(array('meta_tags' => true));
 
+if ($this->model->isNewRecord)
+{
+    $objects = array();
+}
+else
+{
+    $objects = array();
+}
+
 return array(
     'activeForm' => array(
         'id' => 'meta-tag-form',
@@ -19,11 +28,13 @@ return array(
         ),
         'object_id' => array(
             'type'  => 'dropdownlist',
-            'label' => 'Объект'
+            'label' => 'Объект',
+            'items' => $objects
         ),
         'tag' => array(
-            'type'  => 'dropdownlist',
-            'items' => MetaTag::$tags
+            'type'   => 'dropdownlist',
+            'items'  => MetaTag::$tags,
+            'prompt' => 'не выбрано'
         ),
         'static_value' => array('type' => 'textarea'),
         'dynamic_value' => array('type' => 'textarea'),
@@ -33,7 +44,9 @@ return array(
     'buttons' => array(
         'submit' => array(
             'type'  => 'submit',
-            'value' => $this->model->isNewRecord ? 'создать' : 'сохранить')
+            'value' => $this->model->isNewRecord ? 'создать' : 'сохранить',
+            'id'    => 'meta_tag_submit'
+        )
     )
 );
 

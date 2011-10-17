@@ -10,7 +10,8 @@ class MetaTagAdminController extends AdminController
             'Update'          => 'Редактирование мета-тега',
             'Delete'          => 'Удаление мета-тега',
             'Manage'          => 'Управление мета-тегами',
-            'GetModelObjects' => 'Получение объектов модели'
+            'GetModelObjects' => 'Получение объектов модели',
+            'GetMetaTagData'  => 'Получение данных тега'
         );
     }
 
@@ -33,6 +34,15 @@ class MetaTagAdminController extends AdminController
 
 		if(isset($_POST['MetaTag']))
 		{
+            if (isset($_POST['MetaTag']['id']) && is_numeric($_POST['MetaTag']['id']))
+            {
+                $meta_tag = MetaTag::model()->findByPk($_POST['MetaTag']['id']);
+                if ($meta_tag)
+                {
+                    $model = $meta_tag;
+                }
+            }
+
 			$model->attributes = $_POST['MetaTag'];
 			if($model->save())
             {
@@ -136,5 +146,17 @@ class MetaTagAdminController extends AdminController
         }
 
         echo CJSON::encode($result);
+    }
+
+
+    public function actionGetMetaTagData($model_id, $object_id, $tag)
+    {
+        echo CJSON::encode(
+            MetaTag::model()->findByAttributes(array(
+                'model_id'  => $model_id,
+                'object_id' => $object_id,
+                'tag'       => $tag
+            ))
+        );
     }
 }

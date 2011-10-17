@@ -3,7 +3,7 @@ $this->tabs = array(
     'все продукты'  => $this->createUrl('manage')
 );
 
-$this->widget('application.components.DetailView', array(
+$this->widget('DetailView', array(
 	'data' => $model,
 	'attributes' => array(
 		array('name' => 'brand_id', 'value' => $model->brand->name),
