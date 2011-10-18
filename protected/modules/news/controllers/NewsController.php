@@ -15,16 +15,15 @@ class NewsController extends BaseController
 	{
 		$model = News::model(); 
 		
-		$news = $model->findByAttributes(array(
-			'state' => News::STATE_ACTIVE,
+		$news = $model->active()->findByAttributes(array(
 			'id'    => $id
 		));
 
 		$news_list = $model->last()->active()->limit(5)->notEqual("id", $id)->findAll();
 
 		$this->render('view', array(
-			'news_list' => $news_list,
-			'news'      => $news
+			'list' => $news_list,
+			'model'      => $news
 		));	
 	}	
 

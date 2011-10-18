@@ -30,9 +30,9 @@ class NewsAdminController extends AdminController
 		
 		// $this->performAjaxValidation($model);
 
-		if(isset($_POST['News']))
+		if(isset($_POST[get_class($model)]))
 		{
-			$model->attributes = $_POST['News'];
+			$model->attributes = $_POST[get_class($model)];
 			if($model->save())
             {
                 $this->redirect(array('view', 'id' => $model->id));
@@ -57,9 +57,9 @@ class NewsAdminController extends AdminController
 
 		// $this->performAjaxValidation($model);
 
-		if(isset($_POST['News']))
+		if(isset($_POST[get_class($model)]))
 		{
-			$model->attributes = $_POST['News'];
+			$model->attributes = $_POST[get_class($model)];
 			if($model->save())
             {
                 $this->redirect(array('view', 'id'=>$model->id));
@@ -95,9 +95,9 @@ class NewsAdminController extends AdminController
 	{
 		$model = new News('search');
 		$model->unsetAttributes();
-		if(isset($_GET['News']))
+		if(isset($_GET[get_class($model)]))
         {
-            $model->attributes = $_GET['News'];
+            $model->attributes = $_GET[get_class($model)];
         }
 
 		$this->render('manage', array(
