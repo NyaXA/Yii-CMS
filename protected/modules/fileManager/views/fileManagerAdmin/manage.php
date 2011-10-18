@@ -62,7 +62,7 @@ $this->widget('GridView', array(
         ),
         array(
             'name'   => 'tag',
-            'value'  => 'FileManager::$tags[$data->tag]',
+            'value'  => '$data->tag',
             'filter' => false
         ),
         array(
