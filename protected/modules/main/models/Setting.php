@@ -87,9 +87,9 @@ class Setting extends ActiveRecordModel
     }
 
 
-    public function getValue($code)
+    public static  function getValue($code)
     {
-        $setting = $this->findByAttributes(array('code' => $code));
+        $setting = self::model()->findByAttributes(array('code' => $code));
         if ($setting)
         {
             return $setting->value;
@@ -97,9 +97,9 @@ class Setting extends ActiveRecordModel
     }
 
 
-    public function checkRequired($codes)
+    public static function checkRequired($codes, $module_id = null)
     {
-        $settings = Setting::model()->findCodesValues(Yii::app()->controller->module->id);
+        $settings = self::model()->findCodesValues($module_id);
 
         foreach ($codes as $code)
         {
