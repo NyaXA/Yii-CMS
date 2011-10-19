@@ -46,14 +46,14 @@ $tinybrowser['docroot'] = rtrim($_SERVER['DOCUMENT_ROOT'],'/');
 $tinybrowser['unixpermissions'] = 0777;
 
 // File upload paths (set to absolute by default)
-$tinybrowser['path']['image'] = '/images/imgdat/'; // Image files location - also creates a '_thumbs' subdirectory within this path to hold the image thumbnails
-$tinybrowser['path']['file']  = '/upload/tinybrowser/'; // Other files location
-$tinybrowser['path']['media'] = '/upload/tinybrowser/'; // Media files location
+$tinybrowser['path']['image'] = '/upload/tiny/'; // Image files location - also creates a '_thumbs' subdirectory within this path to hold the image thumbnails
+$tinybrowser['path']['file']  = '/upload/tiny/tinybrowser/'; // Other files location
+$tinybrowser['path']['media'] = '/upload/tiny/tinybrowser/'; // Media files location
 
 // File link paths - these are the paths that get passed back to TinyMCE or your application (set to equal the upload path by default)
-$tinybrowser['link']['image'] = '/images/imgdat'; // Image links
-$tinybrowser['link']['media'] = '/upload/tinybrowser'; // Media links
-$tinybrowser['link']['file']  = '/upload/tinybrowser'; // Other file links
+$tinybrowser['link']['image'] = '/upload/tiny'; // Image links
+$tinybrowser['link']['media'] = '/upload/tiny/tinybrowser'; // Media links
+$tinybrowser['link']['file']  = '/upload/tiny/tinybrowser'; // Other file links
 
 // File upload size limit (0 is unlimited)
 $tinybrowser['maxsize']['image'] = 0; // Image file maximum size
