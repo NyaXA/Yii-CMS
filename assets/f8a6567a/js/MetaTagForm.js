@@ -10,7 +10,11 @@ $(function()
     var $meta_tag_id   = $('#MetaTag_id');
 
 
-    if (!$model_id.val())
+    if ($model_id.val())
+    {
+        loadModelObjects($model_id.val(), $meta_tag_id.val());
+    }
+    else
     {
         $meta_tag.attr('disabled', true);
         blockObjectIdElement();
