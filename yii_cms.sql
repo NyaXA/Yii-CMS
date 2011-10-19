@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 3.2.3
+-- version 3.3.7
 -- http://www.phpmyadmin.net
 --
--- Host: localhost
--- Generation Time: Oct 10, 2011 at 12:26 AM
--- Server version: 5.1.54
--- PHP Version: 5.3.5-1ubuntu7.2
+-- Хост: localhost
+-- Время создания: Окт 19 2011 г., 17:50
+-- Версия сервера: 5.1.54
+-- Версия PHP: 5.3.5-1ubuntu7.2
 
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 
@@ -16,13 +16,13 @@ SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Database: `yii_cms`
+-- База данных: `yii_cms`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `actions`
+-- Структура таблицы `actions`
 --
 
 CREATE TABLE IF NOT EXISTS `actions` (
@@ -39,14 +39,14 @@ CREATE TABLE IF NOT EXISTS `actions` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 --
--- Dumping data for table `actions`
+-- Дамп данных таблицы `actions`
 --
 
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `actions_files`
+-- Структура таблицы `actions_files`
 --
 
 CREATE TABLE IF NOT EXISTS `actions_files` (
@@ -59,14 +59,14 @@ CREATE TABLE IF NOT EXISTS `actions_files` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 --
--- Dumping data for table `actions_files`
+-- Дамп данных таблицы `actions_files`
 --
 
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `articles`
+-- Структура таблицы `articles`
 --
 
 CREATE TABLE IF NOT EXISTS `articles` (
@@ -83,7 +83,7 @@ CREATE TABLE IF NOT EXISTS `articles` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
 
 --
--- Dumping data for table `articles`
+-- Дамп данных таблицы `articles`
 --
 
 INSERT INTO `articles` (`id`, `lang`, `section_id`, `title`, `text`, `date`, `date_create`) VALUES
@@ -92,7 +92,7 @@ INSERT INTO `articles` (`id`, `lang`, `section_id`, `title`, `text`, `date`, `da
 -- --------------------------------------------------------
 
 --
--- Table structure for table `articles_sections`
+-- Структура таблицы `articles_sections`
 --
 
 CREATE TABLE IF NOT EXISTS `articles_sections` (
@@ -109,7 +109,7 @@ CREATE TABLE IF NOT EXISTS `articles_sections` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
 
 --
--- Dumping data for table `articles_sections`
+-- Дамп данных таблицы `articles_sections`
 --
 
 INSERT INTO `articles_sections` (`id`, `lang`, `parent_id`, `name`, `date_create`, `in_sidebar`) VALUES
@@ -118,7 +118,7 @@ INSERT INTO `articles_sections` (`id`, `lang`, `parent_id`, `name`, `date_create
 -- --------------------------------------------------------
 
 --
--- Table structure for table `AuthAssignment`
+-- Структура таблицы `AuthAssignment`
 --
 
 CREATE TABLE IF NOT EXISTS `AuthAssignment` (
@@ -131,7 +131,7 @@ CREATE TABLE IF NOT EXISTS `AuthAssignment` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `AuthAssignment`
+-- Дамп данных таблицы `AuthAssignment`
 --
 
 INSERT INTO `AuthAssignment` (`itemname`, `userid`, `bizrule`, `data`) VALUES
@@ -142,7 +142,7 @@ INSERT INTO `AuthAssignment` (`itemname`, `userid`, `bizrule`, `data`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `AuthItem`
+-- Структура таблицы `AuthItem`
 --
 
 CREATE TABLE IF NOT EXISTS `AuthItem` (
@@ -156,7 +156,7 @@ CREATE TABLE IF NOT EXISTS `AuthItem` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `AuthItem`
+-- Дамп данных таблицы `AuthItem`
 --
 
 INSERT INTO `AuthItem` (`name`, `type`, `description`, `bizrule`, `data`, `allow_for_all`) VALUES
@@ -380,7 +380,7 @@ INSERT INTO `AuthItem` (`name`, `type`, `description`, `bizrule`, `data`, `allow
 -- --------------------------------------------------------
 
 --
--- Table structure for table `AuthItemChild`
+-- Структура таблицы `AuthItemChild`
 --
 
 CREATE TABLE IF NOT EXISTS `AuthItemChild` (
@@ -391,7 +391,7 @@ CREATE TABLE IF NOT EXISTS `AuthItemChild` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `AuthItemChild`
+-- Дамп данных таблицы `AuthItemChild`
 --
 
 INSERT INTO `AuthItemChild` (`parent`, `child`) VALUES
@@ -524,7 +524,7 @@ INSERT INTO `AuthItemChild` (`parent`, `child`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `certificates_groups`
+-- Структура таблицы `certificates_groups`
 --
 
 CREATE TABLE IF NOT EXISTS `certificates_groups` (
@@ -533,10 +533,10 @@ CREATE TABLE IF NOT EXISTS `certificates_groups` (
   `date_create` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT 'Добавлена',
   PRIMARY KEY (`id`),
   UNIQUE KEY `name` (`name`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=15 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=14 ;
 
 --
--- Dumping data for table `certificates_groups`
+-- Дамп данных таблицы `certificates_groups`
 --
 
 INSERT INTO `certificates_groups` (`id`, `name`, `date_create`) VALUES
@@ -553,7 +553,7 @@ INSERT INTO `certificates_groups` (`id`, `name`, `date_create`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `certificates_types`
+-- Структура таблицы `certificates_types`
 --
 
 CREATE TABLE IF NOT EXISTS `certificates_types` (
@@ -562,10 +562,10 @@ CREATE TABLE IF NOT EXISTS `certificates_types` (
   `date_create` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT 'Добавлен',
   PRIMARY KEY (`id`),
   UNIQUE KEY `name` (`name`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=11 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=10 ;
 
 --
--- Dumping data for table `certificates_types`
+-- Дамп данных таблицы `certificates_types`
 --
 
 INSERT INTO `certificates_types` (`id`, `name`, `date_create`) VALUES
@@ -582,7 +582,7 @@ INSERT INTO `certificates_types` (`id`, `name`, `date_create`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `cities`
+-- Структура таблицы `cities`
 --
 
 CREATE TABLE IF NOT EXISTS `cities` (
@@ -593,7 +593,7 @@ CREATE TABLE IF NOT EXISTS `cities` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=22 ;
 
 --
--- Dumping data for table `cities`
+-- Дамп данных таблицы `cities`
 --
 
 INSERT INTO `cities` (`id`, `name`) VALUES
@@ -615,7 +615,7 @@ INSERT INTO `cities` (`id`, `name`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `countries`
+-- Структура таблицы `countries`
 --
 
 CREATE TABLE IF NOT EXISTS `countries` (
@@ -626,7 +626,7 @@ CREATE TABLE IF NOT EXISTS `countries` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=352 ;
 
 --
--- Dumping data for table `countries`
+-- Дамп данных таблицы `countries`
 --
 
 INSERT INTO `countries` (`id`, `name`) VALUES
@@ -912,7 +912,7 @@ INSERT INTO `countries` (`id`, `name`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `documents`
+-- Структура таблицы `documents`
 --
 
 CREATE TABLE IF NOT EXISTS `documents` (
@@ -928,14 +928,14 @@ CREATE TABLE IF NOT EXISTS `documents` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 --
--- Dumping data for table `documents`
+-- Дамп данных таблицы `documents`
 --
 
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `documents_files`
+-- Структура таблицы `documents_files`
 --
 
 CREATE TABLE IF NOT EXISTS `documents_files` (
@@ -949,14 +949,14 @@ CREATE TABLE IF NOT EXISTS `documents_files` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 --
--- Dumping data for table `documents_files`
+-- Дамп данных таблицы `documents_files`
 --
 
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `faq`
+-- Структура таблицы `faq`
 --
 
 CREATE TABLE IF NOT EXISTS `faq` (
@@ -981,14 +981,14 @@ CREATE TABLE IF NOT EXISTS `faq` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 --
--- Dumping data for table `faq`
+-- Дамп данных таблицы `faq`
 --
 
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `faq_sections`
+-- Структура таблицы `faq_sections`
 --
 
 CREATE TABLE IF NOT EXISTS `faq_sections` (
@@ -1002,14 +1002,14 @@ CREATE TABLE IF NOT EXISTS `faq_sections` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 --
--- Dumping data for table `faq_sections`
+-- Дамп данных таблицы `faq_sections`
 --
 
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `feedback`
+-- Структура таблицы `feedback`
 --
 
 CREATE TABLE IF NOT EXISTS `feedback` (
@@ -1027,7 +1027,7 @@ CREATE TABLE IF NOT EXISTS `feedback` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=17 ;
 
 --
--- Dumping data for table `feedback`
+-- Дамп данных таблицы `feedback`
 --
 
 INSERT INTO `feedback` (`id`, `first_name`, `last_name`, `patronymic`, `company`, `position`, `phone`, `email`, `comment`, `date_create`) VALUES
@@ -1051,7 +1051,7 @@ INSERT INTO `feedback` (`id`, `first_name`, `last_name`, `patronymic`, `company`
 -- --------------------------------------------------------
 
 --
--- Table structure for table `file_manager`
+-- Структура таблицы `file_manager`
 --
 
 CREATE TABLE IF NOT EXISTS `file_manager` (
@@ -1064,17 +1064,29 @@ CREATE TABLE IF NOT EXISTS `file_manager` (
   `descr` text COMMENT 'Описание',
   `order` int(11) unsigned NOT NULL COMMENT 'Порядок',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=12 ;
 
 --
--- Dumping data for table `file_manager`
+-- Дамп данных таблицы `file_manager`
 --
 
+INSERT INTO `file_manager` (`id`, `object_id`, `model_id`, `name`, `tag`, `title`, `descr`, `order`) VALUES
+(1, '13', 'News', 'e607ea11303b1ae216ce8410fb3d680f.jpg', 'files', 'DSCN2060(www.CoolWallpapers.org)-1280x10242.JPG', NULL, 1),
+(2, '13', 'News', '88364aee8a6ef951dcfadcdbe576e550.png', 'files', 'GNOME-210SimpleAndElegant_1280x1024.png', NULL, 2),
+(3, '13', 'News', 'a627f1aa47a9cd775c348578fc23da58.png', 'files', 'wallpaper-linux-cli-commands-1280-1024.png', NULL, 3),
+(4, '13', 'News', 'b874601073fbc29c0ca0459d2ee7f7c8.jpg', 'files', 'OTHER-SmolovSummer2004_1024x768.jpg', NULL, 4),
+(5, '13', 'News', '3c664f65c64426ff95f413f48e12088d.jpg', 'files', 'ubuntualien.jpg', NULL, 5),
+(6, '13', 'News', 'b1d756441e6eae30632e1dc172041a8b.jpg', 'files', 'NATURE-AtTheEdgeOfAtmosphere_1024x768.jpg', NULL, 6),
+(7, '13', 'News', '8b45f94c61220ccf25b4c666b11a1b6b.jpg', 'files', 'DSCN2060(www.CoolWallpapers.org)-1280x10242.JPG', NULL, 7),
+(8, '13', 'News', '015e557b48ef1f20368f67dfd8fe3706.png', 'files', 'GNOME-210SimpleAndElegant_1280x1024.png', NULL, 8),
+(9, '13', 'News', 'a91446c6617815267c8975043708464b.jpg', 'files', 'ski-resort-bad-hofgastein-1280x1024.jpg', NULL, 9),
+(10, '13', 'News', '1995e2446badb63bba8e92978d400d37.jpg', 'files', 'DSCN2060(www.CoolWallpapers.org)-1280x1024.JPG', NULL, 10),
+(11, '13', 'News', '61edbd42e55b69480b783b7054d370f5.jpg', 'files', 'awp05_alltolls_blogspot098-1280x1024.jpg', NULL, 11);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `languages`
+-- Структура таблицы `languages`
 --
 
 CREATE TABLE IF NOT EXISTS `languages` (
@@ -1085,7 +1097,7 @@ CREATE TABLE IF NOT EXISTS `languages` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `languages`
+-- Дамп данных таблицы `languages`
 --
 
 INSERT INTO `languages` (`id`, `name`) VALUES
@@ -1095,7 +1107,7 @@ INSERT INTO `languages` (`id`, `name`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `log`
+-- Структура таблицы `log`
 --
 
 CREATE TABLE IF NOT EXISTS `log` (
@@ -1105,10 +1117,10 @@ CREATE TABLE IF NOT EXISTS `log` (
   `logtime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT 'Время',
   `message` text COMMENT 'Сообщение',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=182 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=234 ;
 
 --
--- Dumping data for table `log`
+-- Дамп данных таблицы `log`
 --
 
 INSERT INTO `log` (`id`, `level`, `category`, `logtime`, `message`) VALUES
@@ -1295,12 +1307,65 @@ INSERT INTO `log` (`id`, `level`, `category`, `logtime`, `message`) VALUES
 (178, 'error', 'php', '2011-10-09 23:41:47', 'htmlspecialchars() expects parameter 1 to be string, object given (/var/www/Yii-CMS/protected/libs/yii/web/helpers/CHtml.php:66)\nStack trace:\n#0 /var/www/Yii-CMS/protected/libs/yii/utils/CFormatter.php(102): CFormatter->formatText()\n#1 /var/www/Yii-CMS/protected/libs/yii/zii/widgets/grid/CDataColumn.php(135): CFormatter->format()\n#2 /var/www/Yii-CMS/protected/libs/yii/zii/widgets/grid/CGridColumn.php(135): CDataColumn->renderDataCellContent()\n#3 /var/www/Yii-CMS/protected/components/GridView.php(248): CDataColumn->renderDataCell()\n#4 /var/www/Yii-CMS/protected/libs/yii/zii/widgets/grid/CGridView.php(475): GridView->renderTableRow()\n#5 /var/www/Yii-CMS/protected/components/GridView.php(168): GridView->renderTableBody()\n#6 /var/www/Yii-CMS/protected/libs/yii/zii/widgets/CBaseListView.php(158): GridView->renderItems()\n#7 unknown(0): GridView->renderSection()\n#8 /var/www/Yii-CMS/protected/libs/yii/zii/widgets/CBaseListView.php(141): preg_replace_callback()\n#9 /var/www/Yii-CMS/protected/libs/yii/zii/widgets/CBaseListView.php(126): GridView->renderContent()\n#10 /var/www/Yii-CMS/protected/libs/yii/web/CBaseController.php(166): GridView->run()\n#11 /var/www/Yii-CMS/protected/modules/main/views/metaTagAdmin/manage.php(25): MetaTagAdminController->widget()\n#12 /var/www/Yii-CMS/protected/libs/yii/web/CBaseController.php(119): require()\n#13 /var/www/Yii-CMS/protected/libs/yii/web/CBaseController.php(88): MetaTagAdminController->renderInternal()\n#14 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(866): MetaTagAdminController->renderFile()\n#15 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(779): MetaTagAdminController->renderPartial()\n#16 /var/www/Yii-CMS/protected/modules/main/controllers/MetaTagAdminController.php(101): MetaTagAdminController->render()\n#17 /var/www/Yii-CMS/protected/libs/yii/web/actions/CInlineAction.php(50): MetaTagAdminController->actionManage()\n#18 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(300): CInlineAction->runWithParams()\n#19 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(278): MetaTagAdminController->runAction()\n#20 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(257): MetaTagAdminController->runActionWithFilters()\n#21 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(328): MetaTagAdminController->run()\n#22 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(121): CWebApplication->runController()\n#23 /var/www/Yii-CMS/protected/libs/yii/base/CApplication.php(155): CWebApplication->processRequest()\n#24 /var/www/Yii-CMS/index.php(30): CWebApplication->run()\nREQUEST_URI=/main/metaTagAdmin/manage\nin /var/www/Yii-CMS/protected/components/GridView.php (248)\nin /var/www/Yii-CMS/protected/components/GridView.php (168)\nin /var/www/Yii-CMS/protected/modules/main/views/metaTagAdmin/manage.php (25)'),
 (179, 'error', 'php', '2011-10-09 23:42:04', 'htmlspecialchars() expects parameter 1 to be string, object given (/var/www/Yii-CMS/protected/libs/yii/web/helpers/CHtml.php:66)\nStack trace:\n#0 /var/www/Yii-CMS/protected/libs/yii/utils/CFormatter.php(102): CFormatter->formatText()\n#1 /var/www/Yii-CMS/protected/libs/yii/zii/widgets/grid/CDataColumn.php(135): CFormatter->format()\n#2 /var/www/Yii-CMS/protected/libs/yii/zii/widgets/grid/CGridColumn.php(135): CDataColumn->renderDataCellContent()\n#3 /var/www/Yii-CMS/protected/components/GridView.php(248): CDataColumn->renderDataCell()\n#4 /var/www/Yii-CMS/protected/libs/yii/zii/widgets/grid/CGridView.php(475): GridView->renderTableRow()\n#5 /var/www/Yii-CMS/protected/components/GridView.php(168): GridView->renderTableBody()\n#6 /var/www/Yii-CMS/protected/libs/yii/zii/widgets/CBaseListView.php(158): GridView->renderItems()\n#7 unknown(0): GridView->renderSection()\n#8 /var/www/Yii-CMS/protected/libs/yii/zii/widgets/CBaseListView.php(141): preg_replace_callback()\n#9 /var/www/Yii-CMS/protected/libs/yii/zii/widgets/CBaseListView.php(126): GridView->renderContent()\n#10 /var/www/Yii-CMS/protected/libs/yii/web/CBaseController.php(166): GridView->run()\n#11 /var/www/Yii-CMS/protected/modules/main/views/metaTagAdmin/manage.php(25): MetaTagAdminController->widget()\n#12 /var/www/Yii-CMS/protected/libs/yii/web/CBaseController.php(119): require()\n#13 /var/www/Yii-CMS/protected/libs/yii/web/CBaseController.php(88): MetaTagAdminController->renderInternal()\n#14 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(866): MetaTagAdminController->renderFile()\n#15 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(779): MetaTagAdminController->renderPartial()\n#16 /var/www/Yii-CMS/protected/modules/main/controllers/MetaTagAdminController.php(101): MetaTagAdminController->render()\n#17 /var/www/Yii-CMS/protected/libs/yii/web/actions/CInlineAction.php(50): MetaTagAdminController->actionManage()\n#18 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(300): CInlineAction->runWithParams()\n#19 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(278): MetaTagAdminController->runAction()\n#20 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(257): MetaTagAdminController->runActionWithFilters()\n#21 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(328): MetaTagAdminController->run()\n#22 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(121): CWebApplication->runController()\n#23 /var/www/Yii-CMS/protected/libs/yii/base/CApplication.php(155): CWebApplication->processRequest()\n#24 /var/www/Yii-CMS/index.php(30): CWebApplication->run()\nREQUEST_URI=/main/metaTagAdmin/manage\nin /var/www/Yii-CMS/protected/components/GridView.php (248)\nin /var/www/Yii-CMS/protected/components/GridView.php (168)\nin /var/www/Yii-CMS/protected/modules/main/views/metaTagAdmin/manage.php (25)'),
 (180, 'warning', 'application', '2011-10-10 00:14:00', 'Не удалось присвоить небезопасный атрибут "id".\nin /var/www/Yii-CMS/protected/modules/main/controllers/MetaTagAdminController.php (59)\nin /var/www/Yii-CMS/index.php (30)'),
-(181, 'error', 'exception.CException', '2011-10-10 00:15:49', 'exception ''CException'' with message ''PageController не содержит метода "inutMetaTags".'' in /var/www/Yii-CMS/protected/libs/yii/base/CComponent.php:266\nStack trace:\n#0 /var/www/Yii-CMS/protected/components/BaseController.php(24): CComponent->__call(''inutMetaTags'', Array)\n#1 /var/www/Yii-CMS/protected/components/BaseController.php(24): PageController->inutMetaTags()\n#2 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(327): BaseController->init()\n#3 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(121): CWebApplication->runController(''content/page/vi...'')\n#4 /var/www/Yii-CMS/protected/libs/yii/base/CApplication.php(155): CWebApplication->processRequest()\n#5 /var/www/Yii-CMS/index.php(30): CApplication->run()\n#6 {main} REQUEST_URI=/ru/page/2');
+(181, 'error', 'exception.CException', '2011-10-10 00:15:49', 'exception ''CException'' with message ''PageController не содержит метода "inutMetaTags".'' in /var/www/Yii-CMS/protected/libs/yii/base/CComponent.php:266\nStack trace:\n#0 /var/www/Yii-CMS/protected/components/BaseController.php(24): CComponent->__call(''inutMetaTags'', Array)\n#1 /var/www/Yii-CMS/protected/components/BaseController.php(24): PageController->inutMetaTags()\n#2 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(327): BaseController->init()\n#3 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(121): CWebApplication->runController(''content/page/vi...'')\n#4 /var/www/Yii-CMS/protected/libs/yii/base/CApplication.php(155): CWebApplication->processRequest()\n#5 /var/www/Yii-CMS/index.php(30): CApplication->run()\n#6 {main} REQUEST_URI=/ru/page/2'),
+(182, 'error', 'exception.CException', '2011-10-17 15:57:40', 'exception ''CException'' with message ''Псевдоним "application.components.GridView" неверен. Убедитесь, что он указывает на существующий PHP файл.'' in /var/www/Yii-CMS/protected/libs/yii/YiiBase.php:311\nStack trace:\n#0 /var/www/Yii-CMS/protected/libs/yii/web/CWidgetFactory.php(147): YiiBase::import(''application.com...'', true)\n#1 /var/www/Yii-CMS/protected/libs/yii/web/CBaseController.php(139): CWidgetFactory->createWidget(Object(MetaTagAdminController), ''application.com...'', Array)\n#2 /var/www/Yii-CMS/protected/libs/yii/web/CBaseController.php(165): CBaseController->createWidget(''application.com...'', Array)\n#3 /var/www/Yii-CMS/protected/modules/main/views/metaTagAdmin/manage.php(37): CBaseController->widget(''application.com...'', Array)\n#4 /var/www/Yii-CMS/protected/libs/yii/web/CBaseController.php(119): require(''/var/www/Yii-CM...'')\n#5 /var/www/Yii-CMS/protected/libs/yii/web/CBaseController.php(88): CBaseController->renderInternal(''/var/www/Yii-CM...'', Array, true)\n#6 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(866): CBaseController->renderFile(''/var/www/Yii-CM...'', Array, true)\n#7 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(779): CController->renderPartial(''manage'', Array, true)\n#8 /var/www/Yii-CMS/protected/modules/main/controllers/MetaTagAdminController.php(101): CController->render(''manage'', Array)\n#9 /var/www/Yii-CMS/protected/libs/yii/web/actions/CInlineAction.php(50): MetaTagAdminController->actionManage()\n#10 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(300): CInlineAction->runWithParams(Array)\n#11 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(278): CController->runAction(Object(CInlineAction))\n#12 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(257): CController->runActionWithFilters(Object(CInlineAction), Array)\n#13 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(328): CController->run(''manage'')\n#14 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(121): CWebApplication->runController(''main/MetaTagAdm...'')\n#15 /var/www/Yii-CMS/protected/libs/yii/base/CApplication.php(155): CWebApplication->processRequest()\n#16 /var/www/Yii-CMS/index.php(30): CApplication->run()\n#17 {main} REQUEST_URI=/main/MetaTagAdmin/manage'),
+(183, 'error', 'exception.CException', '2011-10-17 16:04:36', 'exception ''CException'' with message ''Псевдоним "application.components.GridView" неверен. Убедитесь, что он указывает на существующий PHP файл.'' in /var/www/Yii-CMS/protected/libs/yii/YiiBase.php:311\nStack trace:\n#0 /var/www/Yii-CMS/protected/libs/yii/web/CWidgetFactory.php(147): YiiBase::import(''application.com...'', true)\n#1 /var/www/Yii-CMS/protected/libs/yii/web/CBaseController.php(139): CWidgetFactory->createWidget(Object(MetaTagAdminController), ''application.com...'', Array)\n#2 /var/www/Yii-CMS/protected/libs/yii/web/CBaseController.php(165): CBaseController->createWidget(''application.com...'', Array)\n#3 /var/www/Yii-CMS/protected/modules/main/views/metaTagAdmin/manage.php(37): CBaseController->widget(''application.com...'', Array)\n#4 /var/www/Yii-CMS/protected/libs/yii/web/CBaseController.php(119): require(''/var/www/Yii-CM...'')\n#5 /var/www/Yii-CMS/protected/libs/yii/web/CBaseController.php(88): CBaseController->renderInternal(''/var/www/Yii-CM...'', Array, true)\n#6 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(866): CBaseController->renderFile(''/var/www/Yii-CM...'', Array, true)\n#7 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(779): CController->renderPartial(''manage'', Array, true)\n#8 /var/www/Yii-CMS/protected/modules/main/controllers/MetaTagAdminController.php(101): CController->render(''manage'', Array)\n#9 /var/www/Yii-CMS/protected/libs/yii/web/actions/CInlineAction.php(50): MetaTagAdminController->actionManage()\n#10 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(300): CInlineAction->runWithParams(Array)\n#11 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(278): CController->runAction(Object(CInlineAction))\n#12 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(257): CController->runActionWithFilters(Object(CInlineAction), Array)\n#13 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(328): CController->run(''manage'')\n#14 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(121): CWebApplication->runController(''main/MetaTagAdm...'')\n#15 /var/www/Yii-CMS/protected/libs/yii/base/CApplication.php(155): CWebApplication->processRequest()\n#16 /var/www/Yii-CMS/index.php(30): CApplication->run()\n#17 {main} REQUEST_URI=/main/MetaTagAdmin/manage'),
+(184, 'error', 'exception.CException', '2011-10-17 16:04:36', 'exception ''CException'' with message ''Псевдоним "application.components.GridView" неверен. Убедитесь, что он указывает на существующий PHP файл.'' in /var/www/Yii-CMS/protected/libs/yii/YiiBase.php:311\nStack trace:\n#0 /var/www/Yii-CMS/protected/libs/yii/web/CWidgetFactory.php(147): YiiBase::import(''application.com...'', true)\n#1 /var/www/Yii-CMS/protected/libs/yii/web/CBaseController.php(139): CWidgetFactory->createWidget(Object(MetaTagAdminController), ''application.com...'', Array)\n#2 /var/www/Yii-CMS/protected/libs/yii/web/CBaseController.php(165): CBaseController->createWidget(''application.com...'', Array)\n#3 /var/www/Yii-CMS/protected/modules/main/views/metaTagAdmin/manage.php(37): CBaseController->widget(''application.com...'', Array)\n#4 /var/www/Yii-CMS/protected/libs/yii/web/CBaseController.php(119): require(''/var/www/Yii-CM...'')\n#5 /var/www/Yii-CMS/protected/libs/yii/web/CBaseController.php(88): CBaseController->renderInternal(''/var/www/Yii-CM...'', Array, true)\n#6 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(866): CBaseController->renderFile(''/var/www/Yii-CM...'', Array, true)\n#7 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(779): CController->renderPartial(''manage'', Array, true)\n#8 /var/www/Yii-CMS/protected/modules/main/controllers/MetaTagAdminController.php(101): CController->render(''manage'', Array)\n#9 /var/www/Yii-CMS/protected/libs/yii/web/actions/CInlineAction.php(50): MetaTagAdminController->actionManage()\n#10 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(300): CInlineAction->runWithParams(Array)\n#11 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(278): CController->runAction(Object(CInlineAction))\n#12 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(257): CController->runActionWithFilters(Object(CInlineAction), Array)\n#13 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(328): CController->run(''manage'')\n#14 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(121): CWebApplication->runController(''main/MetaTagAdm...'')\n#15 /var/www/Yii-CMS/protected/libs/yii/base/CApplication.php(155): CWebApplication->processRequest()\n#16 /var/www/Yii-CMS/index.php(30): CApplication->run()\n#17 {main} REQUEST_URI=/main/MetaTagAdmin/manage'),
+(185, 'error', 'exception.CException', '2011-10-17 16:04:39', 'exception ''CException'' with message ''Псевдоним "application.components.GridView" неверен. Убедитесь, что он указывает на существующий PHP файл.'' in /var/www/Yii-CMS/protected/libs/yii/YiiBase.php:311\nStack trace:\n#0 /var/www/Yii-CMS/protected/libs/yii/web/CWidgetFactory.php(147): YiiBase::import(''application.com...'', true)\n#1 /var/www/Yii-CMS/protected/libs/yii/web/CBaseController.php(139): CWidgetFactory->createWidget(Object(MetaTagAdminController), ''application.com...'', Array)\n#2 /var/www/Yii-CMS/protected/libs/yii/web/CBaseController.php(165): CBaseController->createWidget(''application.com...'', Array)\n#3 /var/www/Yii-CMS/protected/modules/main/views/metaTagAdmin/manage.php(37): CBaseController->widget(''application.com...'', Array)\n#4 /var/www/Yii-CMS/protected/libs/yii/web/CBaseController.php(119): require(''/var/www/Yii-CM...'')\n#5 /var/www/Yii-CMS/protected/libs/yii/web/CBaseController.php(88): CBaseController->renderInternal(''/var/www/Yii-CM...'', Array, true)\n#6 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(866): CBaseController->renderFile(''/var/www/Yii-CM...'', Array, true)\n#7 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(779): CController->renderPartial(''manage'', Array, true)\n#8 /var/www/Yii-CMS/protected/modules/main/controllers/MetaTagAdminController.php(101): CController->render(''manage'', Array)\n#9 /var/www/Yii-CMS/protected/libs/yii/web/actions/CInlineAction.php(50): MetaTagAdminController->actionManage()\n#10 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(300): CInlineAction->runWithParams(Array)\n#11 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(278): CController->runAction(Object(CInlineAction))\n#12 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(257): CController->runActionWithFilters(Object(CInlineAction), Array)\n#13 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(328): CController->run(''manage'')\n#14 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(121): CWebApplication->runController(''main/MetaTagAdm...'')\n#15 /var/www/Yii-CMS/protected/libs/yii/base/CApplication.php(155): CWebApplication->processRequest()\n#16 /var/www/Yii-CMS/index.php(30): CApplication->run()\n#17 {main} REQUEST_URI=/main/MetaTagAdmin/manage'),
+(186, 'error', 'exception.CException', '2011-10-17 16:04:48', 'exception ''CException'' with message ''Псевдоним "application.components.GridView" неверен. Убедитесь, что он указывает на существующий PHP файл.'' in /var/www/Yii-CMS/protected/libs/yii/YiiBase.php:311\nStack trace:\n#0 /var/www/Yii-CMS/protected/libs/yii/web/CWidgetFactory.php(147): YiiBase::import(''application.com...'', true)\n#1 /var/www/Yii-CMS/protected/libs/yii/web/CBaseController.php(139): CWidgetFactory->createWidget(Object(MetaTagAdminController), ''application.com...'', Array)\n#2 /var/www/Yii-CMS/protected/libs/yii/web/CBaseController.php(165): CBaseController->createWidget(''application.com...'', Array)\n#3 /var/www/Yii-CMS/protected/modules/main/views/metaTagAdmin/manage.php(37): CBaseController->widget(''application.com...'', Array)\n#4 /var/www/Yii-CMS/protected/libs/yii/web/CBaseController.php(119): require(''/var/www/Yii-CM...'')\n#5 /var/www/Yii-CMS/protected/libs/yii/web/CBaseController.php(88): CBaseController->renderInternal(''/var/www/Yii-CM...'', Array, true)\n#6 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(866): CBaseController->renderFile(''/var/www/Yii-CM...'', Array, true)\n#7 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(779): CController->renderPartial(''manage'', Array, true)\n#8 /var/www/Yii-CMS/protected/modules/main/controllers/MetaTagAdminController.php(101): CController->render(''manage'', Array)\n#9 /var/www/Yii-CMS/protected/libs/yii/web/actions/CInlineAction.php(50): MetaTagAdminController->actionManage()\n#10 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(300): CInlineAction->runWithParams(Array)\n#11 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(278): CController->runAction(Object(CInlineAction))\n#12 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(257): CController->runActionWithFilters(Object(CInlineAction), Array)\n#13 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(328): CController->run(''manage'')\n#14 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(121): CWebApplication->runController(''main/MetaTagAdm...'')\n#15 /var/www/Yii-CMS/protected/libs/yii/base/CApplication.php(155): CWebApplication->processRequest()\n#16 /var/www/Yii-CMS/index.php(30): CApplication->run()\n#17 {main} REQUEST_URI=/main/MetaTagAdmin/manage'),
+(187, 'error', 'exception.CException', '2011-10-17 16:04:51', 'exception ''CException'' with message ''Псевдоним "application.components.GridView" неверен. Убедитесь, что он указывает на существующий PHP файл.'' in /var/www/Yii-CMS/protected/libs/yii/YiiBase.php:311\nStack trace:\n#0 /var/www/Yii-CMS/protected/libs/yii/web/CWidgetFactory.php(147): YiiBase::import(''application.com...'', true)\n#1 /var/www/Yii-CMS/protected/libs/yii/web/CBaseController.php(139): CWidgetFactory->createWidget(Object(MetaTagAdminController), ''application.com...'', Array)\n#2 /var/www/Yii-CMS/protected/libs/yii/web/CBaseController.php(165): CBaseController->createWidget(''application.com...'', Array)\n#3 /var/www/Yii-CMS/protected/modules/main/views/metaTagAdmin/manage.php(37): CBaseController->widget(''application.com...'', Array)\n#4 /var/www/Yii-CMS/protected/libs/yii/web/CBaseController.php(119): require(''/var/www/Yii-CM...'')\n#5 /var/www/Yii-CMS/protected/libs/yii/web/CBaseController.php(88): CBaseController->renderInternal(''/var/www/Yii-CM...'', Array, true)\n#6 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(866): CBaseController->renderFile(''/var/www/Yii-CM...'', Array, true)\n#7 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(779): CController->renderPartial(''manage'', Array, true)\n#8 /var/www/Yii-CMS/protected/modules/main/controllers/MetaTagAdminController.php(101): CController->render(''manage'', Array)\n#9 /var/www/Yii-CMS/protected/libs/yii/web/actions/CInlineAction.php(50): MetaTagAdminController->actionManage()\n#10 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(300): CInlineAction->runWithParams(Array)\n#11 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(278): CController->runAction(Object(CInlineAction))\n#12 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(257): CController->runActionWithFilters(Object(CInlineAction), Array)\n#13 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(328): CController->run(''manage'')\n#14 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(121): CWebApplication->runController(''main/MetaTagAdm...'')\n#15 /var/www/Yii-CMS/protected/libs/yii/base/CApplication.php(155): CWebApplication->processRequest()\n#16 /var/www/Yii-CMS/index.php(30): CApplication->run()\n#17 {main} REQUEST_URI=/main/MetaTagAdmin/manage'),
+(188, 'error', 'php', '2011-10-17 16:07:26', 'include(FormsModule.php): failed to open stream: No such file or directory (/var/www/Yii-CMS/protected/libs/yii/YiiBase.php:396)\nStack trace:\n#0 /var/www/Yii-CMS/protected/components/AppManager.php(197): spl_autoload_call()\n#1 /var/www/Yii-CMS/protected/modules/main/forms/MetaTagForm.php(3): getModels()\n#2 /var/www/Yii-CMS/protected/libs/yii/web/form/CFormElement.php(117): require()\n#3 /var/www/Yii-CMS/protected/libs/yii/web/form/CFormElement.php(45): BaseForm->configure()\n#4 /var/www/Yii-CMS/protected/libs/yii/web/form/CForm.php(141): BaseForm->__construct()\n#5 /var/www/Yii-CMS/protected/components/BaseForm.php(19): BaseForm->__construct()\n#6 /var/www/Yii-CMS/protected/modules/main/controllers/MetaTagAdminController.php(30): BaseForm->__construct()\n#7 /var/www/Yii-CMS/protected/libs/yii/web/actions/CInlineAction.php(50): MetaTagAdminController->actionCreate()\n#8 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(300): CInlineAction->runWithParams()\n#9 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(278): MetaTagAdminController->runAction()\n#10 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(257): MetaTagAdminController->runActionWithFilters()\n#11 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(328): MetaTagAdminController->run()\n#12 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(121): CWebApplication->runController()\n#13 /var/www/Yii-CMS/protected/libs/yii/base/CApplication.php(155): CWebApplication->processRequest()\n#14 /var/www/Yii-CMS/index.php(30): CWebApplication->run()\nREQUEST_URI=/main/metaTagAdmin/create\nin /var/www/Yii-CMS/protected/components/AppManager.php (197)\nin /var/www/Yii-CMS/protected/modules/main/forms/MetaTagForm.php (3)\nin /var/www/Yii-CMS/protected/components/BaseForm.php (19)'),
+(189, 'error', 'php', '2011-10-17 16:08:13', 'include(FormsModule.php): failed to open stream: No such file or directory (/var/www/Yii-CMS/protected/libs/yii/YiiBase.php:396)\nStack trace:\n#0 /var/www/Yii-CMS/protected/components/AppManager.php(197): spl_autoload_call()\n#1 /var/www/Yii-CMS/protected/modules/main/forms/MetaTagForm.php(3): getModels()\n#2 /var/www/Yii-CMS/protected/libs/yii/web/form/CFormElement.php(117): require()\n#3 /var/www/Yii-CMS/protected/libs/yii/web/form/CFormElement.php(45): BaseForm->configure()\n#4 /var/www/Yii-CMS/protected/libs/yii/web/form/CForm.php(141): BaseForm->__construct()\n#5 /var/www/Yii-CMS/protected/components/BaseForm.php(19): BaseForm->__construct()\n#6 /var/www/Yii-CMS/protected/modules/main/controllers/MetaTagAdminController.php(30): BaseForm->__construct()\n#7 /var/www/Yii-CMS/protected/libs/yii/web/actions/CInlineAction.php(50): MetaTagAdminController->actionCreate()\n#8 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(300): CInlineAction->runWithParams()\n#9 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(278): MetaTagAdminController->runAction()\n#10 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(257): MetaTagAdminController->runActionWithFilters()\n#11 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(328): MetaTagAdminController->run()\n#12 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(121): CWebApplication->runController()\n#13 /var/www/Yii-CMS/protected/libs/yii/base/CApplication.php(155): CWebApplication->processRequest()\n#14 /var/www/Yii-CMS/index.php(30): CWebApplication->run()\nREQUEST_URI=/main/metaTagAdmin/create\nin /var/www/Yii-CMS/protected/components/AppManager.php (197)\nin /var/www/Yii-CMS/protected/modules/main/forms/MetaTagForm.php (3)\nin /var/www/Yii-CMS/protected/components/BaseForm.php (19)'),
+(190, 'error', 'exception.CHttpException.404', '2011-10-17 16:08:33', 'exception ''CHttpException'' with message ''Невозможно обработать запрос "assets/f8a6567a/js/MetaTagForm.js".'' in /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php:332\nStack trace:\n#0 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(121): CWebApplication->runController(''assets/f8a6567a...'')\n#1 /var/www/Yii-CMS/protected/libs/yii/base/CApplication.php(155): CWebApplication->processRequest()\n#2 /var/www/Yii-CMS/index.php(30): CApplication->run()\n#3 {main} REQUEST_URI=/assets/f8a6567a/js/MetaTagForm.js'),
+(191, 'error', 'exception.CHttpException.404', '2011-10-17 16:08:49', 'exception ''CHttpException'' with message ''Невозможно обработать запрос "assets/f8a6567a/js/MetaTagForm.js".'' in /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php:332\nStack trace:\n#0 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(121): CWebApplication->runController(''assets/f8a6567a...'')\n#1 /var/www/Yii-CMS/protected/libs/yii/base/CApplication.php(155): CWebApplication->processRequest()\n#2 /var/www/Yii-CMS/index.php(30): CApplication->run()\n#3 {main} REQUEST_URI=/assets/f8a6567a/js/MetaTagForm.js'),
+(192, 'error', 'exception.CHttpException.404', '2011-10-17 16:09:10', 'exception ''CHttpException'' with message ''Невозможно обработать запрос "assets/f8a6567a/js/MetaTagForm.js".'' in /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php:332\nStack trace:\n#0 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(121): CWebApplication->runController(''assets/f8a6567a...'')\n#1 /var/www/Yii-CMS/protected/libs/yii/base/CApplication.php(155): CWebApplication->processRequest()\n#2 /var/www/Yii-CMS/index.php(30): CApplication->run()\n#3 {main} REQUEST_URI=/assets/f8a6567a/js/MetaTagForm.js'),
+(193, 'error', 'php', '2011-10-17 16:23:28', 'Undefined variable: model (/var/www/Yii-CMS/protected/modules/main/controllers/MetaTagAdminController.php:129)\nStack trace:\n#0 /var/www/Yii-CMS/protected/libs/yii/web/actions/CInlineAction.php(48): CInlineAction->runWithParamsInternal()\n#1 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(300): CInlineAction->runWithParams()\n#2 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(278): MetaTagAdminController->runAction()\n#3 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(257): MetaTagAdminController->runActionWithFilters()\n#4 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(328): MetaTagAdminController->run()\n#5 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(121): CWebApplication->runController()\n#6 /var/www/Yii-CMS/protected/libs/yii/base/CApplication.php(155): CWebApplication->processRequest()\n#7 /var/www/Yii-CMS/index.php(30): CWebApplication->run()\nREQUEST_URI=/main/MetaTagAdmin/getModelObjects?model_id=Page\nin /var/www/Yii-CMS/protected/modules/main/controllers/MetaTagAdminController.php (129)\nin /var/www/Yii-CMS/index.php (30)'),
+(194, 'error', 'php', '2011-10-17 16:23:37', 'Undefined variable: model (/var/www/Yii-CMS/protected/modules/main/controllers/MetaTagAdminController.php:129)\nStack trace:\n#0 /var/www/Yii-CMS/protected/libs/yii/web/actions/CInlineAction.php(48): CInlineAction->runWithParamsInternal()\n#1 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(300): CInlineAction->runWithParams()\n#2 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(278): MetaTagAdminController->runAction()\n#3 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(257): MetaTagAdminController->runActionWithFilters()\n#4 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(328): MetaTagAdminController->run()\n#5 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(121): CWebApplication->runController()\n#6 /var/www/Yii-CMS/protected/libs/yii/base/CApplication.php(155): CWebApplication->processRequest()\n#7 /var/www/Yii-CMS/index.php(30): CWebApplication->run()\nREQUEST_URI=/main/MetaTagAdmin/getModelObjects?model_id=Page\nin /var/www/Yii-CMS/protected/modules/main/controllers/MetaTagAdminController.php (129)\nin /var/www/Yii-CMS/index.php (30)'),
+(195, 'error', 'php', '2011-10-17 16:35:28', 'Undefined variable: model (/var/www/Yii-CMS/protected/modules/main/controllers/MetaTagAdminController.php:146)\nStack trace:\n#0 /var/www/Yii-CMS/protected/libs/yii/web/actions/CInlineAction.php(48): CInlineAction->runWithParamsInternal()\n#1 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(300): CInlineAction->runWithParams()\n#2 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(278): MetaTagAdminController->runAction()\n#3 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(257): MetaTagAdminController->runActionWithFilters()\n#4 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(328): MetaTagAdminController->run()\n#5 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(121): CWebApplication->runController()\n#6 /var/www/Yii-CMS/protected/libs/yii/base/CApplication.php(155): CWebApplication->processRequest()\n#7 /var/www/Yii-CMS/index.php(30): CWebApplication->run()\nREQUEST_URI=/main/metaTagAdmin/GetMetaTagData?model_id=Page&object_id=1\nin /var/www/Yii-CMS/protected/modules/main/controllers/MetaTagAdminController.php (146)\nin /var/www/Yii-CMS/index.php (30)'),
+(196, 'error', 'exception.CDbException', '2011-10-17 17:27:48', 'exception ''CDbException'' with message ''Таблица "meta_tags" не содержит столбца "meta_tag".'' in /var/www/Yii-CMS/protected/libs/yii/db/schema/CDbCommandBuilder.php:568\nStack trace:\n#0 /var/www/Yii-CMS/protected/libs/yii/db/ar/CActiveRecord.php(1428): CDbCommandBuilder->createColumnCriteria(Object(CMysqlTableSchema), Array, '''', Array, ''`t`.'')\n#1 /var/www/Yii-CMS/protected/modules/main/controllers/MetaTagAdminController.php(150): CActiveRecord->findByAttributes(Array)\n#2 [internal function]: MetaTagAdminController->actionGetMetaTagData(''Page'', ''title'', ''title'')\n#3 /var/www/Yii-CMS/protected/libs/yii/web/actions/CAction.php(104): ReflectionMethod->invokeArgs(Object(MetaTagAdminController), Array)\n#4 /var/www/Yii-CMS/protected/libs/yii/web/actions/CInlineAction.php(48): CAction->runWithParamsInternal(Object(MetaTagAdminController), Object(ReflectionMethod), Array)\n#5 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(300): CInlineAction->runWithParams(Array)\n#6 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(278): CController->runAction(Object(CInlineAction))\n#7 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(257): CController->runActionWithFilters(Object(CInlineAction), Array)\n#8 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(328): CController->run(''GetMetaTagData'')\n#9 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(121): CWebApplication->runController(''main/metaTagAdm...'')\n#10 /var/www/Yii-CMS/protected/libs/yii/base/CApplication.php(155): CWebApplication->processRequest()\n#11 /var/www/Yii-CMS/index.php(30): CApplication->run()\n#12 {main} REQUEST_URI=/main/metaTagAdmin/GetMetaTagData?model_id=Page&object_id=title&meta_tag=title'),
+(197, 'warning', 'application', '2011-10-17 17:42:10', 'Не удалось присвоить небезопасный атрибут "id".\nin /var/www/Yii-CMS/protected/modules/main/controllers/MetaTagAdminController.php (42)\nin /var/www/Yii-CMS/index.php (30)'),
+(198, 'error', 'exception.CException', '2011-10-17 17:42:10', 'exception ''CException'' with message ''Псевдоним "application.components.DetailView" неверен. Убедитесь, что он указывает на существующий PHP файл.'' in /var/www/Yii-CMS/protected/libs/yii/YiiBase.php:311\nStack trace:\n#0 /var/www/Yii-CMS/protected/libs/yii/web/CWidgetFactory.php(147): YiiBase::import(''application.com...'', true)\n#1 /var/www/Yii-CMS/protected/libs/yii/web/CBaseController.php(139): CWidgetFactory->createWidget(Object(MetaTagAdminController), ''application.com...'', Array)\n#2 /var/www/Yii-CMS/protected/libs/yii/web/CBaseController.php(165): CBaseController->createWidget(''application.com...'', Array)\n#3 /var/www/Yii-CMS/protected/modules/main/views/metaTagAdmin/view.php(24): CBaseController->widget(''application.com...'', Array)\n#4 /var/www/Yii-CMS/protected/libs/yii/web/CBaseController.php(119): require(''/var/www/Yii-CM...'')\n#5 /var/www/Yii-CMS/protected/libs/yii/web/CBaseController.php(88): CBaseController->renderInternal(''/var/www/Yii-CM...'', Array, true)\n#6 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(866): CBaseController->renderFile(''/var/www/Yii-CM...'', Array, true)\n#7 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(779): CController->renderPartial(''view'', Array, true)\n#8 /var/www/Yii-CMS/protected/modules/main/controllers/MetaTagAdminController.php(23): CController->render(''view'', Array)\n#9 [internal function]: MetaTagAdminController->actionView(''1'')\n#10 /var/www/Yii-CMS/protected/libs/yii/web/actions/CAction.php(104): ReflectionMethod->invokeArgs(Object(MetaTagAdminController), Array)\n#11 /var/www/Yii-CMS/protected/libs/yii/web/actions/CInlineAction.php(48): CAction->runWithParamsInternal(Object(MetaTagAdminController), Object(ReflectionMethod), Array)\n#12 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(300): CInlineAction->runWithParams(Array)\n#13 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(278): CController->runAction(Object(CInlineAction))\n#14 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(257): CController->runActionWithFilters(Object(CInlineAction), Array)\n#15 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(328): CController->run(''view'')\n#16 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(121): CWebApplication->runController(''main/metaTagAdm...'')\n#17 /var/www/Yii-CMS/protected/libs/yii/base/CApplication.php(155): CWebApplication->processRequest()\n#18 /var/www/Yii-CMS/index.php(30): CApplication->run()\n#19 {main} REQUEST_URI=/main/metaTagAdmin/view/id/1'),
+(199, 'warning', 'application', '2011-10-17 17:43:03', 'Не удалось присвоить небезопасный атрибут "id".\nin /var/www/Yii-CMS/protected/modules/main/controllers/MetaTagAdminController.php (42)\nin /var/www/Yii-CMS/index.php (30)'),
+(200, 'warning', 'application', '2011-10-17 17:45:54', 'Не удалось присвоить небезопасный атрибут "id".\nin /var/www/Yii-CMS/protected/modules/main/controllers/MetaTagAdminController.php (46)\nin /var/www/Yii-CMS/index.php (30)'),
+(201, 'error', 'php', '2011-10-17 17:49:22', 'Undefined variable: objects (/var/www/Yii-CMS/protected/modules/main/forms/MetaTagForm.php:33)\nStack trace:\n#0 /var/www/Yii-CMS/protected/libs/yii/web/form/CForm.php(141): BaseForm->__construct()\n#1 /var/www/Yii-CMS/protected/components/BaseForm.php(19): BaseForm->__construct()\n#2 /var/www/Yii-CMS/protected/modules/main/controllers/MetaTagAdminController.php(63): BaseForm->__construct()\n#3 unknown(0): MetaTagAdminController->actionUpdate()\n#4 /var/www/Yii-CMS/protected/libs/yii/web/actions/CAction.php(104): ReflectionMethod->invokeArgs()\n#5 /var/www/Yii-CMS/protected/libs/yii/web/actions/CInlineAction.php(48): CInlineAction->runWithParamsInternal()\n#6 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(300): CInlineAction->runWithParams()\n#7 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(278): MetaTagAdminController->runAction()\n#8 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(257): MetaTagAdminController->runActionWithFilters()\n#9 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(328): MetaTagAdminController->run()\n#10 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(121): CWebApplication->runController()\n#11 /var/www/Yii-CMS/protected/libs/yii/base/CApplication.php(155): CWebApplication->processRequest()\n#12 /var/www/Yii-CMS/index.php(30): CWebApplication->run()\nREQUEST_URI=/main/metaTagAdmin/update/id/1\nin /var/www/Yii-CMS/protected/modules/main/forms/MetaTagForm.php (33)\nin /var/www/Yii-CMS/protected/components/BaseForm.php (19)\nin /var/www/Yii-CMS/protected/modules/main/controllers/MetaTagAdminController.php (63)'),
+(202, 'warning', 'application', '2011-10-17 19:49:01', 'Не удалось присвоить небезопасный атрибут "remember_me".\nin /var/www/Yii-CMS/protected/modules/users/controllers/UserAdminController.php (36)\nin /var/www/Yii-CMS/index.php (30)'),
+(203, 'error', 'php', '2011-10-17 19:51:11', 'array_flip(): Can only flip STRING and INTEGER values! (/var/www/Yii-CMS/protected/modules/fileManager/portlets/Uploader.php:43)\nStack trace:\n#0 /var/www/Yii-CMS/protected/libs/yii/web/CBaseController.php(165): NewsAdminController->createWidget()\n#1 /var/www/Yii-CMS/protected/views/layouts/_adminForm.php(222): NewsAdminController->widget()\n#2 /var/www/Yii-CMS/protected/libs/yii/web/CBaseController.php(119): require()\n#3 /var/www/Yii-CMS/protected/libs/yii/web/CBaseController.php(88): NewsAdminController->renderInternal()\n#4 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(866): NewsAdminController->renderFile()\n#5 /var/www/Yii-CMS/protected/components/BaseForm.php(64): NewsAdminController->renderPartial()\n#6 /var/www/Yii-CMS/protected/modules/news/views/newsAdmin/create.php(8): BaseForm->__ToString()\n#7 /var/www/Yii-CMS/protected/libs/yii/web/CBaseController.php(119): require()\n#8 /var/www/Yii-CMS/protected/libs/yii/web/CBaseController.php(88): NewsAdminController->renderInternal()\n#9 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(866): NewsAdminController->renderFile()\n#10 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(779): NewsAdminController->renderPartial()\n#11 /var/www/Yii-CMS/protected/modules/news/controllers/NewsAdminController.php(48): NewsAdminController->render()\n#12 /var/www/Yii-CMS/protected/libs/yii/web/actions/CInlineAction.php(50): NewsAdminController->actionCreate()\n#13 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(300): CInlineAction->runWithParams()\n#14 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(278): NewsAdminController->runAction()\n#15 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(257): NewsAdminController->runActionWithFilters()\n#16 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(328): NewsAdminController->run()\n#17 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(121): CWebApplication->runController()\n#18 /var/www/Yii-CMS/protected/libs/yii/base/CApplication.php(155): CWebApplication->processRequest()\n#19 /var/www/Yii-CMS/index.php(30): CWebApplication->run()\nREQUEST_URI=/news/newsAdmin/create\nin /var/www/Yii-CMS/protected/modules/fileManager/portlets/Uploader.php (43)\nin /var/www/Yii-CMS/protected/views/layouts/_adminForm.php (222)\nin /var/www/Yii-CMS/protected/components/BaseForm.php (64)'),
+(204, 'error', 'exception.CHttpException.404', '2011-10-19 12:20:34', 'exception ''CHttpException'' with message ''Невозможно обработать запрос "favicon.ico".'' in /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php:332\nStack trace:\n#0 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(121): CWebApplication->runController(''favicon.ico'')\n#1 /var/www/Yii-CMS/protected/libs/yii/base/CApplication.php(155): CWebApplication->processRequest()\n#2 /var/www/Yii-CMS/index.php(30): CApplication->run()\n#3 {main} REQUEST_URI=/favicon.ico'),
+(205, 'error', 'exception.CHttpException.404', '2011-10-19 12:20:34', 'exception ''CHttpException'' with message ''Невозможно обработать запрос "favicon.ico".'' in /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php:332\nStack trace:\n#0 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(121): CWebApplication->runController(''favicon.ico'')\n#1 /var/www/Yii-CMS/protected/libs/yii/base/CApplication.php(155): CWebApplication->processRequest()\n#2 /var/www/Yii-CMS/index.php(30): CApplication->run()\n#3 {main} REQUEST_URI=/favicon.ico'),
+(206, 'warning', 'application', '2011-10-19 12:20:41', 'Не удалось присвоить небезопасный атрибут "remember_me".\nin /var/www/Yii-CMS/protected/modules/users/controllers/UserAdminController.php (36)\nin /var/www/Yii-CMS/index.php (30)'),
+(207, 'error', 'exception.CHttpException.404', '2011-10-19 12:28:33', 'exception ''CHttpException'' with message ''Невозможно обработать запрос "images/imgdat/_thumbs/_NATURE-AtTheEdgeOfAtmosphere_1024x768.jpg".'' in /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php:332\nStack trace:\n#0 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(121): CWebApplication->runController(''images/imgdat/_...'')\n#1 /var/www/Yii-CMS/protected/libs/yii/base/CApplication.php(155): CWebApplication->processRequest()\n#2 /var/www/Yii-CMS/index.php(32): CApplication->run()\n#3 {main} REQUEST_URI=/images/imgdat/_thumbs/_NATURE-AtTheEdgeOfAtmosphere_1024x768.jpg'),
+(208, 'error', 'php', '2011-10-19 12:58:56', 'include(MetaTagSubForm.php): failed to open stream: No such file or directory (/var/www/Yii-CMS/protected/libs/yii/YiiBase.php:396)\nStack trace:\n#0 /var/www/Yii-CMS/protected/libs/yii/web/CWidgetFactory.php(147): import()\n#1 /var/www/Yii-CMS/protected/libs/yii/web/CBaseController.php(139): CWidgetFactory->createWidget()\n#2 /var/www/Yii-CMS/protected/libs/yii/web/CBaseController.php(165): PageAdminController->createWidget()\n#3 /var/www/Yii-CMS/protected/views/layouts/_adminForm.php(209): PageAdminController->widget()\n#4 /var/www/Yii-CMS/protected/libs/yii/web/CBaseController.php(119): require()\n#5 /var/www/Yii-CMS/protected/libs/yii/web/CBaseController.php(88): PageAdminController->renderInternal()\n#6 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(866): PageAdminController->renderFile()\n#7 /var/www/Yii-CMS/protected/components/BaseForm.php(64): PageAdminController->renderPartial()\n#8 /var/www/Yii-CMS/protected/modules/content/views/pageAdmin/update.php(8): BaseForm->__ToString()\n#9 /var/www/Yii-CMS/protected/libs/yii/web/CBaseController.php(119): require()\n#10 /var/www/Yii-CMS/protected/libs/yii/web/CBaseController.php(88): PageAdminController->renderInternal()\n#11 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(866): PageAdminController->renderFile()\n#12 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(779): PageAdminController->renderPartial()\n#13 /var/www/Yii-CMS/protected/modules/content/controllers/PageAdminController.php(88): PageAdminController->render()\n#14 unknown(0): PageAdminController->actionUpdate()\n#15 /var/www/Yii-CMS/protected/libs/yii/web/actions/CAction.php(104): ReflectionMethod->invokeArgs()\n#16 /var/www/Yii-CMS/protected/libs/yii/web/actions/CInlineAction.php(48): CInlineAction->runWithParamsInternal()\n#17 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(300): CInlineAction->runWithParams()\n#18 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(278): PageAdminController->runAction()\n#19 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(257): PageAdminController->runActionWithFilters()\n#20 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(328): PageAdminController->run()\n#21 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(121): CWebApplication->runController()\n#22 /var/www/Yii-CMS/protected/libs/yii/base/CApplication.php(155): CWebApplication->processRequest()\n#23 /var/www/Yii-CMS/index.php(32): CWebApplication->run()\nREQUEST_URI=/content/pageAdmin/update/id/1\nin /var/www/Yii-CMS/protected/views/layouts/_adminForm.php (209)\nin /var/www/Yii-CMS/protected/components/BaseForm.php (64)\nin /var/www/Yii-CMS/protected/modules/content/views/pageAdmin/update.php (8)');
+INSERT INTO `log` (`id`, `level`, `category`, `logtime`, `message`) VALUES
+(209, 'error', 'php', '2011-10-19 13:20:49', 'Undefined variable: model (/var/www/Yii-CMS/protected/modules/main/portlets/MetaTagSubForm.php:10)\nStack trace:\n#0 /var/www/Yii-CMS/protected/views/layouts/_adminForm.php(209): PageAdminController->widget()\n#1 /var/www/Yii-CMS/protected/libs/yii/web/CBaseController.php(119): require()\n#2 /var/www/Yii-CMS/protected/libs/yii/web/CBaseController.php(88): PageAdminController->renderInternal()\n#3 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(866): PageAdminController->renderFile()\n#4 /var/www/Yii-CMS/protected/components/BaseForm.php(64): PageAdminController->renderPartial()\n#5 /var/www/Yii-CMS/protected/modules/content/views/pageAdmin/update.php(8): BaseForm->__ToString()\n#6 /var/www/Yii-CMS/protected/libs/yii/web/CBaseController.php(119): require()\n#7 /var/www/Yii-CMS/protected/libs/yii/web/CBaseController.php(88): PageAdminController->renderInternal()\n#8 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(866): PageAdminController->renderFile()\n#9 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(779): PageAdminController->renderPartial()\n#10 /var/www/Yii-CMS/protected/modules/content/controllers/PageAdminController.php(88): PageAdminController->render()\n#11 unknown(0): PageAdminController->actionUpdate()\n#12 /var/www/Yii-CMS/protected/libs/yii/web/actions/CAction.php(104): ReflectionMethod->invokeArgs()\n#13 /var/www/Yii-CMS/protected/libs/yii/web/actions/CInlineAction.php(48): CInlineAction->runWithParamsInternal()\n#14 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(300): CInlineAction->runWithParams()\n#15 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(278): PageAdminController->runAction()\n#16 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(257): PageAdminController->runActionWithFilters()\n#17 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(328): PageAdminController->run()\n#18 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(121): CWebApplication->runController()\n#19 /var/www/Yii-CMS/protected/libs/yii/base/CApplication.php(155): CWebApplication->processRequest()\n#20 /var/www/Yii-CMS/index.php(32): CWebApplication->run()\nREQUEST_URI=/content/pageAdmin/update/id/1\nin /var/www/Yii-CMS/protected/modules/main/portlets/MetaTagSubForm.php (10)\nin /var/www/Yii-CMS/protected/views/layouts/_adminForm.php (209)\nin /var/www/Yii-CMS/protected/components/BaseForm.php (64)'),
+(210, 'error', 'php', '2011-10-19 13:23:45', 'include(CHException.php): failed to open stream: No such file or directory (/var/www/Yii-CMS/protected/libs/yii/YiiBase.php:396)\nStack trace:\n#0 /var/www/Yii-CMS/protected/modules/main/portlets/MetaTagSubForm.php(16): spl_autoload_call()\n#1 /var/www/Yii-CMS/protected/libs/yii/web/CBaseController.php(140): MetaTagSubForm->init()\n#2 /var/www/Yii-CMS/protected/libs/yii/web/CBaseController.php(165): PageAdminController->createWidget()\n#3 /var/www/Yii-CMS/protected/views/layouts/_adminForm.php(209): PageAdminController->widget()\n#4 /var/www/Yii-CMS/protected/libs/yii/web/CBaseController.php(119): require()\n#5 /var/www/Yii-CMS/protected/libs/yii/web/CBaseController.php(88): PageAdminController->renderInternal()\n#6 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(866): PageAdminController->renderFile()\n#7 /var/www/Yii-CMS/protected/components/BaseForm.php(64): PageAdminController->renderPartial()\n#8 /var/www/Yii-CMS/protected/modules/content/views/pageAdmin/update.php(8): BaseForm->__ToString()\n#9 /var/www/Yii-CMS/protected/libs/yii/web/CBaseController.php(119): require()\n#10 /var/www/Yii-CMS/protected/libs/yii/web/CBaseController.php(88): PageAdminController->renderInternal()\n#11 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(866): PageAdminController->renderFile()\n#12 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(779): PageAdminController->renderPartial()\n#13 /var/www/Yii-CMS/protected/modules/content/controllers/PageAdminController.php(88): PageAdminController->render()\n#14 unknown(0): PageAdminController->actionUpdate()\n#15 /var/www/Yii-CMS/protected/libs/yii/web/actions/CAction.php(104): ReflectionMethod->invokeArgs()\n#16 /var/www/Yii-CMS/protected/libs/yii/web/actions/CInlineAction.php(48): CInlineAction->runWithParamsInternal()\n#17 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(300): CInlineAction->runWithParams()\n#18 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(278): PageAdminController->runAction()\n#19 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(257): PageAdminController->runActionWithFilters()\n#20 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(328): PageAdminController->run()\n#21 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(121): CWebApplication->runController()\n#22 /var/www/Yii-CMS/protected/libs/yii/base/CApplication.php(155): CWebApplication->processRequest()\n#23 /var/www/Yii-CMS/index.php(32): CWebApplication->run()\nREQUEST_URI=/content/pageAdmin/update/id/1\nin /var/www/Yii-CMS/protected/modules/main/portlets/MetaTagSubForm.php (16)\nin /var/www/Yii-CMS/protected/views/layouts/_adminForm.php (209)\nin /var/www/Yii-CMS/protected/components/BaseForm.php (64)'),
+(211, 'error', 'php', '2011-10-19 13:26:09', 'Undefined variable: model (/var/www/Yii-CMS/protected/modules/main/portlets/MetaTagSubForm.php:18)\nStack trace:\n#0 /var/www/Yii-CMS/protected/views/layouts/_adminForm.php(209): PageAdminController->widget()\n#1 /var/www/Yii-CMS/protected/libs/yii/web/CBaseController.php(119): require()\n#2 /var/www/Yii-CMS/protected/libs/yii/web/CBaseController.php(88): PageAdminController->renderInternal()\n#3 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(866): PageAdminController->renderFile()\n#4 /var/www/Yii-CMS/protected/components/BaseForm.php(64): PageAdminController->renderPartial()\n#5 /var/www/Yii-CMS/protected/modules/content/views/pageAdmin/update.php(8): BaseForm->__ToString()\n#6 /var/www/Yii-CMS/protected/libs/yii/web/CBaseController.php(119): require()\n#7 /var/www/Yii-CMS/protected/libs/yii/web/CBaseController.php(88): PageAdminController->renderInternal()\n#8 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(866): PageAdminController->renderFile()\n#9 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(779): PageAdminController->renderPartial()\n#10 /var/www/Yii-CMS/protected/modules/content/controllers/PageAdminController.php(88): PageAdminController->render()\n#11 unknown(0): PageAdminController->actionUpdate()\n#12 /var/www/Yii-CMS/protected/libs/yii/web/actions/CAction.php(104): ReflectionMethod->invokeArgs()\n#13 /var/www/Yii-CMS/protected/libs/yii/web/actions/CInlineAction.php(48): CInlineAction->runWithParamsInternal()\n#14 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(300): CInlineAction->runWithParams()\n#15 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(278): PageAdminController->runAction()\n#16 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(257): PageAdminController->runActionWithFilters()\n#17 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(328): PageAdminController->run()\n#18 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(121): CWebApplication->runController()\n#19 /var/www/Yii-CMS/protected/libs/yii/base/CApplication.php(155): CWebApplication->processRequest()\n#20 /var/www/Yii-CMS/index.php(32): CWebApplication->run()\nREQUEST_URI=/content/pageAdmin/update/id/1\nin /var/www/Yii-CMS/protected/modules/main/portlets/MetaTagSubForm.php (18)\nin /var/www/Yii-CMS/protected/views/layouts/_adminForm.php (209)\nin /var/www/Yii-CMS/protected/components/BaseForm.php (64)'),
+(212, 'error', 'php', '2011-10-19 14:13:51', 'Undefined variable: model (/var/www/Yii-CMS/protected/modules/main/portlets/MetaTagSubForm.php:32)\nStack trace:\n#0 /var/www/Yii-CMS/protected/views/layouts/_adminForm.php(209): PageAdminController->widget()\n#1 /var/www/Yii-CMS/protected/libs/yii/web/CBaseController.php(119): require()\n#2 /var/www/Yii-CMS/protected/libs/yii/web/CBaseController.php(88): PageAdminController->renderInternal()\n#3 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(866): PageAdminController->renderFile()\n#4 /var/www/Yii-CMS/protected/components/BaseForm.php(64): PageAdminController->renderPartial()\n#5 /var/www/Yii-CMS/protected/modules/content/views/pageAdmin/create.php(8): BaseForm->__ToString()\n#6 /var/www/Yii-CMS/protected/libs/yii/web/CBaseController.php(119): require()\n#7 /var/www/Yii-CMS/protected/libs/yii/web/CBaseController.php(88): PageAdminController->renderInternal()\n#8 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(866): PageAdminController->renderFile()\n#9 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(779): PageAdminController->renderPartial()\n#10 /var/www/Yii-CMS/protected/modules/content/controllers/PageAdminController.php(55): PageAdminController->render()\n#11 /var/www/Yii-CMS/protected/libs/yii/web/actions/CInlineAction.php(50): PageAdminController->actionCreate()\n#12 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(300): CInlineAction->runWithParams()\n#13 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(278): PageAdminController->runAction()\n#14 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(257): PageAdminController->runActionWithFilters()\n#15 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(328): PageAdminController->run()\n#16 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(121): CWebApplication->runController()\n#17 /var/www/Yii-CMS/protected/libs/yii/base/CApplication.php(155): CWebApplication->processRequest()\n#18 /var/www/Yii-CMS/index.php(32): CWebApplication->run()\nREQUEST_URI=/content/pageAdmin/create\nin /var/www/Yii-CMS/protected/modules/main/portlets/MetaTagSubForm.php (32)\nin /var/www/Yii-CMS/protected/views/layouts/_adminForm.php (209)\nin /var/www/Yii-CMS/protected/components/BaseForm.php (64)'),
+(213, 'error', 'exception.CException', '2011-10-19 14:33:19', 'exception ''CException'' with message ''Не определено свойство "Page.meta_tags".'' in /var/www/Yii-CMS/protected/libs/yii/base/CComponent.php:173\nStack trace:\n#0 /var/www/Yii-CMS/protected/libs/yii/db/ar/CActiveRecord.php(144): CComponent->__set(''meta_tags'', ''yo'')\n#1 /var/www/Yii-CMS/protected/libs/yii/base/CModel.php(471): CActiveRecord->__set(''meta_tags'', ''yo'')\n#2 /var/www/Yii-CMS/protected/libs/yii/base/CComponent.php(152): CModel->setAttributes(Array)\n#3 /var/www/Yii-CMS/protected/libs/yii/db/ar/CActiveRecord.php(144): CComponent->__set(''attributes'', Array)\n#4 /var/www/Yii-CMS/protected/modules/content/controllers/PageAdminController.php(43): CActiveRecord->__set(''attributes'', Array)\n#5 /var/www/Yii-CMS/protected/libs/yii/web/actions/CInlineAction.php(50): PageAdminController->actionCreate()\n#6 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(300): CInlineAction->runWithParams(Array)\n#7 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(278): CController->runAction(Object(CInlineAction))\n#8 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(257): CController->runActionWithFilters(Object(CInlineAction), Array)\n#9 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(328): CController->run(''create'')\n#10 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(121): CWebApplication->runController(''content/pageAdm...'')\n#11 /var/www/Yii-CMS/protected/libs/yii/base/CApplication.php(155): CWebApplication->processRequest()\n#12 /var/www/Yii-CMS/index.php(32): CApplication->run()\n#13 {main} REQUEST_URI=/content/pageAdmin/create'),
+(214, 'error', 'exception.CException', '2011-10-19 14:53:21', 'exception ''CException'' with message ''Page не содержит метода "errorsHtml".'' in /var/www/Yii-CMS/protected/libs/yii/base/CComponent.php:266\nStack trace:\n#0 /var/www/Yii-CMS/protected/libs/yii/db/ar/CActiveRecord.php(213): CComponent->__call(''errorsHtml'', Array)\n#1 /var/www/Yii-CMS/protected/modules/content/controllers/PageAdminController.php(53): CActiveRecord->__call(''errorsHtml'', Array)\n#2 /var/www/Yii-CMS/protected/modules/content/controllers/PageAdminController.php(53): Page->errorsHtml()\n#3 /var/www/Yii-CMS/protected/libs/yii/web/actions/CInlineAction.php(50): PageAdminController->actionCreate()\n#4 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(300): CInlineAction->runWithParams(Array)\n#5 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(278): CController->runAction(Object(CInlineAction))\n#6 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(257): CController->runActionWithFilters(Object(CInlineAction), Array)\n#7 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(328): CController->run(''create'')\n#8 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(121): CWebApplication->runController(''content/pageAdm...'')\n#9 /var/www/Yii-CMS/protected/libs/yii/base/CApplication.php(155): CWebApplication->processRequest()\n#10 /var/www/Yii-CMS/index.php(32): CApplication->run()\n#11 {main} REQUEST_URI=/content/pageAdmin/create'),
+(215, 'error', 'exception.CException', '2011-10-19 14:53:33', 'exception ''CException'' with message ''Page не содержит метода "errors".'' in /var/www/Yii-CMS/protected/libs/yii/base/CComponent.php:266\nStack trace:\n#0 /var/www/Yii-CMS/protected/libs/yii/db/ar/CActiveRecord.php(213): CComponent->__call(''errors'', Array)\n#1 /var/www/Yii-CMS/protected/modules/content/controllers/PageAdminController.php(53): CActiveRecord->__call(''errors'', Array)\n#2 /var/www/Yii-CMS/protected/modules/content/controllers/PageAdminController.php(53): Page->errors()\n#3 /var/www/Yii-CMS/protected/libs/yii/web/actions/CInlineAction.php(50): PageAdminController->actionCreate()\n#4 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(300): CInlineAction->runWithParams(Array)\n#5 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(278): CController->runAction(Object(CInlineAction))\n#6 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(257): CController->runActionWithFilters(Object(CInlineAction), Array)\n#7 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(328): CController->run(''create'')\n#8 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(121): CWebApplication->runController(''content/pageAdm...'')\n#9 /var/www/Yii-CMS/protected/libs/yii/base/CApplication.php(155): CWebApplication->processRequest()\n#10 /var/www/Yii-CMS/index.php(32): CApplication->run()\n#11 {main} REQUEST_URI=/content/pageAdmin/create'),
+(216, 'error', 'exception.CException', '2011-10-19 14:54:34', 'exception ''CException'' with message ''Не определено свойство "MetaTagBehavior.id".'' in /var/www/Yii-CMS/protected/libs/yii/base/CComponent.php:131\nStack trace:\n#0 /var/www/Yii-CMS/protected/components/activeRecordBehaviors/MetaTagBehavior.php(10): CComponent->__get(''id'')\n#1 /var/www/Yii-CMS/protected/libs/yii/base/CComponent.php(568): MetaTagBehavior->afterSave(Object(CEvent))\n#2 /var/www/Yii-CMS/protected/libs/yii/db/ar/CActiveRecord.php(824): CComponent->raiseEvent(''onAfterSave'', Object(CEvent))\n#3 /var/www/Yii-CMS/protected/libs/yii/db/ar/CActiveRecord.php(903): CActiveRecord->onAfterSave(Object(CEvent))\n#4 /var/www/Yii-CMS/protected/libs/yii/db/ar/CActiveRecord.php(1035): CActiveRecord->afterSave()\n#5 /var/www/Yii-CMS/protected/libs/yii/db/ar/CActiveRecord.php(779): CActiveRecord->insert(NULL)\n#6 /var/www/Yii-CMS/protected/modules/content/controllers/PageAdminController.php(42): CActiveRecord->save()\n#7 /var/www/Yii-CMS/protected/libs/yii/web/actions/CInlineAction.php(50): PageAdminController->actionCreate()\n#8 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(300): CInlineAction->runWithParams(Array)\n#9 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(278): CController->runAction(Object(CInlineAction))\n#10 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(257): CController->runActionWithFilters(Object(CInlineAction), Array)\n#11 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(328): CController->run(''create'')\n#12 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(121): CWebApplication->runController(''content/pageAdm...'')\n#13 /var/www/Yii-CMS/protected/libs/yii/base/CApplication.php(155): CWebApplication->processRequest()\n#14 /var/www/Yii-CMS/index.php(32): CApplication->run()\n#15 {main} REQUEST_URI=/content/pageAdmin/create'),
+(217, 'error', 'exception.CException', '2011-10-19 15:01:12', 'exception ''CException'' with message ''Не определено свойство MetaTag.value'' in /var/www/Yii-CMS/protected/components/ActiveRecordModel.php:165\nStack trace:\n#0 /var/www/Yii-CMS/protected/libs/yii/validators/CStringValidator.php(67): ActiveRecordModel->__get(''value'')\n#1 /var/www/Yii-CMS/protected/libs/yii/validators/CValidator.php(192): CStringValidator->validateAttribute(Object(MetaTag), ''value'')\n#2 /var/www/Yii-CMS/protected/libs/yii/base/CModel.php(152): CValidator->validate(Object(MetaTag), NULL)\n#3 /var/www/Yii-CMS/protected/libs/yii/db/ar/CActiveRecord.php(778): CModel->validate(NULL)\n#4 /var/www/Yii-CMS/protected/components/activeRecordBehaviors/MetaTagBehavior.php(22): CActiveRecord->save()\n#5 /var/www/Yii-CMS/protected/libs/yii/base/CComponent.php(568): MetaTagBehavior->afterSave(Object(CEvent))\n#6 /var/www/Yii-CMS/protected/libs/yii/db/ar/CActiveRecord.php(824): CComponent->raiseEvent(''onAfterSave'', Object(CEvent))\n#7 /var/www/Yii-CMS/protected/libs/yii/db/ar/CActiveRecord.php(903): CActiveRecord->onAfterSave(Object(CEvent))\n#8 /var/www/Yii-CMS/protected/libs/yii/db/ar/CActiveRecord.php(1035): CActiveRecord->afterSave()\n#9 /var/www/Yii-CMS/protected/libs/yii/db/ar/CActiveRecord.php(779): CActiveRecord->insert(NULL)\n#10 /var/www/Yii-CMS/protected/modules/content/controllers/PageAdminController.php(42): CActiveRecord->save()\n#11 /var/www/Yii-CMS/protected/libs/yii/web/actions/CInlineAction.php(50): PageAdminController->actionCreate()\n#12 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(300): CInlineAction->runWithParams(Array)\n#13 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(278): CController->runAction(Object(CInlineAction))\n#14 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(257): CController->runActionWithFilters(Object(CInlineAction), Array)\n#15 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(328): CController->run(''create'')\n#16 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(121): CWebApplication->runController(''content/pageAdm...'')\n#17 /var/www/Yii-CMS/protected/libs/yii/base/CApplication.php(155): CWebApplication->processRequest()\n#18 /var/www/Yii-CMS/index.php(32): CApplication->run()\n#19 {main} REQUEST_URI=/content/pageAdmin/create'),
+(218, 'error', 'php', '2011-10-19 16:09:06', 'Undefined variable: this (/var/www/Yii-CMS/protected/libs/yii/db/ar/CActiveRecord.php:413)\nStack trace:\n#0 /var/www/Yii-CMS/protected/libs/yii/base/CComponent.php(568): LangConditionBehavior->beforeFind()\n#1 /var/www/Yii-CMS/protected/libs/yii/db/ar/CActiveRecord.php(860): User->raiseEvent()\n#2 /var/www/Yii-CMS/protected/libs/yii/db/ar/CActiveRecord.php(957): User->onBeforeFind()\n#3 /var/www/Yii-CMS/protected/libs/yii/db/ar/CActiveRecord.php(1249): User->beforeFind()\n#4 /var/www/Yii-CMS/protected/libs/yii/db/ar/CActiveRecord.php(1396): User->query()\n#5 /var/www/Yii-CMS/protected/components/WebUser.php(47): User->findByPk()\n#6 /var/www/Yii-CMS/protected/components/WebUser.php(10): WebUser->getModel()\n#7 /var/www/Yii-CMS/protected/libs/yii/base/CComponent.php(188): WebUser->getRole()\n#8 /var/www/Yii-CMS/protected/libs/yii/web/auth/CWebUser.php(153): WebUser->__isset()\n#9 /var/www/Yii-CMS/protected/components/BaseController.php(101): WebUser->__isset()\n#10 /var/www/Yii-CMS/protected/components/BaseController.php(53): PageAdminController->checkAccess()\n#11 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(298): PageAdminController->beforeAction()\n#12 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(278): PageAdminController->runAction()\n#13 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(257): PageAdminController->runActionWithFilters()\n#14 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(328): PageAdminController->run()\n#15 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(121): CWebApplication->runController()\n#16 /var/www/Yii-CMS/protected/libs/yii/base/CApplication.php(155): CWebApplication->processRequest()\n#17 /var/www/Yii-CMS/index.php(32): CWebApplication->run()\nREQUEST_URI=/content/pageAdmin/view/id/2\nin /var/www/Yii-CMS/protected/components/ActiveRecordModel.php (230)\nin /var/www/Yii-CMS/protected/components/activeRecordBehaviors/LangConditionBehavior.php (8)\nin /var/www/Yii-CMS/protected/components/WebUser.php (47)'),
+(219, 'error', 'exception.CException', '2011-10-19 16:40:42', 'exception ''CException'' with message ''Не определено свойство MetaTag.tag'' in /var/www/Yii-CMS/protected/components/ActiveRecordModel.php:165\nStack trace:\n#0 /var/www/Yii-CMS/protected/libs/yii/web/helpers/CHtml.php(2054): ActiveRecordModel->__get(''tag'')\n#1 /var/www/Yii-CMS/protected/libs/yii/web/helpers/CHtml.php(1781): CHtml::resolveValue(Object(MetaTag), ''tag'')\n#2 /var/www/Yii-CMS/protected/libs/yii/web/helpers/CHtml.php(1190): CHtml::activeInputField(''text'', Object(MetaTag), ''tag'', Array)\n#3 /var/www/Yii-CMS/protected/libs/yii/zii/widgets/grid/CDataColumn.php(98): CHtml::activeTextField(Object(MetaTag), ''tag'', Array)\n#4 /var/www/Yii-CMS/protected/libs/yii/zii/widgets/grid/CGridColumn.php(103): CDataColumn->renderFilterCellContent()\n#5 /var/www/Yii-CMS/protected/components/zii/GridView.php(251): CGridColumn->renderFilterCell()\n#6 /var/www/Yii-CMS/protected/components/zii/GridView.php(131): GridView->renderFilter()\n#7 /var/www/Yii-CMS/protected/components/zii/GridView.php(92): GridView->renderTableHeader()\n#8 /var/www/Yii-CMS/protected/libs/yii/zii/widgets/CBaseListView.php(158): GridView->renderItems()\n#9 [internal function]: CBaseListView->renderSection(Array)\n#10 /var/www/Yii-CMS/protected/libs/yii/zii/widgets/CBaseListView.php(141): preg_replace_callback(''/{(\\w+)}/'', Array, ''{summary}<br/>{...'')\n#11 /var/www/Yii-CMS/protected/libs/yii/zii/widgets/CBaseListView.php(126): CBaseListView->renderContent()\n#12 /var/www/Yii-CMS/protected/libs/yii/web/CBaseController.php(166): CBaseListView->run()\n#13 /var/www/Yii-CMS/protected/modules/main/views/metaTagAdmin/manage.php(37): CBaseController->widget(''GridView'', Array)\n#14 /var/www/Yii-CMS/protected/libs/yii/web/CBaseController.php(119): require(''/var/www/Yii-CM...'')\n#15 /var/www/Yii-CMS/protected/libs/yii/web/CBaseController.php(88): CBaseController->renderInternal(''/var/www/Yii-CM...'', Array, true)\n#16 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(866): CBaseController->renderFile(''/var/www/Yii-CM...'', Array, true)\n#17 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(779): CController->renderPartial(''manage'', Array, true)\n#18 /var/www/Yii-CMS/protected/modules/main/controllers/MetaTagAdminController.php(111): CController->render(''manage'', Array)\n#19 /var/www/Yii-CMS/protected/libs/yii/web/actions/CInlineAction.php(50): MetaTagAdminController->actionManage()\n#20 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(300): CInlineAction->runWithParams(Array)\n#21 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(278): CController->runAction(Object(CInlineAction))\n#22 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(257): CController->runActionWithFilters(Object(CInlineAction), Array)\n#23 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(328): CController->run(''manage'')\n#24 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(121): CWebApplication->runController(''main/MetaTagAdm...'')\n#25 /var/www/Yii-CMS/protected/libs/yii/base/CApplication.php(155): CWebApplication->processRequest()\n#26 /var/www/Yii-CMS/index.php(32): CApplication->run()\n#27 {main} REQUEST_URI=/main/MetaTagAdmin/manage'),
+(220, 'error', 'php', '2011-10-19 16:56:44', 'Undefined variable: model (/var/www/Yii-CMS/protected/modules/main/forms/MetaTagForm.php:11)\nStack trace:\n#0 /var/www/Yii-CMS/protected/libs/yii/web/form/CForm.php(141): BaseForm->__construct()\n#1 /var/www/Yii-CMS/protected/components/BaseForm.php(19): BaseForm->__construct()\n#2 /var/www/Yii-CMS/protected/modules/main/controllers/MetaTagAdminController.php(63): BaseForm->__construct()\n#3 unknown(0): MetaTagAdminController->actionUpdate()\n#4 /var/www/Yii-CMS/protected/libs/yii/web/actions/CAction.php(104): ReflectionMethod->invokeArgs()\n#5 /var/www/Yii-CMS/protected/libs/yii/web/actions/CInlineAction.php(48): CInlineAction->runWithParamsInternal()\n#6 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(300): CInlineAction->runWithParams()\n#7 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(278): MetaTagAdminController->runAction()\n#8 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(257): MetaTagAdminController->runActionWithFilters()\n#9 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(328): MetaTagAdminController->run()\n#10 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(121): CWebApplication->runController()\n#11 /var/www/Yii-CMS/protected/libs/yii/base/CApplication.php(155): CWebApplication->processRequest()\n#12 /var/www/Yii-CMS/index.php(32): CWebApplication->run()\nREQUEST_URI=/main/metaTagAdmin/update/id/1\nin /var/www/Yii-CMS/protected/modules/main/forms/MetaTagForm.php (11)\nin /var/www/Yii-CMS/protected/components/BaseForm.php (19)\nin /var/www/Yii-CMS/protected/modules/main/controllers/MetaTagAdminController.php (63)'),
+(221, 'error', 'php', '2011-10-19 16:57:05', 'include(1.php): failed to open stream: No such file or directory (/var/www/Yii-CMS/protected/libs/yii/YiiBase.php:396)\nStack trace:\n#0 /var/www/Yii-CMS/protected/modules/main/forms/MetaTagForm.php(13): spl_autoload_call()\n#1 /var/www/Yii-CMS/protected/libs/yii/web/form/CFormElement.php(117): require()\n#2 /var/www/Yii-CMS/protected/libs/yii/web/form/CFormElement.php(45): BaseForm->configure()\n#3 /var/www/Yii-CMS/protected/libs/yii/web/form/CForm.php(141): BaseForm->__construct()\n#4 /var/www/Yii-CMS/protected/components/BaseForm.php(19): BaseForm->__construct()\n#5 /var/www/Yii-CMS/protected/modules/main/controllers/MetaTagAdminController.php(63): BaseForm->__construct()\n#6 unknown(0): MetaTagAdminController->actionUpdate()\n#7 /var/www/Yii-CMS/protected/libs/yii/web/actions/CAction.php(104): ReflectionMethod->invokeArgs()\n#8 /var/www/Yii-CMS/protected/libs/yii/web/actions/CInlineAction.php(48): CInlineAction->runWithParamsInternal()\n#9 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(300): CInlineAction->runWithParams()\n#10 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(278): MetaTagAdminController->runAction()\n#11 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(257): MetaTagAdminController->runActionWithFilters()\n#12 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(328): MetaTagAdminController->run()\n#13 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(121): CWebApplication->runController()\n#14 /var/www/Yii-CMS/protected/libs/yii/base/CApplication.php(155): CWebApplication->processRequest()\n#15 /var/www/Yii-CMS/index.php(32): CWebApplication->run()\nREQUEST_URI=/main/metaTagAdmin/update/id/1\nin /var/www/Yii-CMS/protected/modules/main/forms/MetaTagForm.php (13)\nin /var/www/Yii-CMS/protected/components/BaseForm.php (19)\nin /var/www/Yii-CMS/protected/modules/main/controllers/MetaTagAdminController.php (63)'),
+(222, 'error', 'php', '2011-10-19 16:57:15', 'include(1.php): failed to open stream: No such file or directory (/var/www/Yii-CMS/protected/libs/yii/YiiBase.php:396)\nStack trace:\n#0 /var/www/Yii-CMS/protected/modules/main/forms/MetaTagForm.php(13): spl_autoload_call()\n#1 /var/www/Yii-CMS/protected/libs/yii/web/form/CFormElement.php(117): require()\n#2 /var/www/Yii-CMS/protected/libs/yii/web/form/CFormElement.php(45): BaseForm->configure()\n#3 /var/www/Yii-CMS/protected/libs/yii/web/form/CForm.php(141): BaseForm->__construct()\n#4 /var/www/Yii-CMS/protected/components/BaseForm.php(19): BaseForm->__construct()\n#5 /var/www/Yii-CMS/protected/modules/main/controllers/MetaTagAdminController.php(63): BaseForm->__construct()\n#6 unknown(0): MetaTagAdminController->actionUpdate()\n#7 /var/www/Yii-CMS/protected/libs/yii/web/actions/CAction.php(104): ReflectionMethod->invokeArgs()\n#8 /var/www/Yii-CMS/protected/libs/yii/web/actions/CInlineAction.php(48): CInlineAction->runWithParamsInternal()\n#9 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(300): CInlineAction->runWithParams()\n#10 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(278): MetaTagAdminController->runAction()\n#11 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(257): MetaTagAdminController->runActionWithFilters()\n#12 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(328): MetaTagAdminController->run()\n#13 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(121): CWebApplication->runController()\n#14 /var/www/Yii-CMS/protected/libs/yii/base/CApplication.php(155): CWebApplication->processRequest()\n#15 /var/www/Yii-CMS/index.php(32): CWebApplication->run()\nREQUEST_URI=/main/metaTagAdmin/update/id/1\nin /var/www/Yii-CMS/protected/modules/main/forms/MetaTagForm.php (13)\nin /var/www/Yii-CMS/protected/components/BaseForm.php (19)\nin /var/www/Yii-CMS/protected/modules/main/controllers/MetaTagAdminController.php (63)'),
+(223, 'error', 'php', '2011-10-19 16:57:35', 'include(1.php): failed to open stream: No such file or directory (/var/www/Yii-CMS/protected/libs/yii/YiiBase.php:396)\nStack trace:\n#0 /var/www/Yii-CMS/protected/modules/main/forms/MetaTagForm.php(12): spl_autoload_call()\n#1 /var/www/Yii-CMS/protected/libs/yii/web/form/CFormElement.php(117): require()\n#2 /var/www/Yii-CMS/protected/libs/yii/web/form/CFormElement.php(45): BaseForm->configure()\n#3 /var/www/Yii-CMS/protected/libs/yii/web/form/CForm.php(141): BaseForm->__construct()\n#4 /var/www/Yii-CMS/protected/components/BaseForm.php(19): BaseForm->__construct()\n#5 /var/www/Yii-CMS/protected/modules/main/controllers/MetaTagAdminController.php(63): BaseForm->__construct()\n#6 unknown(0): MetaTagAdminController->actionUpdate()\n#7 /var/www/Yii-CMS/protected/libs/yii/web/actions/CAction.php(104): ReflectionMethod->invokeArgs()\n#8 /var/www/Yii-CMS/protected/libs/yii/web/actions/CInlineAction.php(48): CInlineAction->runWithParamsInternal()\n#9 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(300): CInlineAction->runWithParams()\n#10 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(278): MetaTagAdminController->runAction()\n#11 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(257): MetaTagAdminController->runActionWithFilters()\n#12 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(328): MetaTagAdminController->run()\n#13 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(121): CWebApplication->runController()\n#14 /var/www/Yii-CMS/protected/libs/yii/base/CApplication.php(155): CWebApplication->processRequest()\n#15 /var/www/Yii-CMS/index.php(32): CWebApplication->run()\nREQUEST_URI=/main/metaTagAdmin/update/id/1\nin /var/www/Yii-CMS/protected/modules/main/forms/MetaTagForm.php (12)\nin /var/www/Yii-CMS/protected/components/BaseForm.php (19)\nin /var/www/Yii-CMS/protected/modules/main/controllers/MetaTagAdminController.php (63)'),
+(224, 'error', 'php', '2011-10-19 16:57:41', 'include(1.php): failed to open stream: No such file or directory (/var/www/Yii-CMS/protected/libs/yii/YiiBase.php:396)\nStack trace:\n#0 /var/www/Yii-CMS/protected/modules/main/forms/MetaTagForm.php(12): spl_autoload_call()\n#1 /var/www/Yii-CMS/protected/libs/yii/web/form/CFormElement.php(117): require()\n#2 /var/www/Yii-CMS/protected/libs/yii/web/form/CFormElement.php(45): BaseForm->configure()\n#3 /var/www/Yii-CMS/protected/libs/yii/web/form/CForm.php(141): BaseForm->__construct()\n#4 /var/www/Yii-CMS/protected/components/BaseForm.php(19): BaseForm->__construct()\n#5 /var/www/Yii-CMS/protected/modules/main/controllers/MetaTagAdminController.php(63): BaseForm->__construct()\n#6 unknown(0): MetaTagAdminController->actionUpdate()\n#7 /var/www/Yii-CMS/protected/libs/yii/web/actions/CAction.php(104): ReflectionMethod->invokeArgs()\n#8 /var/www/Yii-CMS/protected/libs/yii/web/actions/CInlineAction.php(48): CInlineAction->runWithParamsInternal()\n#9 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(300): CInlineAction->runWithParams()\n#10 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(278): MetaTagAdminController->runAction()\n#11 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(257): MetaTagAdminController->runActionWithFilters()\n#12 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(328): MetaTagAdminController->run()\n#13 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(121): CWebApplication->runController()\n#14 /var/www/Yii-CMS/protected/libs/yii/base/CApplication.php(155): CWebApplication->processRequest()\n#15 /var/www/Yii-CMS/index.php(32): CWebApplication->run()\nREQUEST_URI=/main/metaTagAdmin/update/id/1\nin /var/www/Yii-CMS/protected/modules/main/forms/MetaTagForm.php (12)\nin /var/www/Yii-CMS/protected/components/BaseForm.php (19)\nin /var/www/Yii-CMS/protected/modules/main/controllers/MetaTagAdminController.php (63)'),
+(225, 'error', 'php', '2011-10-19 17:01:54', 'htmlspecialchars() expects parameter 1 to be string, array given (/var/www/Yii-CMS/protected/libs/yii/web/helpers/CHtml.php:66)\nStack trace:\n#0 /var/www/Yii-CMS/protected/libs/yii/web/helpers/CHtml.php(109): renderAttributes()\n#1 /var/www/Yii-CMS/protected/libs/yii/web/helpers/CHtml.php(1398): tag()\n#2 /var/www/Yii-CMS/protected/libs/yii/web/form/CFormInputElement.php(205): activeDropDownList()\n#3 /var/www/Yii-CMS/protected/libs/yii/web/form/CFormInputElement.php(167): CFormInputElement->renderInput()\n#4 /var/www/Yii-CMS/protected/views/layouts/_adminForm.php(230): CFormInputElement->render()\n#5 /var/www/Yii-CMS/protected/libs/yii/web/CBaseController.php(119): require()\n#6 /var/www/Yii-CMS/protected/libs/yii/web/CBaseController.php(88): MetaTagAdminController->renderInternal()\n#7 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(866): MetaTagAdminController->renderFile()\n#8 /var/www/Yii-CMS/protected/components/BaseForm.php(64): MetaTagAdminController->renderPartial()\n#9 /var/www/Yii-CMS/protected/modules/main/views/metaTagAdmin/update.php(10): BaseForm->__ToString()\n#10 /var/www/Yii-CMS/protected/libs/yii/web/CBaseController.php(119): require()\n#11 /var/www/Yii-CMS/protected/libs/yii/web/CBaseController.php(88): MetaTagAdminController->renderInternal()\n#12 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(866): MetaTagAdminController->renderFile()\n#13 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(779): MetaTagAdminController->renderPartial()\n#14 /var/www/Yii-CMS/protected/modules/main/controllers/MetaTagAdminController.php(78): MetaTagAdminController->render()\n#15 unknown(0): MetaTagAdminController->actionUpdate()\n#16 /var/www/Yii-CMS/protected/libs/yii/web/actions/CAction.php(104): ReflectionMethod->invokeArgs()\n#17 /var/www/Yii-CMS/protected/libs/yii/web/actions/CInlineAction.php(48): CInlineAction->runWithParamsInternal()\n#18 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(300): CInlineAction->runWithParams()\n#19 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(278): MetaTagAdminController->runAction()\n#20 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(257): MetaTagAdminController->runActionWithFilters()\n#21 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(328): MetaTagAdminController->run()\n#22 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(121): CWebApplication->runController()\n#23 /var/www/Yii-CMS/protected/libs/yii/base/CApplication.php(155): CWebApplication->processRequest()\n#24 /var/www/Yii-CMS/index.php(32): CWebApplication->run()\nREQUEST_URI=/main/metaTagAdmin/update/id/1\nin /var/www/Yii-CMS/protected/views/layouts/_adminForm.php (230)\nin /var/www/Yii-CMS/protected/components/BaseForm.php (64)\nin /var/www/Yii-CMS/protected/modules/main/views/metaTagAdmin/update.php (10)'),
+(226, 'warning', 'application', '2011-10-19 17:02:48', 'Не удалось присвоить небезопасный атрибут "id".\nin /var/www/Yii-CMS/protected/modules/main/controllers/MetaTagAdminController.php (69)\nin /var/www/Yii-CMS/index.php (32)'),
+(227, 'error', 'exception.CException', '2011-10-19 17:02:48', 'exception ''CException'' with message ''Не определено свойство MetaTag.tag'' in /var/www/Yii-CMS/protected/components/ActiveRecordModel.php:165\nStack trace:\n#0 /var/www/Yii-CMS/protected/modules/main/views/metaTagAdmin/view.php(19): ActiveRecordModel->__get(''tag'')\n#1 /var/www/Yii-CMS/protected/libs/yii/web/CBaseController.php(119): require(''/var/www/Yii-CM...'')\n#2 /var/www/Yii-CMS/protected/libs/yii/web/CBaseController.php(88): CBaseController->renderInternal(''/var/www/Yii-CM...'', Array, true)\n#3 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(866): CBaseController->renderFile(''/var/www/Yii-CM...'', Array, true)\n#4 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(779): CController->renderPartial(''view'', Array, true)\n#5 /var/www/Yii-CMS/protected/modules/main/controllers/MetaTagAdminController.php(23): CController->render(''view'', Array)\n#6 [internal function]: MetaTagAdminController->actionView(''1'')\n#7 /var/www/Yii-CMS/protected/libs/yii/web/actions/CAction.php(104): ReflectionMethod->invokeArgs(Object(MetaTagAdminController), Array)\n#8 /var/www/Yii-CMS/protected/libs/yii/web/actions/CInlineAction.php(48): CAction->runWithParamsInternal(Object(MetaTagAdminController), Object(ReflectionMethod), Array)\n#9 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(300): CInlineAction->runWithParams(Array)\n#10 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(278): CController->runAction(Object(CInlineAction))\n#11 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(257): CController->runActionWithFilters(Object(CInlineAction), Array)\n#12 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(328): CController->run(''view'')\n#13 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(121): CWebApplication->runController(''main/metaTagAdm...'')\n#14 /var/www/Yii-CMS/protected/libs/yii/base/CApplication.php(155): CWebApplication->processRequest()\n#15 /var/www/Yii-CMS/index.php(32): CApplication->run()\n#16 {main} REQUEST_URI=/main/metaTagAdmin/view/id/1'),
+(228, 'warning', 'application', '2011-10-19 17:04:41', 'Не удалось присвоить небезопасный атрибут "id".\nin /var/www/Yii-CMS/protected/modules/main/controllers/MetaTagAdminController.php (69)\nin /var/www/Yii-CMS/index.php (32)'),
+(229, 'error', 'system.db.CDbCommand', '2011-10-19 17:18:54', 'Не удалось выполнить CDbCommand::fetch(): SQLSTATE[42S02]: Base table or view not found: 1146 Table ''yii_cms.pp'' doesn''t exist. Выполнявшийся SQL-запрос: select * from pp.\nin /var/www/Yii-CMS/protected/modules/main/controllers/MetaTagAdminController.php (141)\nin /var/www/Yii-CMS/index.php (32)'),
+(230, 'error', 'exception.CDbException', '2011-10-19 17:18:54', 'exception ''CDbException'' with message ''CDbCommand не удалось исполнить SQL-запрос: SQLSTATE[42S02]: Base table or view not found: 1146 Table ''yii_cms.pp'' doesn''t exist. The SQL statement executed was: select * from pp'' in /var/www/Yii-CMS/protected/libs/yii/db/CDbCommand.php:518\nStack trace:\n#0 /var/www/Yii-CMS/protected/libs/yii/db/CDbCommand.php(395): CDbCommand->queryInternal(''fetch'', Array, Array)\n#1 /var/www/Yii-CMS/protected/libs/yii/db/ar/CActiveRecord.php(1468): CDbCommand->queryRow()\n#2 /var/www/Yii-CMS/protected/modules/main/controllers/MetaTagAdminController.php(141): CActiveRecord->findBySql(''select * from p...'')\n#3 [internal function]: MetaTagAdminController->actionGetModelObjects(''Page'')\n#4 /var/www/Yii-CMS/protected/libs/yii/web/actions/CAction.php(104): ReflectionMethod->invokeArgs(Object(MetaTagAdminController), Array)\n#5 /var/www/Yii-CMS/protected/libs/yii/web/actions/CInlineAction.php(48): CAction->runWithParamsInternal(Object(MetaTagAdminController), Object(ReflectionMethod), Array)\n#6 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(300): CInlineAction->runWithParams(Array)\n#7 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(278): CController->runAction(Object(CInlineAction))\n#8 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(257): CController->runActionWithFilters(Object(CInlineAction), Array)\n#9 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(328): CController->run(''getModelObjects'')\n#10 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(121): CWebApplication->runController(''main/MetaTagAdm...'')\n#11 /var/www/Yii-CMS/protected/libs/yii/base/CApplication.php(155): CWebApplication->processRequest()\n#12 /var/www/Yii-CMS/index.php(32): CApplication->run()\n#13 {main} REQUEST_URI=/main/MetaTagAdmin/getModelObjects?model_id=Page'),
+(231, 'error', 'php', '2011-10-19 17:19:02', 'Trying to get property of non-object (/var/www/Yii-CMS/protected/modules/main/controllers/MetaTagAdminController.php:145)\nStack trace:\n#0 /var/www/Yii-CMS/protected/libs/yii/web/actions/CInlineAction.php(48): CInlineAction->runWithParamsInternal()\n#1 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(300): CInlineAction->runWithParams()\n#2 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(278): MetaTagAdminController->runAction()\n#3 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(257): MetaTagAdminController->runActionWithFilters()\n#4 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(328): MetaTagAdminController->run()\n#5 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(121): CWebApplication->runController()\n#6 /var/www/Yii-CMS/protected/libs/yii/base/CApplication.php(155): CWebApplication->processRequest()\n#7 /var/www/Yii-CMS/index.php(32): CWebApplication->run()\nREQUEST_URI=/main/MetaTagAdmin/getModelObjects?model_id=Page\nin /var/www/Yii-CMS/protected/modules/main/controllers/MetaTagAdminController.php (145)\nin /var/www/Yii-CMS/index.php (32)'),
+(232, 'error', 'php', '2011-10-19 17:28:29', 'Undefined variable: action (/var/www/Yii-CMS/protected/components/BaseController.php:60)\nStack trace:\n#0 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(278): PageController->runAction()\n#1 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(257): PageController->runActionWithFilters()\n#2 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(328): PageController->run()\n#3 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(121): CWebApplication->runController()\n#4 /var/www/Yii-CMS/protected/libs/yii/base/CApplication.php(155): CWebApplication->processRequest()\n#5 /var/www/Yii-CMS/index.php(32): CWebApplication->run()\nREQUEST_URI=/ru/page/2\nin /var/www/Yii-CMS/protected/components/BaseController.php (60)\nin /var/www/Yii-CMS/protected/components/BaseController.php (52)\nin /var/www/Yii-CMS/index.php (32)'),
+(233, 'error', 'php', '2011-10-19 17:28:35', 'Undefined variable: action (/var/www/Yii-CMS/protected/components/BaseController.php:60)\nStack trace:\n#0 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(278): PageController->runAction()\n#1 /var/www/Yii-CMS/protected/libs/yii/web/CController.php(257): PageController->runActionWithFilters()\n#2 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(328): PageController->run()\n#3 /var/www/Yii-CMS/protected/libs/yii/web/CWebApplication.php(121): CWebApplication->runController()\n#4 /var/www/Yii-CMS/protected/libs/yii/base/CApplication.php(155): CWebApplication->processRequest()\n#5 /var/www/Yii-CMS/index.php(32): CWebApplication->run()\nREQUEST_URI=/ru/page/2\nin /var/www/Yii-CMS/protected/components/BaseController.php (60)\nin /var/www/Yii-CMS/protected/components/BaseController.php (52)\nin /var/www/Yii-CMS/index.php (32)');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `mailer_fields`
+-- Структура таблицы `mailer_fields`
 --
 
 CREATE TABLE IF NOT EXISTS `mailer_fields` (
@@ -1315,7 +1380,7 @@ CREATE TABLE IF NOT EXISTS `mailer_fields` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=11 ;
 
 --
--- Dumping data for table `mailer_fields`
+-- Дамп данных таблицы `mailer_fields`
 --
 
 INSERT INTO `mailer_fields` (`id`, `code`, `name`, `value`) VALUES
@@ -1331,7 +1396,7 @@ INSERT INTO `mailer_fields` (`id`, `code`, `name`, `value`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `mailer_letters`
+-- Структура таблицы `mailer_letters`
 --
 
 CREATE TABLE IF NOT EXISTS `mailer_letters` (
@@ -1345,7 +1410,7 @@ CREATE TABLE IF NOT EXISTS `mailer_letters` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=6 ;
 
 --
--- Dumping data for table `mailer_letters`
+-- Дамп данных таблицы `mailer_letters`
 --
 
 INSERT INTO `mailer_letters` (`id`, `template_id`, `subject`, `text`, `date_create`) VALUES
@@ -1354,7 +1419,7 @@ INSERT INTO `mailer_letters` (`id`, `template_id`, `subject`, `text`, `date_crea
 -- --------------------------------------------------------
 
 --
--- Table structure for table `mailer_recipients`
+-- Структура таблицы `mailer_recipients`
 --
 
 CREATE TABLE IF NOT EXISTS `mailer_recipients` (
@@ -1370,7 +1435,7 @@ CREATE TABLE IF NOT EXISTS `mailer_recipients` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=11 ;
 
 --
--- Dumping data for table `mailer_recipients`
+-- Дамп данных таблицы `mailer_recipients`
 --
 
 INSERT INTO `mailer_recipients` (`id`, `letter_id`, `user_id`, `status`, `date_create`) VALUES
@@ -1380,7 +1445,7 @@ INSERT INTO `mailer_recipients` (`id`, `letter_id`, `user_id`, `status`, `date_c
 -- --------------------------------------------------------
 
 --
--- Table structure for table `mailer_templates`
+-- Структура таблицы `mailer_templates`
 --
 
 CREATE TABLE IF NOT EXISTS `mailer_templates` (
@@ -1395,14 +1460,14 @@ CREATE TABLE IF NOT EXISTS `mailer_templates` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 --
--- Dumping data for table `mailer_templates`
+-- Дамп данных таблицы `mailer_templates`
 --
 
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `mailer_templates_recipients`
+-- Структура таблицы `mailer_templates_recipients`
 --
 
 CREATE TABLE IF NOT EXISTS `mailer_templates_recipients` (
@@ -1416,14 +1481,14 @@ CREATE TABLE IF NOT EXISTS `mailer_templates_recipients` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 --
--- Dumping data for table `mailer_templates_recipients`
+-- Дамп данных таблицы `mailer_templates_recipients`
 --
 
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `menu`
+-- Структура таблицы `menu`
 --
 
 CREATE TABLE IF NOT EXISTS `menu` (
@@ -1434,7 +1499,7 @@ CREATE TABLE IF NOT EXISTS `menu` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=7 ;
 
 --
--- Dumping data for table `menu`
+-- Дамп данных таблицы `menu`
 --
 
 INSERT INTO `menu` (`id`, `name`, `is_visible`) VALUES
@@ -1443,7 +1508,7 @@ INSERT INTO `menu` (`id`, `name`, `is_visible`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `menu_links`
+-- Структура таблицы `menu_links`
 --
 
 CREATE TABLE IF NOT EXISTS `menu_links` (
@@ -1468,7 +1533,7 @@ CREATE TABLE IF NOT EXISTS `menu_links` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=14 ;
 
 --
--- Dumping data for table `menu_links`
+-- Дамп данных таблицы `menu_links`
 --
 
 INSERT INTO `menu_links` (`id`, `lang`, `parent_id`, `page_id`, `menu_id`, `title`, `url`, `user_role`, `not_user_role`, `order`, `is_visible`) VALUES
@@ -1487,33 +1552,35 @@ INSERT INTO `menu_links` (`id`, `lang`, `parent_id`, `page_id`, `menu_id`, `titl
 -- --------------------------------------------------------
 
 --
--- Table structure for table `meta_tags`
+-- Структура таблицы `meta_tags`
 --
 
 CREATE TABLE IF NOT EXISTS `meta_tags` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `object_id` int(11) unsigned DEFAULT NULL COMMENT 'ID объекта',
   `model_id` varchar(50) NOT NULL COMMENT 'Модель',
-  `tag` enum('title','description','keywords') NOT NULL COMMENT 'Тег',
-  `static_value` varchar(500) DEFAULT NULL COMMENT 'Статическое значение',
-  `dynamic_value` varchar(500) DEFAULT NULL COMMENT 'Динамическое значение',
+  `title` varchar(300) DEFAULT NULL COMMENT 'Заголовок',
+  `keywords` varchar(300) DEFAULT NULL COMMENT 'Ключевые слова',
+  `description` varchar(300) DEFAULT NULL COMMENT 'Описание',
   `date_create` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT 'Создано',
   `date_update` datetime DEFAULT NULL COMMENT 'Отредактирован',
   PRIMARY KEY (`id`),
-  UNIQUE KEY `object_id` (`object_id`,`model_id`,`tag`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+  UNIQUE KEY `object_id` (`object_id`,`model_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=8 ;
 
 --
--- Dumping data for table `meta_tags`
+-- Дамп данных таблицы `meta_tags`
 --
 
-INSERT INTO `meta_tags` (`id`, `object_id`, `model_id`, `tag`, `static_value`, `dynamic_value`, `date_create`, `date_update`) VALUES
-(1, 2, 'Page', 'title', 'Это заголовок о нас!!!!!!!!\r\n', NULL, '2011-10-09 23:13:08', NULL);
+INSERT INTO `meta_tags` (`id`, `object_id`, `model_id`, `title`, `keywords`, `description`, `date_create`, `date_update`) VALUES
+(5, 2, 'Page', '111', '3333', '222', '2011-10-19 17:25:04', NULL),
+(6, 17, 'Page', '45', '567', '67', '2011-10-19 17:25:17', NULL),
+(7, 1, 'Page', 'www', 'rtyrtyry', 'trfyhr', '2011-10-19 17:25:29', NULL);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `news`
+-- Структура таблицы `news`
 --
 
 CREATE TABLE IF NOT EXISTS `news` (
@@ -1529,10 +1596,10 @@ CREATE TABLE IF NOT EXISTS `news` (
   PRIMARY KEY (`id`),
   KEY `user_id` (`user_id`),
   KEY `lang` (`lang`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=13 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=14 ;
 
 --
--- Dumping data for table `news`
+-- Дамп данных таблицы `news`
 --
 
 INSERT INTO `news` (`id`, `lang`, `user_id`, `title`, `text`, `photo`, `state`, `date`, `date_create`) VALUES
@@ -1541,12 +1608,13 @@ INSERT INTO `news` (`id`, `lang`, `user_id`, `title`, `text`, `photo`, `state`, 
 (3, 'ru', 1, 'Microsoft выпустил Windows 8 Developer Preview', '<p>Разумеется, это не готовый продукт, поэтому будьте готовы к ошибкам, постоянным обновлениям и несовместимости программ. В общем, действуйте на свой риск.<br /><br />Если хотите получить некоторое представление о Windows 8 перед установкой, посмотрите скриншоты под катом.<br /><a></a>Разумеется, это не готовый продукт, поэтому будьте готовы к ошибкам, постоянным обновлениям и несовместимости программ. В общем, действуйте на свой риск.<br /><br />Если хотите получить некоторое представление о Windows 8 перед установкой, посмотрите скриншоты под катом.<br /><a></a><br />На конференции Microsoft продемонстрировал много устройств на Windo<strong>ws 8, в том числе планшетов:zz</strong></p>\r\n<p>&nbsp;</p>\r\n<p><strong>Разумеется, это не готовый продукт, поэтому будьте готовы к ошибкам, постоянным обновлениям и несовместимости программ. В общем, действуйте на свой риск.<br /><br />Если хотите получить некоторое представление о Windows 8 перед установкой, посмотрите скриншоты под катом.<br /><a></a><br />На конференции Microsoft продемонстрировал много устройств на Windo<strong>ws 8, в том числе планшетов:zz</strong></strong></p>\r\n<p>&nbsp;</p>\r\n<p><strong><strong>Разумеется, это не готовый продукт, поэтому будьте готовы к ошибкам, постоянным обновлениям и несовместимости программ. В общем, действуйте на свой риск.<br /><br />Если хотите получить некоторое представление о Windows 8 перед установкой, посмотрите скриншоты под катом.<br /><a></a><br />На конференции Microsoft продемонстрировал много устройств на Windo<strong>ws 8, в том числе планшетов:zz</strong><br /></strong></strong></p>\r\n<p>На конференции Microsoft продемонстрировал много устройств на Windo<strong>ws 8, в том числе планшетов:zz</strong></p>', '328a76e70961ee6f64165f802d281e09.jpg', 'active', '2011-09-14', '0000-00-00 00:00:00'),
 (4, 'en', 1, 'Intel brandishes first Google Android tablet', '<p>SAN FRANCISCO--Intel hauled out its first\r\n<a href="http://www.cnet.com/android-atlas/">Android</a>\r\n<a href="http://reviews.cnet.com/tablets/">tablet</a>\r\n running on "Medfield," an upcoming Atom chip for smartphones and \r\ntablets, while two executives also chatted with CNET about their \r\nrelationship with Google, all at Intel''s developer conference today. </p>\r\n<p>The Medfield Atom chip is one of Intel''s most power-efficient chip \r\ndesigns--a strict requirement for tablets and smartphones. It contains a\r\n single processing core--as opposed to more power-hungry dual-core Atom \r\nchips used in Netbooks--and will be available in devices in the first \r\nhalf of 2012. </p>\r\n<p>The tablet that Intel showed today (see photo below) is a so-called \r\nreference design that the company will supply to tablet makers that \r\nwould use it as a template for their own product. </p>\r\n<p>Importantly, Intel-based tablets and smartphones will be targeted at \r\nGoogle''s Android software, not Intel''s internal MeeGo operating system. \r\nThe latter has been relegated to automotive and industrial applications \r\nmostly and is no longer seen as a promising operating system for \r\nconsumer devices. To drive this point home, Intel reaffirmed its \r\nrelationship with Google today. </p>\r\n<p>CNET sat down briefly with two Intel phone executives to talk about \r\nthe relationship. The reaffirmation of the relationship is about \r\n"optimizing Intel for the Android platform for phone and for tablets," \r\nsaid Mike Bell, co-general manager of the phone division. "So, as a \r\n[device maker] you''ll be able to go out and build a device with the full\r\n blessing and backing of Intel and Google," he said. </p>\r\n<p>Intel has done an about-face of sorts. Its phone efforts had focused \r\nheavily on Nokia until that company made a dramatic switch to \r\nMicrosoft''s Windows phone platform. "We were very focused on Nokia. Mike\r\n and I took over in April and got the company very focused on the \r\nAndroid ecosystem," said Dave Whalen, the other co-manager of the phone \r\ndivision. </p><div><br />Read more: <a href="http://news.cnet.com/8301-13924_3-20105608-64/intel-brandishes-first-google-android-tablet/#ixzz1Xw5pQIsr">http://news.cnet.com/8301-13924_3-20105608-64/intel-brandishes-first-google-android-tablet/#ixzz1Xw5pQIsr</a><br /></div>  ', 'c142759dc89ae8e20abc642e1dd0e99c.jpg', 'active', '2011-09-14', '0000-00-00 00:00:00'),
 (5, 'en', 1, 'Windows 8 debuts at Microsoft Build (live blog)  Read more: http://news.cnet.com/8301-10805_3-20105152-75/windows-8-debuts-at-microsoft-build-live-blog/#ixzz1Xw61Mgip', '<p>A new analyst report making the rounds this morning asserts that \r\nApple''s putting the finishing touches on iOS 5, and plans to send it to \r\nits device assemblers as soon as next week. </p>\r\n<p>Analyst Ming-Chi Kuo of Concord Securities told <a href="http://www.appleinsider.com/articles/11/09/12/apple_to_release_ios_5_gm_to_assemblers_during_week_of_sept_23.html">AppleInsider</a> and <a href="http://www.macrumors.com/2011/09/12/apple-sending-ios-5-to-iphone-assemblers-at-end-of-september-no-sign-of-redesigned-iphone-5/">MacRumors</a>\r\n today that Apple should be delivering the golden master version of iOS 5\r\n between September 23 and 30. That software will then be imaged onto new\r\n devices that ship out to stores.\r\n</p>\r\n<p>The timing is of special note given expectations of a new\r\n<a href="http://www.cnet.com/apple-iphone.html">iPhone </a>and\r\n<a href="http://www.cnet.com/ipod/">iPod Touch</a> \r\nin the coming weeks. Kuo suggests it will take 10 to 12 days for \r\nshipping of new iPhones and iPod Touch units with the upgraded software,\r\n placing a higher possibility that those units won''t be available until \r\nthe second week of October. </p>\r\n<p>Apple released the latest beta version of its iOS 5 system software \r\nto developers at the tail end of August, the seventh iteration since \r\ntaking the wraps off the software at its Worldwide Developers Conference\r\n in June. So far, Apple has gone through a lengthier test process than \r\nusual, releasing a new beta of the software every few weeks ahead of the\r\n golden master, which represents the version the public gets: </p><div><br />Read more: <a href="http://news.cnet.com/8301-27076_3-20104888-248/ios-5-gold-master-expected-next-week-report-says/#ixzz1Xw6AsG9Q">http://news.cnet.com/8301-27076_3-20104888-248/ios-5-gold-master-expected-next-week-report-says/#ixzz1Xw6AsG9Q</a><br /></div>    ', '9bfe8a178df245ee90a2b5d62bfe682b.jpg', 'active', '2011-09-14', '0000-00-00 00:00:00'),
-(6, 'en', 1, 'Google Street View''s naked lady', '<p>It is well accepted that, if there were commercial gain involved, \r\nGoogle might not be averse to peering inside the most intimate parts of \r\nyour life.</p>\r\n<p>However, sometimes the company manages to cast its gaze without even realizing just how close to you it is.</p>\r\n<p>I am sure some will be grateful to <a href="http://www.thesmokinggun.com/buster/google/google-street-view-naked-woman-094672">the always generous Smoking Gun</a>\r\n for leading them (in a SFW way) to a street in Miami, where a woman is \r\nstanding outside her front door naked. (The story of these interesting \r\npixels was originally broken by the <a href="http://randompixels.blogspot.com/2011/09/stay-classy-miami.html">Random Pixels blog</a>) </p>\r\n<p>Oh, of course it''s on Google Street View. Where else would you find truly unguarded moments, like <a href="http://news.cnet.com/8301-17852_3-20013500-71.html">a 10-year-old playing dead</a> or, indeed, <a href="http://news.cnet.com/8301-17852_3-20023487-71.html">a naked man in an open car trunk</a>?</p><p>In the Miami case, it appears the lady may have spotted Google''s \r\nmarauding recording vehicle, for in a subsequent shot on the site she \r\nattempts to cover up.</p>\r\n<p>The nude pose was still up in all its glory last night. However, this\r\n morning it''s blurred. What remains is merely a shot of her house and \r\nthe blurry image of a naked ghost.</p>\r\n<p>There will be those who will wonder what the naked lady might have \r\nbeen doing outside her house in a clothing-optional state. The obvious \r\nanswer would be that Miami is very hot. In this case, the naked lady \r\nappeared to be washing. Though this might have merely been a scene from \r\nyet another M. Night Shyamalan movie.</p>\r\n<p>Still, one can only wonder what other gems might still exist on a \r\nservice that, with its real-time captures of a microcosm of the world, \r\ntells us how people really spend their days. </p>  ', '22285438321c76a76dc925206f5dd5bf.png', 'active', '2011-09-14', '0000-00-00 00:00:00');
+(6, 'en', 1, 'Google Street View''s naked lady', '<p>It is well accepted that, if there were commercial gain involved, \r\nGoogle might not be averse to peering inside the most intimate parts of \r\nyour life.</p>\r\n<p>However, sometimes the company manages to cast its gaze without even realizing just how close to you it is.</p>\r\n<p>I am sure some will be grateful to <a href="http://www.thesmokinggun.com/buster/google/google-street-view-naked-woman-094672">the always generous Smoking Gun</a>\r\n for leading them (in a SFW way) to a street in Miami, where a woman is \r\nstanding outside her front door naked. (The story of these interesting \r\npixels was originally broken by the <a href="http://randompixels.blogspot.com/2011/09/stay-classy-miami.html">Random Pixels blog</a>) </p>\r\n<p>Oh, of course it''s on Google Street View. Where else would you find truly unguarded moments, like <a href="http://news.cnet.com/8301-17852_3-20013500-71.html">a 10-year-old playing dead</a> or, indeed, <a href="http://news.cnet.com/8301-17852_3-20023487-71.html">a naked man in an open car trunk</a>?</p><p>In the Miami case, it appears the lady may have spotted Google''s \r\nmarauding recording vehicle, for in a subsequent shot on the site she \r\nattempts to cover up.</p>\r\n<p>The nude pose was still up in all its glory last night. However, this\r\n morning it''s blurred. What remains is merely a shot of her house and \r\nthe blurry image of a naked ghost.</p>\r\n<p>There will be those who will wonder what the naked lady might have \r\nbeen doing outside her house in a clothing-optional state. The obvious \r\nanswer would be that Miami is very hot. In this case, the naked lady \r\nappeared to be washing. Though this might have merely been a scene from \r\nyet another M. Night Shyamalan movie.</p>\r\n<p>Still, one can only wonder what other gems might still exist on a \r\nservice that, with its real-time captures of a microcosm of the world, \r\ntells us how people really spend their days. </p>  ', '22285438321c76a76dc925206f5dd5bf.png', 'active', '2011-09-14', '0000-00-00 00:00:00'),
+(13, 'ru', 1, 'www', '<p>ddd</p>', NULL, 'active', '2011-10-17', '2011-10-17 19:53:24');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pages`
+-- Структура таблицы `pages`
 --
 
 CREATE TABLE IF NOT EXISTS `pages` (
@@ -1559,22 +1627,23 @@ CREATE TABLE IF NOT EXISTS `pages` (
   `date_create` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT 'Создана',
   PRIMARY KEY (`id`),
   KEY `lang` (`lang`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=18 ;
 
 --
--- Dumping data for table `pages`
+-- Дамп данных таблицы `pages`
 --
 
 INSERT INTO `pages` (`id`, `lang`, `title`, `url`, `text`, `is_published`, `date_create`) VALUES
-(1, 'ru', 'Главная страница', '/', 'Yii — это высокоэффективный основанный на компонентной структуре PHP-фреймворк для\r\n    разработки масштабных веб-приложений. Он позволяет максимально применить концепцию повторного\r\n    использования кода и может существенно ускорить процесс веб-разработки. Название Yii\r\n    (произносится как Yee или [ji:]) означает простой (easy), эффективный (efficient) и расширяемый\r\n    (extensible).    ', 1, '2011-06-25 16:23:15'),
-(2, 'ru', 'О нас', '', 'История Yii началась 1 января 2008 года, как проект по исправлению некоторых изъянов в фреймворке PRADO (победителя «<a href="http://ru.wikipedia.org/wiki/Zend_Technologies" title="Zend Technologies">Zend</a> PHP 5 coding contest»<sup><a href="http://ru.wikipedia.org/wiki/Yii#cite_note-1">[2]</a></sup>). Например, PRADO медленно обрабатывал сложные страницы, имел крутую кривую обучения и был довольно труден в настройке.<sup><a href="http://ru.wikipedia.org/wiki/Yii#cite_note-2">[3]</a></sup> В октябре 2008 года, после более 10 месяцев закрытой разработки, вышла первая <a href="http://ru.wikipedia.org/wiki/%D0%90%D0%BB%D1%8C%D1%84%D0%B0-%D0%B2%D0%B5%D1%80%D1%81%D0%B8%D1%8F" title="Альфа-версия">альфа-версия</a>. 3 декабря 2008 был выпущен Yii 1.0<sup><a href="http://ru.wikipedia.org/wiki/Yii#cite_note-about-yii-0">[1]</a></sup>    ', 1, '2011-09-10 17:11:25'),
+(1, 'ru', 'Главная страница', '/', '<p>Yii &mdash; это высокоэффективный основанный на компонентной структуре PHP-фреймворк для     разработки масштабных веб-приложений. Он позволяет максимально применить концепцию повторного     использования кода и может существенно ускорить процесс веб-разработки. Название Yii     (произносится как Yee или [ji:]) означает простой (easy), эффективный (efficient) и расширяемый     (extensible).</p>', 1, '2011-06-25 16:23:15'),
+(2, 'ru', 'О нас', '', '<p>История Yii началась 1 января 2008 года, как проект по исправлению некоторых изъянов в фреймворке PRADO (победителя &laquo;<a title="Zend Technologies" href="http://ru.wikipedia.org/wiki/Zend_Technologies">Zend</a> PHP 5 coding contest&raquo;<sup><a href="http://ru.wikipedia.org/wiki/Yii#cite_note-1">[2]</a></sup>). Например, PRADO медленно обрабатывал сложные страницы, имел крутую кривую обучения и был довольно труден в настройке.<sup><a href="http://ru.wikipedia.org/wiki/Yii#cite_note-2">[3]</a></sup> В октябре 2008 года, после более 10 месяцев закрытой разработки, вышла первая <a title="Альфа-версия" href="http://ru.wikipedia.org/wiki/%D0%90%D0%BB%D1%8C%D1%84%D0%B0-%D0%B2%D0%B5%D1%80%D1%81%D0%B8%D1%8F">альфа-версия</a>. 3 декабря 2008 был выпущен Yii 1.0<sup><a href="http://ru.wikipedia.org/wiki/Yii#cite_note-about-yii-0">[1]</a></sup></p>', 1, '2011-09-10 17:11:25'),
 (3, 'en', 'Main page', '/', '<p><strong>Yii</strong> is pronounced as Yee or [ji:], and is an acroynym for "<strong>Yes It Is!</strong>". This is often the accurate, and most concise response to inquires from those new to Yii: <br />Is it fast? ... Is it secure? ... Is it professional? ... Is it right for my next project? ... <strong>Yes, it is!</strong></p>\r\n  <p>Yii is a free, open-source Web application development framework written in PHP5 that promotes clean, <a href="http://en.wikipedia.org/wiki/Don%27t_repeat_yourself" rel="nofollow">DRY</a>\r\n design and encourages rapid development. It works to streamline your \r\napplication development and helps to ensure an extremely efficient, \r\nextensible, and maintainable end product.</p>\r\n  <p>Being extremely performance optimized, Yii is a perfect choice for \r\nany sized project. However, it has been built with sophisticated, \r\nenterprise applications in mind. You have full control over the \r\nconfiguration from head-to-toe (presentation-to-persistence) to conform \r\nto your enterprise development guidelines. It comes packaged with tools \r\nto help test and debug your application, and has clear and comprehensive\r\n documentation.</p>\r\n  <p>To learn more about what Yii brings to the table, check out the <a href="http://www.yiiframework.com/features/">features section</a>.</p>  ', 1, '2011-09-11 00:00:53'),
-(4, 'en', 'About us', '', '<p>Yii is the brainchild of its founder, Qiang Xue, who started the Yii project on January 1, 2008. Qiang previously developed and\r\n  maintained the <a href="http://www.pradosoft.com/" rel="nofollow">Prado</a>\r\n framework. The years of experience gained and developer feedback \r\ngathered from that project solidified the need for an extremely fast, \r\nsecure and professional framework that is tailor-made to meet the \r\nexpectations of Web 2.0 application development. On December 3, 2008, \r\nafter nearly one year''s\r\n  development, Yii 1.0 was formally released to the public.</p>\r\n  <p>Its extremely impressive performance metrics when compared to other \r\nPHP-based frameworks immediately drew very positive attention and its \r\npopularity and adoption continues to grow at an ever increasing rate.</p>    ', 1, '2011-09-11 00:33:10');
+(4, 'en', 'About us', '', '<p>Yii is the brainchild of its founder, Qiang Xue, who started the Yii project on January 1, 2008. Qiang previously developed and\r\n  maintained the <a href="http://www.pradosoft.com/" rel="nofollow">Prado</a>\r\n framework. The years of experience gained and developer feedback \r\ngathered from that project solidified the need for an extremely fast, \r\nsecure and professional framework that is tailor-made to meet the \r\nexpectations of Web 2.0 application development. On December 3, 2008, \r\nafter nearly one year''s\r\n  development, Yii 1.0 was formally released to the public.</p>\r\n  <p>Its extremely impressive performance metrics when compared to other \r\nPHP-based frameworks immediately drew very positive attention and its \r\npopularity and adoption continues to grow at an ever increasing rate.</p>    ', 1, '2011-09-11 00:33:10'),
+(17, 'ru', 'ццц', '', '', 0, '2011-10-19 16:39:21');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pages_blocks`
+-- Структура таблицы `pages_blocks`
 --
 
 CREATE TABLE IF NOT EXISTS `pages_blocks` (
@@ -1591,7 +1660,7 @@ CREATE TABLE IF NOT EXISTS `pages_blocks` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=6 ;
 
 --
--- Dumping data for table `pages_blocks`
+-- Дамп данных таблицы `pages_blocks`
 --
 
 INSERT INTO `pages_blocks` (`id`, `lang`, `title`, `name`, `text`, `date_create`) VALUES
@@ -1603,7 +1672,7 @@ INSERT INTO `pages_blocks` (`id`, `lang`, `title`, `name`, `text`, `date_create`
 -- --------------------------------------------------------
 
 --
--- Table structure for table `settings`
+-- Структура таблицы `settings`
 --
 
 CREATE TABLE IF NOT EXISTS `settings` (
@@ -1620,7 +1689,7 @@ CREATE TABLE IF NOT EXISTS `settings` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=25 ;
 
 --
--- Dumping data for table `settings`
+-- Дамп данных таблицы `settings`
 --
 
 INSERT INTO `settings` (`id`, `module_id`, `code`, `name`, `value`, `element`, `hidden`) VALUES
@@ -1646,7 +1715,7 @@ INSERT INTO `settings` (`id`, `module_id`, `code`, `name`, `value`, `element`, `
 -- --------------------------------------------------------
 
 --
--- Table structure for table `site_actions`
+-- Структура таблицы `site_actions`
 --
 
 CREATE TABLE IF NOT EXISTS `site_actions` (
@@ -1660,10 +1729,10 @@ CREATE TABLE IF NOT EXISTS `site_actions` (
   `date_create` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT 'Дата',
   PRIMARY KEY (`id`),
   KEY `user_id` (`user_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=8058 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=8766 ;
 
 --
--- Dumping data for table `site_actions`
+-- Дамп данных таблицы `site_actions`
 --
 
 INSERT INTO `site_actions` (`id`, `user_id`, `object_id`, `title`, `module`, `controller`, `action`, `date_create`) VALUES
@@ -9740,12 +9809,722 @@ INSERT INTO `site_actions` (`id`, `user_id`, `object_id`, `title`, `module`, `co
 (8054, 1, 1, 'Просмотр мета-тега', 'main', 'metaTagAdmin', 'view', '2011-10-10 00:14:00'),
 (8055, 1, 2, 'Просмотр страницы', 'content', 'page', 'view', '2011-10-10 00:14:05'),
 (8056, 1, NULL, 'Управление мета-тегами', 'main', 'metaTagAdmin', 'manage', '2011-10-10 00:14:31'),
-(8057, 1, 2, 'Просмотр страницы', 'content', 'page', 'view', '2011-10-10 00:24:01');
+(8057, 1, 2, 'Просмотр страницы', 'content', 'page', 'view', '2011-10-10 00:24:01'),
+(8058, 1, NULL, 'Управление мета-тегами', 'main', 'metaTagAdmin', 'manage', '2011-10-17 15:57:39'),
+(8059, 1, NULL, 'Управление мета-тегами', 'main', 'metaTagAdmin', 'manage', '2011-10-17 16:04:35'),
+(8060, 1, NULL, 'Управление мета-тегами', 'main', 'metaTagAdmin', 'manage', '2011-10-17 16:04:36'),
+(8061, 1, NULL, 'Управление мета-тегами', 'main', 'metaTagAdmin', 'manage', '2011-10-17 16:04:39'),
+(8062, 1, NULL, 'Управление мета-тегами', 'main', 'metaTagAdmin', 'manage', '2011-10-17 16:04:48'),
+(8063, 1, NULL, 'Управление мета-тегами', 'main', 'metaTagAdmin', 'manage', '2011-10-17 16:04:51'),
+(8064, 1, NULL, 'Управление мета-тегами', 'main', 'metaTagAdmin', 'manage', '2011-10-17 16:05:24'),
+(8065, 1, NULL, 'Управление мета-тегами', 'main', 'metaTagAdmin', 'manage', '2011-10-17 16:06:03'),
+(8066, 1, NULL, 'Управление мета-тегами', 'main', 'metaTagAdmin', 'manage', '2011-10-17 16:07:20'),
+(8067, 1, NULL, 'Создание мета-тега', 'main', 'metaTagAdmin', 'create', '2011-10-17 16:07:26'),
+(8068, 1, NULL, 'Создание мета-тега', 'main', 'metaTagAdmin', 'create', '2011-10-17 16:08:13'),
+(8069, 1, NULL, 'Создание мета-тега', 'main', 'metaTagAdmin', 'create', '2011-10-17 16:08:32'),
+(8070, 1, NULL, 'Ошибка на странице', 'main', 'main', 'error', '2011-10-17 16:08:33'),
+(8071, 1, NULL, 'Создание мета-тега', 'main', 'metaTagAdmin', 'create', '2011-10-17 16:08:48'),
+(8072, 1, NULL, 'Ошибка на странице', 'main', 'main', 'error', '2011-10-17 16:08:48'),
+(8073, 1, NULL, 'Создание мета-тега', 'main', 'metaTagAdmin', 'create', '2011-10-17 16:09:10'),
+(8074, 1, NULL, 'Ошибка на странице', 'main', 'main', 'error', '2011-10-17 16:09:10'),
+(8075, 1, NULL, 'Создание мета-тега', 'main', 'metaTagAdmin', 'create', '2011-10-17 16:10:02'),
+(8076, 1, NULL, 'Создание мета-тега', 'main', 'metaTagAdmin', 'create', '2011-10-17 16:12:29'),
+(8077, 1, NULL, 'Получение объектов модели', 'main', 'metaTagAdmin', 'getModelObjects', '2011-10-17 16:12:32'),
+(8078, 1, NULL, 'Управление мета-тегами', 'main', 'metaTagAdmin', 'manage', '2011-10-17 16:12:50'),
+(8079, 1, NULL, 'Управление мета-тегами', 'main', 'metaTagAdmin', 'manage', '2011-10-17 16:13:04'),
+(8080, 1, NULL, 'Создание мета-тега', 'main', 'metaTagAdmin', 'create', '2011-10-17 16:23:25'),
+(8081, 1, NULL, 'Получение объектов модели', 'main', 'metaTagAdmin', 'getModelObjects', '2011-10-17 16:23:28'),
+(8082, 1, NULL, 'Создание мета-тега', 'main', 'metaTagAdmin', 'create', '2011-10-17 16:23:32'),
+(8083, 1, NULL, 'Получение объектов модели', 'main', 'metaTagAdmin', 'getModelObjects', '2011-10-17 16:23:37'),
+(8084, 1, NULL, 'Получение объектов модели', 'main', 'metaTagAdmin', 'getModelObjects', '2011-10-17 16:24:25'),
+(8085, 1, NULL, 'Получение объектов модели', 'main', 'metaTagAdmin', 'getModelObjects', '2011-10-17 16:24:36'),
+(8086, 1, NULL, 'Управление страницами', 'content', 'pageAdmin', 'manage', '2011-10-17 16:24:43'),
+(8087, 1, NULL, 'Получение объектов модели', 'main', 'metaTagAdmin', 'getModelObjects', '2011-10-17 16:27:45'),
+(8088, 1, NULL, 'Получение объектов модели', 'main', 'metaTagAdmin', 'getModelObjects', '2011-10-17 16:27:48'),
+(8089, 1, NULL, 'Создание мета-тега', 'main', 'metaTagAdmin', 'create', '2011-10-17 16:29:13'),
+(8090, 1, NULL, 'Получение объектов модели', 'main', 'metaTagAdmin', 'getModelObjects', '2011-10-17 16:29:16'),
+(8091, 1, NULL, 'Создание мета-тега', 'main', 'metaTagAdmin', 'create', '2011-10-17 16:29:34'),
+(8092, 1, NULL, 'Получение объектов модели', 'main', 'metaTagAdmin', 'getModelObjects', '2011-10-17 16:29:36'),
+(8093, 1, NULL, 'Создание мета-тега', 'main', 'metaTagAdmin', 'create', '2011-10-17 16:34:02'),
+(8094, 1, NULL, 'Получение объектов модели', 'main', 'metaTagAdmin', 'getModelObjects', '2011-10-17 16:34:06'),
+(8095, 1, NULL, 'Получение данных тега', 'main', 'metaTagAdmin', 'GetMetaTagData', '2011-10-17 16:34:09'),
+(8096, 1, NULL, 'Получение данных тега', 'main', 'metaTagAdmin', 'GetMetaTagData', '2011-10-17 16:34:13'),
+(8097, 1, NULL, 'Получение данных тега', 'main', 'metaTagAdmin', 'GetMetaTagData', '2011-10-17 16:34:27'),
+(8098, 1, NULL, 'Получение данных тега', 'main', 'metaTagAdmin', 'GetMetaTagData', '2011-10-17 16:34:30'),
+(8099, 1, NULL, 'Создание мета-тега', 'main', 'metaTagAdmin', 'create', '2011-10-17 16:35:24'),
+(8100, 1, NULL, 'Получение объектов модели', 'main', 'metaTagAdmin', 'getModelObjects', '2011-10-17 16:35:27'),
+(8101, 1, NULL, 'Получение данных тега', 'main', 'metaTagAdmin', 'GetMetaTagData', '2011-10-17 16:35:28'),
+(8102, 1, NULL, 'Получение объектов модели', 'main', 'metaTagAdmin', 'getModelObjects', '2011-10-17 16:35:44'),
+(8103, 1, NULL, 'Получение данных тега', 'main', 'metaTagAdmin', 'GetMetaTagData', '2011-10-17 16:35:47'),
+(8104, 1, NULL, 'Получение данных тега', 'main', 'metaTagAdmin', 'GetMetaTagData', '2011-10-17 16:35:50'),
+(8105, 1, NULL, 'Создание мета-тега', 'main', 'metaTagAdmin', 'create', '2011-10-17 16:46:21'),
+(8106, 1, NULL, 'Создание мета-тега', 'main', 'metaTagAdmin', 'create', '2011-10-17 16:47:31'),
+(8107, 1, NULL, 'Получение объектов модели', 'main', 'metaTagAdmin', 'getModelObjects', '2011-10-17 16:47:37'),
+(8108, 1, NULL, 'Создание мета-тега', 'main', 'metaTagAdmin', 'create', '2011-10-17 16:48:35'),
+(8109, 1, NULL, 'Создание мета-тега', 'main', 'metaTagAdmin', 'create', '2011-10-17 16:49:11'),
+(8110, 1, NULL, 'Получение объектов модели', 'main', 'metaTagAdmin', 'getModelObjects', '2011-10-17 16:49:21'),
+(8111, 1, NULL, 'Получение данных тега', 'main', 'metaTagAdmin', 'GetMetaTagData', '2011-10-17 16:49:23'),
+(8112, 1, NULL, 'Управление страницами', 'content', 'pageAdmin', 'manage', '2011-10-17 17:05:42'),
+(8113, 1, NULL, 'Создание мета-тега', 'main', 'metaTagAdmin', 'create', '2011-10-17 17:05:44'),
+(8114, 1, NULL, 'Получение объектов модели', 'main', 'metaTagAdmin', 'getModelObjects', '2011-10-17 17:05:48'),
+(8115, 1, NULL, 'Создание мета-тега', 'main', 'metaTagAdmin', 'create', '2011-10-17 17:06:42'),
+(8116, 1, NULL, 'Создание мета-тега', 'main', 'metaTagAdmin', 'create', '2011-10-17 17:27:03'),
+(8117, 1, NULL, 'Получение объектов модели', 'main', 'metaTagAdmin', 'getModelObjects', '2011-10-17 17:27:07'),
+(8118, 1, NULL, 'Создание мета-тега', 'main', 'metaTagAdmin', 'create', '2011-10-17 17:27:25'),
+(8119, 1, NULL, 'Получение объектов модели', 'main', 'metaTagAdmin', 'getModelObjects', '2011-10-17 17:27:27'),
+(8120, 1, NULL, 'Создание мета-тега', 'main', 'metaTagAdmin', 'create', '2011-10-17 17:27:38'),
+(8121, 1, NULL, 'Получение объектов модели', 'main', 'metaTagAdmin', 'getModelObjects', '2011-10-17 17:27:40'),
+(8122, 1, NULL, 'Получение данных тега', 'main', 'metaTagAdmin', 'GetMetaTagData', '2011-10-17 17:27:48'),
+(8123, 1, NULL, 'Создание мета-тега', 'main', 'metaTagAdmin', 'create', '2011-10-17 17:28:14');
+INSERT INTO `site_actions` (`id`, `user_id`, `object_id`, `title`, `module`, `controller`, `action`, `date_create`) VALUES
+(8124, 1, NULL, 'Получение объектов модели', 'main', 'metaTagAdmin', 'getModelObjects', '2011-10-17 17:28:25'),
+(8125, 1, NULL, 'Получение данных тега', 'main', 'metaTagAdmin', 'GetMetaTagData', '2011-10-17 17:28:28'),
+(8126, 1, NULL, 'Получение данных тега', 'main', 'metaTagAdmin', 'GetMetaTagData', '2011-10-17 17:28:50'),
+(8127, 1, NULL, 'Получение данных тега', 'main', 'metaTagAdmin', 'GetMetaTagData', '2011-10-17 17:28:54'),
+(8128, 1, NULL, 'Получение данных тега', 'main', 'metaTagAdmin', 'GetMetaTagData', '2011-10-17 17:28:57'),
+(8129, 1, NULL, 'Создание мета-тега', 'main', 'metaTagAdmin', 'create', '2011-10-17 17:29:18'),
+(8130, 1, NULL, 'Получение объектов модели', 'main', 'metaTagAdmin', 'getModelObjects', '2011-10-17 17:29:20'),
+(8131, 1, NULL, 'Получение данных тега', 'main', 'metaTagAdmin', 'GetMetaTagData', '2011-10-17 17:29:24'),
+(8132, 1, NULL, 'Получение данных тега', 'main', 'metaTagAdmin', 'GetMetaTagData', '2011-10-17 17:29:35'),
+(8133, 1, NULL, 'Создание мета-тега', 'main', 'metaTagAdmin', 'create', '2011-10-17 17:31:32'),
+(8134, 1, NULL, 'Создание мета-тега', 'main', 'metaTagAdmin', 'create', '2011-10-17 17:31:42'),
+(8135, 1, NULL, 'Создание мета-тега', 'main', 'metaTagAdmin', 'create', '2011-10-17 17:31:51'),
+(8136, 1, NULL, 'Создание мета-тега', 'main', 'metaTagAdmin', 'create', '2011-10-17 17:32:03'),
+(8137, 1, NULL, 'Получение объектов модели', 'main', 'metaTagAdmin', 'getModelObjects', '2011-10-17 17:32:07'),
+(8138, 1, NULL, 'Получение данных тега', 'main', 'metaTagAdmin', 'GetMetaTagData', '2011-10-17 17:32:10'),
+(8139, 1, NULL, 'Получение данных тега', 'main', 'metaTagAdmin', 'GetMetaTagData', '2011-10-17 17:32:13'),
+(8140, 1, NULL, 'Создание мета-тега', 'main', 'metaTagAdmin', 'create', '2011-10-17 17:32:38'),
+(8141, 1, NULL, 'Получение объектов модели', 'main', 'metaTagAdmin', 'getModelObjects', '2011-10-17 17:32:42'),
+(8142, 1, NULL, 'Получение данных тега', 'main', 'metaTagAdmin', 'GetMetaTagData', '2011-10-17 17:32:46'),
+(8143, 1, NULL, 'Получение данных тега', 'main', 'metaTagAdmin', 'GetMetaTagData', '2011-10-17 17:32:47'),
+(8144, 1, NULL, 'Получение данных тега', 'main', 'metaTagAdmin', 'GetMetaTagData', '2011-10-17 17:32:50'),
+(8145, 1, NULL, 'Получение данных тега', 'main', 'metaTagAdmin', 'GetMetaTagData', '2011-10-17 17:32:53'),
+(8146, 1, NULL, 'Создание мета-тега', 'main', 'metaTagAdmin', 'create', '2011-10-17 17:33:20'),
+(8147, 1, NULL, 'Создание мета-тега', 'main', 'metaTagAdmin', 'create', '2011-10-17 17:33:26'),
+(8148, 1, NULL, 'Создание мета-тега', 'main', 'metaTagAdmin', 'create', '2011-10-17 17:33:28'),
+(8149, 1, NULL, 'Создание мета-тега', 'main', 'metaTagAdmin', 'create', '2011-10-17 17:36:21'),
+(8150, 1, NULL, 'Получение объектов модели', 'main', 'metaTagAdmin', 'getModelObjects', '2011-10-17 17:36:25'),
+(8151, 1, NULL, 'Получение данных тега', 'main', 'metaTagAdmin', 'GetMetaTagData', '2011-10-17 17:36:30'),
+(8152, 1, NULL, 'Получение данных тега', 'main', 'metaTagAdmin', 'GetMetaTagData', '2011-10-17 17:36:33'),
+(8153, 1, NULL, 'Создание мета-тега', 'main', 'metaTagAdmin', 'create', '2011-10-17 17:37:31'),
+(8154, 1, NULL, 'Получение объектов модели', 'main', 'metaTagAdmin', 'getModelObjects', '2011-10-17 17:37:33'),
+(8155, 1, NULL, 'Получение данных тега', 'main', 'metaTagAdmin', 'GetMetaTagData', '2011-10-17 17:37:35'),
+(8156, 1, NULL, 'Получение данных тега', 'main', 'metaTagAdmin', 'GetMetaTagData', '2011-10-17 17:37:38'),
+(8157, 1, NULL, 'Создание мета-тега', 'main', 'metaTagAdmin', 'create', '2011-10-17 17:38:11'),
+(8158, 1, NULL, 'Получение объектов модели', 'main', 'metaTagAdmin', 'getModelObjects', '2011-10-17 17:38:14'),
+(8159, 1, NULL, 'Получение данных тега', 'main', 'metaTagAdmin', 'GetMetaTagData', '2011-10-17 17:38:17'),
+(8160, 1, NULL, 'Создание мета-тега', 'main', 'metaTagAdmin', 'create', '2011-10-17 17:39:41'),
+(8161, 1, NULL, 'Получение объектов модели', 'main', 'metaTagAdmin', 'getModelObjects', '2011-10-17 17:39:42'),
+(8162, 1, NULL, 'Получение данных тега', 'main', 'metaTagAdmin', 'GetMetaTagData', '2011-10-17 17:39:46'),
+(8163, 1, NULL, 'Получение данных тега', 'main', 'metaTagAdmin', 'GetMetaTagData', '2011-10-17 17:39:53'),
+(8164, 1, NULL, 'Получение данных тега', 'main', 'metaTagAdmin', 'GetMetaTagData', '2011-10-17 17:39:54'),
+(8165, 1, NULL, 'Получение данных тега', 'main', 'metaTagAdmin', 'GetMetaTagData', '2011-10-17 17:39:55'),
+(8166, 1, NULL, 'Получение данных тега', 'main', 'metaTagAdmin', 'GetMetaTagData', '2011-10-17 17:39:56'),
+(8167, 1, NULL, 'Получение объектов модели', 'main', 'metaTagAdmin', 'getModelObjects', '2011-10-17 17:39:59'),
+(8168, 1, NULL, 'Получение объектов модели', 'main', 'metaTagAdmin', 'getModelObjects', '2011-10-17 17:40:26'),
+(8169, 1, NULL, 'Создание мета-тега', 'main', 'metaTagAdmin', 'create', '2011-10-17 17:40:51'),
+(8170, 1, NULL, 'Получение объектов модели', 'main', 'metaTagAdmin', 'getModelObjects', '2011-10-17 17:40:53'),
+(8171, 1, NULL, 'Получение данных тега', 'main', 'metaTagAdmin', 'GetMetaTagData', '2011-10-17 17:40:55'),
+(8172, 1, NULL, 'Получение объектов модели', 'main', 'metaTagAdmin', 'getModelObjects', '2011-10-17 17:40:58'),
+(8173, 1, NULL, 'Получение данных тега', 'main', 'metaTagAdmin', 'GetMetaTagData', '2011-10-17 17:41:00'),
+(8174, 1, NULL, 'Создание мета-тега', 'main', 'metaTagAdmin', 'create', '2011-10-17 17:41:02'),
+(8175, 1, NULL, 'Создание мета-тега', 'main', 'metaTagAdmin', 'create', '2011-10-17 17:42:10'),
+(8176, 1, 1, 'Просмотр мета-тега', 'main', 'metaTagAdmin', 'view', '2011-10-17 17:42:10'),
+(8177, 1, 1, 'Просмотр мета-тега', 'main', 'metaTagAdmin', 'view', '2011-10-17 17:42:37'),
+(8178, 1, NULL, 'Управление мета-тегами', 'main', 'metaTagAdmin', 'manage', '2011-10-17 17:42:42'),
+(8179, 1, NULL, 'Создание мета-тега', 'main', 'metaTagAdmin', 'create', '2011-10-17 17:42:45'),
+(8180, 1, NULL, 'Получение объектов модели', 'main', 'metaTagAdmin', 'getModelObjects', '2011-10-17 17:42:49'),
+(8181, 1, NULL, 'Получение данных тега', 'main', 'metaTagAdmin', 'GetMetaTagData', '2011-10-17 17:42:51'),
+(8182, 1, NULL, 'Создание мета-тега', 'main', 'metaTagAdmin', 'create', '2011-10-17 17:43:03'),
+(8183, 1, 1, 'Просмотр мета-тега', 'main', 'metaTagAdmin', 'view', '2011-10-17 17:43:03'),
+(8184, 1, NULL, 'Управление мета-тегами', 'main', 'metaTagAdmin', 'manage', '2011-10-17 17:43:07'),
+(8185, 1, NULL, 'Создание мета-тега', 'main', 'metaTagAdmin', 'create', '2011-10-17 17:43:10'),
+(8186, 1, NULL, 'Управление мета-тегами', 'main', 'metaTagAdmin', 'manage', '2011-10-17 17:43:26'),
+(8187, 1, NULL, 'Создание мета-тега', 'main', 'metaTagAdmin', 'create', '2011-10-17 17:43:28'),
+(8188, 1, NULL, 'Создание мета-тега', 'main', 'metaTagAdmin', 'create', '2011-10-17 17:43:38'),
+(8189, 1, NULL, 'Управление мета-тегами', 'main', 'metaTagAdmin', 'manage', '2011-10-17 17:43:39'),
+(8190, 1, 1, 'Редактирование мета-тега', 'main', 'metaTagAdmin', 'update', '2011-10-17 17:43:46'),
+(8191, 1, NULL, 'Получение объектов модели', 'main', 'metaTagAdmin', 'getModelObjects', '2011-10-17 17:43:47'),
+(8192, 1, NULL, 'Управление мета-тегами', 'main', 'metaTagAdmin', 'manage', '2011-10-17 17:43:51'),
+(8193, 1, NULL, 'Создание мета-тега', 'main', 'metaTagAdmin', 'create', '2011-10-17 17:43:53'),
+(8194, 1, NULL, 'Получение объектов модели', 'main', 'metaTagAdmin', 'getModelObjects', '2011-10-17 17:43:56'),
+(8195, 1, NULL, 'Получение данных тега', 'main', 'metaTagAdmin', 'GetMetaTagData', '2011-10-17 17:44:00'),
+(8196, 1, NULL, 'Получение данных тега', 'main', 'metaTagAdmin', 'GetMetaTagData', '2011-10-17 17:44:02'),
+(8197, 1, NULL, 'Создание мета-тега', 'main', 'metaTagAdmin', 'create', '2011-10-17 17:44:24'),
+(8198, 1, NULL, 'Создание мета-тега', 'main', 'metaTagAdmin', 'create', '2011-10-17 17:45:00'),
+(8199, 1, NULL, 'Создание мета-тега', 'main', 'metaTagAdmin', 'create', '2011-10-17 17:45:07'),
+(8200, 1, NULL, 'Создание мета-тега', 'main', 'metaTagAdmin', 'create', '2011-10-17 17:45:17'),
+(8201, 1, NULL, 'Создание мета-тега', 'main', 'metaTagAdmin', 'create', '2011-10-17 17:45:48'),
+(8202, 1, NULL, 'Создание мета-тега', 'main', 'metaTagAdmin', 'create', '2011-10-17 17:45:54'),
+(8203, 1, 2, 'Просмотр мета-тега', 'main', 'metaTagAdmin', 'view', '2011-10-17 17:45:54'),
+(8204, 1, 2, 'Просмотр мета-тега', 'main', 'metaTagAdmin', 'view', '2011-10-17 17:46:52'),
+(8205, 1, NULL, 'Управление мета-тегами', 'main', 'metaTagAdmin', 'manage', '2011-10-17 17:46:53'),
+(8206, 1, 1, 'Редактирование мета-тега', 'main', 'metaTagAdmin', 'update', '2011-10-17 17:46:58'),
+(8207, 1, NULL, 'Получение объектов модели', 'main', 'metaTagAdmin', 'getModelObjects', '2011-10-17 17:46:59'),
+(8208, 1, 1, 'Редактирование мета-тега', 'main', 'metaTagAdmin', 'update', '2011-10-17 17:47:12'),
+(8209, 1, NULL, 'Получение объектов модели', 'main', 'metaTagAdmin', 'getModelObjects', '2011-10-17 17:47:14'),
+(8210, 1, 1, 'Редактирование мета-тега', 'main', 'metaTagAdmin', 'update', '2011-10-17 17:47:45'),
+(8211, 1, NULL, 'Получение объектов модели', 'main', 'metaTagAdmin', 'getModelObjects', '2011-10-17 17:47:46'),
+(8212, 1, 1, 'Редактирование мета-тега', 'main', 'metaTagAdmin', 'update', '2011-10-17 17:49:22'),
+(8213, 1, 1, 'Редактирование мета-тега', 'main', 'metaTagAdmin', 'update', '2011-10-17 17:49:30'),
+(8214, 1, NULL, 'Получение объектов модели', 'main', 'metaTagAdmin', 'getModelObjects', '2011-10-17 17:49:31'),
+(8215, 1, 1, 'Редактирование мета-тега', 'main', 'metaTagAdmin', 'update', '2011-10-17 17:49:33'),
+(8216, 1, NULL, 'Получение объектов модели', 'main', 'metaTagAdmin', 'getModelObjects', '2011-10-17 17:49:34'),
+(8217, 1, 1, 'Редактирование мета-тега', 'main', 'metaTagAdmin', 'update', '2011-10-17 17:49:56'),
+(8218, NULL, NULL, 'Авторизация', 'users', 'userAdmin', 'login', '2011-10-17 19:48:08'),
+(8219, NULL, NULL, 'Авторизация', 'users', 'userAdmin', 'login', '2011-10-17 19:49:00'),
+(8220, 1, NULL, 'Просмотр главной страницы', 'main', 'mainAdmin', 'index', '2011-10-17 19:49:01'),
+(8221, 1, NULL, 'Управление новостями', 'news', 'newsAdmin', 'manage', '2011-10-17 19:49:09'),
+(8222, 1, NULL, 'Добавление новости', 'news', 'newsAdmin', 'create', '2011-10-17 19:49:14'),
+(8223, 1, NULL, 'Добавление новости', 'news', 'newsAdmin', 'create', '2011-10-17 19:49:19'),
+(8224, 1, NULL, 'Добавление новости', 'news', 'newsAdmin', 'create', '2011-10-17 19:49:19'),
+(8225, 1, NULL, 'Добавление новости', 'news', 'newsAdmin', 'create', '2011-10-17 19:49:41'),
+(8226, 1, NULL, 'Добавление новости', 'news', 'newsAdmin', 'create', '2011-10-17 19:49:53'),
+(8227, 1, NULL, 'Добавление новости', 'news', 'newsAdmin', 'create', '2011-10-17 19:51:07'),
+(8228, 1, NULL, 'Добавление новости', 'news', 'newsAdmin', 'create', '2011-10-17 19:52:09'),
+(8229, 1, NULL, 'Добавление новости', 'news', 'newsAdmin', 'create', '2011-10-17 19:52:53'),
+(8230, 1, NULL, 'Загрузка существующих файлов', 'fileManager', 'fileManagerAdmin', 'existFiles', '2011-10-17 19:52:56'),
+(8231, 1, NULL, 'Загрузка файлов', 'fileManager', 'fileManagerAdmin', 'upload', '2011-10-17 19:53:20'),
+(8232, 1, NULL, 'Загрузка файлов', 'fileManager', 'fileManagerAdmin', 'upload', '2011-10-17 19:53:20'),
+(8233, 1, NULL, 'Загрузка файлов', 'fileManager', 'fileManagerAdmin', 'upload', '2011-10-17 19:53:20'),
+(8234, 1, NULL, 'Загрузка файлов', 'fileManager', 'fileManagerAdmin', 'upload', '2011-10-17 19:53:20'),
+(8235, 1, NULL, 'Добавление новости', 'news', 'newsAdmin', 'create', '2011-10-17 19:53:24'),
+(8236, 1, 13, 'Просмотр новости', 'news', 'newsAdmin', 'view', '2011-10-17 19:53:24'),
+(8237, 1, 13, 'Редактирование новости', 'news', 'newsAdmin', 'update', '2011-10-17 19:53:27'),
+(8238, 1, NULL, 'Загрузка существующих файлов', 'fileManager', 'fileManagerAdmin', 'existFiles', '2011-10-17 19:53:28'),
+(8239, 1, 3, 'Удаление файла', 'fileManager', 'fileManagerAdmin', 'delete', '2011-10-17 19:53:30'),
+(8240, 1, 4, 'Удаление файла', 'fileManager', 'fileManagerAdmin', 'delete', '2011-10-17 19:53:32'),
+(8241, NULL, NULL, 'Главная страница', 'content', 'page', 'main', '2011-10-19 12:20:32'),
+(8242, NULL, NULL, 'Ошибка на странице', 'main', 'main', 'error', '2011-10-19 12:20:34'),
+(8243, NULL, NULL, 'Ошибка на странице', 'main', 'main', 'error', '2011-10-19 12:20:34'),
+(8244, NULL, NULL, 'Авторизация', 'users', 'userAdmin', 'login', '2011-10-19 12:20:37'),
+(8245, NULL, NULL, 'Авторизация', 'users', 'userAdmin', 'login', '2011-10-19 12:20:41'),
+(8246, 1, NULL, 'Просмотр главной страницы', 'main', 'mainAdmin', 'index', '2011-10-19 12:20:41'),
+(8247, 1, NULL, 'Управление страницами', 'content', 'pageAdmin', 'manage', '2011-10-19 12:20:45'),
+(8248, 1, 1, 'Редактирование страницы', 'content', 'pageAdmin', 'update', '2011-10-19 12:20:48'),
+(8249, 1, 1, 'Редактирование страницы', 'content', 'pageAdmin', 'update', '2011-10-19 12:22:18'),
+(8250, 1, 1, 'Редактирование страницы', 'content', 'pageAdmin', 'update', '2011-10-19 12:23:02'),
+(8251, 1, 1, 'Редактирование страницы', 'content', 'pageAdmin', 'update', '2011-10-19 12:27:31'),
+(8252, 1, NULL, 'Ошибка на странице', 'main', 'main', 'error', '2011-10-19 12:28:32'),
+(8253, 1, NULL, 'Главная страница', 'content', 'page', 'main', '2011-10-19 12:29:10'),
+(8254, 1, NULL, 'Просмотр главной страницы', 'main', 'mainAdmin', 'index', '2011-10-19 12:52:06'),
+(8255, 1, NULL, 'Управление страницами', 'content', 'pageAdmin', 'manage', '2011-10-19 12:57:50'),
+(8256, 1, 1, 'Редактирование страницы', 'content', 'pageAdmin', 'update', '2011-10-19 12:57:53'),
+(8257, 1, 1, 'Редактирование страницы', 'content', 'pageAdmin', 'update', '2011-10-19 12:58:56'),
+(8258, 1, 1, 'Редактирование страницы', 'content', 'pageAdmin', 'update', '2011-10-19 13:00:13'),
+(8259, 1, 1, 'Редактирование страницы', 'content', 'pageAdmin', 'update', '2011-10-19 13:00:46'),
+(8260, 1, 1, 'Редактирование страницы', 'content', 'pageAdmin', 'update', '2011-10-19 13:00:58'),
+(8261, 1, 1, 'Редактирование страницы', 'content', 'pageAdmin', 'update', '2011-10-19 13:01:30'),
+(8262, 1, 1, 'Редактирование страницы', 'content', 'pageAdmin', 'update', '2011-10-19 13:05:40'),
+(8263, 1, 1, 'Редактирование страницы', 'content', 'pageAdmin', 'update', '2011-10-19 13:06:05'),
+(8264, 1, 1, 'Редактирование страницы', 'content', 'pageAdmin', 'update', '2011-10-19 13:12:34'),
+(8265, 1, 1, 'Редактирование страницы', 'content', 'pageAdmin', 'update', '2011-10-19 13:12:55'),
+(8266, 1, 1, 'Редактирование страницы', 'content', 'pageAdmin', 'update', '2011-10-19 13:13:18'),
+(8267, 1, 1, 'Редактирование страницы', 'content', 'pageAdmin', 'update', '2011-10-19 13:13:28'),
+(8268, 1, 1, 'Редактирование страницы', 'content', 'pageAdmin', 'update', '2011-10-19 13:13:48'),
+(8269, 1, 1, 'Редактирование страницы', 'content', 'pageAdmin', 'update', '2011-10-19 13:14:50'),
+(8270, 1, 1, 'Редактирование страницы', 'content', 'pageAdmin', 'update', '2011-10-19 13:14:58'),
+(8271, 1, 1, 'Редактирование страницы', 'content', 'pageAdmin', 'update', '2011-10-19 13:15:35'),
+(8272, 1, 1, 'Редактирование страницы', 'content', 'pageAdmin', 'update', '2011-10-19 13:15:41'),
+(8273, 1, 1, 'Редактирование страницы', 'content', 'pageAdmin', 'update', '2011-10-19 13:15:49'),
+(8274, 1, 1, 'Редактирование страницы', 'content', 'pageAdmin', 'update', '2011-10-19 13:16:06'),
+(8275, 1, 1, 'Редактирование страницы', 'content', 'pageAdmin', 'update', '2011-10-19 13:17:03'),
+(8276, 1, 1, 'Редактирование страницы', 'content', 'pageAdmin', 'update', '2011-10-19 13:17:11'),
+(8277, 1, 1, 'Редактирование страницы', 'content', 'pageAdmin', 'update', '2011-10-19 13:17:26'),
+(8278, 1, 1, 'Редактирование страницы', 'content', 'pageAdmin', 'update', '2011-10-19 13:18:00'),
+(8279, 1, 1, 'Редактирование страницы', 'content', 'pageAdmin', 'update', '2011-10-19 13:18:16'),
+(8280, 1, 1, 'Редактирование страницы', 'content', 'pageAdmin', 'update', '2011-10-19 13:18:25'),
+(8281, 1, 1, 'Редактирование страницы', 'content', 'pageAdmin', 'update', '2011-10-19 13:18:44'),
+(8282, 1, 1, 'Редактирование страницы', 'content', 'pageAdmin', 'update', '2011-10-19 13:19:06'),
+(8283, 1, 1, 'Редактирование страницы', 'content', 'pageAdmin', 'update', '2011-10-19 13:19:27'),
+(8284, 1, 1, 'Редактирование страницы', 'content', 'pageAdmin', 'update', '2011-10-19 13:19:55'),
+(8285, 1, 1, 'Редактирование страницы', 'content', 'pageAdmin', 'update', '2011-10-19 13:20:49'),
+(8286, 1, 1, 'Редактирование страницы', 'content', 'pageAdmin', 'update', '2011-10-19 13:20:55'),
+(8287, 1, 1, 'Редактирование страницы', 'content', 'pageAdmin', 'update', '2011-10-19 13:21:30'),
+(8288, 1, 1, 'Редактирование страницы', 'content', 'pageAdmin', 'update', '2011-10-19 13:23:26'),
+(8289, 1, 1, 'Редактирование страницы', 'content', 'pageAdmin', 'update', '2011-10-19 13:23:39'),
+(8290, 1, 1, 'Редактирование страницы', 'content', 'pageAdmin', 'update', '2011-10-19 13:23:39'),
+(8291, 1, 1, 'Редактирование страницы', 'content', 'pageAdmin', 'update', '2011-10-19 13:23:42'),
+(8292, 1, 1, 'Редактирование страницы', 'content', 'pageAdmin', 'update', '2011-10-19 13:23:45'),
+(8293, 1, 1, 'Редактирование страницы', 'content', 'pageAdmin', 'update', '2011-10-19 13:23:49'),
+(8294, 1, 1, 'Редактирование страницы', 'content', 'pageAdmin', 'update', '2011-10-19 13:24:13'),
+(8295, 1, 1, 'Редактирование страницы', 'content', 'pageAdmin', 'update', '2011-10-19 13:25:01'),
+(8296, 1, 1, 'Редактирование страницы', 'content', 'pageAdmin', 'update', '2011-10-19 13:25:45'),
+(8297, 1, 1, 'Редактирование страницы', 'content', 'pageAdmin', 'update', '2011-10-19 13:25:54'),
+(8298, 1, 1, 'Редактирование страницы', 'content', 'pageAdmin', 'update', '2011-10-19 13:26:09'),
+(8299, 1, 1, 'Редактирование страницы', 'content', 'pageAdmin', 'update', '2011-10-19 13:26:21'),
+(8300, 1, 1, 'Редактирование страницы', 'content', 'pageAdmin', 'update', '2011-10-19 13:26:30'),
+(8301, 1, 1, 'Редактирование страницы', 'content', 'pageAdmin', 'update', '2011-10-19 13:26:42'),
+(8302, 1, 1, 'Редактирование страницы', 'content', 'pageAdmin', 'update', '2011-10-19 13:27:10'),
+(8303, 1, 1, 'Редактирование страницы', 'content', 'pageAdmin', 'update', '2011-10-19 13:27:20'),
+(8304, 1, 1, 'Редактирование страницы', 'content', 'pageAdmin', 'update', '2011-10-19 13:27:28'),
+(8305, 1, 1, 'Редактирование страницы', 'content', 'pageAdmin', 'update', '2011-10-19 13:27:34'),
+(8306, 1, 1, 'Редактирование страницы', 'content', 'pageAdmin', 'update', '2011-10-19 13:27:35'),
+(8307, 1, 1, 'Редактирование страницы', 'content', 'pageAdmin', 'update', '2011-10-19 13:29:04'),
+(8308, 1, 1, 'Редактирование страницы', 'content', 'pageAdmin', 'update', '2011-10-19 13:29:11'),
+(8309, 1, 1, 'Редактирование страницы', 'content', 'pageAdmin', 'update', '2011-10-19 13:29:14'),
+(8310, 1, 1, 'Редактирование страницы', 'content', 'pageAdmin', 'update', '2011-10-19 13:29:17'),
+(8311, 1, 1, 'Редактирование страницы', 'content', 'pageAdmin', 'update', '2011-10-19 13:29:46'),
+(8312, 1, 1, 'Редактирование страницы', 'content', 'pageAdmin', 'update', '2011-10-19 14:06:11'),
+(8313, 1, 1, 'Редактирование страницы', 'content', 'pageAdmin', 'update', '2011-10-19 14:06:15'),
+(8314, 1, 1, 'Редактирование страницы', 'content', 'pageAdmin', 'update', '2011-10-19 14:06:53'),
+(8315, 1, 1, 'Редактирование страницы', 'content', 'pageAdmin', 'update', '2011-10-19 14:06:55'),
+(8316, 1, 1, 'Редактирование страницы', 'content', 'pageAdmin', 'update', '2011-10-19 14:06:56'),
+(8317, 1, 1, 'Редактирование страницы', 'content', 'pageAdmin', 'update', '2011-10-19 14:07:02'),
+(8318, 1, 1, 'Редактирование страницы', 'content', 'pageAdmin', 'update', '2011-10-19 14:07:14'),
+(8319, 1, 1, 'Редактирование страницы', 'content', 'pageAdmin', 'update', '2011-10-19 14:07:27'),
+(8320, 1, 1, 'Редактирование страницы', 'content', 'pageAdmin', 'update', '2011-10-19 14:07:30'),
+(8321, 1, 1, 'Редактирование страницы', 'content', 'pageAdmin', 'update', '2011-10-19 14:07:34'),
+(8322, 1, 1, 'Редактирование страницы', 'content', 'pageAdmin', 'update', '2011-10-19 14:07:45'),
+(8323, 1, 1, 'Просмотр страницы', 'content', 'pageAdmin', 'view', '2011-10-19 14:07:45'),
+(8324, 1, 1, 'Редактирование страницы', 'content', 'pageAdmin', 'update', '2011-10-19 14:07:48'),
+(8325, 1, 1, 'Редактирование страницы', 'content', 'pageAdmin', 'update', '2011-10-19 14:08:12'),
+(8326, 1, 1, 'Просмотр страницы', 'content', 'pageAdmin', 'view', '2011-10-19 14:08:12'),
+(8327, 1, 1, 'Редактирование страницы', 'content', 'pageAdmin', 'update', '2011-10-19 14:08:16'),
+(8328, 1, 1, 'Просмотр страницы', 'content', 'pageAdmin', 'view', '2011-10-19 14:08:19'),
+(8329, 1, NULL, 'Управление страницами', 'content', 'pageAdmin', 'manage', '2011-10-19 14:08:21'),
+(8330, 1, NULL, 'Добавление страницы', 'content', 'pageAdmin', 'create', '2011-10-19 14:08:25'),
+(8331, 1, NULL, 'Добавление страницы', 'content', 'pageAdmin', 'create', '2011-10-19 14:08:27'),
+(8332, 1, NULL, 'Добавление страницы', 'content', 'pageAdmin', 'create', '2011-10-19 14:09:31'),
+(8333, 1, NULL, 'Добавление страницы', 'content', 'pageAdmin', 'create', '2011-10-19 14:10:26'),
+(8334, 1, NULL, 'Добавление страницы', 'content', 'pageAdmin', 'create', '2011-10-19 14:10:29'),
+(8335, 1, NULL, 'Добавление страницы', 'content', 'pageAdmin', 'create', '2011-10-19 14:10:50'),
+(8336, 1, NULL, 'Добавление страницы', 'content', 'pageAdmin', 'create', '2011-10-19 14:10:51'),
+(8337, 1, NULL, 'Добавление страницы', 'content', 'pageAdmin', 'create', '2011-10-19 14:10:53'),
+(8338, 1, NULL, 'Добавление страницы', 'content', 'pageAdmin', 'create', '2011-10-19 14:12:07'),
+(8339, 1, NULL, 'Добавление страницы', 'content', 'pageAdmin', 'create', '2011-10-19 14:12:09'),
+(8340, 1, NULL, 'Добавление страницы', 'content', 'pageAdmin', 'create', '2011-10-19 14:13:51'),
+(8341, 1, NULL, 'Добавление страницы', 'content', 'pageAdmin', 'create', '2011-10-19 14:14:14'),
+(8342, 1, NULL, 'Добавление страницы', 'content', 'pageAdmin', 'create', '2011-10-19 14:14:17'),
+(8343, 1, NULL, 'Добавление страницы', 'content', 'pageAdmin', 'create', '2011-10-19 14:15:06'),
+(8344, 1, NULL, 'Добавление страницы', 'content', 'pageAdmin', 'create', '2011-10-19 14:15:14'),
+(8345, 1, NULL, 'Добавление страницы', 'content', 'pageAdmin', 'create', '2011-10-19 14:15:52'),
+(8346, 1, NULL, 'Добавление страницы', 'content', 'pageAdmin', 'create', '2011-10-19 14:15:55'),
+(8347, 1, NULL, 'Добавление страницы', 'content', 'pageAdmin', 'create', '2011-10-19 14:16:05'),
+(8348, 1, NULL, 'Добавление страницы', 'content', 'pageAdmin', 'create', '2011-10-19 14:16:33'),
+(8349, 1, NULL, 'Добавление страницы', 'content', 'pageAdmin', 'create', '2011-10-19 14:16:44'),
+(8350, 1, NULL, 'Добавление страницы', 'content', 'pageAdmin', 'create', '2011-10-19 14:16:58'),
+(8351, 1, NULL, 'Добавление страницы', 'content', 'pageAdmin', 'create', '2011-10-19 14:17:03'),
+(8352, 1, NULL, 'Добавление страницы', 'content', 'pageAdmin', 'create', '2011-10-19 14:17:31'),
+(8353, 1, NULL, 'Добавление страницы', 'content', 'pageAdmin', 'create', '2011-10-19 14:17:35'),
+(8354, 1, NULL, 'Добавление страницы', 'content', 'pageAdmin', 'create', '2011-10-19 14:17:48'),
+(8355, 1, NULL, 'Добавление страницы', 'content', 'pageAdmin', 'create', '2011-10-19 14:21:39'),
+(8356, 1, NULL, 'Добавление страницы', 'content', 'pageAdmin', 'create', '2011-10-19 14:21:40'),
+(8357, 1, NULL, 'Добавление страницы', 'content', 'pageAdmin', 'create', '2011-10-19 14:23:06'),
+(8358, 1, NULL, 'Добавление страницы', 'content', 'pageAdmin', 'create', '2011-10-19 14:23:26'),
+(8359, 1, NULL, 'Добавление страницы', 'content', 'pageAdmin', 'create', '2011-10-19 14:23:29'),
+(8360, 1, NULL, 'Добавление страницы', 'content', 'pageAdmin', 'create', '2011-10-19 14:29:39'),
+(8361, 1, NULL, 'Добавление страницы', 'content', 'pageAdmin', 'create', '2011-10-19 14:29:41'),
+(8362, 1, NULL, 'Добавление страницы', 'content', 'pageAdmin', 'create', '2011-10-19 14:29:47'),
+(8363, 1, NULL, 'Добавление страницы', 'content', 'pageAdmin', 'create', '2011-10-19 14:29:48'),
+(8364, 1, NULL, 'Добавление страницы', 'content', 'pageAdmin', 'create', '2011-10-19 14:29:48'),
+(8365, 1, NULL, 'Добавление страницы', 'content', 'pageAdmin', 'create', '2011-10-19 14:29:48'),
+(8366, 1, NULL, 'Добавление страницы', 'content', 'pageAdmin', 'create', '2011-10-19 14:30:37'),
+(8367, 1, NULL, 'Добавление страницы', 'content', 'pageAdmin', 'create', '2011-10-19 14:30:38'),
+(8368, 1, NULL, 'Добавление страницы', 'content', 'pageAdmin', 'create', '2011-10-19 14:31:06'),
+(8369, 1, NULL, 'Добавление страницы', 'content', 'pageAdmin', 'create', '2011-10-19 14:31:53'),
+(8370, 1, NULL, 'Добавление страницы', 'content', 'pageAdmin', 'create', '2011-10-19 14:31:54'),
+(8371, 1, NULL, 'Добавление страницы', 'content', 'pageAdmin', 'create', '2011-10-19 14:31:55'),
+(8372, 1, NULL, 'Добавление страницы', 'content', 'pageAdmin', 'create', '2011-10-19 14:32:31'),
+(8373, 1, NULL, 'Добавление страницы', 'content', 'pageAdmin', 'create', '2011-10-19 14:33:00'),
+(8374, 1, NULL, 'Добавление страницы', 'content', 'pageAdmin', 'create', '2011-10-19 14:33:02'),
+(8375, 1, NULL, 'Добавление страницы', 'content', 'pageAdmin', 'create', '2011-10-19 14:33:19'),
+(8376, 1, NULL, 'Добавление страницы', 'content', 'pageAdmin', 'create', '2011-10-19 14:33:27'),
+(8377, 1, NULL, 'Добавление страницы', 'content', 'pageAdmin', 'create', '2011-10-19 14:34:24'),
+(8378, 1, NULL, 'Добавление страницы', 'content', 'pageAdmin', 'create', '2011-10-19 14:34:48'),
+(8379, 1, NULL, 'Добавление страницы', 'content', 'pageAdmin', 'create', '2011-10-19 14:36:24'),
+(8380, 1, NULL, 'Добавление страницы', 'content', 'pageAdmin', 'create', '2011-10-19 14:38:12'),
+(8381, 1, NULL, 'Добавление страницы', 'content', 'pageAdmin', 'create', '2011-10-19 14:45:40'),
+(8382, 1, NULL, 'Добавление страницы', 'content', 'pageAdmin', 'create', '2011-10-19 14:45:48'),
+(8383, 1, NULL, 'Добавление страницы', 'content', 'pageAdmin', 'create', '2011-10-19 14:45:54'),
+(8384, 1, NULL, 'Добавление страницы', 'content', 'pageAdmin', 'create', '2011-10-19 14:47:25'),
+(8385, 1, NULL, 'Добавление страницы', 'content', 'pageAdmin', 'create', '2011-10-19 14:47:28'),
+(8386, 1, NULL, 'Добавление страницы', 'content', 'pageAdmin', 'create', '2011-10-19 14:48:53'),
+(8387, 1, NULL, 'Добавление страницы', 'content', 'pageAdmin', 'create', '2011-10-19 14:48:55'),
+(8388, 1, NULL, 'Добавление страницы', 'content', 'pageAdmin', 'create', '2011-10-19 14:48:58'),
+(8389, 1, NULL, 'Добавление страницы', 'content', 'pageAdmin', 'create', '2011-10-19 14:49:27'),
+(8390, 1, NULL, 'Добавление страницы', 'content', 'pageAdmin', 'create', '2011-10-19 14:49:28'),
+(8391, 1, NULL, 'Добавление страницы', 'content', 'pageAdmin', 'create', '2011-10-19 14:50:05'),
+(8392, 1, NULL, 'Добавление страницы', 'content', 'pageAdmin', 'create', '2011-10-19 14:50:35'),
+(8393, 1, NULL, 'Добавление страницы', 'content', 'pageAdmin', 'create', '2011-10-19 14:50:37'),
+(8394, 1, NULL, 'Добавление страницы', 'content', 'pageAdmin', 'create', '2011-10-19 14:50:55'),
+(8395, 1, NULL, 'Добавление страницы', 'content', 'pageAdmin', 'create', '2011-10-19 14:51:56'),
+(8396, 1, NULL, 'Добавление страницы', 'content', 'pageAdmin', 'create', '2011-10-19 14:51:59'),
+(8397, 1, NULL, 'Добавление страницы', 'content', 'pageAdmin', 'create', '2011-10-19 14:52:15'),
+(8398, 1, NULL, 'Добавление страницы', 'content', 'pageAdmin', 'create', '2011-10-19 14:52:23'),
+(8399, 1, NULL, 'Добавление страницы', 'content', 'pageAdmin', 'create', '2011-10-19 14:52:28'),
+(8400, 1, NULL, 'Добавление страницы', 'content', 'pageAdmin', 'create', '2011-10-19 14:52:31'),
+(8401, 1, NULL, 'Добавление страницы', 'content', 'pageAdmin', 'create', '2011-10-19 14:52:37'),
+(8402, 1, NULL, 'Добавление страницы', 'content', 'pageAdmin', 'create', '2011-10-19 14:53:03'),
+(8403, 1, NULL, 'Добавление страницы', 'content', 'pageAdmin', 'create', '2011-10-19 14:53:05'),
+(8404, 1, NULL, 'Добавление страницы', 'content', 'pageAdmin', 'create', '2011-10-19 14:53:17'),
+(8405, 1, NULL, 'Добавление страницы', 'content', 'pageAdmin', 'create', '2011-10-19 14:53:21'),
+(8406, 1, NULL, 'Добавление страницы', 'content', 'pageAdmin', 'create', '2011-10-19 14:53:33'),
+(8407, 1, NULL, 'Добавление страницы', 'content', 'pageAdmin', 'create', '2011-10-19 14:53:38'),
+(8408, 1, NULL, 'Добавление страницы', 'content', 'pageAdmin', 'create', '2011-10-19 14:53:51'),
+(8409, 1, NULL, 'Добавление страницы', 'content', 'pageAdmin', 'create', '2011-10-19 14:53:57'),
+(8410, 1, NULL, 'Добавление страницы', 'content', 'pageAdmin', 'create', '2011-10-19 14:54:25'),
+(8411, 1, NULL, 'Добавление страницы', 'content', 'pageAdmin', 'create', '2011-10-19 14:54:34'),
+(8412, 1, NULL, 'Добавление страницы', 'content', 'pageAdmin', 'create', '2011-10-19 14:54:38'),
+(8413, 1, NULL, 'Добавление страницы', 'content', 'pageAdmin', 'create', '2011-10-19 14:58:21'),
+(8414, 1, NULL, 'Добавление страницы', 'content', 'pageAdmin', 'create', '2011-10-19 14:59:14'),
+(8415, 1, NULL, 'Добавление страницы', 'content', 'pageAdmin', 'create', '2011-10-19 15:00:33'),
+(8416, 1, NULL, 'Добавление страницы', 'content', 'pageAdmin', 'create', '2011-10-19 15:01:12'),
+(8417, 1, NULL, 'Добавление страницы', 'content', 'pageAdmin', 'create', '2011-10-19 15:01:43'),
+(8418, 1, 16, 'Просмотр страницы', 'content', 'pageAdmin', 'view', '2011-10-19 15:01:44'),
+(8419, 1, NULL, 'Управление страницами', 'content', 'pageAdmin', 'manage', '2011-10-19 15:02:16'),
+(8420, 1, 5, 'Удаление страницы', 'content', 'pageAdmin', 'delete', '2011-10-19 15:02:22'),
+(8421, 1, NULL, 'Управление страницами', 'content', 'pageAdmin', 'manage', '2011-10-19 15:02:22'),
+(8422, 1, 6, 'Удаление страницы', 'content', 'pageAdmin', 'delete', '2011-10-19 15:02:24'),
+(8423, 1, NULL, 'Управление страницами', 'content', 'pageAdmin', 'manage', '2011-10-19 15:02:24'),
+(8424, 1, 7, 'Удаление страницы', 'content', 'pageAdmin', 'delete', '2011-10-19 15:02:25'),
+(8425, 1, NULL, 'Управление страницами', 'content', 'pageAdmin', 'manage', '2011-10-19 15:02:25'),
+(8426, 1, 8, 'Удаление страницы', 'content', 'pageAdmin', 'delete', '2011-10-19 15:02:27'),
+(8427, 1, NULL, 'Управление страницами', 'content', 'pageAdmin', 'manage', '2011-10-19 15:02:27'),
+(8428, 1, 9, 'Удаление страницы', 'content', 'pageAdmin', 'delete', '2011-10-19 15:02:28'),
+(8429, 1, NULL, 'Управление страницами', 'content', 'pageAdmin', 'manage', '2011-10-19 15:02:29'),
+(8430, 1, 11, 'Удаление страницы', 'content', 'pageAdmin', 'delete', '2011-10-19 15:02:30'),
+(8431, 1, NULL, 'Управление страницами', 'content', 'pageAdmin', 'manage', '2011-10-19 15:02:30'),
+(8432, 1, 10, 'Удаление страницы', 'content', 'pageAdmin', 'delete', '2011-10-19 15:02:31'),
+(8433, 1, NULL, 'Управление страницами', 'content', 'pageAdmin', 'manage', '2011-10-19 15:02:31'),
+(8434, 1, 12, 'Удаление страницы', 'content', 'pageAdmin', 'delete', '2011-10-19 15:02:34'),
+(8435, 1, NULL, 'Управление страницами', 'content', 'pageAdmin', 'manage', '2011-10-19 15:02:34'),
+(8436, 1, 14, 'Удаление страницы', 'content', 'pageAdmin', 'delete', '2011-10-19 15:02:34'),
+(8437, 1, NULL, 'Управление страницами', 'content', 'pageAdmin', 'manage', '2011-10-19 15:02:35'),
+(8438, 1, 13, 'Удаление страницы', 'content', 'pageAdmin', 'delete', '2011-10-19 15:02:35'),
+(8439, 1, NULL, 'Управление страницами', 'content', 'pageAdmin', 'manage', '2011-10-19 15:02:36'),
+(8440, 1, 16, 'Удаление страницы', 'content', 'pageAdmin', 'delete', '2011-10-19 15:02:36'),
+(8441, 1, NULL, 'Управление страницами', 'content', 'pageAdmin', 'manage', '2011-10-19 15:02:36'),
+(8442, 1, 15, 'Удаление страницы', 'content', 'pageAdmin', 'delete', '2011-10-19 15:02:37'),
+(8443, 1, NULL, 'Управление страницами', 'content', 'pageAdmin', 'manage', '2011-10-19 15:02:37'),
+(8444, 1, 2, 'Редактирование страницы', 'content', 'pageAdmin', 'update', '2011-10-19 15:02:38'),
+(8445, 1, 2, 'Редактирование страницы', 'content', 'pageAdmin', 'update', '2011-10-19 15:02:55'),
+(8446, 1, 2, 'Редактирование страницы', 'content', 'pageAdmin', 'update', '2011-10-19 15:03:04'),
+(8447, 1, 2, 'Редактирование страницы', 'content', 'pageAdmin', 'update', '2011-10-19 15:03:17'),
+(8448, 1, 2, 'Редактирование страницы', 'content', 'pageAdmin', 'update', '2011-10-19 15:03:29'),
+(8449, 1, 2, 'Просмотр страницы', 'content', 'pageAdmin', 'view', '2011-10-19 15:03:30'),
+(8450, 1, 2, 'Редактирование страницы', 'content', 'pageAdmin', 'update', '2011-10-19 15:07:24'),
+(8451, 1, 2, 'Редактирование страницы', 'content', 'pageAdmin', 'update', '2011-10-19 15:07:37'),
+(8452, 1, 2, 'Редактирование страницы', 'content', 'pageAdmin', 'update', '2011-10-19 15:08:03'),
+(8453, 1, 2, 'Редактирование страницы', 'content', 'pageAdmin', 'update', '2011-10-19 15:08:23'),
+(8454, 1, 2, 'Редактирование страницы', 'content', 'pageAdmin', 'update', '2011-10-19 15:08:30'),
+(8455, 1, 2, 'Редактирование страницы', 'content', 'pageAdmin', 'update', '2011-10-19 15:08:33'),
+(8456, 1, 2, 'Редактирование страницы', 'content', 'pageAdmin', 'update', '2011-10-19 15:08:44'),
+(8457, 1, 2, 'Редактирование страницы', 'content', 'pageAdmin', 'update', '2011-10-19 15:08:55'),
+(8458, 1, 2, 'Редактирование страницы', 'content', 'pageAdmin', 'update', '2011-10-19 15:08:58'),
+(8459, 1, 2, 'Редактирование страницы', 'content', 'pageAdmin', 'update', '2011-10-19 15:09:02'),
+(8460, 1, 2, 'Редактирование страницы', 'content', 'pageAdmin', 'update', '2011-10-19 15:09:35'),
+(8461, 1, 2, 'Редактирование страницы', 'content', 'pageAdmin', 'update', '2011-10-19 15:09:37'),
+(8462, 1, 2, 'Редактирование страницы', 'content', 'pageAdmin', 'update', '2011-10-19 15:09:56'),
+(8463, 1, 2, 'Редактирование страницы', 'content', 'pageAdmin', 'update', '2011-10-19 15:11:34'),
+(8464, 1, 2, 'Редактирование страницы', 'content', 'pageAdmin', 'update', '2011-10-19 15:11:36'),
+(8465, 1, 2, 'Редактирование страницы', 'content', 'pageAdmin', 'update', '2011-10-19 15:15:33'),
+(8466, 1, 2, 'Редактирование страницы', 'content', 'pageAdmin', 'update', '2011-10-19 15:15:40'),
+(8467, 1, 2, 'Просмотр страницы', 'content', 'pageAdmin', 'view', '2011-10-19 15:15:40'),
+(8468, 1, 2, 'Редактирование страницы', 'content', 'pageAdmin', 'update', '2011-10-19 15:16:35'),
+(8469, 1, 2, 'Редактирование страницы', 'content', 'pageAdmin', 'update', '2011-10-19 15:16:49'),
+(8470, 1, 2, 'Редактирование страницы', 'content', 'pageAdmin', 'update', '2011-10-19 15:16:58'),
+(8471, 1, 2, 'Редактирование страницы', 'content', 'pageAdmin', 'update', '2011-10-19 15:17:08'),
+(8472, 1, 2, 'Редактирование страницы', 'content', 'pageAdmin', 'update', '2011-10-19 15:17:12'),
+(8473, 1, 2, 'Редактирование страницы', 'content', 'pageAdmin', 'update', '2011-10-19 15:17:33'),
+(8474, 1, 2, 'Редактирование страницы', 'content', 'pageAdmin', 'update', '2011-10-19 15:17:43'),
+(8475, 1, 2, 'Редактирование страницы', 'content', 'pageAdmin', 'update', '2011-10-19 15:17:54'),
+(8476, 1, 2, 'Редактирование страницы', 'content', 'pageAdmin', 'update', '2011-10-19 15:18:15'),
+(8477, 1, 2, 'Редактирование страницы', 'content', 'pageAdmin', 'update', '2011-10-19 15:18:24'),
+(8478, 1, 2, 'Редактирование страницы', 'content', 'pageAdmin', 'update', '2011-10-19 15:18:39'),
+(8479, 1, 2, 'Редактирование страницы', 'content', 'pageAdmin', 'update', '2011-10-19 15:18:51'),
+(8480, 1, 2, 'Редактирование страницы', 'content', 'pageAdmin', 'update', '2011-10-19 15:19:00'),
+(8481, 1, 2, 'Редактирование страницы', 'content', 'pageAdmin', 'update', '2011-10-19 15:19:08'),
+(8482, 1, 2, 'Редактирование страницы', 'content', 'pageAdmin', 'update', '2011-10-19 15:19:20'),
+(8483, 1, 2, 'Редактирование страницы', 'content', 'pageAdmin', 'update', '2011-10-19 15:20:40'),
+(8484, 1, 2, 'Редактирование страницы', 'content', 'pageAdmin', 'update', '2011-10-19 15:20:50'),
+(8485, 1, 2, 'Редактирование страницы', 'content', 'pageAdmin', 'update', '2011-10-19 15:20:57'),
+(8486, 1, 2, 'Редактирование страницы', 'content', 'pageAdmin', 'update', '2011-10-19 15:21:08'),
+(8487, 1, 2, 'Редактирование страницы', 'content', 'pageAdmin', 'update', '2011-10-19 15:21:21'),
+(8488, 1, 2, 'Редактирование страницы', 'content', 'pageAdmin', 'update', '2011-10-19 15:22:59'),
+(8489, 1, 2, 'Редактирование страницы', 'content', 'pageAdmin', 'update', '2011-10-19 15:24:24'),
+(8490, 1, 2, 'Редактирование страницы', 'content', 'pageAdmin', 'update', '2011-10-19 15:24:36'),
+(8491, 1, 2, 'Редактирование страницы', 'content', 'pageAdmin', 'update', '2011-10-19 15:25:02'),
+(8492, 1, 2, 'Редактирование страницы', 'content', 'pageAdmin', 'update', '2011-10-19 15:25:15'),
+(8493, 1, 2, 'Редактирование страницы', 'content', 'pageAdmin', 'update', '2011-10-19 15:25:26'),
+(8494, 1, 2, 'Редактирование страницы', 'content', 'pageAdmin', 'update', '2011-10-19 15:25:56'),
+(8495, 1, 2, 'Редактирование страницы', 'content', 'pageAdmin', 'update', '2011-10-19 15:26:01'),
+(8496, 1, 2, 'Редактирование страницы', 'content', 'pageAdmin', 'update', '2011-10-19 15:26:31'),
+(8497, 1, 2, 'Редактирование страницы', 'content', 'pageAdmin', 'update', '2011-10-19 15:26:47'),
+(8498, 1, 2, 'Редактирование страницы', 'content', 'pageAdmin', 'update', '2011-10-19 15:27:36'),
+(8499, 1, 2, 'Редактирование страницы', 'content', 'pageAdmin', 'update', '2011-10-19 15:28:23'),
+(8500, 1, 2, 'Редактирование страницы', 'content', 'pageAdmin', 'update', '2011-10-19 15:28:51'),
+(8501, 1, 2, 'Редактирование страницы', 'content', 'pageAdmin', 'update', '2011-10-19 15:29:03'),
+(8502, 1, 2, 'Редактирование страницы', 'content', 'pageAdmin', 'update', '2011-10-19 15:29:15'),
+(8503, 1, 2, 'Редактирование страницы', 'content', 'pageAdmin', 'update', '2011-10-19 15:31:14'),
+(8504, 1, 2, 'Редактирование страницы', 'content', 'pageAdmin', 'update', '2011-10-19 15:31:26'),
+(8505, 1, 2, 'Редактирование страницы', 'content', 'pageAdmin', 'update', '2011-10-19 15:32:16'),
+(8506, 1, 2, 'Редактирование страницы', 'content', 'pageAdmin', 'update', '2011-10-19 15:32:35'),
+(8507, 1, 2, 'Редактирование страницы', 'content', 'pageAdmin', 'update', '2011-10-19 15:32:41'),
+(8508, 1, 2, 'Редактирование страницы', 'content', 'pageAdmin', 'update', '2011-10-19 15:33:00'),
+(8509, 1, 2, 'Редактирование страницы', 'content', 'pageAdmin', 'update', '2011-10-19 15:33:12'),
+(8510, 1, 2, 'Редактирование страницы', 'content', 'pageAdmin', 'update', '2011-10-19 15:33:19'),
+(8511, 1, 2, 'Редактирование страницы', 'content', 'pageAdmin', 'update', '2011-10-19 15:33:34'),
+(8512, 1, 2, 'Редактирование страницы', 'content', 'pageAdmin', 'update', '2011-10-19 15:33:37'),
+(8513, 1, 2, 'Редактирование страницы', 'content', 'pageAdmin', 'update', '2011-10-19 15:33:42'),
+(8514, 1, 2, 'Редактирование страницы', 'content', 'pageAdmin', 'update', '2011-10-19 15:33:47'),
+(8515, 1, 2, 'Редактирование страницы', 'content', 'pageAdmin', 'update', '2011-10-19 15:34:11'),
+(8516, 1, 2, 'Редактирование страницы', 'content', 'pageAdmin', 'update', '2011-10-19 15:34:35'),
+(8517, 1, 2, 'Редактирование страницы', 'content', 'pageAdmin', 'update', '2011-10-19 15:35:26'),
+(8518, 1, 2, 'Редактирование страницы', 'content', 'pageAdmin', 'update', '2011-10-19 15:35:46'),
+(8519, 1, 2, 'Редактирование страницы', 'content', 'pageAdmin', 'update', '2011-10-19 15:35:57'),
+(8520, 1, 2, 'Редактирование страницы', 'content', 'pageAdmin', 'update', '2011-10-19 15:36:04'),
+(8521, 1, 2, 'Редактирование страницы', 'content', 'pageAdmin', 'update', '2011-10-19 15:36:50'),
+(8522, 1, 2, 'Редактирование страницы', 'content', 'pageAdmin', 'update', '2011-10-19 15:37:04'),
+(8523, 1, 2, 'Редактирование страницы', 'content', 'pageAdmin', 'update', '2011-10-19 15:37:25'),
+(8524, 1, NULL, 'Управление новостями', 'news', 'newsAdmin', 'manage', '2011-10-19 15:37:30'),
+(8525, 1, 13, 'Просмотр новости', 'news', 'newsAdmin', 'view', '2011-10-19 15:37:34'),
+(8526, 1, 13, 'Редактирование новости', 'news', 'newsAdmin', 'update', '2011-10-19 15:37:36'),
+(8527, 1, NULL, 'Загрузка существующих файлов', 'fileManager', 'fileManagerAdmin', 'existFiles', '2011-10-19 15:37:39'),
+(8528, 1, NULL, 'Загрузка файлов', 'fileManager', 'fileManagerAdmin', 'upload', '2011-10-19 15:37:54'),
+(8529, 1, NULL, 'Загрузка файлов', 'fileManager', 'fileManagerAdmin', 'upload', '2011-10-19 15:37:55'),
+(8530, 1, NULL, 'Загрузка файлов', 'fileManager', 'fileManagerAdmin', 'upload', '2011-10-19 15:37:55'),
+(8531, 1, NULL, 'Загрузка файлов', 'fileManager', 'fileManagerAdmin', 'upload', '2011-10-19 15:37:55'),
+(8532, 1, NULL, 'Загрузка файлов', 'fileManager', 'fileManagerAdmin', 'upload', '2011-10-19 15:37:56'),
+(8533, 1, NULL, 'Загрузка файлов', 'fileManager', 'fileManagerAdmin', 'upload', '2011-10-19 15:37:56'),
+(8534, 1, NULL, 'Загрузка файлов', 'fileManager', 'fileManagerAdmin', 'upload', '2011-10-19 15:37:56'),
+(8535, 1, NULL, 'Загрузка файлов', 'fileManager', 'fileManagerAdmin', 'upload', '2011-10-19 15:37:57'),
+(8536, 1, NULL, 'Загрузка файлов', 'fileManager', 'fileManagerAdmin', 'upload', '2011-10-19 15:37:57'),
+(8537, 1, 13, 'Просмотр новости', 'news', 'newsAdmin', 'view', '2011-10-19 15:38:02'),
+(8538, 1, NULL, 'Управление новостями', 'news', 'newsAdmin', 'manage', '2011-10-19 15:38:04'),
+(8539, 1, 2, 'Редактирование страницы', 'content', 'pageAdmin', 'update', '2011-10-19 15:38:08'),
+(8540, 1, 2, 'Редактирование страницы', 'content', 'pageAdmin', 'update', '2011-10-19 15:38:33'),
+(8541, 1, 2, 'Редактирование страницы', 'content', 'pageAdmin', 'update', '2011-10-19 15:38:38'),
+(8542, 1, 2, 'Редактирование страницы', 'content', 'pageAdmin', 'update', '2011-10-19 15:38:47'),
+(8543, 1, 2, 'Редактирование страницы', 'content', 'pageAdmin', 'update', '2011-10-19 15:38:56'),
+(8544, 1, 2, 'Редактирование страницы', 'content', 'pageAdmin', 'update', '2011-10-19 15:39:04'),
+(8545, 1, 2, 'Редактирование страницы', 'content', 'pageAdmin', 'update', '2011-10-19 15:39:16'),
+(8546, 1, 2, 'Редактирование страницы', 'content', 'pageAdmin', 'update', '2011-10-19 15:39:22'),
+(8547, 1, 2, 'Редактирование страницы', 'content', 'pageAdmin', 'update', '2011-10-19 15:39:29'),
+(8548, 1, 2, 'Редактирование страницы', 'content', 'pageAdmin', 'update', '2011-10-19 15:39:34'),
+(8549, 1, 2, 'Редактирование страницы', 'content', 'pageAdmin', 'update', '2011-10-19 15:39:40'),
+(8550, 1, 2, 'Редактирование страницы', 'content', 'pageAdmin', 'update', '2011-10-19 15:39:49'),
+(8551, 1, 2, 'Редактирование страницы', 'content', 'pageAdmin', 'update', '2011-10-19 15:39:57'),
+(8552, 1, 2, 'Редактирование страницы', 'content', 'pageAdmin', 'update', '2011-10-19 15:40:46');
+INSERT INTO `site_actions` (`id`, `user_id`, `object_id`, `title`, `module`, `controller`, `action`, `date_create`) VALUES
+(8553, 1, 2, 'Редактирование страницы', 'content', 'pageAdmin', 'update', '2011-10-19 15:40:54'),
+(8554, 1, 2, 'Редактирование страницы', 'content', 'pageAdmin', 'update', '2011-10-19 15:41:25'),
+(8555, 1, 2, 'Редактирование страницы', 'content', 'pageAdmin', 'update', '2011-10-19 15:41:34'),
+(8556, 1, 2, 'Редактирование страницы', 'content', 'pageAdmin', 'update', '2011-10-19 15:42:06'),
+(8557, 1, 2, 'Редактирование страницы', 'content', 'pageAdmin', 'update', '2011-10-19 15:42:11'),
+(8558, 1, 2, 'Редактирование страницы', 'content', 'pageAdmin', 'update', '2011-10-19 15:42:24'),
+(8559, 1, 2, 'Редактирование страницы', 'content', 'pageAdmin', 'update', '2011-10-19 15:42:33'),
+(8560, 1, 2, 'Редактирование страницы', 'content', 'pageAdmin', 'update', '2011-10-19 15:42:41'),
+(8561, 1, 2, 'Редактирование страницы', 'content', 'pageAdmin', 'update', '2011-10-19 15:42:52'),
+(8562, 1, 2, 'Редактирование страницы', 'content', 'pageAdmin', 'update', '2011-10-19 15:43:00'),
+(8563, 1, 2, 'Редактирование страницы', 'content', 'pageAdmin', 'update', '2011-10-19 15:43:18'),
+(8564, 1, 2, 'Редактирование страницы', 'content', 'pageAdmin', 'update', '2011-10-19 15:43:30'),
+(8565, 1, 2, 'Редактирование страницы', 'content', 'pageAdmin', 'update', '2011-10-19 15:43:59'),
+(8566, 1, 2, 'Редактирование страницы', 'content', 'pageAdmin', 'update', '2011-10-19 15:45:12'),
+(8567, 1, 2, 'Редактирование страницы', 'content', 'pageAdmin', 'update', '2011-10-19 15:45:22'),
+(8568, 1, 2, 'Редактирование страницы', 'content', 'pageAdmin', 'update', '2011-10-19 15:46:15'),
+(8569, 1, 2, 'Редактирование страницы', 'content', 'pageAdmin', 'update', '2011-10-19 15:46:30'),
+(8570, 1, 2, 'Редактирование страницы', 'content', 'pageAdmin', 'update', '2011-10-19 15:46:58'),
+(8571, 1, 2, 'Редактирование страницы', 'content', 'pageAdmin', 'update', '2011-10-19 15:47:27'),
+(8572, 1, 2, 'Редактирование страницы', 'content', 'pageAdmin', 'update', '2011-10-19 15:47:57'),
+(8573, 1, 2, 'Редактирование страницы', 'content', 'pageAdmin', 'update', '2011-10-19 15:48:38'),
+(8574, 1, 2, 'Редактирование страницы', 'content', 'pageAdmin', 'update', '2011-10-19 15:48:51'),
+(8575, 1, 2, 'Редактирование страницы', 'content', 'pageAdmin', 'update', '2011-10-19 15:49:05'),
+(8576, 1, 2, 'Просмотр страницы', 'content', 'pageAdmin', 'view', '2011-10-19 15:49:05'),
+(8577, 1, 2, 'Редактирование страницы', 'content', 'pageAdmin', 'update', '2011-10-19 15:49:07'),
+(8578, 1, 2, 'Редактирование страницы', 'content', 'pageAdmin', 'update', '2011-10-19 15:49:18'),
+(8579, 1, 2, 'Просмотр страницы', 'content', 'pageAdmin', 'view', '2011-10-19 15:49:18'),
+(8580, 1, 2, 'Редактирование страницы', 'content', 'pageAdmin', 'update', '2011-10-19 15:49:22'),
+(8581, 1, 2, 'Редактирование страницы', 'content', 'pageAdmin', 'update', '2011-10-19 15:49:31'),
+(8582, 1, 2, 'Просмотр страницы', 'content', 'pageAdmin', 'view', '2011-10-19 15:49:31'),
+(8583, 1, 2, 'Просмотр страницы', 'content', 'pageAdmin', 'view', '2011-10-19 16:00:54'),
+(8584, 1, 2, 'Просмотр страницы', 'content', 'pageAdmin', 'view', '2011-10-19 16:00:57'),
+(8585, 1, 2, 'Просмотр страницы', 'content', 'pageAdmin', 'view', '2011-10-19 16:07:50'),
+(8586, 1, 2, 'Просмотр страницы', 'content', 'pageAdmin', 'view', '2011-10-19 16:07:51'),
+(8587, 1, 2, 'Просмотр страницы', 'content', 'pageAdmin', 'view', '2011-10-19 16:10:17'),
+(8588, 1, 2, 'Просмотр страницы', 'content', 'pageAdmin', 'view', '2011-10-19 16:34:32'),
+(8589, 1, 2, 'Просмотр страницы', 'content', 'pageAdmin', 'view', '2011-10-19 16:34:41'),
+(8590, 1, 2, 'Просмотр страницы', 'content', 'pageAdmin', 'view', '2011-10-19 16:34:53'),
+(8591, 1, 2, 'Просмотр страницы', 'content', 'pageAdmin', 'view', '2011-10-19 16:35:00'),
+(8592, 1, 2, 'Просмотр страницы', 'content', 'pageAdmin', 'view', '2011-10-19 16:35:05'),
+(8593, 1, 2, 'Просмотр страницы', 'content', 'pageAdmin', 'view', '2011-10-19 16:35:10'),
+(8594, 1, 2, 'Просмотр страницы', 'content', 'pageAdmin', 'view', '2011-10-19 16:35:44'),
+(8595, 1, 2, 'Просмотр страницы', 'content', 'pageAdmin', 'view', '2011-10-19 16:35:48'),
+(8596, 1, 2, 'Просмотр страницы', 'content', 'pageAdmin', 'view', '2011-10-19 16:35:53'),
+(8597, 1, 2, 'Редактирование страницы', 'content', 'pageAdmin', 'update', '2011-10-19 16:35:57'),
+(8598, 1, 2, 'Редактирование страницы', 'content', 'pageAdmin', 'update', '2011-10-19 16:36:06'),
+(8599, 1, 2, 'Просмотр страницы', 'content', 'pageAdmin', 'view', '2011-10-19 16:36:06'),
+(8600, 1, NULL, 'Управление страницами', 'content', 'pageAdmin', 'manage', '2011-10-19 16:36:12'),
+(8601, 1, NULL, 'Добавление страницы', 'content', 'pageAdmin', 'create', '2011-10-19 16:36:14'),
+(8602, 1, NULL, 'Добавление страницы', 'content', 'pageAdmin', 'create', '2011-10-19 16:36:25'),
+(8603, 1, NULL, 'Добавление страницы', 'content', 'pageAdmin', 'create', '2011-10-19 16:37:46'),
+(8604, 1, NULL, 'Добавление страницы', 'content', 'pageAdmin', 'create', '2011-10-19 16:37:52'),
+(8605, 1, NULL, 'Добавление страницы', 'content', 'pageAdmin', 'create', '2011-10-19 16:38:00'),
+(8606, 1, NULL, 'Добавление страницы', 'content', 'pageAdmin', 'create', '2011-10-19 16:38:42'),
+(8607, 1, NULL, 'Добавление страницы', 'content', 'pageAdmin', 'create', '2011-10-19 16:39:13'),
+(8608, 1, NULL, 'Добавление страницы', 'content', 'pageAdmin', 'create', '2011-10-19 16:39:17'),
+(8609, 1, NULL, 'Добавление страницы', 'content', 'pageAdmin', 'create', '2011-10-19 16:39:21'),
+(8610, 1, 17, 'Просмотр страницы', 'content', 'pageAdmin', 'view', '2011-10-19 16:39:22'),
+(8611, 1, 17, 'Редактирование страницы', 'content', 'pageAdmin', 'update', '2011-10-19 16:39:24'),
+(8612, 1, 17, 'Редактирование страницы', 'content', 'pageAdmin', 'update', '2011-10-19 16:39:28'),
+(8613, 1, 17, 'Просмотр страницы', 'content', 'pageAdmin', 'view', '2011-10-19 16:39:28'),
+(8614, 1, 17, 'Просмотр страницы', 'content', 'pageAdmin', 'view', '2011-10-19 16:40:02'),
+(8615, 1, 17, 'Просмотр страницы', 'content', 'pageAdmin', 'view', '2011-10-19 16:40:15'),
+(8616, 1, 17, 'Редактирование страницы', 'content', 'pageAdmin', 'update', '2011-10-19 16:40:20'),
+(8617, 1, NULL, 'Управление страницами', 'content', 'pageAdmin', 'manage', '2011-10-19 16:40:25'),
+(8618, 1, NULL, 'Управление мета-тегами', 'main', 'metaTagAdmin', 'manage', '2011-10-19 16:40:42'),
+(8619, 1, NULL, 'Управление мета-тегами', 'main', 'metaTagAdmin', 'manage', '2011-10-19 16:41:30'),
+(8620, 1, NULL, 'Управление мета-тегами', 'main', 'metaTagAdmin', 'manage', '2011-10-19 16:41:56'),
+(8621, 1, NULL, 'Управление мета-тегами', 'main', 'metaTagAdmin', 'manage', '2011-10-19 16:42:00'),
+(8622, 1, NULL, 'Управление мета-тегами', 'main', 'metaTagAdmin', 'manage', '2011-10-19 16:42:04'),
+(8623, 1, NULL, 'Управление мета-тегами', 'main', 'metaTagAdmin', 'manage', '2011-10-19 16:43:07'),
+(8624, 1, 1, 'Редактирование мета-тега', 'main', 'metaTagAdmin', 'update', '2011-10-19 16:43:12'),
+(8625, 1, NULL, 'Управление мета-тегами', 'main', 'metaTagAdmin', 'manage', '2011-10-19 16:43:15'),
+(8626, 1, NULL, 'Управление мета-тегами', 'main', 'metaTagAdmin', 'manage', '2011-10-19 16:43:19'),
+(8627, 1, NULL, 'Управление мета-тегами', 'main', 'metaTagAdmin', 'manage', '2011-10-19 16:43:21'),
+(8628, 1, NULL, 'Управление мета-тегами', 'main', 'metaTagAdmin', 'manage', '2011-10-19 16:43:26'),
+(8629, 1, NULL, 'Управление мета-тегами', 'main', 'metaTagAdmin', 'manage', '2011-10-19 16:43:28'),
+(8630, 1, NULL, 'Управление мета-тегами', 'main', 'metaTagAdmin', 'manage', '2011-10-19 16:43:31'),
+(8631, 1, NULL, 'Управление мета-тегами', 'main', 'metaTagAdmin', 'manage', '2011-10-19 16:43:33'),
+(8632, 1, 1, 'Редактирование мета-тега', 'main', 'metaTagAdmin', 'update', '2011-10-19 16:43:39'),
+(8633, 1, 1, 'Редактирование мета-тега', 'main', 'metaTagAdmin', 'update', '2011-10-19 16:44:25'),
+(8634, 1, 1, 'Редактирование мета-тега', 'main', 'metaTagAdmin', 'update', '2011-10-19 16:44:30'),
+(8635, 1, 1, 'Редактирование мета-тега', 'main', 'metaTagAdmin', 'update', '2011-10-19 16:44:36'),
+(8636, 1, 1, 'Редактирование мета-тега', 'main', 'metaTagAdmin', 'update', '2011-10-19 16:44:36'),
+(8637, 1, 1, 'Редактирование мета-тега', 'main', 'metaTagAdmin', 'update', '2011-10-19 16:45:33'),
+(8638, 1, NULL, 'Получение объектов модели', 'main', 'metaTagAdmin', 'getModelObjects', '2011-10-19 16:45:34'),
+(8639, 1, 1, 'Редактирование мета-тега', 'main', 'metaTagAdmin', 'update', '2011-10-19 16:45:45'),
+(8640, 1, NULL, 'Получение объектов модели', 'main', 'metaTagAdmin', 'getModelObjects', '2011-10-19 16:45:46'),
+(8641, 1, NULL, 'Управление мета-тегами', 'main', 'metaTagAdmin', 'manage', '2011-10-19 16:45:47'),
+(8642, 1, 1, 'Редактирование мета-тега', 'main', 'metaTagAdmin', 'update', '2011-10-19 16:45:49'),
+(8643, 1, NULL, 'Получение объектов модели', 'main', 'metaTagAdmin', 'getModelObjects', '2011-10-19 16:45:50'),
+(8644, 1, 1, 'Редактирование мета-тега', 'main', 'metaTagAdmin', 'update', '2011-10-19 16:45:56'),
+(8645, 1, NULL, 'Получение объектов модели', 'main', 'metaTagAdmin', 'getModelObjects', '2011-10-19 16:45:57'),
+(8646, 1, 1, 'Редактирование мета-тега', 'main', 'metaTagAdmin', 'update', '2011-10-19 16:46:25'),
+(8647, 1, NULL, 'Получение объектов модели', 'main', 'metaTagAdmin', 'getModelObjects', '2011-10-19 16:46:26'),
+(8648, 1, 1, 'Редактирование мета-тега', 'main', 'metaTagAdmin', 'update', '2011-10-19 16:47:23'),
+(8649, 1, NULL, 'Получение объектов модели', 'main', 'metaTagAdmin', 'getModelObjects', '2011-10-19 16:47:25'),
+(8650, 1, 1, 'Редактирование мета-тега', 'main', 'metaTagAdmin', 'update', '2011-10-19 16:48:14'),
+(8651, 1, NULL, 'Получение объектов модели', 'main', 'metaTagAdmin', 'getModelObjects', '2011-10-19 16:48:16'),
+(8652, 1, 1, 'Редактирование мета-тега', 'main', 'metaTagAdmin', 'update', '2011-10-19 16:49:40'),
+(8653, 1, NULL, 'Получение объектов модели', 'main', 'metaTagAdmin', 'getModelObjects', '2011-10-19 16:49:43'),
+(8654, 1, 1, 'Редактирование мета-тега', 'main', 'metaTagAdmin', 'update', '2011-10-19 16:49:57'),
+(8655, 1, 1, 'Редактирование мета-тега', 'main', 'metaTagAdmin', 'update', '2011-10-19 16:51:49'),
+(8656, 1, 1, 'Редактирование мета-тега', 'main', 'metaTagAdmin', 'update', '2011-10-19 16:52:00'),
+(8657, 1, NULL, 'Получение объектов модели', 'main', 'metaTagAdmin', 'getModelObjects', '2011-10-19 16:52:03'),
+(8658, 1, 1, 'Редактирование мета-тега', 'main', 'metaTagAdmin', 'update', '2011-10-19 16:52:05'),
+(8659, 1, 1, 'Редактирование мета-тега', 'main', 'metaTagAdmin', 'update', '2011-10-19 16:53:18'),
+(8660, 1, NULL, 'Получение объектов модели', 'main', 'metaTagAdmin', 'getModelObjects', '2011-10-19 16:53:19'),
+(8661, 1, NULL, 'Управление мета-тегами', 'main', 'metaTagAdmin', 'manage', '2011-10-19 16:53:22'),
+(8662, 1, 1, 'Редактирование мета-тега', 'main', 'metaTagAdmin', 'update', '2011-10-19 16:53:25'),
+(8663, 1, NULL, 'Получение объектов модели', 'main', 'metaTagAdmin', 'getModelObjects', '2011-10-19 16:53:26'),
+(8664, 1, 1, 'Редактирование мета-тега', 'main', 'metaTagAdmin', 'update', '2011-10-19 16:56:44'),
+(8665, 1, 1, 'Редактирование мета-тега', 'main', 'metaTagAdmin', 'update', '2011-10-19 16:57:05'),
+(8666, 1, 1, 'Редактирование мета-тега', 'main', 'metaTagAdmin', 'update', '2011-10-19 16:57:15'),
+(8667, 1, 1, 'Редактирование мета-тега', 'main', 'metaTagAdmin', 'update', '2011-10-19 16:57:35'),
+(8668, 1, 1, 'Редактирование мета-тега', 'main', 'metaTagAdmin', 'update', '2011-10-19 16:57:41'),
+(8669, 1, 1, 'Редактирование мета-тега', 'main', 'metaTagAdmin', 'update', '2011-10-19 16:57:48'),
+(8670, 1, 1, 'Редактирование мета-тега', 'main', 'metaTagAdmin', 'update', '2011-10-19 16:57:57'),
+(8671, 1, 1, 'Редактирование мета-тега', 'main', 'metaTagAdmin', 'update', '2011-10-19 16:58:59'),
+(8672, 1, NULL, 'Получение объектов модели', 'main', 'metaTagAdmin', 'getModelObjects', '2011-10-19 16:59:00'),
+(8673, 1, NULL, 'Управление мета-тегами', 'main', 'metaTagAdmin', 'manage', '2011-10-19 16:59:05'),
+(8674, 1, 1, 'Редактирование мета-тега', 'main', 'metaTagAdmin', 'update', '2011-10-19 16:59:09'),
+(8675, 1, NULL, 'Получение объектов модели', 'main', 'metaTagAdmin', 'getModelObjects', '2011-10-19 16:59:09'),
+(8676, 1, 1, 'Редактирование мета-тега', 'main', 'metaTagAdmin', 'update', '2011-10-19 16:59:34'),
+(8677, 1, NULL, 'Получение объектов модели', 'main', 'metaTagAdmin', 'getModelObjects', '2011-10-19 16:59:35'),
+(8678, 1, 1, 'Редактирование мета-тега', 'main', 'metaTagAdmin', 'update', '2011-10-19 16:59:44'),
+(8679, 1, NULL, 'Получение объектов модели', 'main', 'metaTagAdmin', 'getModelObjects', '2011-10-19 16:59:44'),
+(8680, 1, 1, 'Редактирование мета-тега', 'main', 'metaTagAdmin', 'update', '2011-10-19 17:00:02'),
+(8681, 1, NULL, 'Получение объектов модели', 'main', 'metaTagAdmin', 'getModelObjects', '2011-10-19 17:00:02'),
+(8682, 1, 1, 'Редактирование мета-тега', 'main', 'metaTagAdmin', 'update', '2011-10-19 17:00:04'),
+(8683, 1, NULL, 'Получение объектов модели', 'main', 'metaTagAdmin', 'getModelObjects', '2011-10-19 17:00:05'),
+(8684, 1, 1, 'Редактирование мета-тега', 'main', 'metaTagAdmin', 'update', '2011-10-19 17:01:02'),
+(8685, 1, 1, 'Редактирование мета-тега', 'main', 'metaTagAdmin', 'update', '2011-10-19 17:01:54'),
+(8686, 1, 1, 'Редактирование мета-тега', 'main', 'metaTagAdmin', 'update', '2011-10-19 17:02:08'),
+(8687, 1, 1, 'Редактирование мета-тега', 'main', 'metaTagAdmin', 'update', '2011-10-19 17:02:25'),
+(8688, 1, 1, 'Редактирование мета-тега', 'main', 'metaTagAdmin', 'update', '2011-10-19 17:02:40'),
+(8689, 1, 1, 'Редактирование мета-тега', 'main', 'metaTagAdmin', 'update', '2011-10-19 17:02:48'),
+(8690, 1, 1, 'Просмотр мета-тега', 'main', 'metaTagAdmin', 'view', '2011-10-19 17:02:48'),
+(8691, 1, 1, 'Просмотр мета-тега', 'main', 'metaTagAdmin', 'view', '2011-10-19 17:03:33'),
+(8692, 1, 1, 'Редактирование мета-тега', 'main', 'metaTagAdmin', 'update', '2011-10-19 17:04:34'),
+(8693, 1, 1, 'Редактирование мета-тега', 'main', 'metaTagAdmin', 'update', '2011-10-19 17:04:41'),
+(8694, 1, 1, 'Просмотр мета-тега', 'main', 'metaTagAdmin', 'view', '2011-10-19 17:04:41'),
+(8695, 1, NULL, 'Управление мета-тегами', 'main', 'metaTagAdmin', 'manage', '2011-10-19 17:04:44'),
+(8696, 1, NULL, 'Создание мета-тега', 'main', 'metaTagAdmin', 'create', '2011-10-19 17:04:46'),
+(8697, 1, NULL, 'Создание мета-тега', 'main', 'metaTagAdmin', 'create', '2011-10-19 17:04:54'),
+(8698, 1, NULL, 'Создание мета-тега', 'main', 'metaTagAdmin', 'create', '2011-10-19 17:05:47'),
+(8699, 1, NULL, 'Создание мета-тега', 'main', 'metaTagAdmin', 'create', '2011-10-19 17:06:06'),
+(8700, 1, NULL, 'Создание мета-тега', 'main', 'metaTagAdmin', 'create', '2011-10-19 17:06:29'),
+(8701, 1, NULL, 'Создание мета-тега', 'main', 'metaTagAdmin', 'create', '2011-10-19 17:06:33'),
+(8702, 1, NULL, 'Создание мета-тега', 'main', 'metaTagAdmin', 'create', '2011-10-19 17:07:50'),
+(8703, 1, NULL, 'Создание мета-тега', 'main', 'metaTagAdmin', 'create', '2011-10-19 17:08:44'),
+(8704, 1, NULL, 'Создание мета-тега', 'main', 'metaTagAdmin', 'create', '2011-10-19 17:09:04'),
+(8705, 1, NULL, 'Создание мета-тега', 'main', 'metaTagAdmin', 'create', '2011-10-19 17:10:19'),
+(8706, 1, NULL, 'Создание мета-тега', 'main', 'metaTagAdmin', 'create', '2011-10-19 17:11:12'),
+(8707, 1, NULL, 'Создание мета-тега', 'main', 'metaTagAdmin', 'create', '2011-10-19 17:13:26'),
+(8708, 1, NULL, 'Создание мета-тега', 'main', 'metaTagAdmin', 'create', '2011-10-19 17:13:49'),
+(8709, 1, NULL, 'Получение объектов модели', 'main', 'metaTagAdmin', 'getModelObjects', '2011-10-19 17:13:51'),
+(8710, 1, NULL, 'Получение объектов модели', 'main', 'metaTagAdmin', 'getModelObjects', '2011-10-19 17:14:02'),
+(8711, 1, NULL, 'Получение объектов модели', 'main', 'metaTagAdmin', 'getModelObjects', '2011-10-19 17:14:32'),
+(8712, 1, NULL, 'Создание мета-тега', 'main', 'metaTagAdmin', 'create', '2011-10-19 17:14:37'),
+(8713, 1, 3, 'Просмотр мета-тега', 'main', 'metaTagAdmin', 'view', '2011-10-19 17:14:37'),
+(8714, 1, 3, 'Редактирование мета-тега', 'main', 'metaTagAdmin', 'update', '2011-10-19 17:14:45'),
+(8715, 1, NULL, 'Управление мета-тегами', 'main', 'metaTagAdmin', 'manage', '2011-10-19 17:14:49'),
+(8716, 1, NULL, 'Создание мета-тега', 'main', 'metaTagAdmin', 'create', '2011-10-19 17:14:53'),
+(8717, 1, NULL, 'Получение объектов модели', 'main', 'metaTagAdmin', 'getModelObjects', '2011-10-19 17:14:55'),
+(8718, 1, NULL, 'Создание мета-тега', 'main', 'metaTagAdmin', 'create', '2011-10-19 17:15:42'),
+(8719, 1, NULL, 'Получение объектов модели', 'main', 'metaTagAdmin', 'getModelObjects', '2011-10-19 17:15:45'),
+(8720, 1, NULL, 'Создание мета-тега', 'main', 'metaTagAdmin', 'create', '2011-10-19 17:18:51'),
+(8721, 1, NULL, 'Получение объектов модели', 'main', 'metaTagAdmin', 'getModelObjects', '2011-10-19 17:18:53'),
+(8722, 1, NULL, 'Создание мета-тега', 'main', 'metaTagAdmin', 'create', '2011-10-19 17:19:00'),
+(8723, 1, NULL, 'Получение объектов модели', 'main', 'metaTagAdmin', 'getModelObjects', '2011-10-19 17:19:02'),
+(8724, 1, NULL, 'Создание мета-тега', 'main', 'metaTagAdmin', 'create', '2011-10-19 17:19:22'),
+(8725, 1, 4, 'Просмотр мета-тега', 'main', 'metaTagAdmin', 'view', '2011-10-19 17:19:22'),
+(8726, 1, 4, 'Редактирование мета-тега', 'main', 'metaTagAdmin', 'update', '2011-10-19 17:19:25'),
+(8727, 1, 4, 'Просмотр мета-тега', 'main', 'metaTagAdmin', 'view', '2011-10-19 17:19:28'),
+(8728, 1, NULL, 'Создание мета-тега', 'main', 'metaTagAdmin', 'create', '2011-10-19 17:19:29'),
+(8729, 1, NULL, 'Получение объектов модели', 'main', 'metaTagAdmin', 'getModelObjects', '2011-10-19 17:19:33'),
+(8730, 1, NULL, 'Получение объектов модели', 'main', 'metaTagAdmin', 'getModelObjects', '2011-10-19 17:20:01'),
+(8731, 1, NULL, 'Создание мета-тега', 'main', 'metaTagAdmin', 'create', '2011-10-19 17:20:13'),
+(8732, 1, NULL, 'Получение объектов модели', 'main', 'metaTagAdmin', 'getModelObjects', '2011-10-19 17:20:16'),
+(8733, 1, NULL, 'Создание мета-тега', 'main', 'metaTagAdmin', 'create', '2011-10-19 17:21:31'),
+(8734, 1, NULL, 'Получение объектов модели', 'main', 'metaTagAdmin', 'getModelObjects', '2011-10-19 17:21:33'),
+(8735, 1, NULL, 'Создание мета-тега', 'main', 'metaTagAdmin', 'create', '2011-10-19 17:22:29'),
+(8736, 1, NULL, 'Получение объектов модели', 'main', 'metaTagAdmin', 'getModelObjects', '2011-10-19 17:22:31'),
+(8737, 1, NULL, 'Создание мета-тега', 'main', 'metaTagAdmin', 'create', '2011-10-19 17:22:54'),
+(8738, 1, NULL, 'Получение объектов модели', 'main', 'metaTagAdmin', 'getModelObjects', '2011-10-19 17:22:58'),
+(8739, 1, NULL, 'Управление мета-тегами', 'main', 'metaTagAdmin', 'manage', '2011-10-19 17:24:39'),
+(8740, 1, NULL, 'Создание мета-тега', 'main', 'metaTagAdmin', 'create', '2011-10-19 17:24:41'),
+(8741, 1, NULL, 'Получение объектов модели', 'main', 'metaTagAdmin', 'getModelObjects', '2011-10-19 17:24:43'),
+(8742, 1, NULL, 'Создание мета-тега', 'main', 'metaTagAdmin', 'create', '2011-10-19 17:24:54'),
+(8743, 1, NULL, 'Получение объектов модели', 'main', 'metaTagAdmin', 'getModelObjects', '2011-10-19 17:24:56'),
+(8744, 1, NULL, 'Создание мета-тега', 'main', 'metaTagAdmin', 'create', '2011-10-19 17:25:03'),
+(8745, 1, 5, 'Просмотр мета-тега', 'main', 'metaTagAdmin', 'view', '2011-10-19 17:25:04'),
+(8746, 1, NULL, 'Управление мета-тегами', 'main', 'metaTagAdmin', 'manage', '2011-10-19 17:25:06'),
+(8747, 1, NULL, 'Создание мета-тега', 'main', 'metaTagAdmin', 'create', '2011-10-19 17:25:08'),
+(8748, 1, NULL, 'Получение объектов модели', 'main', 'metaTagAdmin', 'getModelObjects', '2011-10-19 17:25:10'),
+(8749, 1, NULL, 'Создание мета-тега', 'main', 'metaTagAdmin', 'create', '2011-10-19 17:25:17'),
+(8750, 1, 6, 'Просмотр мета-тега', 'main', 'metaTagAdmin', 'view', '2011-10-19 17:25:18'),
+(8751, 1, NULL, 'Управление мета-тегами', 'main', 'metaTagAdmin', 'manage', '2011-10-19 17:25:19'),
+(8752, 1, NULL, 'Создание мета-тега', 'main', 'metaTagAdmin', 'create', '2011-10-19 17:25:21'),
+(8753, 1, NULL, 'Получение объектов модели', 'main', 'metaTagAdmin', 'getModelObjects', '2011-10-19 17:25:24'),
+(8754, 1, NULL, 'Создание мета-тега', 'main', 'metaTagAdmin', 'create', '2011-10-19 17:25:29'),
+(8755, 1, 7, 'Просмотр мета-тега', 'main', 'metaTagAdmin', 'view', '2011-10-19 17:25:29'),
+(8756, 1, NULL, 'Управление мета-тегами', 'main', 'metaTagAdmin', 'manage', '2011-10-19 17:25:31'),
+(8757, 1, NULL, 'Главная страница', 'content', 'page', 'main', '2011-10-19 17:26:16'),
+(8758, 1, 2, 'Просмотр страницы', 'content', 'page', 'view', '2011-10-19 17:26:18'),
+(8759, 1, 2, 'Просмотр страницы', 'content', 'page', 'view', '2011-10-19 17:26:54'),
+(8760, 1, 2, 'Просмотр страницы', 'content', 'page', 'view', '2011-10-19 17:28:29'),
+(8761, 1, 2, 'Просмотр страницы', 'content', 'page', 'view', '2011-10-19 17:28:35'),
+(8762, 1, 2, 'Просмотр страницы', 'content', 'page', 'view', '2011-10-19 17:28:43'),
+(8763, 1, 2, 'Просмотр страницы', 'content', 'page', 'view', '2011-10-19 17:28:44'),
+(8764, 1, 2, 'Просмотр страницы', 'content', 'page', 'view', '2011-10-19 17:29:30'),
+(8765, 1, 2, 'Просмотр страницы', 'content', 'page', 'view', '2011-10-19 17:49:58');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `users`
+-- Структура таблицы `users`
 --
 
 CREATE TABLE IF NOT EXISTS `users` (
@@ -9769,7 +10548,7 @@ CREATE TABLE IF NOT EXISTS `users` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=19 ;
 
 --
--- Dumping data for table `users`
+-- Дамп данных таблицы `users`
 --
 
 INSERT INTO `users` (`id`, `first_name`, `last_name`, `patronymic`, `email`, `phone`, `password`, `birthdate`, `gender`, `status`, `activate_code`, `activate_date`, `password_recover_code`, `password_recover_date`, `date_create`) VALUES
@@ -9780,7 +10559,7 @@ INSERT INTO `users` (`id`, `first_name`, `last_name`, `patronymic`, `email`, `ph
 -- --------------------------------------------------------
 
 --
--- Table structure for table `ymarket_brands`
+-- Структура таблицы `ymarket_brands`
 --
 
 CREATE TABLE IF NOT EXISTS `ymarket_brands` (
@@ -9791,7 +10570,7 @@ CREATE TABLE IF NOT EXISTS `ymarket_brands` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=138 ;
 
 --
--- Dumping data for table `ymarket_brands`
+-- Дамп данных таблицы `ymarket_brands`
 --
 
 INSERT INTO `ymarket_brands` (`id`, `name`) VALUES
@@ -9936,7 +10715,7 @@ INSERT INTO `ymarket_brands` (`id`, `name`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `ymarket_crons`
+-- Структура таблицы `ymarket_crons`
 --
 
 CREATE TABLE IF NOT EXISTS `ymarket_crons` (
@@ -9953,7 +10732,7 @@ CREATE TABLE IF NOT EXISTS `ymarket_crons` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
 
 --
--- Dumping data for table `ymarket_crons`
+-- Дамп данных таблицы `ymarket_crons`
 --
 
 INSERT INTO `ymarket_crons` (`id`, `name`, `method`, `is_active`, `priority`, `interval`, `date_of`) VALUES
@@ -9963,7 +10742,7 @@ INSERT INTO `ymarket_crons` (`id`, `name`, `method`, `is_active`, `priority`, `i
 -- --------------------------------------------------------
 
 --
--- Table structure for table `ymarket_ips`
+-- Структура таблицы `ymarket_ips`
 --
 
 CREATE TABLE IF NOT EXISTS `ymarket_ips` (
@@ -9976,7 +10755,7 @@ CREATE TABLE IF NOT EXISTS `ymarket_ips` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=32 ;
 
 --
--- Dumping data for table `ymarket_ips`
+-- Дамп данных таблицы `ymarket_ips`
 --
 
 INSERT INTO `ymarket_ips` (`id`, `ip`, `last_date_use`, `date_create`) VALUES
@@ -10015,7 +10794,7 @@ INSERT INTO `ymarket_ips` (`id`, `ip`, `last_date_use`, `date_create`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `ymarket_pages`
+-- Структура таблицы `ymarket_pages`
 --
 
 CREATE TABLE IF NOT EXISTS `ymarket_pages` (
@@ -10030,7 +10809,7 @@ CREATE TABLE IF NOT EXISTS `ymarket_pages` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=28 ;
 
 --
--- Dumping data for table `ymarket_pages`
+-- Дамп данных таблицы `ymarket_pages`
 --
 
 INSERT INTO `ymarket_pages` (`id`, `section_id`, `url`, `num`, `date_create`, `date_parse`) VALUES
@@ -10065,7 +10844,7 @@ INSERT INTO `ymarket_pages` (`id`, `section_id`, `url`, `num`, `date_create`, `d
 -- --------------------------------------------------------
 
 --
--- Table structure for table `ymarket_products`
+-- Структура таблицы `ymarket_products`
 --
 
 CREATE TABLE IF NOT EXISTS `ymarket_products` (
@@ -10081,7 +10860,7 @@ CREATE TABLE IF NOT EXISTS `ymarket_products` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1811 ;
 
 --
--- Dumping data for table `ymarket_products`
+-- Дамп данных таблицы `ymarket_products`
 --
 
 INSERT INTO `ymarket_products` (`id`, `brand_id`, `name`, `image`, `desc_html`, `date_create`, `date_update`) VALUES
@@ -10119,7 +10898,7 @@ INSERT INTO `ymarket_products` (`id`, `brand_id`, `name`, `image`, `desc_html`, 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `ymarket_sections`
+-- Структура таблицы `ymarket_sections`
 --
 
 CREATE TABLE IF NOT EXISTS `ymarket_sections` (
@@ -10141,7 +10920,7 @@ CREATE TABLE IF NOT EXISTS `ymarket_sections` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
 
 --
--- Dumping data for table `ymarket_sections`
+-- Дамп данных таблицы `ymarket_sections`
 --
 
 INSERT INTO `ymarket_sections` (`id`, `name`, `yandex_name`, `url`, `all_models_url`, `brands_url`, `breadcrumbs`, `date_create`, `date_update`, `date_brand_update`, `date_pages_parse`) VALUES
@@ -10152,7 +10931,7 @@ INSERT INTO `ymarket_sections` (`id`, `name`, `yandex_name`, `url`, `all_models_
 -- --------------------------------------------------------
 
 --
--- Table structure for table `ymarket_sections_rels`
+-- Структура таблицы `ymarket_sections_rels`
 --
 
 CREATE TABLE IF NOT EXISTS `ymarket_sections_rels` (
@@ -10166,7 +10945,7 @@ CREATE TABLE IF NOT EXISTS `ymarket_sections_rels` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=176 ;
 
 --
--- Dumping data for table `ymarket_sections_rels`
+-- Дамп данных таблицы `ymarket_sections_rels`
 --
 
 INSERT INTO `ymarket_sections_rels` (`id`, `section_id`, `object_id`, `object_type`) VALUES
@@ -10347,96 +11126,96 @@ INSERT INTO `ymarket_sections_rels` (`id`, `section_id`, `object_id`, `object_ty
 (172, 3, 137, 'brand');
 
 --
--- Constraints for dumped tables
+-- Ограничения внешнего ключа сохраненных таблиц
 --
 
 --
--- Constraints for table `actions`
+-- Ограничения внешнего ключа таблицы `actions`
 --
 ALTER TABLE `actions`
   ADD CONSTRAINT `actions_ibfk_1` FOREIGN KEY (`lang`) REFERENCES `languages` (`id`) ON DELETE SET NULL ON UPDATE CASCADE;
 
 --
--- Constraints for table `actions_files`
+-- Ограничения внешнего ключа таблицы `actions_files`
 --
 ALTER TABLE `actions_files`
   ADD CONSTRAINT `actions_files_ibfk_1` FOREIGN KEY (`action_id`) REFERENCES `actions` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `articles`
+-- Ограничения внешнего ключа таблицы `articles`
 --
 ALTER TABLE `articles`
   ADD CONSTRAINT `articles_ibfk_1` FOREIGN KEY (`lang`) REFERENCES `languages` (`id`) ON DELETE SET NULL ON UPDATE CASCADE,
   ADD CONSTRAINT `articles_ibfk_2` FOREIGN KEY (`section_id`) REFERENCES `articles_sections` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `articles_sections`
+-- Ограничения внешнего ключа таблицы `articles_sections`
 --
 ALTER TABLE `articles_sections`
   ADD CONSTRAINT `articles_sections_ibfk_1` FOREIGN KEY (`parent_id`) REFERENCES `articles_sections` (`id`) ON DELETE SET NULL ON UPDATE CASCADE,
   ADD CONSTRAINT `articles_sections_ibfk_2` FOREIGN KEY (`lang`) REFERENCES `languages` (`id`) ON DELETE SET NULL ON UPDATE CASCADE;
 
 --
--- Constraints for table `AuthAssignment`
+-- Ограничения внешнего ключа таблицы `AuthAssignment`
 --
 ALTER TABLE `AuthAssignment`
   ADD CONSTRAINT `AuthAssignment_ibfk_1` FOREIGN KEY (`itemname`) REFERENCES `AuthItem` (`name`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `AuthAssignment_ibfk_2` FOREIGN KEY (`userid`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `AuthItemChild`
+-- Ограничения внешнего ключа таблицы `AuthItemChild`
 --
 ALTER TABLE `AuthItemChild`
   ADD CONSTRAINT `AuthItemChild_ibfk_1` FOREIGN KEY (`parent`) REFERENCES `AuthItem` (`name`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `AuthItemChild_ibfk_2` FOREIGN KEY (`child`) REFERENCES `AuthItem` (`name`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `documents`
+-- Ограничения внешнего ключа таблицы `documents`
 --
 ALTER TABLE `documents`
   ADD CONSTRAINT `documents_ibfk_1` FOREIGN KEY (`lang`) REFERENCES `languages` (`id`) ON DELETE SET NULL ON UPDATE CASCADE;
 
 --
--- Constraints for table `documents_files`
+-- Ограничения внешнего ключа таблицы `documents_files`
 --
 ALTER TABLE `documents_files`
   ADD CONSTRAINT `documents_files_ibfk_1` FOREIGN KEY (`document_id`) REFERENCES `documents` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `faq`
+-- Ограничения внешнего ключа таблицы `faq`
 --
 ALTER TABLE `faq`
   ADD CONSTRAINT `faq_ibfk_1` FOREIGN KEY (`lang`) REFERENCES `languages` (`id`) ON DELETE SET NULL ON UPDATE CASCADE,
   ADD CONSTRAINT `faq_ibfk_2` FOREIGN KEY (`section_id`) REFERENCES `faq_sections` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `faq_sections`
+-- Ограничения внешнего ключа таблицы `faq_sections`
 --
 ALTER TABLE `faq_sections`
   ADD CONSTRAINT `faq_sections_ibfk_1` FOREIGN KEY (`lang`) REFERENCES `languages` (`id`) ON DELETE SET NULL ON UPDATE CASCADE;
 
 --
--- Constraints for table `mailer_letters`
+-- Ограничения внешнего ключа таблицы `mailer_letters`
 --
 ALTER TABLE `mailer_letters`
   ADD CONSTRAINT `mailer_letters_ibfk_1` FOREIGN KEY (`template_id`) REFERENCES `mailer_templates` (`id`) ON DELETE SET NULL ON UPDATE CASCADE;
 
 --
--- Constraints for table `mailer_recipients`
+-- Ограничения внешнего ключа таблицы `mailer_recipients`
 --
 ALTER TABLE `mailer_recipients`
   ADD CONSTRAINT `mailer_recipients_ibfk_1` FOREIGN KEY (`letter_id`) REFERENCES `mailer_letters` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `mailer_recipients_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `mailer_templates_recipients`
+-- Ограничения внешнего ключа таблицы `mailer_templates_recipients`
 --
 ALTER TABLE `mailer_templates_recipients`
   ADD CONSTRAINT `mailer_templates_recipients_ibfk_1` FOREIGN KEY (`template_id`) REFERENCES `mailer_templates` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `mailer_templates_recipients_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `menu_links`
+-- Ограничения внешнего ключа таблицы `menu_links`
 --
 ALTER TABLE `menu_links`
   ADD CONSTRAINT `menu_links_ibfk_1` FOREIGN KEY (`parent_id`) REFERENCES `menu_links` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
@@ -10447,44 +11226,44 @@ ALTER TABLE `menu_links`
   ADD CONSTRAINT `menu_links_ibfk_6` FOREIGN KEY (`lang`) REFERENCES `languages` (`id`) ON DELETE SET NULL ON UPDATE CASCADE;
 
 --
--- Constraints for table `news`
+-- Ограничения внешнего ключа таблицы `news`
 --
 ALTER TABLE `news`
   ADD CONSTRAINT `news_ibfk_1` FOREIGN KEY (`lang`) REFERENCES `languages` (`id`) ON DELETE SET NULL ON UPDATE CASCADE,
   ADD CONSTRAINT `news_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `pages`
+-- Ограничения внешнего ключа таблицы `pages`
 --
 ALTER TABLE `pages`
   ADD CONSTRAINT `pages_ibfk_1` FOREIGN KEY (`lang`) REFERENCES `languages` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `pages_blocks`
+-- Ограничения внешнего ключа таблицы `pages_blocks`
 --
 ALTER TABLE `pages_blocks`
   ADD CONSTRAINT `pages_blocks_ibfk_1` FOREIGN KEY (`lang`) REFERENCES `languages` (`id`) ON DELETE SET NULL ON UPDATE CASCADE;
 
 --
--- Constraints for table `site_actions`
+-- Ограничения внешнего ключа таблицы `site_actions`
 --
 ALTER TABLE `site_actions`
   ADD CONSTRAINT `site_actions_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `ymarket_pages`
+-- Ограничения внешнего ключа таблицы `ymarket_pages`
 --
 ALTER TABLE `ymarket_pages`
   ADD CONSTRAINT `ymarket_pages_ibfk_1` FOREIGN KEY (`section_id`) REFERENCES `ymarket_sections` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `ymarket_products`
+-- Ограничения внешнего ключа таблицы `ymarket_products`
 --
 ALTER TABLE `ymarket_products`
   ADD CONSTRAINT `barnd_fk` FOREIGN KEY (`brand_id`) REFERENCES `ymarket_brands` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `ymarket_sections_rels`
+-- Ограничения внешнего ключа таблицы `ymarket_sections_rels`
 --
 ALTER TABLE `ymarket_sections_rels`
   ADD CONSTRAINT `section_fk` FOREIGN KEY (`section_id`) REFERENCES `ymarket_sections` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
