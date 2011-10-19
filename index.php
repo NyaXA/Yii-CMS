@@ -31,21 +31,6 @@ $config = $_SERVER['DOCUMENT_ROOT'] . 'protected/config/' . getenv("APP_ENV") . 
 
 Yii::createWebApplication($config)->run();
 
-
-function p($data)
-{
-    echo "<pre>";
-    print_r($data);
-    echo "</pre>";
-}
-
-function v($data)
-{
-    echo "<pre>";
-    var_dump($data);
-    echo "</pre>";
-}
-
 ?>
 
 
