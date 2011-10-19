@@ -136,9 +136,16 @@ class MetaTagAdminController extends AdminController
 
     public function actionGetModelObjects($model_id)
     {
-        $result  = array();
-        $model   = $model_id::model();
-        $objects = $model->findAll();
+        $result = array();
+        $model  = $model_id::model();
+
+        $criteria = new CDbCriteria;
+        $criteria->condition = " id NOT IN (
+            SELECT object_id FROM " . MetaTag::tableName() . "
+                   WHERE model_id = '" . $model_id . "'
+        )";
+
+        $objects = $model->findAll($criteria);
 
         foreach ($objects as $i => $object)
         {

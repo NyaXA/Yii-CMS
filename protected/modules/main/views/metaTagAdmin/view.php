@@ -16,9 +16,9 @@ $this->widget('DetailView', array(
             'label' => 'Объект',
             'value' => $model->object ? $model->object : null
         ),
-		array('name' => 'tag', 'value' => MetaTag::$tags[$model->tag]),
-		array('name' => 'static_value'),
-		array('name' => 'dynamic_value'),
+		array('name' => 'title'),
+        array('name' => 'description'),
+        array('name' => 'keywords'),
 		array('name' => 'date_create'),
 	),
 )); 

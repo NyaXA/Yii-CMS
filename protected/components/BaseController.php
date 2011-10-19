@@ -20,12 +20,11 @@ abstract class BaseController extends CController
     public function init() 
     {
         parent::init();
-        $this->initLanguage();
-        $this->initMetaTags();
+        $this->_initLanguage();
     }
 
 
-    private function initLanguage()
+    private function _initLanguage()
     {
 		if(isset($_GET['lang']))
 		{
@@ -40,12 +39,6 @@ abstract class BaseController extends CController
     }
 
 
-    private function initMetaTags()
-    {
-
-    }
-    
-
     public function beforeAction($action)
     {
         $item_name = AuthItem::constructName($action->controller->id, $action->id);
@@ -55,13 +48,26 @@ abstract class BaseController extends CController
             $this->forbidden();
         }
 
-        $this->setTitleAndSaveSiteAction($action);
-        
+        $this->_setTitleAndSaveSiteAction($action);
+        $this->_setMetaTags($action);
+
         return true;
     }
 
 
-    private function setTitleAndSaveSiteAction($action)
+    private function _setMetaTags($action)
+    {
+//        if ($action->id != 'view')
+//        {
+//            return false;
+//        }
+//
+//        $id = $this->getParams
+//        echo $action->controller->id; die;
+    }
+
+
+    private function _setTitleAndSaveSiteAction($action)
     {
         $action_titles = call_user_func(array(get_class($action->controller), 'actionsTitles'));
 

@@ -4,15 +4,11 @@ class MetaTag extends ActiveRecordModel
 {
     const PAGE_SIZE = 10;
 
-    const TAG_TITLE       = 'title';
-    const TAG_KEYWORDS    = 'keywords';
-    const TAG_DESCRIPTION = 'description';
-
 
     public static $tags = array(
-        self::TAG_TITLE       => 'заголовок (title)',
-        self::TAG_KEYWORDS    => 'ключевые слова (keywords)',
-        self::TAG_DESCRIPTION => 'Описание (description)'
+        'title',
+        'description',
+        'keywords'
     );
 
 
@@ -37,12 +33,12 @@ class MetaTag extends ActiveRecordModel
 	public function rules()
 	{
 		return array(
-			array('model_id, tag', 'required'),
-			array('object_id, tag', 'length', 'max' => 11),
+			array('model_id', 'required'),
+            array('title, description, keywords', 'length', 'max' => 300),
+			array('object_id', 'length', 'max' => 11),
 			array('model_id', 'length', 'max' => 50),
-			array('static_value, dynamic_value', 'length', 'max' => 500),
 
-			array('id, object_id, model_id, tag, static_value, dynamic_value, date_create', 'safe', 'on' => 'search'),
+			array('id, object_id, model_id,date_create', 'safe', 'on' => 'search'),
 		);
 	}
 
@@ -53,15 +49,20 @@ class MetaTag extends ActiveRecordModel
 	}
 
 
+    public function attributeLabels()
+    {
+        $labels = parent::attributeLabels();
+        $labels['meta_tags'] = 'Мета-теги';
+        return $labels;
+    }
+
+
 	public function search()
 	{
 		$criteria = new CDbCriteria;
-		$criteria->compare('object_id', $this->object_id, true);
-		$criteria->compare('model_id', $this->model_id, true);
-		$criteria->compare('tag', $this->tag, true);
-		$criteria->compare('static_value', $this->static_value, true);
-		$criteria->compare('dynamic_value', $this->dynamic_value, true);
-		$criteria->compare('date_create', $this->date_create, true);
+		$criteria->compare('title', $this->title, true);
+		$criteria->compare('description', $this->description, true);
+        $criteria->compare('keywords', $this->keywords, true);
 
 		return new ActiveDataProvider(get_class($this), array(
 			'criteria' => $criteria
@@ -79,5 +80,30 @@ class MetaTag extends ActiveRecordModel
         $model = $this->model_id;
 
         return $model::model()->findByPk($this->object_id);
+    }
+
+
+    public function html($object_id, $model_id)
+    {
+        $meta_tag = $this->findByAttributes(array(
+            'object_id' => $object_id,
+            'model_id'  => $model_id
+        ));
+
+        if (!$meta_tag)
+        {
+            return;
+        }
+
+        $html = "";
+
+        $labels = $this->attributeLabels();
+
+        foreach (self::$tags as $tag)
+        {
+            $html.= '<b>' . $labels[$tag] .'</b>' . ': '  . $meta_tag->$tag . '<br/><br/>';
+        }
+
+        return $html;
     }
 }

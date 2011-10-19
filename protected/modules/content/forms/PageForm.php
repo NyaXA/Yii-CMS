@@ -11,7 +11,8 @@ return array(
         'title'        => array('type' => 'text'),
         'url'          => array('type' => 'text'),
         'text'         => array('type' => 'editor'),
-        'is_published' => array('type' => 'checkbox')
+        'is_published' => array('type' => 'checkbox'),
+        'meta_tags'    => array('type' => 'widget', 'widget' => 'MetaTagSubForm')
     ),
     'buttons' => array(
         'submit' => array('type' => 'submit', 'value' => 'сохранить')

@@ -4,8 +4,9 @@ class Page extends ActiveRecordModel
 {
     const PAGE_SIZE = 10;
 
-    public static $meta_tags = true;
+    public $meta_tags;
 
+    public $god;
 
     public function name()
     {
@@ -25,6 +26,16 @@ class Page extends ActiveRecordModel
 	}
 
 
+    public function behaviors()
+    {
+        $behaviors = parent::behaviors();
+        $behaviors[] = array(
+            'class' => 'application.components.activeRecordBehaviors.MetaTagBehavior'
+        );
+        return $behaviors;
+    }
+
+
 	public function rules()
 	{
 		return array(
@@ -33,6 +44,7 @@ class Page extends ActiveRecordModel
 			array('url', 'length', 'max' => 250),
 			array('title', 'length', 'max'=>200),
 			array('text', 'safe'),
+            array('meta_tags, god', 'safe'),
             array('title, url', 'filter', 'filter' => 'strip_tags'),
 			array('id, title, url, text, is_published, date_create', 'safe', 'on'=>'search'),
 		);
