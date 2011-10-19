@@ -209,6 +209,7 @@ $form->attributes['class'] = 'admin_form';
                 <?php $this->widget($element->attributes['widget'], array('model' => $form->model)); ?>
             <?php endif ?>
 
+
         <?php elseif ($element->type == 'file_manager'): ?>
 
             <fieldset>
@@ -230,6 +231,11 @@ $form->attributes['class'] = 'admin_form';
             </p>
         <?php endif ?>
     <?php endforeach ?>
+
+
+    <?php if (!$form->model->isNewRecord): ?>
+        <?php echo $form->getActiveFormWidget()->hiddenField($form->model, 'id', $element->attributes); ?>
+    <?php endif ?>
 
     <?php echo $form->renderButtons(); ?>
     <?php echo $form->renderEnd(); ?>

@@ -2,12 +2,13 @@
 
 abstract class ActiveRecordModel extends CActiveRecord
 {
-    public static $meta_tags = false;
-
     const PATTERN_RULAT_ALPHA_SPACES = '/^[а-яa-z ]+$/ui';
     const PATTERN_RULAT_ALPHA        = '/^[а-яa-z]+$/ui';
     const PATTERN_LAT_ALPHA          = '/^[A-Za-z]+$/ui';
     const PATTERN_PHONE              = '/^\+[1-9]-[0-9]+-[0-9]{7}$/';
+
+    const SCENARIO_CREATE = 'create';
+    const SCENARIO_ = 'update';
 
 
     abstract public function name();

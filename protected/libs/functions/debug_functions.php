@@ -2,7 +2,7 @@
 
 function p($data)
 {
-    CVarDumper::dump($data, 1000, true);
+    CVarDumper::dump($data, 1000, false);
 }
 
 function v($data)

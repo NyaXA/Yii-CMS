@@ -215,9 +215,17 @@ class AppManager
 
                 $model_class = str_replace('.php', null, $model_file);
 
-                if (array_key_exists('meta_tags', $params))
+                if (isset($params['meta_tags']))
                 {
-                    if ($model_class::$meta_tags !== $params['meta_tags'])
+                    $behaviors = $model_class::behaviors();
+                    $behaviors = ArrayHelper::extract($behaviors, 'class');
+
+                    if (!in_array('application.components.activeRecordBehaviors.MetaTagBehavior', $behaviors))
+                    {
+                        continue;
+                    }
+
+                    if (!property_exists($model_class, 'meta_tags'))
                     {
                         continue;
                     }

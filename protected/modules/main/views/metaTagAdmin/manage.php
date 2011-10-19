@@ -15,21 +15,23 @@ $this->widget('GridView', array(
 	'filter' => $model,
 	'columns' => array(
 		array(
-            'name'  => 'model_id',
-            'value' => 'modelIdName($data->model_id);'
+            'name'   => 'model_id',
+            'value'  => 'modelIdName($data->model_id);',
+            'filter' => false
         ),
 		array(
             'name'   => 'object_id',
             'header' => 'Объект',
-            'value'  => '$data->object'
+            'value'  => '$data->object',
+            'filter' => false
         ),
+		array('name' => 'title'),
+        array('name' => 'description'),
+        array('name' => 'keywords'),
 		array(
-            'name'  => 'tag',
-            'value' => 'MetaTag::$tags[$data->tag]'
+            'name'   => 'date_create',
+            'filter' => false
         ),
-		array('name' => 'static_value'),
-		array('name' => 'dynamic_value'),
-		array('name' => 'date_create'),
 		array(
 			'class' => 'CButtonColumn',
 		),
