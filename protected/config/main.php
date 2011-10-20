@@ -54,6 +54,9 @@ return array(
 			'allowAutoLogin' => true,
             'class'          => 'WebUser'
 		),
+        'metaTags' => array(
+            'class' => 'application.modules.main.components.MetaTags'
+        ),
 		'image' => array(
           'class'  => 'application.extensions.image.CImageComponent',
           'driver' => 'GD'

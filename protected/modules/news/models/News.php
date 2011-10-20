@@ -13,7 +13,7 @@ class News extends ActiveRecordModel
     const PHOTO_SMALL_HEIGHT = "200";
     const PHOTO_BIG_WIDTH    = "580";
 
-    public static $meta_tags = true;
+    public $meta_tags = array();
 
     
 	public static $states = array(
@@ -39,6 +39,9 @@ class News extends ActiveRecordModel
         $behaviors = parent::behaviors();
         $behaviors['FileManager'] = array(
             'class' => 'application.components.activeRecordBehaviors.FileManagerBehavior'
+        );
+        $behaviors['MetaTagBehavior'] = array(
+            'class' => 'application.components.activeRecordBehaviors.MetaTagBehavior'
         );
         return $behaviors;
     }
@@ -71,6 +74,7 @@ class News extends ActiveRecordModel
 				'maxSize'    => 1024 * 1024 * 2.5,
 				'tooLarge'   => 'Максимальный размер файла 2.5 Мб'
 			),
+            array('meta_tags', 'safe', 'on' => array(self::SCENARIO_CREATE, self::SCENARIO_UPDATE)),
 			array('user_id', 'length', 'max' => 11),
 			array('date', 'type', 'type' => 'date', 'dateFormat' => 'dd.mm.yyyy'),
 			array('title', 'length', 'max' => 250),
@@ -166,7 +170,7 @@ class News extends ActiveRecordModel
 
     public function getUrl()
     {
-        return Yii::app()->controller->url("/news/news/view/", array('id' => $this->id));
+        return Yii::app()->controller->url("/news/{$this->id}");
     }
 
 

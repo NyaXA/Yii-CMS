@@ -57,13 +57,20 @@ abstract class BaseController extends CController
 
     private function _setMetaTags($action)
     {
-//        if ($action->id != 'view')
-//        {
-//            return false;
-//        }
-//
-//        $id = $this->getParams
-//        echo $action->controller->id; die;
+        if ($action->id != 'view')
+        {
+            return false;
+        }
+
+        $id = $this->request->getParam("id");
+
+        $class = ucfirst(array_shift(explode("Controller", $action->controller->id)));
+        $model = $class::model()->findByPk($id);
+
+        if ($model)
+        {
+            Yii::app()->metaTags->set($model);
+        }
     }
 
 

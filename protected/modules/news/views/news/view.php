@@ -1,6 +1,4 @@
-<?php 
-$this->page_title = $this->meta_title = $model->title;
-
+<?php
 if ($model->photo)
 {
     $thumb = ImageHelper::thumb(

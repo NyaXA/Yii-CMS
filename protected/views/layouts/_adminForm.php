@@ -213,12 +213,12 @@ $form->attributes['class'] = 'admin_form';
         <?php elseif ($element->type == 'file_manager'): ?>
 
             <fieldset>
-                <legend><?php echo $element->params['title']?>:</legend>
+                <legend><?php echo (isset($element->params) && isset($element->params['title'])) ? $element->params['title'] : 'Файлы' ?>:</legend>
 
                 <?php
                 $this->widget('fileManager.portlets.Uploader', array(
                     'model'       => $form->model,
-                    'data_type'   => $element->params['data_type'],
+                    'data_type'   => (isset($element->params) && isset($element->params['data_type'])) ? $element->params['data_type'] : 'any',
                     'maxFileSize' => 10*1000*1000,
                     'tag'         => $element->name
                 ));

@@ -8,7 +8,7 @@ abstract class ActiveRecordModel extends CActiveRecord
     const PATTERN_PHONE              = '/^\+[1-9]-[0-9]+-[0-9]{7}$/';
 
     const SCENARIO_CREATE = 'create';
-    const SCENARIO_ = 'update';
+    const SCENARIO_UPDATE = 'update';
 
 
     abstract public function name();

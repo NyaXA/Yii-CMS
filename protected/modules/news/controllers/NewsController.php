@@ -13,17 +13,14 @@ class NewsController extends BaseController
 	
 	public function actionView($id) 
 	{
-		$model = News::model(); 
-		
-		$news = $model->active()->findByAttributes(array(
-			'id'    => $id
-		));
-
-		$news_list = $model->last()->active()->limit(5)->notEqual("id", $id)->findAll();
+		$model = News::model()->active()->findByPk($id);
+        if (!$model)
+        {
+            $this->pageNotFound();
+        }
 
 		$this->render('view', array(
-			'list' => $news_list,
-			'model'      => $news
+			'model' => $model
 		));	
 	}	
 
