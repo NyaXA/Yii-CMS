@@ -10,6 +10,17 @@ class NewsAdminController extends AdminController
             "Update" => "Редактирование новости",
             "Delete" => "Удаление новости",
             "Manage" => "Управление новостями",
+            'MovePosition' => 'Изменение позиции'
+        );
+    }
+
+    public function actions()
+    {
+        return array(
+            'movePosition' => array(
+                'class' => 'ext.QGridView.MovePositionAction',
+                'modelName' => 'News'
+            )
         );
     }
 

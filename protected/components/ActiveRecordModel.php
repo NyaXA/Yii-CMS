@@ -40,6 +40,9 @@ abstract class ActiveRecordModel extends CActiveRecord
             ),
             'Timestamp' => array(
                 'class' => 'application.components.activeRecordBehaviors.TimestampBehavior'
+            ),
+            'Sortable'    => array(
+                'class'=> 'application.components.activeRecordBehaviors.SortableBehavior'
             )
         );
     }
