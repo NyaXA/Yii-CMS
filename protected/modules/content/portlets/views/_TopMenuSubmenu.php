@@ -1,7 +1,6 @@
 <ul class="sub_menu">
      <?php
-     $count = count($items);
-     for ($i = 0; $i < $count; $i++)
+     for ($i = 0, $count = count($items); $i < $count; $i++)
      {
          $item = $items[$i];
          $class = '';
