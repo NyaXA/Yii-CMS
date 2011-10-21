@@ -48,6 +48,9 @@ class MenuLink extends ActiveRecordModel
 			'menu'     => array(self::BELONGS_TO, 'Menu', 'menu_id'),
 			'page'     => array(self::BELONGS_TO, 'Page', 'page_id'),
             'childs'   => array(self::HAS_MANY, 'MenuLink', 'parent_id'),
+            'visibleChilds'   => array(self::HAS_MANY, 'MenuLink', 'parent_id',
+                'condition' => 'visibleChilds.is_visible=1'
+            ),
             'parent'   => array(self::BELONGS_TO, 'MenuLink', 'parent_id'),
             'language' => array(self::BELONGS_TO, 'Language', 'lang')
 		);

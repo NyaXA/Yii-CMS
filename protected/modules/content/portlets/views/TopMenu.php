@@ -1,24 +1,22 @@
 <ul>
-	<?php foreach ($sections as $section): ?>
+    <?php foreach ($sections as $section): ?>
+    <?php
+    $url   = $this->url($section->href);
+    $class = $url == $_SERVER['REQUEST_URI'] ? 'active' : '';
+    ?>
+    <li class="<?php echo $class; ?>">
+        <a href="<?php echo $url; ?>"><?php echo $section->title; ?></a>
+
         <?php
-        $url   = $this->url($section->href);
-        $class = $url == $_SERVER['REQUEST_URI'] ? 'active' : '';
-        ?>
-		 <li class="<?php echo $class; ?>">
-            <a href="<?php echo $url; ?>"><?php echo $section->title; ?></a>
+        if ($section->visibleChilds)
+        {
+            $this->render('_TopMenuSubmenu', array(
+                'items' => $section->visible()->childs
+            ));
+        } ?>
 
-		 	<?php if ($section->childs): ?>
-		 		<ul class="sub_menu">
-			 		<?php foreach ($section->childs as $child): ?>
-			 			<li>
-                            <a href="<?php echo $this->url($child->href); ?>"><?php echo $child->title; ?></a>
-			 			</li>
-			 		<?php endforeach ?>
-		 		</ul>
-		 	<?php endif ?>
-
-		 </li>
-	<?php endforeach ?>
+    </li>
+    <?php endforeach ?>
 </ul>
 
 
