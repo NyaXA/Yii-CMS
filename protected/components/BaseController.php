@@ -218,7 +218,7 @@ abstract class BaseController extends CController
     public function loadModel($class, $value, $scopes = array(), $attribute = null)
     {
         $model = new $class;
-        $model = $class->model();
+        $model = $model->model();
 
         foreach ($scopes as $scope)
         {
