@@ -10,8 +10,6 @@
 		 	<?php if ($section->childs): ?>
 		 		<ul class="sub_menu">
 			 		<?php foreach ($section->childs as $child): ?>
-						<?php if (!$child->is_visible) continue; ?>
-
 			 			<li>
                             <a href="<?php echo $this->url($child->href); ?>"><?php echo $child->title; ?></a>
 			 			</li>
