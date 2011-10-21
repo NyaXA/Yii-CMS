@@ -5,7 +5,7 @@ $this->tabs = array(
     $this->t('admin', 'create') => $this->createUrl("create")
 );
 
-$this->widget('GridView', array(
+$this->widget('AdminGrid', array(
 	'id'=>'news-grid',
 	'dataProvider' => $model->search(),
 	'filter' => $model,
