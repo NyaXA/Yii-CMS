@@ -2,38 +2,36 @@
 
 class NewsController extends BaseController
 {
-	public static function actionsTitles() 
-	{
-	    return array(
-	        "View"  => "Просмотр новости",
-	        "Index" => "Список новостей"
-	    );
-	}
-	
-	
-	public function actionView($id) 
-	{
-		$model = News::model(); 
-		
-		$news = $model->active()->findByAttributes(array(
-			'id'    => $id
-		));
+    public static function actionsTitles()
+    {
+        return array(
+            "View"  => "Просмотр новости",
+            "Index" => "Список новостей"
+        );
+    }
 
-		$news_list = $model->last()->active()->limit(5)->notEqual("id", $id)->findAll();
+    public function actionView($id)
+    {
+        $this->render('view', array(
+            'list'  => News::model()->last()->active()->limit(5)->notEqual("id", $id)->findAll(),
+            'model' => $this->loadModel($id, array('active'))
+        ));
+    }
 
-		$this->render('view', array(
-			'list' => $news_list,
-			'model'      => $news
-		));	
-	}	
+    public function actionIndex()
+    {
+        $model         = new News;
+        $data_provider = new ActiveDataProvider(get_class($model), array(
+            'criteria' => $model->active()->ordered()->getDbCriteria()
+        ));
 
-	
-	public function actionIndex() 
-	{
-        $data_provider = new ActiveDataProvider('News');
-
-		$this->render('index', array(
+        $this->render('index', array(
             'data_provider' => $data_provider
-		));
-	}
+        ));
+    }
+
+    public function loadModel($value, $scopes = array(), $attribute = null)
+    {
+        return parent::loadModel('News', $value, $scopes, $attribute);
+    }
 }

@@ -2,7 +2,7 @@
 
 abstract class BaseController extends CController
 {
-	public $layout='//layouts/main';
+    public $layout = '//layouts/main';
 
     public $page_title;
 
@@ -15,27 +15,34 @@ abstract class BaseController extends CController
     public $crumbs = array();
 
     abstract public static function actionsTitles();
-    
-    
-    public function init() 
+
+
+    public function init()
     {
         parent::init();
-        $this->_initLanguage();
+        $this->initLanguage();
+        $this->initMetaTags();
     }
 
 
-    private function _initLanguage()
+    private function initLanguage()
     {
-		if(isset($_GET['lang']))
-		{
-			Yii::app()->setLanguage($_GET['lang']);
-			Yii::app()->session['language'] = $_GET['lang'];
-		}
+        if (isset($_GET['lang']))
+        {
+            Yii::app()->setLanguage($_GET['lang']);
+            Yii::app()->session['language'] = $_GET['lang'];
+        }
 
-		if (!isset(Yii::app()->session['language']) || Yii::app()->session['language'] != Yii::app()->language)
-		{
-			Yii::app()->session['language'] = Yii::app()->language;
-		}
+        if (!isset(Yii::app()->session['language']) || Yii::app()->session['language'] != Yii::app()->language)
+        {
+            Yii::app()->session['language'] = Yii::app()->language;
+        }
+    }
+
+
+    private function initMetaTags()
+    {
+
     }
 
 
@@ -48,39 +55,29 @@ abstract class BaseController extends CController
             $this->forbidden();
         }
 
-        $this->_setTitleAndSaveSiteAction($action);
-        $this->_setMetaTags($action);
+        $this->setTitleAndSaveSiteAction($action);
 
         return true;
     }
 
 
-    private function _setMetaTags($action)
+    private function setTitleAndSaveSiteAction($action)
     {
-//        if ($action->id != 'view')
-//        {
-//            return false;
-//        }
-//
-//        $id = $this->getParams
-//        echo $action->controller->id; die;
-    }
-
-
-    private function _setTitleAndSaveSiteAction($action)
-    {
-        $action_titles = call_user_func(array(get_class($action->controller), 'actionsTitles'));
+        $action_titles = call_user_func(array(
+            get_class($action->controller),
+            'actionsTitles'
+        ));
 
         if (!isset($action_titles[ucfirst($action->id)]))
         {
-            throw new CHttpException('Не найден заголовок для дейсвия ' . ucfirst($action->id));
+            throw new CHttpException('Не найден заголовок для дейсвия '.ucfirst($action->id));
         }
 
-        $title = $action_titles[ucfirst($action->id)];
+        $title                   = $action_titles[ucfirst($action->id)];
 
-        $this->page_title = $title;
+        $this->page_title        = $title;
 
-        $site_action = new SiteAction();
+        $site_action             = new SiteAction();
         $site_action->title      = $title;
         $site_action->module     = $action->controller->module->id;
         $site_action->controller = $action->controller->id;
@@ -100,7 +97,7 @@ abstract class BaseController extends CController
         $site_action->save();
     }
 
-    
+
     public function checkAccess($item_name)
     {
         //Если суперпользователь, то разрешено все
@@ -142,13 +139,13 @@ abstract class BaseController extends CController
             }
         }
 
-       return false;
+        return false;
     }
-   
+
 
     public function url($route, $params = array(), $ampersand = '&')
     {
-        $url_prefix = '/' . Yii::app()->language;
+        $url_prefix = ''; //'/' . Yii::app()->language;
 
         if (mb_strpos($route, 'Admin') !== false)
         {
@@ -159,18 +156,21 @@ abstract class BaseController extends CController
 
         if ($url_prefix)
         {
-            $url = '/' . $url_prefix . $url;
+            $url = '/'.$url_prefix.$url;
         }
 
         $url = str_replace('//', '/', $url);
 
         return $url;
     }
-    
-    
+
+
+    /**
+     * @throws CHttpException
+     */
     protected function pageNotFound()
     {
-        throw new CHttpException(404,'Страница не найдена!');
+        throw new CHttpException(404, 'Страница не найдена!');
     }
 
 
@@ -192,4 +192,45 @@ abstract class BaseController extends CController
                     <p>{$msg}</p>
                 </div>";
     }
+
+    /**
+     * Возвращает модель по атрибуту и удовлетворяющую скоупам,
+     * или выбрасывает 404
+     *
+     * @param string     $class  имя класса модели
+     * @param int|string $value  значение атрибута
+     * @param array      $scopes массив скоупов
+     * @param string     $attribute
+     *
+     * @return CActiveRecord
+     */
+    public function loadModel($class, $value, $scopes = array(), $attribute = null)
+    {
+        $model = new $class;
+        $model = $class->model();
+
+        foreach ($scopes as $scope)
+        {
+            $model->$scope();
+        }
+
+        if ($attribute === null)
+        {
+            $model = $model->findByPk($value);
+        }
+        else
+        {
+            $model = $model->findByAttributes(array(
+                $attribute => $value
+            ));
+        }
+
+        if ($model === null)
+        {
+            $this->pageNotFound();
+        }
+
+        return $model;
+    }
+
 }
