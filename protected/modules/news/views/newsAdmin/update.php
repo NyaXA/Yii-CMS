@@ -1,8 +1,8 @@
 <?php
-$this->page_title = 'Редактирование новости';
+$this->page_title = $this->t('admin', 'update');
 
 $this->tabs = array(
-    "управление новостями" => $this->createUrl("manage")
+    $this->t('admin', 'manage') => $this->createUrl("manage")
 );
 
 echo $form;

@@ -1,8 +1,8 @@
 <?php
-$this->page_title = 'Управление новостями';
+$this->page_title = $this->t('admin', 'manage');
 
 $this->tabs = array(
-    "добавить новость" => $this->createUrl("create")
+    $this->t('admin', 'create') => $this->createUrl("create")
 );
 
 $this->widget('GridView', array(

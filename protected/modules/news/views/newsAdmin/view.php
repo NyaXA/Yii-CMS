@@ -1,9 +1,9 @@
 <?php
-$this->page_title = 'Просмотр новости';
+$this->page_title = $this->t('admin', 'view');
 
 $this->tabs = array(
-    "управление новостями" => $this->createUrl('manage'),
-    "редактировать"        => $this->createUrl('update', array('id' => $model->id))
+    $this->t('admin', 'manage') => $this->createUrl('manage'),
+    $this->t('admin', 'update') => $this->createUrl('update', array('id' => $model->id))
 );
 
 $this->widget('DetailView', array(
