@@ -244,4 +244,17 @@ abstract class BaseController extends CController
         return $model;
     }
 
+    /**
+     * Обертка для Yii::t, выполняет перевод по словарям текущего модуля.
+     *
+     * @param string $dictionary словарь
+     * @param string $alias      фраза для перевода
+     *
+     * @return string перевод
+     */
+    public function t($dictionary, $alias)
+    {
+        return Yii::t(get_class($this->module).'.'.$dictionary, $alias);
+    }
+
 }
