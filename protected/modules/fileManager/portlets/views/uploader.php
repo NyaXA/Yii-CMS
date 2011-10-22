@@ -1,29 +1,29 @@
 <div id="<?php echo $this->id ?>" class="uploader portlet-content">
-    <form method="POST" enctype="multipart/form-data">
-        <div class="fileupload-buttonbar">
-            <label class="fileinput-button">
-                <span>Добавить файлы...</span>
-                <input type="file" name="file" multiple>
-            </label>
-            <button type="submit" class="start">Начать загрузку</button>
-        </div>
-    </form>
+    <div class="fileupload-buttonbar">
+        <label class="fileinput-button">
+            <span>Добавить файлы...</span>
+            <input type="file" name="file" multiple>
+        </label>
+        <button type="submit" class="start">Начать загрузку</button>
+    </div>
     <div id="<?php echo $this->id ?>-drop-zone" class="drop-zone">
         Перетащите сюда файлы
     </div>
     <div class="fileupload-content">
-        <table class="files"><tbody></tbody></table>
+        <table class="files">
+            <tbody></tbody>
+        </table>
         <div class="fileupload-progressbar"></div>
     </div>
 </div>
 
 <script type="text/javascript">
-    $(function()
+$(function()
+{
+    $('.submit').click(function()
     {
-        $('.submit').click(function()
-        {
-            $('.admin_form').submit();
-        });
+        $('.admin_form').submit();
     });
+});
 </script>
 
