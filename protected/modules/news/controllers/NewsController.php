@@ -31,10 +31,6 @@ class NewsController extends BaseController
 		));
 	}
 
-    public function loadModel($value, $scopes = array(), $attribute = null)
-    {
-        return parent::loadModel('News', $value, $scopes, $attribute);
-    }
 }
 
 

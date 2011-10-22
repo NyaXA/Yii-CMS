@@ -216,8 +216,9 @@ abstract class BaseController extends CController
      *
      * @return CActiveRecord
      */
-    public function loadModel($class, $value, $scopes = array(), $attribute = null)
+    public function loadModel($value, $scopes = array(), $attribute = null)
     {
+        $class = ucfirst($tihs->id);
         $model = new $class;
         $model = $model->model();
 
