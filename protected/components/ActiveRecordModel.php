@@ -212,6 +212,15 @@ abstract class ActiveRecordModel extends CActiveRecord
 	    return $this;
 	}
 
+    public function offset($num)
+    {
+        $this->getDbCriteria()->mergeWith(array(
+            'offset' => $num,
+        ));
+
+        return $this;
+    }
+
     public function in($row, $values)
     {
         $values = implode(',', $values);
