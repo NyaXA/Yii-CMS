@@ -4,7 +4,6 @@ class MetaTagSubForm extends Portlet
 {
     public $model;
 
-
     public function init()
     {
         $class = 'application.components.activeRecordBehaviors.MetaTagBehavior';
@@ -16,7 +15,7 @@ class MetaTagSubForm extends Portlet
             throw new CException("Модель должна иметь поведение: {$class}");
         }
 
-        if (!property_exists(get_class($this->model), 'meta_tags'))
+        if (!isset($this->model->meta_tags))
         {
             throw new CException("Класс {$class} должен иметь поле meta_tags");
         }
@@ -50,8 +49,11 @@ class MetaTagSubForm extends Portlet
             }
         }
 
+
+
         $this->render('MetaTagSubForm', array(
             'model' => $model
         ));
+        
     }
 }

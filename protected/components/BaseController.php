@@ -64,7 +64,8 @@ abstract class BaseController extends CController
 
         $id = $this->request->getParam("id");
 
-        $model = new ucfirst(array_shift(explode("Controller", $action->controller->id)));
+        $class = ucfirst($action->controller->id);
+        $model = new $class;
         $model = $model->model()->findByPk($id);
 
         if ($model)
