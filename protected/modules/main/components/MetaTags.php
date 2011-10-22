@@ -11,18 +11,17 @@ class MetaTags extends CApplicationComponent
 {
     public function set(ActiveRecordModel $model)
     {
-        $meta_tag = MetaTag::model()->findByAttributes(array(
+        $meta_tag = MetaTag::model()->findAllByAttributes(array(
             'object_id' => $model->id,
             'model_id'  => get_class($model)
         ));
 
         if ($meta_tag)
         {
-            $tags = MetaTag::$tags;
-            foreach ($tags as $tag)
+            foreach ($meta_tag as $tag)
             {
-                $attr = 'meta_' . $tag;
-                Yii::app()->controller->$attr = $meta_tag->$tag;
+                $attr = 'meta_'.$tag->tag;
+                Yii::app()->controller->$attr = $tag->static_value;
             }
         }
     }

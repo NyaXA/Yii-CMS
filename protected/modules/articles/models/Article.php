@@ -4,7 +4,6 @@ class Article extends ActiveRecordModel
 {
     const PAGE_SIZE = 10;
 
-
     public function name()
     {
         return 'Статьи';

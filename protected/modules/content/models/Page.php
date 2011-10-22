@@ -4,8 +4,6 @@ class Page extends ActiveRecordModel
 {
     const PAGE_SIZE = 10;
 
-    public $meta_tags;
-
     public $god;
 
     public function name()
