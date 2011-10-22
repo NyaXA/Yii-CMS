@@ -212,6 +212,15 @@ abstract class ActiveRecordModel extends CActiveRecord
 	    return $this;
 	}
 
+    public function in($row, $values)
+    {
+        $values = implode(',', $values);
+        $alias = $this->getTableAlias();
+        $this->getDbCriteria()->mergeWith(array(
+            'condition' => $alias.'.'.$row." IN ({$values}) "
+        ));
+        return $this;
+    }
 
 	public function notEqual($param, $value)
 	{
