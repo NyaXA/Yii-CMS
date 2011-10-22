@@ -1,4 +1,4 @@
-<div id="<?php echo $this->id ?>" class="uploader">
+<div id="<?php echo $this->id ?>" class="uploader portlet-content">
     <form method="POST" enctype="multipart/form-data">
         <div class="fileupload-buttonbar">
             <label class="fileinput-button">

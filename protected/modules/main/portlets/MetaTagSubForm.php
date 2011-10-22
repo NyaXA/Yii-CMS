@@ -1,12 +1,13 @@
 <?php
- 
-class MetaTagSubForm extends Portlet
+
+class MetaTagSubForm extends SubForm
 {
     public $model;
+    public $title = "Мета-теги";
 
     public function init()
     {
-        $class = 'application.components.activeRecordBehaviors.MetaTagBehavior';
+        $class     = 'application.components.activeRecordBehaviors.MetaTagBehavior';
 
         $behaviors = $this->model->behaviors();
         $classes   = ArrayHelper::extract($behaviors, 'class');
@@ -49,11 +50,9 @@ class MetaTagSubForm extends Portlet
             }
         }
 
-
-
         $this->render('MetaTagSubForm', array(
             'model' => $model
         ));
-        
+
     }
 }
