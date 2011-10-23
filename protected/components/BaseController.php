@@ -64,7 +64,7 @@ abstract class BaseController extends CController
 
         $id = $this->request->getParam("id");
 
-        $class = ucfirst($action->controller->id);
+        $class = ucfirst(str_replace('Admin', '', $action->controller->id));
         $model = new $class;
         $model = $model->model()->findByPk($id);
 
@@ -156,7 +156,7 @@ abstract class BaseController extends CController
 
     public function url($route, $params = array(), $ampersand = '&')
     {
-        $url_prefix = '/' . Yii::app()->language;
+        $url_prefix = '';//'/' . Yii::app()->language;
 
         if (mb_strpos($route, 'Admin') !== false)
         {
@@ -218,7 +218,7 @@ abstract class BaseController extends CController
      */
     public function loadModel($value, $scopes = array(), $attribute = null)
     {
-        $class = ucfirst($tihs->id);
+        $class = ucfirst(str_replace('Admin', '',$this->id));
         $model = new $class;
         $model = $model->model();
 
