@@ -3,7 +3,7 @@
 class MetaTagBehavior extends CActiveRecordBehavior
 {
     public $meta_tags;
-
+    
     public function afterSave($event)
     {
         $model = $this->getOwner();

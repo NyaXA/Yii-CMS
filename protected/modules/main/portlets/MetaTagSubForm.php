@@ -27,24 +27,6 @@ class MetaTagSubForm extends SubForm
 
     public function renderContent()
     {
-        $model = MetaTag::model();
-
-        $meta_tags = MetaTag::model()->findAllByAttributes(array(
-            'object_id' => $this->model->id,
-            'model_id'  => get_class($this->model)
-        ));
-//
-//        if (isset($_POST[get_class($this->model)]['meta_tags']))
-//        {
-//            foreach ($_POST[get_class($this->model)]['meta_tags'] as $tag => $value)
-//            {
-//                $model->$tag = $value;
-//            }
-//        }
-//        
-        $this->render('MetaTagSubForm', array(
-            'meta_tags' => $meta_tags
-        ));
-
+        $this->render('MetaTagSubForm');
     }
 }
