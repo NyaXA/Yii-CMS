@@ -135,8 +135,7 @@ class MetaTag extends ActiveRecordModel
     {
         $alias = $this->getTableAlias();
         $this->getDbCriteria()->mergeWith(array(
-            'condition' => $alias.'.model_id="'.get_class($model).'" AND '.$alias.'.object_id='.$model->id,
-            'order'     => $alias.'.order DESC'
+            'condition' => $alias.'.model_id="'.get_class($model).'" AND '.$alias.'.object_id='.$model->id
         ));
         return $this;
     }
