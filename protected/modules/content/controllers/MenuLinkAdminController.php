@@ -183,7 +183,7 @@ class MenuLinkAdminController extends AdminController
     }
 
 
-    private function loadModel($id)
+    public function loadModel($id)
     {
         $model = MenuLink::model()->findByPk((int) $id);
         if ($model === null)

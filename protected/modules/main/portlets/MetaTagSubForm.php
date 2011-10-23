@@ -29,29 +29,21 @@ class MetaTagSubForm extends SubForm
     {
         $model = MetaTag::model();
 
-        if ($this->model->id)
-        {
-            $meta_tag = MetaTag::model()->findByAttributes(array(
-                'object_id' => $this->model->id,
-                'model_id'  => get_class($this->model)
-            ));
-
-            if ($meta_tag)
-            {
-                $model = $meta_tag;
-            }
-        }
-
-        if (isset($_POST[get_class($this->model)]['meta_tags']))
-        {
-            foreach ($_POST[get_class($this->model)]['meta_tags'] as $tag => $value)
-            {
-                $model->$tag = $value;
-            }
-        }
-
+        $meta_tags = MetaTag::model()->findAllByAttributes(array(
+            'object_id' => $this->model->id,
+            'model_id'  => get_class($this->model)
+        ));
+//
+//        if (isset($_POST[get_class($this->model)]['meta_tags']))
+//        {
+//            foreach ($_POST[get_class($this->model)]['meta_tags'] as $tag => $value)
+//            {
+//                $model->$tag = $value;
+//            }
+//        }
+//        
         $this->render('MetaTagSubForm', array(
-            'model' => $model
+            'meta_tags' => $meta_tags
         ));
 
     }
