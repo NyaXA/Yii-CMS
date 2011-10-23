@@ -152,6 +152,23 @@ class MetaTag extends ActiveRecordModel
 
     public static function getTag($model, $tag)
     {
-        return self::model()->parent($model)->tag($tag)->find();
+        $meta_model = self::model();
+        if (!$model->isNewRecord)
+        {
+            $meta_model = $meta_model->parent($model)->tag($tag)->find();
+            if (!$meta_model)
+            {
+                $meta_model = self::model();
+            }
+        }
+        else
+        {
+            if (isset($_POST[get_class($model)]['meta_tags'][$tag]))
+            {
+                $meta_model->tag = $tag;
+                $meta_model->static_value = $_POST[get_class($model)]['meta_tags'][$tag];
+            }
+        }
+        return $meta_model;
     }
 }
