@@ -93,14 +93,14 @@ class Article extends ActiveRecordModel
     {
         if (Yii::app()->controller->checkAccess('ArticleAdmin_Update'))
         {
-            $this->text.= "<br/> <a href='/articles/articleAdmin/update/id/{$this->id}' class='admin_link'>Редактировать</a>";
+            $this->text.= "<br/> <a href='{$this->updateUrl}' class='admin_link'>Редактировать</a>";
         }
 
         return $this->text;
     }
 
 
-    public function updateUrl()
+    public function getUpdateUrl()
     {
         return "/articles/articleAdmin/update/id/{$this->id}";
     }

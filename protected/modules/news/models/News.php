@@ -144,7 +144,7 @@ class News extends ActiveRecordModel
     {
         if (Yii::app()->controller->checkAccess('NewsAdmin_Update'))
         {
-            $this->text.= "<br/> <a href='/news/newsAdmin/update/id/{$this->id}' class='admin_link'>Редактировать</a>";
+            $this->text.= "<br/> <a href='{$this->updateUrl}' class='admin_link'>Редактировать</a>";
         }
 
         return $this->text;
@@ -174,7 +174,7 @@ class News extends ActiveRecordModel
     }
 
 
-    public function updateUrl()
+    public function getUpdateUrl()
     {
         return "/news/newsAdmin/update/id/{$this->id}";
     }
