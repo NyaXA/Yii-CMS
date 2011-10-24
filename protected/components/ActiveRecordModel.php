@@ -223,11 +223,7 @@ abstract class ActiveRecordModel extends CActiveRecord
 
     public function in($row, $values)
     {
-        $values = implode(',', $values);
-        $alias = $this->getTableAlias();
-        $this->getDbCriteria()->mergeWith(array(
-            'condition' => $alias.'.'.$row." IN ({$values}) "
-        ));
+        $this->getDbCriteria()->addInCondition($row, $values);
         return $this;
     }
 
