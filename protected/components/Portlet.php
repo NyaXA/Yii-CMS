@@ -7,7 +7,24 @@ class Portlet extends CPortlet
     public function init()
     {
         $this->_checkRequiredFields();
+        $this->_runStdInitMethods();
         parent::init();
+    }
+
+    private function _runStdInitMethods()
+    {
+        $methods = array(
+            'initVars',
+            'initScripts'
+        );
+
+        foreach ($methods as $method)
+        {
+            if (method_exists($this, $method))
+            {
+                $this->$method();
+            }
+        }
     }
 
     /**
