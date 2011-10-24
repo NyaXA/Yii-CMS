@@ -14,7 +14,7 @@ class Portlet extends CPortlet
     {
         if (method_exists($this, 'requiredFields'))
         {
-            $fields = $this->getRequiredFields();
+            $fields = $this->requiredFields();
             foreach ($fields as $field)
             {
                 if ($this->$field === null)
