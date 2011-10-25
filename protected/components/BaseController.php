@@ -57,7 +57,7 @@ abstract class BaseController extends CController
 
     private function _setMetaTags($action)
     {
-        if ($action->id != 'view')
+        if ($action->id != 'view' || $action->controller instanceof AdminController)
         {
             return false;
         }

@@ -5,11 +5,11 @@ class BannerAdminController extends AdminController
     public static function actionsTitles()
     {
         return array(
-            'View'   => 'Просмотр баннера',
-            'Create' => 'Создание баннера',
-            'Update' => 'Редактирование баннера',
-            'Delete' => 'Удаление баннера',
-            'Manage' => 'Управление баннерами',
+            'View'   => 'Просмотр банера',
+            'Create' => 'Создание банера',
+            'Update' => 'Редактирование банера',
+            'Delete' => 'Удаление банера',
+            'Manage' => 'Управление банерами',
         );
     }
 
@@ -29,12 +29,20 @@ class BannerAdminController extends AdminController
 		$form = new BaseForm('banners.BannerForm', $model);
 		
 		// $this->performAjaxValidation($model);
-
+      
 		if(isset($_POST['Banner']))
 		{
 			$model->attributes = $_POST['Banner'];
+
+            if (isset($_POST['Banner']['roles']))
+            {
+                $model->roles = $_POST['Banner']['roles'];
+            }
+
 			if($model->save())
             {
+                //if ()
+                
                 $this->redirect(array('view', 'id' => $model->id));
             }
 		}
@@ -56,6 +64,12 @@ class BannerAdminController extends AdminController
 		if(isset($_POST['Banner']))
 		{
 			$model->attributes = $_POST['Banner'];
+            
+            if (isset($_POST['Banner']['roles']))
+            {
+                $model->roles = $_POST['Banner']['roles'];
+            }
+            
 			if($model->save())
             {
                 $this->redirect(array('view', 'id' => $model->id));

@@ -1,7 +1,7 @@
 <?php
 
 $this->tabs = array(
-    'добавить баннер' => $this->createUrl('create')
+    'добавить' => $this->createUrl('create')
 );
 
 $this->widget('GridView', array(
@@ -9,13 +9,11 @@ $this->widget('GridView', array(
 	'dataProvider' => $model->search(),
 	'filter' => $model,
 	'columns' => array(
-		'name',
-		'url',
-		'title',
-		'alt',
-		'image',
-		'is_active',
-		'date_create',
+		array('name' => 'name'),
+		array('name' => 'url'),
+		array('name' => 'is_active', 'value' => '$data->is_active ? "Да" : "Нет"'),
+		array('name' => 'date_start'),
+		array('name' => 'date_end'),
 		array(
 			'class' => 'CButtonColumn',
 		),
