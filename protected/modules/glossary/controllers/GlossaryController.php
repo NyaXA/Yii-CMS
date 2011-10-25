@@ -1,6 +1,6 @@
 <?php
 
-class GlossariesController extends BaseController
+class GlossaryController extends BaseController
 {
     public static function actionsTitles()
     {
@@ -17,8 +17,15 @@ class GlossariesController extends BaseController
         ));
     }
 
-    public function actionIndex()
+    public function actionIndex($Glossary_alphapage = null)
     {
+        if ($Glossary_alphapage === null)
+        {
+            $char = Glossary::getLastNoEmptyChar('title');
+            $index = ApPagination::getWordIndex($char);
+            $this->redirect($this->url('index', array('Glossary_alphapage' => $index)));
+        }
+
         $config = array(
             'criteria'        => Glossary::model()->active()->byTitle()->dbCriteria,
             'alphapagination' => array(
@@ -26,7 +33,7 @@ class GlossariesController extends BaseController
                 'pagination'    => array(
                     'pageSize' => Glossary::PAGE_SIZE,
                 ),
-                'charSet' => CMap::mergeArray(ApPagination::$alphabet['ru'], ApPagination::$alphabet['en']),
+                'charSet' => ApPagination::getAllLetters(),
                 'activeCharSet' => Glossary::noEmptyChars('title')
             )
         );
@@ -34,17 +41,6 @@ class GlossariesController extends BaseController
         $this->render('index', array(
             'dp' => new ApActiveDataProvider('Glossary', $config)
         ));
-    }
-
-    public function loadModel($id)
-    {
-        $model = Glossary::model()->findByPk((int) $id);
-        if($model === null)
-        {
-            $this->pageNotFound();
-        }
-
-        return $model;
     }
 
 }

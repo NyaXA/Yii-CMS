@@ -1,6 +1,6 @@
 <?php
 
-class GlossariesAdminController extends AdminController
+class GlossaryAdminController extends AdminController
 {
     public static function actionsTitles() 
     {

@@ -34,11 +34,10 @@ class GlossaryModule extends WebModule
     public static function adminMenu()
     {
         return array(
-			'Все статьи'      => '/glossary/glossariesAdmin/manage/Glossary_sort/date.desc',
-			'Добавить статью' => '/glossary/glossariesAdmin/create'
+			'Все статьи'      => '/glossary/glossaryAdmin/manage/Glossary_sort/date.desc',
+			'Добавить статью' => '/glossary/glossaryAdmin/create'
         );
     }
-
 
     public static function urlRules()
     {

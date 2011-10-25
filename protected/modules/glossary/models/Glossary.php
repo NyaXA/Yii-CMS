@@ -12,13 +12,12 @@ class Glossary extends ActiveRecordModel
 
     const PHOTO_BIG_WIDTH = "450";
 
-    const PAGE_SIZE = 20;
+    const PAGE_SIZE = 25;
 
     public static $states = array(
         self::STATE_ACTIVE => 'Активна',
         self::STATE_HIDDEN => 'Скрыта'
     );
-
 
     public static function model($className = __CLASS__)
     {
@@ -62,6 +61,11 @@ class Glossary extends ActiveRecordModel
                 'length',
                 'max' => 6
             ),
+
+            array(
+                'meta_tags',
+                'safe'
+            ),
             array(
                 'id, user_id, title, text, photo, state, date, date_create',
                 'safe',
@@ -86,17 +90,37 @@ class Glossary extends ActiveRecordModel
         );
     }
 
-    // Add those characters to an array and assign them to activeCharSet
-    public static function noEmptyChars($field)
+    public function behaviors()
     {
-        $model       = new Glossary;
-        $chars       = (array)$model->findAll(array(
+        return CMap::mergeArray(parent::behaviors(), array(
+            'FileManager' => array(
+                'class' => 'application.components.activeRecordBehaviors.FileManagerBehavior'
+            ),
+            'MetaTag'     => array(
+                'class' => 'application.components.activeRecordBehaviors.MetaTagBehavior'
+            )
+        ));
+    }
+
+    public function onlyFirstChars($field)
+    {
+        $alias = $this->getTableAlias();
+        $this->getDbCriteria()->mergeWith(array(
             'select'=> "DISTINCT(
                         UPPER(
                             LEFT(`$field`, 1)
                         )
-                     ) AS `title`"
+                     ) AS `title`",
+            'order' => '`title` ASC'
         ));
+        return $this;
+    }
+
+    // Add those characters to an array and assign them to activeCharSet
+    public static function noEmptyChars($field)
+    {
+        $model       = new Glossary;
+        $chars       = (array)$model->onlyFirstChars($field)->findAll();
         $activeChars = array();
         foreach ($chars as $char)
         {
@@ -106,9 +130,25 @@ class Glossary extends ActiveRecordModel
         return $activeChars;
     }
 
+    public function getLastNoEmptyChar($field)
+    {
+        $model = new Glossary;
+        foreach (ApPagination::$langs as $lang)
+        {
+            $chars = (array)$model->in('title', ApPagination::$alphabet[$lang])->onlyFirstChars($field)->findAll();
+
+            if (count($chars) > 0)
+            {
+                return $chars[0];
+            }
+        }
+
+        return false;
+    }
+
     public function search()
     {
-        $alias = $this->getTableAlias();
+        $alias    = $this->getTableAlias();
         $criteria = new CDbCriteria;
 
         $criteria->compare($alias.'.id', $this->id, true);
@@ -122,7 +162,7 @@ class Glossary extends ActiveRecordModel
 
         $criteria->order = $alias.'.title ASC';
 
-        $page_size = 10;
+        $page_size       = 10;
         if (isset(Yii::app()->session[get_class($this)."PerPage"]))
         {
             $page_size = Yii::app()->session[get_class($this)."PerPage"];
@@ -153,9 +193,9 @@ class Glossary extends ActiveRecordModel
 
     public function getContent()
     {
-        if (Yii::app()->controller->checkAccess('GlossariesAdmin_Update'))
+        if (Yii::app()->controller->checkAccess('GlossaryAdmin_Update'))
         {
-            $this->text .= "<br/> <a href='/glossary/glossariesAdmin/update/id/{$this->id}' class='admin_link'>Редактировать</a>";
+            $this->text .= "<br/> <a href='/glossary/glossaryAdmin/update/id/{$this->id}' class='admin_link'>Редактировать</a>";
         }
 
         return $this->text;
@@ -163,12 +203,12 @@ class Glossary extends ActiveRecordModel
 
     public function getUrl()
     {
-        return Yii::app()->controller->url("/glossary/glossaries/view/", array('id' => $this->id));
+        return Yii::app()->controller->url("/glossary/glossary/view/", array('id' => $this->id));
     }
 
     public static function mainUrl()
     {
-        return Yii::app()->controller->url("/glossary/glossaries");
+        return Yii::app()->controller->url("/glossary/glossary");
     }
 
 
