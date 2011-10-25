@@ -1,7 +1,7 @@
 <?php
 
 $this->tabs = array(
-    'управление баннерами' => $this->createUrl('manage')
+    'управление банерами' => $this->createUrl('manage')
 );
 
 echo $form;

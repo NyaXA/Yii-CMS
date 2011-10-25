@@ -37,7 +37,15 @@ class GridView extends CGridView
             {
                 if (Yii::app()->dater->isDbDate($value))
                 {
-                    $item->$attr = Yii::app()->dater->readableFormat($value);
+                    if (in_array($value, array('0000-00-00 00:00:00', '0000-00-00')))
+                    {
+                        $item->$attr = null;
+                    }
+                    else
+                    {
+                        $item->$attr = Yii::app()->dater->readableFormat($value);
+                    }
+
                 }
             }
         }

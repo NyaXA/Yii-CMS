@@ -124,7 +124,8 @@ $form->attributes['class'] = 'admin_form';
                 <?php echo $form->getActiveFormWidget()->labelEx($form->model, $element->name); ?>
 
                 <?php
-                $this->widget('application.extensions.tiny_mce.TinyMCE',array(
+                $this->widget('application.extensions.tinymce.ETinyMce',array(
+                    'editorTemplate' => 'full',
                     'model' => $form->model,
                     'attribute' => $element->name,
                 ));
@@ -157,11 +158,10 @@ $form->attributes['class'] = 'admin_form';
 
                 <?php
                 $this->widget(
-                    'application.extensions.emultiselect.EMultiSelect',
-                    $element->params
+                    'application.extensions.emultiselect.EMultiSelect'
                 );
                 ?>
-
+                
                 <?php
                 echo $form->getActiveFormWidget()->dropdownlist(
                     $form->model,
@@ -203,24 +203,22 @@ $form->attributes['class'] = 'admin_form';
             </div>    
             <br clear="all" />
 
-       <?php elseif ($element->type == "widget"): ?>
-
+        <?php elseif ($element->type == "widget"): ?>
             <?php if (isset($element->attributes['widget'])): ?>
                 <?php $this->widget($element->attributes['widget'], array('model' => $form->model)); ?>
             <?php endif ?>
-
-
         <?php elseif ($element->type == 'file_manager'): ?>
 
             <fieldset>
-                <legend><?php echo (isset($element->params) && isset($element->params['title'])) ? $element->params['title'] : 'Файлы' ?>:</legend>
+                <legend>Файлы:</legend>
 
                 <?php
                 $this->widget('fileManager.portlets.Uploader', array(
                     'model'       => $form->model,
-                    'data_type'   => (isset($element->params) && isset($element->params['data_type'])) ? $element->params['data_type'] : 'any',
+                    'id'          => 'uploader',
+                    'data_type'   => 'any',
                     'maxFileSize' => 10*1000*1000,
-                    'tag'         => $element->name
+                    'tag'         => 'files'
                 ));
                 ?>
             </fieldset>
@@ -231,11 +229,6 @@ $form->attributes['class'] = 'admin_form';
             </p>
         <?php endif ?>
     <?php endforeach ?>
-
-
-    <?php if (!$form->model->isNewRecord): ?>
-        <?php echo $form->getActiveFormWidget()->hiddenField($form->model, 'id', $element->attributes); ?>
-    <?php endif ?>
 
     <?php echo $form->renderButtons(); ?>
     <?php echo $form->renderEnd(); ?>
