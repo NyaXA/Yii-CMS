@@ -13,9 +13,6 @@ class News extends ActiveRecordModel
     const PHOTO_SMALL_HEIGHT = "200";
     const PHOTO_BIG_WIDTH    = "580";
 
-    public $meta_tags = array();
-
-    
 	public static $states = array(
 		self::STATE_ACTIVE => 'Активна',
 		self::STATE_HIDDEN => 'Скрыта'
@@ -102,15 +99,18 @@ class News extends ActiveRecordModel
 
 	public function search()
 	{
+        $alias = $this->getTableAlias();
 		$criteria = new CDbCriteria;
-		$criteria->compare('id', $this->id, true);
-		$criteria->compare('user_id', $this->user_id, true);
-		$criteria->compare('title', $this->title, true);
-		$criteria->compare('text', $this->text, true);
-		$criteria->compare('photo', $this->photo);
-		$criteria->compare('state', $this->state, true);
-		$criteria->compare('date', $this->date, true);
-		$criteria->compare('date_create', $this->date_create, true);
+		$criteria->compare($alias.'.id', $this->id, true);
+		$criteria->compare($alias.'.user_id', $this->user_id, true);
+		$criteria->compare($alias.'.title', $this->title, true);
+		$criteria->compare($alias.'.text', $this->text, true);
+		$criteria->compare($alias.'.photo', $this->photo);
+		$criteria->compare($alias.'.state', $this->state, true);
+		$criteria->compare($alias.'.date', $this->date, true);
+		$criteria->compare($alias.'.date_create', $this->date_create, true);
+
+        $criteria->order = $alias.'.order DESC';
 
 		return new ActiveDataProvider(get_class($this), array(
 			'criteria' => $criteria
@@ -144,7 +144,7 @@ class News extends ActiveRecordModel
     {
         if (Yii::app()->controller->checkAccess('NewsAdmin_Update'))
         {
-            $this->text.= "<br/> <a href='/news/newsAdmin/update/id/{$this->id}' class='admin_link'>Редактировать</a>";
+            $this->text.= "<br/> <a href='{$this->updateUrl}' class='admin_link'>Редактировать</a>";
         }
 
         return $this->text;
@@ -174,7 +174,7 @@ class News extends ActiveRecordModel
     }
 
 
-    public function updateUrl()
+    public function getUpdateUrl()
     {
         return "/news/newsAdmin/update/id/{$this->id}";
     }

@@ -6,31 +6,31 @@ class NewsController extends BaseController
 	{
 	    return array(
 	        "View"  => "Просмотр новости",
-	        "Index" => "Список новостей"
+	        "Index" => "Список новостей",
+	        "Mark" => "Список новостей",
 	    );
 	}
 	
 	
 	public function actionView($id) 
 	{
-		$model = News::model()->active()->findByPk($id);
-        if (!$model)
-        {
-            $this->pageNotFound();
-        }
-
-		$this->render('view', array(
-			'model' => $model
+        $this->render('view', array(
+			'news'      => $this->loadModel($id, array('active'))
 		));	
-	}	
-
+	}
 	
 	public function actionIndex() 
 	{
-        $data_provider = new ActiveDataProvider('News');
+        $model = News::model();
+        $data_provider = new ActiveDataProvider(get_class($model), array(
+            'criteria' => $model->active()->ordered()->getDbCriteria()
+        ));
 
 		$this->render('index', array(
             'data_provider' => $data_provider
 		));
 	}
+
 }
+
+

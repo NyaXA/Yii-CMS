@@ -74,7 +74,7 @@ class FileManagerAdminController extends AdminController
                 'thumbnail_url' => $file->src,
                 'delete_url'    => $file->deleteUrl,
                 'delete_type'   => "GET",
-                'edit_link'     => UploadHtml::editableLink('Редактировать', $file, 'title', 'files/updateAttr', array('class'=>'thumb-edit')),
+                'edit_link'     => UploadHtml::editableLink('Редактировать', $file, 'title', 'fileManagerAdmin/updateAttr', array('class'=>'thumb-edit')),
                 'id'            => 'File_'.$file->id
             );
         }

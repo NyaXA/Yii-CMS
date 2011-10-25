@@ -1,48 +1,54 @@
-ul.yiiAlphaPager
-{
-	line-height:200%;
-	display:block;
-    text-align: center;
+.alphaPager {
+
+    padding: 11px 20px 11px 25px;
+    background: url(/images/alpha_back.png) no-repeat;
+    font-weight:bold;
+    margin-bottom: 20px;
+    height:48px;
 }
 
-ul.yiiAlphaPager *
-{
-	display:inline;
+ul.yiiAlphaPager{
+    display:block;
+    text-align: left;
 }
-
 ul.yiiAlphaPager a:link,
-ul.yiiAlphaPager a:visited
-{
-	border:solid 1px #9aafe5;
-	font-weight:bold;
-	color:#0e509e;
-	padding:1px 6px;
-	text-decoration:none;
+ul.yiiAlphaPager a:visited, ul.yiiAlphaPager a:hover{
+    color:#231F20;
+    text-decoration:none;
 }
-
-ul.yiiAlphaPager .page a
-{
-	font-weight:normal;
+ul.yiiAlphaPager .selected a{
+    color:#FFF;
 }
-
-ul.yiiAlphaPager a:hover
-{
-	border:solid 1px #0e509e;
+ul.yiiAlphaPager li{
+    display: block;
+    float:left;
+    text-align: center;
+    padding: 0;
+    margin: 3px 0 5px 0;
 }
-
-ul.yiiAlphaPager .selected a
-{
-	background:#2e6ab1;
-	color:#FFFFFF;
-	font-weight:bold;
+ul.yiiAlphaPager li.selected{
+    background: url(/images/alphapage_active.png) no-repeat;
+    width: 17px;
+    height:17px;
+    margin: 3px 2px 5px 2px;
 }
-
+li.selected .wrap_alpha{
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+    height:17px;
+    width:17px;
+}
+li.page .wrap_alpha{
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+    height:17px;
+    width:14px;
+}
 ul.yiiAlphaPager .hidden a,
-ul.yiiAlphaPager span
-{
-    padding:1px 6px;
-	border:solid 1px #DEDEDE;
-	color:#888888;
+ul.yiiAlphaPager span{
+    color:#999;
 }
 
 /* Uncomment following line to hide the ALL-button */

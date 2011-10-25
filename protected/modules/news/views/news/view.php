@@ -21,17 +21,10 @@ if ($model->photo)
 
 <br clear='all' />
 
-<?php if ($model->files): ?>
-	<div style="margin-top:30px;margin-bottom:10px;font-weight:bold">
-            <?php echo Yii::t('NewsModule.main', 'Файлы для скачивания') ?>:
-        </div>
-
-	<?php foreach ($model->files as $file): ?>
-		<a href='<?php echo $file->url; ?>' class='link_13'><?php echo $file->title; ?></a> <br/>
-	<?php endforeach ?>
-<?php endif ?>
-
-
+<?php $this->widget('fileManager.portlets.FileList', array(
+    'model' => $news,
+    'tag' => 'files'
+)) ?>
 
 
 

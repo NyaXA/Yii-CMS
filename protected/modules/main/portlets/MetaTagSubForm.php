@@ -1,13 +1,13 @@
 <?php
- 
-class MetaTagSubForm extends Portlet
+
+class MetaTagSubForm extends SubForm
 {
     public $model;
-
+    public $title = "Мета-теги";
 
     public function init()
     {
-        $class = 'application.components.activeRecordBehaviors.MetaTagBehavior';
+        $class     = 'application.components.activeRecordBehaviors.MetaTagBehavior';
 
         $behaviors = $this->model->behaviors();
         $classes   = ArrayHelper::extract($behaviors, 'class');
@@ -16,7 +16,7 @@ class MetaTagSubForm extends Portlet
             throw new CException("Модель должна иметь поведение: {$class}");
         }
 
-        if (!property_exists(get_class($this->model), 'meta_tags'))
+        if (!isset($this->model->meta_tags))
         {
             throw new CException("Класс {$class} должен иметь поле meta_tags");
         }
@@ -27,31 +27,6 @@ class MetaTagSubForm extends Portlet
 
     public function renderContent()
     {
-        $model = MetaTag::model();
-
-        if ($this->model->id)
-        {
-            $meta_tag = MetaTag::model()->findByAttributes(array(
-                'object_id' => $this->model->id,
-                'model_id'  => get_class($this->model)
-            ));
-
-            if ($meta_tag)
-            {
-                $model = $meta_tag;
-            }
-        }
-
-        if (isset($_POST[get_class($this->model)]['meta_tags']))
-        {
-            foreach ($_POST[get_class($this->model)]['meta_tags'] as $tag => $value)
-            {
-                $model->$tag = $value;
-            }
-        }
-
-        $this->render('MetaTagSubForm', array(
-            'model' => $model
-        ));
+        $this->render('MetaTagSubForm');
     }
 }

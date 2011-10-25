@@ -137,9 +137,9 @@ class ApLinkPager extends CBasePager
 		if($hidden || $selected)
 			$class.=' '.($hidden ? self::CSS_HIDDEN_PAGE : self::CSS_SELECTED_PAGE);
         if ($hidden)
-            return '<li class="'.$class.'">'.CHtml::tag('span', array(), $label).'</li>';
+            return '<li class="'.$class.'"><div class="wrap_alpha">'.CHtml::tag('span', array(), $label).'</div></li>';
         else
-		    return '<li class="'.$class.'">'.CHtml::link($label,$this->createPageUrl($page)).'</li>';
+		    return '<li class="'.$class.'"><div class="wrap_alpha">'.CHtml::link($label,$this->createPageUrl($page)).'</div></li>';
 	}
 	
 	/**

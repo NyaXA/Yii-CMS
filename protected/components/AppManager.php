@@ -136,7 +136,8 @@ class AppManager
 
                 if (!empty($title))
                 {
-                    $title = $module_class::name() . ':' . $title;
+                    $model = new $module_class;
+                    $title = $model->name() . ':' . $title;
                 }
 
                 $actions[$action_name] = $title;
@@ -192,9 +193,9 @@ class AppManager
                 continue;
             }
 
-            $module_class = ucfirst($module_dir) . 'Module';
+            $module_class = new ucfirst($module_dir) . 'Module';
 
-            if (!$module_class::$active)
+            if (!$module_class->active)
             {
                 continue;
             }
@@ -213,11 +214,11 @@ class AppManager
                     continue;
                 }
 
-                $model_class = str_replace('.php', null, $model_file);
+                $model_class = new str_replace('.php', null, $model_file);
 
                 if (isset($params['meta_tags']))
                 {
-                    $behaviors = $model_class::behaviors();
+                    $behaviors = $model_class->behaviors();
                     $behaviors = ArrayHelper::extract($behaviors, 'class');
 
                     if (!in_array('application.components.activeRecordBehaviors.MetaTagBehavior', $behaviors))
@@ -231,7 +232,7 @@ class AppManager
                     }
                 }
 
-                $result[$model_class] = $model_class::name();
+                $result[$model_class] = $model_class->name();
             }
         }
 

@@ -18,8 +18,49 @@ class ApPagination extends CComponent
         'ru' => array('А','Б','В','Г','Д','Е','Ё','Ж','З','И','Й','К','Л','М','Н','О','П','Р','С','Т','У','Ф','Х','Ц','Ч','Щ','Ш','Ь','Ы','Ъ','Э','Ю','Я','LANG_END'),
         'en' => array('A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'),
     );
-    
-	/**
+
+    public static $allLetters;
+
+    /**
+     * Возвращает массив из всех языков
+     *
+     * @static
+     *
+     * @return array
+     */
+    public static function getAllLetters()
+    {
+        if (self::$allLetters == null)
+        {
+            self::$allLetters = CMap::mergeArray(ApPagination::$alphabet['ru'], ApPagination::$alphabet['en']);
+        }
+        return self::$allLetters;
+    }
+
+    /**
+     * Возвращает индекс буквы которой принадлежит это слово.
+     * Исправляет проблемы с мультибайтными кодировками
+     *
+     * @static
+     *
+     * @param string $word
+     *
+     * @return int
+     */
+    public static function getWordIndex($word)
+    {
+        $letters = ApPagination::getAllLetters();
+        $letter  = substr($word, 0, 1);
+        $pos     = array_search($letter, $letters);
+        if ($pos == false)
+        {
+            $letter = substr($word, 0, 2);
+            $pos    = array_search($letter, $letters);
+        }
+        return $pos + 1;
+    }
+
+    /**
 	 * @var string name of the GET variable storing the current page index. Defaults to 'page'.
 	 */
 	public $pageVar='alpha';

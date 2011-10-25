@@ -377,7 +377,7 @@ class FileManager extends ActiveRecordModel
 
     private function beforeSaveOnServer()
     {
-        $this->title = $_FILES['file']['name'];
+        $this->title = '';
 
         if (!is_dir(self::UPLOAD_PATH))
         {

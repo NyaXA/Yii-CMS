@@ -2,7 +2,7 @@
  
 class TextComponent extends  CApplicationComponent
 {
-    public static function cut($text, $length, $delim = " ", $tail= "")
+    public static function cut($text, $length, $delim = '., -:;', $tail= "")
     {
         if  (mb_strlen($text, 'utf-8') <= $length) return $text;
 
@@ -10,7 +10,7 @@ class TextComponent extends  CApplicationComponent
 
         if ($pos == false) return $text;
 
-        return mb_substr($text, 0, $pos, 'utf-8') . $tail;
+        return trim(mb_substr(html_entity_decode(strip_tags($text), ENT_NOQUOTES, 'utf-8'), 0, $pos, 'utf-8'), '., -:;') . $tail;
     }
 
 
