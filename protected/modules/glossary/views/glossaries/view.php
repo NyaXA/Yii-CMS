@@ -8,6 +8,7 @@
         'links' => array(
             'Полезное' => '/useful',
             'Модный глоссарий' => Glossary::mainUrl(),
+            ApPagination::getFirstLetter($model->title) => $this->url('index', array('Glossary_alphapage' => ApPagination::getWordIndex($model->title))),
             $model->title
         )
     ))
