@@ -1,5 +1,6 @@
-.assets
-.buildpath
+.assets/
+.buildpath/
 .idea/
 .project
 .settings/
+.upload/fileManager

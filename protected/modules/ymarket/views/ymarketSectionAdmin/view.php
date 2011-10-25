@@ -7,7 +7,7 @@ $this->tabs = array(
 
 $brands = $model->brands ? implode('<br/> ', ArrayHelper::extract($model->brands, 'name')) : "";
 
-$this->widget('application.components.DetailView', array(
+$this->widget('DetailView', array(
 	'data' => $model,
 	'attributes' => array(
 		'name',

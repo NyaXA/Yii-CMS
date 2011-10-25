@@ -18,7 +18,7 @@ if ($model->operations)
 
 $operations = implode("<br/>", $operations);
 
-$this->widget('application.components.DetailView', array(
+$this->widget('DetailView', array(
     'data' => $model,
     'attributes' => array(
         'name',

@@ -34,9 +34,13 @@ class ActiveDataProvider extends CActiveDataProvider
 	{
         $criteria = parent::getCriteria();
 
-        $class = $this->modelClass;
-        $model = $class::model();
-        $meta  = $model->meta();
+        $class = new $this->modelClass;
+        $meta  = $class->model()->meta();
+
+//          only PHP 5.3
+//        $class = $this->modelClass;
+//        $model = $class::model();
+//        $meta  = $model->meta();
 
         if (isset($meta['lang']))
         {

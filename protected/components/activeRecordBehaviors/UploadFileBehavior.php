@@ -17,11 +17,17 @@ class UploadFileBehavior extends CActiveRecordBehavior
                 {
                     $extension = pathinfo($model->$param->name, PATHINFO_EXTENSION);
                     $file_name = md5(rand(1, 200) . $model->$param->name . time()) . "." . strtolower($extension);
-                    $file_dir  = $_SERVER["DOCUMENT_ROOT"] . $data["dir"];
 
+                    $file_dir = $_SERVER["DOCUMENT_ROOT"] . $data["dir"];
                     if (substr($file_dir, -1) !== '/')
                     {
                     	$file_dir.= '/';
+                    }
+
+                    if (!file_exists($file_dir))
+                    {
+                        mkdir($file_dir);
+                        chmod($file_dir, 0777);
                     }
 
                     $file_path  = $file_dir . $file_name;

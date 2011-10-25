@@ -8,7 +8,7 @@ $this->tabs = array(
     "добавить ссылку" => $this->createUrl('create', array('menu_id' => $menu->id))
 );
 
-$this->widget('application.components.TreeView',array(
+$this->widget('TreeView',array(
     'url' => '/content/menuLinkAdmin/AjaxFillTree?menu_id=' . $menu->id,
     'collapsed' => true
 ));

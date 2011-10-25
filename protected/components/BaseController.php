@@ -20,12 +20,11 @@ abstract class BaseController extends CController
     public function init() 
     {
         parent::init();
-        $this->initLanguage();
-        $this->initMetaTags();
+        $this->_initLanguage();
     }
 
 
-    private function initLanguage()
+    private function _initLanguage()
     {
 		if(isset($_GET['lang']))
 		{
@@ -40,12 +39,6 @@ abstract class BaseController extends CController
     }
 
 
-    private function initMetaTags()
-    {
-
-    }
-    
-
     public function beforeAction($action)
     {
         $item_name = AuthItem::constructName($action->controller->id, $action->id);
@@ -55,13 +48,34 @@ abstract class BaseController extends CController
             $this->forbidden();
         }
 
-        $this->setTitleAndSaveSiteAction($action);
-        
+        $this->_setTitleAndSaveSiteAction($action);
+        $this->_setMetaTags($action);
+
         return true;
     }
 
 
-    private function setTitleAndSaveSiteAction($action)
+    private function _setMetaTags($action)
+    {
+        if ($action->id != 'view' || $action->controller instanceof AdminController)
+        {
+            return false;
+        }
+
+        $id = $this->request->getParam("id");
+
+        $class = ucfirst(str_replace('Admin', '', $action->controller->id));
+        $model = new $class;
+        $model = $model->model()->findByPk($id);
+
+        if ($model)
+        {
+            Yii::app()->metaTags->set($model);
+        }
+    }
+
+
+    private function _setTitleAndSaveSiteAction($action)
     {
         $action_titles = call_user_func(array(get_class($action->controller), 'actionsTitles'));
 
@@ -142,7 +156,7 @@ abstract class BaseController extends CController
 
     public function url($route, $params = array(), $ampersand = '&')
     {
-        $url_prefix = '/' . Yii::app()->language;
+        $url_prefix = '';//'/' . Yii::app()->language;
 
         if (mb_strpos($route, 'Admin') !== false)
         {
@@ -160,14 +174,18 @@ abstract class BaseController extends CController
 
         return $url;
     }
-    
-    
+
+    /**
+     * @throws CHttpException
+     */
     protected function pageNotFound()
     {
         throw new CHttpException(404,'Страница не найдена!');
     }
 
-
+    /**
+     * @throws CHttpException
+     */
     protected function forbidden()
     {
         throw new CHttpException(403, 'Запрещено!');
@@ -186,4 +204,59 @@ abstract class BaseController extends CController
                     <p>{$msg}</p>
                 </div>";
     }
+
+    /**
+     * Возвращает модель по атрибуту и удовлетворяющую скоупам,
+     * или выбрасывает 404
+     *
+     * @param string     $class  имя класса модели
+     * @param int|string $value  значение атрибута
+     * @param array      $scopes массив скоупов
+     * @param string     $attribute
+     *
+     * @return CActiveRecord
+     */
+    public function loadModel($value, $scopes = array(), $attribute = null)
+    {
+        $class = ucfirst(str_replace('Admin', '',$this->id));
+        $model = new $class;
+        $model = $model->model();
+
+        foreach ($scopes as $scope)
+        {
+            $model->$scope();
+        }
+
+        if ($attribute === null)
+        {
+            $model = $model->findByPk($value);
+        }
+        else
+        {
+            $model = $model->findByAttributes(array(
+                $attribute => $value
+            ));
+        }
+
+        if ($model === null)
+        {
+            $this->pageNotFound();
+        }
+
+        return $model;
+    }
+
+    /**
+     * Обертка для Yii::t, выполняет перевод по словарям текущего модуля.
+     *
+     * @param string $dictionary словарь
+     * @param string $alias      фраза для перевода
+     *
+     * @return string перевод
+     */
+    public function t($dictionary, $alias)
+    {
+        return Yii::t(get_class($this->module).'.'.$dictionary, $alias);
+    }
+
 }

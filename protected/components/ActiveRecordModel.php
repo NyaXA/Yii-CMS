@@ -2,12 +2,13 @@
 
 abstract class ActiveRecordModel extends CActiveRecord
 {
-    public static $meta_tags = false;
-
     const PATTERN_RULAT_ALPHA_SPACES = '/^[а-яa-z ]+$/ui';
     const PATTERN_RULAT_ALPHA        = '/^[а-яa-z]+$/ui';
     const PATTERN_LAT_ALPHA          = '/^[A-Za-z]+$/ui';
     const PATTERN_PHONE              = '/^\+[1-9]-[0-9]+-[0-9]{7}$/';
+
+    const SCENARIO_CREATE = 'create';
+    const SCENARIO_UPDATE = 'update';
 
 
     abstract public function name();
@@ -39,6 +40,9 @@ abstract class ActiveRecordModel extends CActiveRecord
             ),
             'Timestamp' => array(
                 'class' => 'application.components.activeRecordBehaviors.TimestampBehavior'
+            ),
+            'Sortable'    => array(
+                'class'=> 'application.components.activeRecordBehaviors.SortableBehavior'
             )
         );
     }
@@ -208,6 +212,20 @@ abstract class ActiveRecordModel extends CActiveRecord
 	    return $this;
 	}
 
+    public function offset($num)
+    {
+        $this->getDbCriteria()->mergeWith(array(
+            'offset' => $num,
+        ));
+
+        return $this;
+    }
+
+    public function in($row, $values)
+    {
+        $this->getDbCriteria()->addInCondition($row, $values);
+        return $this;
+    }
 
 	public function notEqual($param, $value)
 	{

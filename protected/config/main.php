@@ -13,6 +13,7 @@ foreach ($modules_dirs as $module)
     $modules_includes[] = "application.modules.{$module}.portlets.*";
     $modules_includes[] = "application.modules.{$module}.forms.*";
     $modules_includes[] = "application.modules.{$module}.components.*";
+    $modules_includes[] = "application.modules.{$module}.components.zii.*";
 }
 
 
@@ -35,6 +36,8 @@ return array(
         $modules_includes,
         array(
             'application.components.*',
+            'application.components.zii.*',
+            'application.components.formElements.*',
             'application.libs.tools.*',
             'ext.yiiext.filters.setReturnUrl.ESetReturnUrlFilter',
             'application.modules.srbac.controllers.SBaseController',
@@ -51,6 +54,9 @@ return array(
 			'allowAutoLogin' => true,
             'class'          => 'WebUser'
 		),
+        'metaTags' => array(
+            'class' => 'application.modules.main.components.MetaTags'
+        ),
 		'image' => array(
           'class'  => 'application.extensions.image.CImageComponent',
           'driver' => 'GD'

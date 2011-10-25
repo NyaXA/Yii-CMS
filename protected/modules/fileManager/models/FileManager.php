@@ -5,8 +5,6 @@ class FileManager extends ActiveRecordModel
     const UPLOAD_PATH = 'upload/fileManager/';
     const FILE_POSTFIX = '';
 
-    const TAG_FILE = 'files';
-
     public $extension;
 
     public $size;
@@ -37,10 +35,6 @@ class FileManager extends ActiveRecordModel
         return 'id';
     }
 
-
-    public static $tags = array(
-        self::TAG_FILE => 'Файлы'
-    );
 
 
     public function rules()
@@ -383,7 +377,7 @@ class FileManager extends ActiveRecordModel
 
     private function beforeSaveOnServer()
     {
-        $this->title = $_FILES['file']['name'];
+        $this->title = '';
 
         if (!is_dir(self::UPLOAD_PATH))
         {

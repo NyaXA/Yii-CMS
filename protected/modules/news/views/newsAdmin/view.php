@@ -1,12 +1,12 @@
 <?php
-$this->page_title = 'Просмотр новости';
+$this->page_title = $this->t('admin', 'view');
 
 $this->tabs = array(
-    "управление новостями" => $this->createUrl('manage'),
-    "редактировать"        => $this->createUrl('update', array('id' => $model->id))
+    $this->t('admin', 'manage') => $this->createUrl('manage'),
+    $this->t('admin', 'update') => $this->createUrl('update', array('id' => $model->id))
 );
 
-$this->widget('application.components.DetailView', array(
+$this->widget('DetailView', array(
 	'data' => $model,
 	'attributes' => array(
 		array('name' => 'title'),
@@ -26,6 +26,11 @@ $this->widget('application.components.DetailView', array(
 		),
 		'date',
 		'date_create',
+        array(
+            'name'  => 'Мета-теги',
+            'value' => MetaTag::model()->html($model->id, get_class($model)),
+            'type'  => 'raw'
+        ),
 		array(
 			'name' => 'text', 
 			'type' => 'raw'

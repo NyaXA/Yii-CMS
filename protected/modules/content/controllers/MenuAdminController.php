@@ -68,7 +68,7 @@ class MenuAdminController extends AdminController
     }
 
 
-    private function loadModel($id)
+    public function loadModel($id)
     {
         $model = Menu::model()->findByPk((int) $id);
         if ($model === null)

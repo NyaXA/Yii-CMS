@@ -9,27 +9,29 @@ $this->tabs = array(
     'добавить мета-тег' => $this->createUrl('create')
 );
 
-$this->widget('application.components.GridView', array(
+$this->widget('GridView', array(
 	'id' => 'meta-tag-grid',
 	'dataProvider' => $model->search(),
 	'filter' => $model,
 	'columns' => array(
 		array(
-            'name'  => 'model_id',
-            'value' => 'modelIdName($data->model_id);'
+            'name'   => 'model_id',
+            'value'  => 'modelIdName($data->model_id);',
+            'filter' => false
         ),
 		array(
             'name'   => 'object_id',
             'header' => 'Объект',
-            'value'  => '$data->object'
+            'value'  => '$data->object',
+            'filter' => false
         ),
+		array('name' => 'title'),
+        array('name' => 'description'),
+        array('name' => 'keywords'),
 		array(
-            'name'  => 'tag',
-            'value' => 'MetaTag::$tags[$data->tag]'
+            'name'   => 'date_create',
+            'filter' => false
         ),
-		array('name' => 'static_value'),
-		array('name' => 'dynamic_value'),
-		array('name' => 'date_create'),
 		array(
 			'class' => 'CButtonColumn',
 		),

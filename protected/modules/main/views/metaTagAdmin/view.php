@@ -7,7 +7,7 @@ $this->tabs = array(
 
 $model_id = $model->model_id;
 
-$this->widget('application.components.DetailView', array(
+$this->widget('DetailView', array(
 	'data' => $model,
 	'attributes' => array(
 		array('name' => 'model_id', 'value' => $model_id::name()),
@@ -16,9 +16,9 @@ $this->widget('application.components.DetailView', array(
             'label' => 'Объект',
             'value' => $model->object ? $model->object : null
         ),
-		array('name' => 'tag', 'value' => MetaTag::$tags[$model->tag]),
-		array('name' => 'static_value'),
-		array('name' => 'dynamic_value'),
+		array('name' => 'title'),
+        array('name' => 'description'),
+        array('name' => 'keywords'),
 		array('name' => 'date_create'),
 	),
 )); 

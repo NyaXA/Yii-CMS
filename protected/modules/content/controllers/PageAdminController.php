@@ -33,7 +33,7 @@ class PageAdminController extends AdminController
 
 	public function actionCreate()
 	{
-		$model = new Page;
+		$model = new Page(ActiveRecordModel::SCENARIO_CREATE);
         $form  = new BaseForm('content.PageForm', $model);
 
 		if(isset($_POST['Page']))
@@ -42,10 +42,6 @@ class PageAdminController extends AdminController
 			if($model->save())
             {
                 $this->redirect(array('view', 'id' => $model->id));
-            }
-            else
-            {
-                p($model->errorsHtml());
             }
 		}
 
