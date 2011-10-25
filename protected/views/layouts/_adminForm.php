@@ -93,6 +93,11 @@ formatDateAttributes($form->model);
 
 $model_class = get_class($form->model);
 $form->attributes['class'] = 'admin_form';
+
+if (is_numeric($form->model->city_id))
+{
+    $form->model->city_id = $form->model->city->name;
+}
 ?>
 
 <div class='form'>
@@ -180,13 +185,15 @@ $form->attributes['class'] = 'admin_form';
 
                 <?php
                 $this->widget('CAutoComplete',
-                      array(
-                         'name'      => $element->name,
-                         'url'       => array($element->url),
-                         'minChars'  => 2,
-                         'delay'     => 500,
-                         'matchCase' => false,
-                         'htmlOptions'=>array('size'=>'40')
+                    array(
+                        'name'      => $element->name,
+                        'attribute' => $element->name,
+                        'model'     => $form->model,
+                        'url'       => array($element->url),
+                        'minChars'  => 2,
+                        'delay'     => 500,
+                        'matchCase' => false,
+                        'htmlOptions'=>array('size'=>'40', 'class' => 'text')
                 ));
                 ?>
 
