@@ -43,7 +43,7 @@ class MainAdminController extends AdminController
 
     public function actionSessionPerPage($model, $per_page, $back_url)
     {
-        Yii::app()->session['{$model}PerPage'] = $per_page;
+        Yii::app()->session["{$model}PerPage"] = $per_page;
 
         $this->redirect(base64_decode($back_url));
     }
