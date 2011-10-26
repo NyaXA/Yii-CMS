@@ -156,4 +156,10 @@ class MailerModule extends WebModule
         $mail->ClearBCCs();
         $mail->ClearAddresses();
     }
+
+    public static function getShortId()
+    {
+        return strtolower(str_replace('Module', '', get_called_class()));
+    }
+
 }
