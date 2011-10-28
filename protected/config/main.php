@@ -38,6 +38,7 @@ return array(
             'application.components.*',
             'application.components.zii.*',
             'application.components.formElements.*',
+            'application.components.baseWidgets.*',
             'application.libs.tools.*',
             'ext.yiiext.filters.setReturnUrl.ESetReturnUrlFilter',
             'application.modules.srbac.controllers.SBaseController',

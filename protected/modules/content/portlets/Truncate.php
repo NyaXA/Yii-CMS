@@ -4,9 +4,6 @@
  */
 class Truncate extends Portlet
 {
-    public $assets;
-
-    public $id;
     public $content;
     public $options = array();
     private $defaultOptions = array(
@@ -22,18 +19,13 @@ class Truncate extends Portlet
     public function init()
     {
         parent::init();
+
         $this->initVars();
         $this->registerScripts();
     }
 
-    public function requiredFields()
-    {
-        return array('id');
-    }
-
     public function initVars()
     {
-        $this->assets  = Yii::app()->getModule('content')->assetsUrl();
         $this->options = CMap::mergeArray($this->defaultOptions, $this->options);
     }
 
