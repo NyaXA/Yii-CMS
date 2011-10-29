@@ -3,7 +3,7 @@ class MultilangApLinkPager extends ApLinkPager
 {
     protected function createPageButtons()
     {
-        $buttons     = array();
+        $buttons           = array();
         $labels_comp       = $labels = $this->pages->getCharSet();
         $activeLabels_comp = $activeLabels = $this->pages->getActiveCharSet();
         $labelCount        = count($labels);

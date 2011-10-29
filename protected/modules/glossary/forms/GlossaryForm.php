@@ -9,6 +9,7 @@ return array(
 	'elements' => array(
 		'title' => array('type' => 'text', 'class' => 'big'),
 		'text'  => array('type' => 'editor'),
+		'letter' => array('type' => 'dropdownlist', 'items' => ApPagination::getAllLetters(true)),
 		'state' => array('type' => 'dropdownlist', 'items' => Glossary::$states),
 		'date'  => array('type' => 'date'),
 	),

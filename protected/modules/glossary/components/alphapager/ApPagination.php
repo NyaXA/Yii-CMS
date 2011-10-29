@@ -1,10 +1,10 @@
 <?php
 /**
  * AlphaPagination class file.
- * 
+ *
  * AlphaPagination represents information relevant to AlphaPageLinker.
  * Strongly based on Qiang Xues {@link CPagination} from yiiframework.
- * 
+ *
  * @author Jascha Koch
  * @license MIT License - http://www.opensource.org/licenses/mit-license.html
  * @version 1.4
@@ -16,10 +16,12 @@ class ApPagination extends CComponent
 {
     public static $alphabet = array(
         'ru' => array('А','Б','В','Г','Д','Е','Ё','Ж','З','И','Й','К','Л','М','Н','О','П','Р','С','Т','У','Ф','Х','Ц','Ч','Щ','Ш','Ь','Ы','Ъ','Э','Ю','Я','LANG_END'),
-        'en' => array('A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'),
+        'en' => array('A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', '#'),
     );
 
-    public static $allLetters;
+    public static $langs = array('ru','en');
+
+    private static $allLetters;
 
     /**
      * Возвращает массив из всех языков
@@ -28,11 +30,22 @@ class ApPagination extends CComponent
      *
      * @return array
      */
-    public static function getAllLetters()
+    public static function getAllLetters($toDropDown = false)
     {
         if (self::$allLetters == null)
         {
             self::$allLetters = CMap::mergeArray(ApPagination::$alphabet['ru'], ApPagination::$alphabet['en']);
+        }
+
+        if ($toDropDown) {
+            $letters = array('#'=>'#');
+            foreach(self::$allLetters as $letter)
+            {
+                $letters[$letter] = $letter;
+            }
+            unset($letters ['LANG_END']);
+            array_pop($letters);
+            self::$allLetters = $letters ;
         }
         return self::$allLetters;
     }
@@ -50,22 +63,32 @@ class ApPagination extends CComponent
     public static function getWordIndex($word)
     {
         $letters = ApPagination::getAllLetters();
-        $letter  = substr($word, 0, 1);
-        $pos     = array_search($letter, $letters);
-        if ($pos == false)
-        {
-            $letter = substr($word, 0, 2);
-            $pos    = array_search($letter, $letters);
-        }
+
+        $letter = mb_substr($word, 0, 1, 'utf-8');
+        $pos    = array_search($letter, $letters);
         return $pos + 1;
     }
 
     /**
+     * Возвращает первую букву слова, с учетом мультибайтных кодировок
+     *
+     * @static
+     *
+     * @param string $word
+     *
+     * @return string
+     */
+    public static function getFirstLetter($word)
+    {
+        return mb_substr($word, 0, 1, 'utf-8');
+    }
+
+	/**
 	 * @var string name of the GET variable storing the current page index. Defaults to 'page'.
 	 */
 	public $pageVar='alpha';
 	/**
-	 * @var string name of the GET variable which indicates that a controlled pagination should 
+	 * @var string name of the GET variable which indicates that a controlled pagination should
 	 * be reseted to the default page. Defaults to 'p_rst'.
 	 */
 	public $pageResetVar='p_rst';
@@ -84,7 +107,7 @@ class ApPagination extends CComponent
 	 */
 	public $attribute;
 	/**
-	 * @var bool whether there are entries starting with digits or not. 
+	 * @var bool whether there are entries starting with digits or not.
 	 * Hides the 'SHOW NUMERIC'-button of linkpager if false and {@link showNumPage} is true. Defaults to true.
 	 */
 	public $activeNumbers=true;
@@ -92,10 +115,10 @@ class ApPagination extends CComponent
 	 * @var bool tries to force case-insensitive comparison independent from character set case or database collation.
 	 */
 	public $forceCaseInsensitive=false;
-	
+
 	private $_charSet;
 	private $_activeCharSet;
-	private $_dbCharSet; 
+	private $_dbCharSet;
 
 	private $_pagination;
 	private $_currentPage;
@@ -158,10 +181,10 @@ class ApPagination extends CComponent
 			$params[$this->pageVar]=$page;
 		else
 			unset($params[$this->pageVar]);
-			
+
 		if($this->_pagination!=null)
 			$params[$this->pageResetVar] = 1;
-			
+
 		return $controller->createUrl($this->route,$params);
 	}
 
@@ -176,16 +199,16 @@ class ApPagination extends CComponent
 			$this->resetPaginationVar();
 			$currentPage = $this->getCurrentPage();
 			$search = $this->getDbChar($currentPage-1);
-			
+
 			if($currentPage>0 && $search!=null)
 			{
 				if($this->forceCaseInsensitive===true)
-					$criteria->addSearchCondition('LOWER('.$this->attribute.')',strtolower($search).'%',false);	
+					$criteria->addSearchCondition('LOWER('.$this->attribute.')',strtolower($search).'%',false);
 				else
-					$criteria->addSearchCondition($this->attribute,$search.'%',false);										
+					$criteria->addSearchCondition($this->attribute,$search.'%',false);
 			}
 			elseif($currentPage == 0) { // Add condition for values starting with a digit
-				// Add one condition per digit. 
+				// Add one condition per digit.
 				// This isn't pretty nice but the most compatible way i've found for different DBMS.
 				// Smarter ways like:
 				// $criteria->addCondition("SUBSTRING($this->attribute FROM 1 FOR 1) BETWEEN '0' AND '9'");
@@ -199,7 +222,7 @@ class ApPagination extends CComponent
 		else
 			throw new CException(Yii::t('ApPagination.alphapager','There is no value set for "attribute". You must set the model attribute the pagination condition should be applied to.'));
 	}
-	
+
 	/**
 	 * @param integer ordinal number of the character. zero-based indexing.
 	 * @return string character of the char range. NULL if out of range.
@@ -209,7 +232,7 @@ class ApPagination extends CComponent
 		$chars = $this->getCharSet();
 		return ($ord>=0&&$ord<count($chars))?$chars[$ord]:null;
 	}
-	
+
 	/**
 	 * @param integer ordinal number of the character whose db character equivalent should be returned. zero-based indexing.
 	 * @return string character of the database char range. NULL if out of range.
@@ -219,7 +242,7 @@ class ApPagination extends CComponent
 		$chars = $this->getDbCharSet();
 		return ($ord>=0&&$ord<count($chars))?$chars[$ord]:null;
 	}
-	
+
 	/**
 	 * Unsets the $pageVar of a controlled CPagination to make it fall back to default page.
 	 */
@@ -228,7 +251,7 @@ class ApPagination extends CComponent
 		if($this->_pagination!=null && isset($_GET[$this->pageResetVar]))
 			unset($_GET[$this->pageResetVar],$_GET[$this->pagination->pageVar]);
 	}
-	
+
 	/**
 	 * @return Pager character set array. Default is A-Z.
 	 */
@@ -246,7 +269,7 @@ class ApPagination extends CComponent
 	{
 		return ($this->_activeCharSet===null)?$this->_charSet:$this->_activeCharSet;
 	}
-	
+
 	/**
 	 * @return Database character set array. If no database charset is defined the pager charset is returned.
 	 */
@@ -254,7 +277,7 @@ class ApPagination extends CComponent
 	{
 		return ($this->_dbCharSet===null)?$this->_charSet:$this->_dbCharSet;
 	}
-	
+
 	/**
 	 * @param value Pager character set array
 	 */
@@ -262,7 +285,7 @@ class ApPagination extends CComponent
 	{
 		$this->_charSet=$value;
 	}
-	
+
 	/**
 	 * @param value Active character set array
 	 */
@@ -270,7 +293,7 @@ class ApPagination extends CComponent
 	{
 		$this->_activeCharSet=$value;
 	}
-	
+
 	/**
 	 * @param value Database character set array
 	 */
@@ -278,9 +301,9 @@ class ApPagination extends CComponent
 	{
 		$this->_dbCharSet=$value;
 	}
-	
+
 	/**
-	 * @param value CPagination the controlled CPagination object 
+	 * @param value CPagination the controlled CPagination object
 	 */
 	public function setPagination($value)
 	{
@@ -293,16 +316,16 @@ class ApPagination extends CComponent
 		else
 			$this->_pagination=$value;
 	}
-	
+
 	/**
-	 * @return CPagination the controlled CPagination object 
+	 * @return CPagination the controlled CPagination object
 	 */
 	public function getPagination()
 	{
 		if($this->_pagination===null)
 			$this->_pagination=new CPagination();
 		return $this->_pagination;
-		
+
 	}
 }
 ?>

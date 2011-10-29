@@ -27,7 +27,7 @@ class ApLinkPager extends CBasePager
 	/**
 	 * @var bool show the 'SHOW All'-button. Defaults to true.
 	 */
-	public $showAllPage=true;
+	public $showAllPage=false;
 	/**
 	 * @var string the text label for the 'SHOW NUMERIC'-button. Defaults to '0-9'.
 	 */

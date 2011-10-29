@@ -48,7 +48,7 @@ class Glossary extends ActiveRecordModel
     {
         return array(
             array(
-                'user_id, title, text, state, lang',
+                'letter, title, text, state',
                 'required'
             ),
             array(
@@ -110,8 +110,8 @@ class Glossary extends ActiveRecordModel
                         UPPER(
                             LEFT(`$field`, 1)
                         )
-                     ) AS `title`",
-            'order' => '`title` ASC'
+                     ) AS `letter`",
+            'order' => '`letter` ASC'
         ));
         return $this;
     }
@@ -121,10 +121,14 @@ class Glossary extends ActiveRecordModel
     {
         $model       = new Glossary;
         $chars       = (array)$model->onlyFirstChars($field)->findAll();
+
         $activeChars = array();
         foreach ($chars as $char)
         {
-            $activeChars[] = $char->title;
+            if ($char->letter !== null)
+            {
+                $activeChars[] = $char->letter;
+            }
         }
 
         return $activeChars;
@@ -133,13 +137,14 @@ class Glossary extends ActiveRecordModel
     public function getLastNoEmptyChar($field)
     {
         $model = new Glossary;
+
         foreach (ApPagination::$langs as $lang)
         {
-            $chars = (array)$model->in('title', ApPagination::$alphabet[$lang])->onlyFirstChars($field)->findAll();
+            $chars = (array)$model->in($field, ApPagination::$alphabet[$lang])->onlyFirstChars($field)->findAll();
 
             if (count($chars) > 0)
             {
-                return $chars[0];
+                return $chars[0]->letter;
             }
         }
 

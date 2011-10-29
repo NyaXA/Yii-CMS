@@ -17,24 +17,25 @@ class GlossaryController extends BaseController
         ));
     }
 
-    public function actionIndex($Glossary_alphapage = null)
+    public function actionIndex($Glossary_alphapage = null, $p_rst = null, $page = null)
     {
-        if ($Glossary_alphapage === null)
+        if ($Glossary_alphapage === null && $p_rst === null && $page === null)
         {
-            $char = Glossary::getLastNoEmptyChar('title');
+            $char = Glossary::getLastNoEmptyChar('letter');
             $index = ApPagination::getWordIndex($char);
+
             $this->redirect($this->url('index', array('Glossary_alphapage' => $index)));
         }
 
         $config = array(
             'criteria'        => Glossary::model()->active()->byTitle()->dbCriteria,
             'alphapagination' => array(
-                'attribute'     => 'title',
+                'attribute'     => 'letter',
                 'pagination'    => array(
                     'pageSize' => Glossary::PAGE_SIZE,
                 ),
                 'charSet' => ApPagination::getAllLetters(),
-                'activeCharSet' => Glossary::noEmptyChars('title')
+                'activeCharSet' => Glossary::noEmptyChars('letter')
             )
         );
 
