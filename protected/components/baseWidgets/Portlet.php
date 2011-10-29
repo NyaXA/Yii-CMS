@@ -3,8 +3,6 @@ Yii::import('zii.widgets.CPortlet');
 
 abstract class Portlet extends CPortlet
 {
-    public $assets;
-
     public function init()
     {
         $this->attachBehaviors($this->behaviors());

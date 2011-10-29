@@ -46,4 +46,9 @@ class Truncate extends Portlet
         echo CHtml::tag('div', array('id' => $this->id), $this->content);
     }
 
+    public function getModuleId()
+    {
+        return 'content';
+    }
+
 }

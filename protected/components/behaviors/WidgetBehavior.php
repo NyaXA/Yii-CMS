@@ -13,14 +13,7 @@ class WidgetBehavior extends CBehavior
     public function getModule()
     {
         $component = $this->getOwner();
-        if (method_exists($component, 'getModuleId')) //эта проверка нужна, что бы просто не упали старые виджеты
-        {
-            return Yii::app()->getModule($component->getModuleId());
-        }
-        else
-        {
-            return Yii::app()->controller->module;
-        }
+        return Yii::app()->getModule($component->getModuleId());
     }
 
     /**
@@ -47,10 +40,7 @@ class WidgetBehavior extends CBehavior
         {
             $component = $this->getOwner();
             //check settings
-            if (method_exists($component, 'getModuleId')) //эта проверка нужна, что бы просто не упали старые виджеты
-            {
-                $this->_assets = $this->module->assetsUrl();
-            }
+            $this->_assets = $this->module->assetsUrl();
         }
 
         return $this->_assets;
