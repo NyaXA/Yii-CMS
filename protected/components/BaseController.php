@@ -254,9 +254,9 @@ abstract class BaseController extends CController
      *
      * @return string перевод
      */
-    public function t($dictionary, $alias)
+    public function t($dictionary, $alias, $params=array(), $source=array(), $language=null)
     {
-        return Yii::t(get_class($this->module).'.'.$dictionary, $alias);
+        return Yii::t(get_class($this->module).'.'.$dictionary, $alias, $params, $source, $language);
     }
 
 }
