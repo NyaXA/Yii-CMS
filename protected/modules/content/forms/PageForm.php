@@ -9,7 +9,7 @@ return array(
     ),
     'elements' => array(
         'title'        => array('type' => 'text'),
-        'url'          => array('type' => 'text'),
+        'url'          => array('type' => 'UrlInput', 'attributes'=>array('pattern'=>'/page/{value}')),
         'text'         => array('type' => 'editor'),
         'is_published' => array('type' => 'checkbox'),
         'meta_tags'    => array('type' => 'widget', 'widget' => 'MetaTagSubForm')

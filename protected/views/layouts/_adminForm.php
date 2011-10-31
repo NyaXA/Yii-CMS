@@ -94,10 +94,10 @@ formatDateAttributes($form->model);
 $model_class = get_class($form->model);
 $form->attributes['class'] = 'admin_form';
 
-if (is_numeric($form->model->city_id))
-{
-    $form->model->city_id = $form->model->city->name;
-}
+//if (is_numeric($form->model->city_id))
+//{
+//    $form->model->city_id = $form->model->city->name;
+//}
 ?>
 
 <div class='form'>

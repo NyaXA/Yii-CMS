@@ -1,22 +1,23 @@
 <?php
- 
+
 class BaseForm extends CForm
 {
     public $model;
 
     private $_clear = false;
 
-    
-    public function __construct($path, $model)
+
+    public function __construct($config, $model)
     {
         $this->model = $model;
 
-        list($module, $form) = explode(".", $path, 2);
+        if (is_string($config))
+        {
+            list($module, $form) = explode(".", $config, 2);
+            $config = "application.modules.{$module}.forms.{$form}";
+        }
 
-        $form_path = "application.modules.{$module}.forms.{$form}";
-
-
-        parent::__construct($form_path, $model);
+        parent::__construct($config, $model);
     }
 
 
@@ -31,8 +32,9 @@ class BaseForm extends CForm
                 $this->buttons->add("back", array(
                     'type'  => 'button',
                     'value' => 'Отмена',
-                    'url'   => Yii::app()->controller->createUrl('manage'), 'class' => 'back_button')
-                );
+                    'url'   => Yii::app()->controller->createUrl('manage'),
+                    'class' => 'back_button'
+                ));
             }
         }
         else
@@ -42,29 +44,23 @@ class BaseForm extends CForm
 
         if ($this->_clear)
         {
-            Yii::app()->clientScript->registerScript(
-                'clearForm',
-                '$(function()
+            Yii::app()->clientScript->registerScript('clearForm', '$(function()
                 {
-                    $(":input","#' . $this->activeForm['id'] . '")
+                    $(":input","#'.$this->activeForm['id'].'")
                         .not(":button, :submit, :reset, :hidden")
                         .val("")
                         .removeAttr("checked")
                         .removeAttr("selected");
-                })'
-            );
+                })');
         }
 
         try
         {
             return Yii::app()->controller->renderPartial(
-                'application.views.layouts.' . $tpl,
-                array('form' => $this),
-                true
-            );
-        }
-        catch (CException $e)
+                'application.views.layouts.'.$tpl, array('form' => $this), true);
+        } catch (CException $e)
         {
+            Y::dump($e->getTracegetMessage());
             die($e->getMessage());
         }
 
