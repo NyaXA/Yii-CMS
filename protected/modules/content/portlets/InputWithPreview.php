@@ -1,5 +1,5 @@
 <?php
-class UrlInput extends InputWidget
+class InputWithPreview extends InputWidget
 {
     public $title = 'Ссылка на страницу: ';
     public $pattern = '/page/{value}';
@@ -24,17 +24,12 @@ class UrlInput extends InputWidget
             'pattern' => $this->pattern
         ));
         Yii::app()->clientScript
-            ->registerScriptFile($plugins.'activityInput/activityInput.js')
+            ->registerScriptFile($plugins.'inputWithPreview/inputWithPreview.js')
             ->registerScript($this->id, "
-                $('#{$this->id}').activityInput({$options});
+                $('#{$this->id}').inputWithPreview({$options});
             ");
     }
 
-    public function renderContent()
-    {
-        $this->render('ActivityInput');
-    }
-    
     public function getModuleId()
     {
         return 'content';
