@@ -100,6 +100,7 @@ class News extends ActiveRecordModel
 	public function search()
 	{
         $alias = $this->getTableAlias();
+
 		$criteria = new CDbCriteria;
 		$criteria->compare($alias.'.id', $this->id, true);
 		$criteria->compare($alias.'.user_id', $this->user_id, true);
@@ -109,8 +110,6 @@ class News extends ActiveRecordModel
 		$criteria->compare($alias.'.state', $this->state, true);
 		$criteria->compare($alias.'.date', $this->date, true);
 		$criteria->compare($alias.'.date_create', $this->date_create, true);
-
-        $criteria->order = $alias.'.order DESC';
 
 		return new ActiveDataProvider(get_class($this), array(
 			'criteria' => $criteria
