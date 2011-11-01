@@ -150,6 +150,7 @@ class MetaTag extends ActiveRecordModel
         return $this;
     }
 
+
     public static function getTag($model, $tag)
     {
         $meta_model = self::model();
