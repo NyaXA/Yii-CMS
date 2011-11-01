@@ -853,3 +853,14 @@ fieldset legend {
 .action_link {
     text-decoration: underline !important;
 }
+
+
+.grid-view a.asc{
+    background: url(/images/icons/arrow_up.png) no-repeat right;
+    padding-right: 14px;
+}
+
+.grid-view a.desc{
+    background: url(/images/icons/arrow_down.png) no-repeat right;
+    padding-right: 14px;
+}
