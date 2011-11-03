@@ -18,7 +18,7 @@ return array(
         'url' => array('type' => 'text'),
         'image' => array('type' => 'file'),
         'roles' => array(
-            'type'  => 'multi_select',
+            'type'  => 'application.extensions.emultiselect.EMultiSelect',
             'items' => CHtml::listData(AuthItem::model()->roles, 'name', 'description')
         ),
         'is_active' => array('type' => 'checkbox'),

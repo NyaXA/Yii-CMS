@@ -60,7 +60,6 @@ class BaseForm extends CForm
                 'application.views.layouts.'.$tpl, array('form' => $this), true);
         } catch (CException $e)
         {
-            Y::dump($e->getTracegetMessage());
             die($e->getMessage());
         }
 

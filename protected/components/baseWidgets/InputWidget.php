@@ -50,11 +50,13 @@ abstract class InputWidget extends CInputWidget
                 'type' => $this->type,
                 'name' => $this->attribute
             ), $this);
+
+            echo $el->renderInput();
         }
         else
         {
             // TODO: тут можно дополнительные типы определить, или какой-то общий алгоритм
         }
-        echo $el->renderInput();
+
     }
 }

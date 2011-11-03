@@ -8,7 +8,7 @@ return array(
 	),
 	'elements' => array(
 		'title' => array('type' => 'text', 'class' => 'big'),
-		'text'  => array('type' => 'editor'),
+		'text'  => array('type' => 'application.extensions.tiny_mce.TinyMCE'),
 		'photo' => array('type' => 'file'),
 		'state' => array('type' => 'dropdownlist', 'items' => News::$states),
 		'date'  => array('type' => 'date'),

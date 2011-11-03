@@ -10,7 +10,7 @@ return array(
     'elements' => array(
         'name'  => array('type' => 'textarea'),
         'place' => array('type' => 'textarea'),
-        'desc'  => array('type' => 'editor'),
+        'desc'  => array('type' => 'application.extensions.tiny_mce.TinyMCE'),
         'image' => array('type' => 'file'),
         'date'  => array('type' => 'date'),
     ),

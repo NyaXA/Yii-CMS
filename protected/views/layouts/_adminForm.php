@@ -85,6 +85,20 @@ function formatDateAttributes(&$model)
     }
 }
 
+
+function renderHint($element)
+{
+    if (isset($element->hint))
+    {
+        $hint = trim($element->hint);
+        if (!empty($hint))
+        {
+            echo "<span class='form_element_hint'>{$hint}</span>";
+        }
+    }
+
+}
+
 $elements = $form->getElements();
 
 addAttributesToElements($elements);
@@ -107,6 +121,7 @@ $form->attributes['class'] = 'admin_form';
     <?php echo $form->renderBegin(); ?>
 
     <?php foreach ($elements as $element): ?>
+
         <?php if ($element->type == 'date'): ?>
 
             <p>
@@ -123,39 +138,6 @@ $form->attributes['class'] = 'admin_form';
                 <?php echo $form->getActiveFormWidget()->error($form->model, $element->name); ?>
             </p>
 
-        <?php elseif ($element->type == 'editor'): ?>
-
-            <p>
-                <?php echo $form->getActiveFormWidget()->labelEx($form->model, $element->name); ?>
-
-                <?php
-                $this->widget('application.extensions.tiny_mce.TinyMCE',array(
-                    'model' => $form->model,
-                    'attribute' => $element->name,
-                ));
-                ?>
-
-                <?php echo $form->getActiveFormWidget()->error($form->model, $element->name); ?>
-            </p>
-            <br/>
-
-        <?php elseif ($element->name == 'captcha'): ?>
-
-            <p>
-                <?php echo $form->getActiveFormWidget()->labelEx($form->model, 'captcha'); ?>
-                <?php
-                $this->widget('application.extensions.recaptcha.EReCaptcha',
-                   array(
-                       'model'      => $form->model,
-                       'attribute'  => 'captcha',
-                       'theme'      => 'red',
-                       'language'   => 'ru_Ru',
-                       'publicKey' => '6LcsjsMSAAAAAG5GLiFpNi5R80_tg6v3NndjyuVh'
-                ));
-                ?>
-                <?php echo $form->getActiveFormWidget()->error($form->model, 'captcha'); ?>
-            </p>
-
         <?php elseif ($element->type == 'multi_select'): ?>
             <p>
                 <?php echo $form->getActiveFormWidget()->labelEx($form->model, $element->name); ?>
@@ -165,7 +147,7 @@ $form->attributes['class'] = 'admin_form';
                     'application.extensions.emultiselect.EMultiSelect'
                 );
                 ?>
-                
+
                 <?php
                 echo $form->getActiveFormWidget()->dropdownlist(
                     $form->model,
@@ -231,7 +213,12 @@ $form->attributes['class'] = 'admin_form';
 
         <?php else: ?>
             <p>
-                <?php echo $element->render(); ?>
+                <div>
+                    <?php echo $element->renderLabel(); ?>
+                    <?php echo $element->renderHint(); ?>
+                </div>
+
+                <?php echo $element->renderInput(); ?>
             </p>
         <?php endif ?>
     <?php endforeach ?>

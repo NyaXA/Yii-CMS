@@ -11,8 +11,8 @@ return array(
             'type'  => 'dropdownlist',
             'items' => CHtml::listData(ArticleSection::model()->findAll(), 'id', 'name')
         ),
-		'title' => array('type' => 'text'),
-		'text'  => array('type' => 'editor'),
+		'title' => array('type' => 'text', 'hint' => 'Подсказка'),
+		'text'  => array('type' => 'application.extensions.tiny_mce.TinyMCE'),
 		'date'  => array('type' => 'date'),
         'files' => array('type' => 'file_manager')
 	),

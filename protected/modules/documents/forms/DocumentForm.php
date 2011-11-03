@@ -11,7 +11,7 @@ return array(
 	),
 	'elements' => array(
 		'name'         => array('type' => 'text'),
-		'desc'         => array('type' => 'editor'),
+		'desc'         => array('type' => 'application.extensions.tiny_mce.TinyMCE'),
 		'date_publish' => array('type' => 'date'),
 		'is_published' => array('type' => 'checkbox')
 	),

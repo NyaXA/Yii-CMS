@@ -1,5 +1,5 @@
 <?php
- 
+
 class AppManager
 {
     public static function getModulesData($active = null, $check_allowed_links = false)
@@ -27,13 +27,13 @@ class AppManager
             $vars = get_class_vars($module_class);
 
             if ($active !== null)
-            {	
-            	if (!array_key_exists('active', $vars)) 
+            {
+            	if (!array_key_exists('active', $vars))
             	{
         			continue;
             	}
-            	
-				if ($active && !$vars['active']) 
+
+				if ($active && !$vars['active'])
 				{
 					continue;
 				}
@@ -58,7 +58,7 @@ class AppManager
                 }
 
                 if ($check_allowed_links)
-                {   
+                {
                     foreach ($module['admin_menu'] as $title => $url)
                     {
                         $url = explode('/', trim($url, '/'));
@@ -76,7 +76,7 @@ class AppManager
                         {
                             unset($module['admin_menu'][$title]);
                         }
-                    }                    
+                    }
                 }
             }
 
@@ -85,28 +85,28 @@ class AppManager
 
         return $modules;
     }
-    
-    
-    public function getModuleActions($module_class, $use_admin_prefix = false) 
+
+
+    public function getModuleActions($module_class, $use_admin_prefix = false)
     {
         $actions = array();
-    
+
         $controllers_dir = MODULES_PATH . lcfirst(str_replace('Module', '', $module_class)) . '/controllers/';
-        
+
         $controllers = scandir($controllers_dir);
-        foreach ($controllers as $controller) 
+        foreach ($controllers as $controller)
         {
-            if ($controller[0] == ".") 
+            if ($controller[0] == ".")
             {
                 continue;
             }
 
-            $class = str_replace('.php', '', $controller); 
-            if (!class_exists($class, false)) 
-            {   
+            $class = str_replace('.php', '', $controller);
+            if (!class_exists($class, false))
+            {
                 require_once $controllers_dir . $controller;
             }
-            
+
             $reflection = new ReflectionClass($class);
 
             if (!in_array($reflection->getParentClass()->name, array('BaseController', 'AdminController')))
@@ -134,36 +134,30 @@ class AppManager
 					$title.= " (админка)";
 				}
 
-                if (!empty($title))
-                {
-                    $model = new $module_class;
-                    $title = $model->name() . ':' . $title;
-                }
-
                 $actions[$action_name] = $title;
             }
-            
-        } 
-        
+
+        }
+
         return $actions;
     }
-    
-    
-    public function getActionModule($action) 
+
+
+    public function getActionModule($action)
     {
         $controller_file = array_shift(explode("_", $action)) . "Controller.php";
-        
-        $modules_dirs = scandir(MODULES_PATH);   
-        foreach ($modules_dirs as $dir) 
+
+        $modules_dirs = scandir(MODULES_PATH);
+        foreach ($modules_dirs as $dir)
         {
-            if ($dir[0] == ".") 
+            if ($dir[0] == ".")
             {
                 continue;
             }
-            
+
             $controllers = scandir(MODULES_PATH . "/" . $dir . "/controllers");
-            
-            if (in_array($controller_file, $controllers)) 
+
+            if (in_array($controller_file, $controllers))
             {
                 return ucfirst($dir) . "Module";
             }
