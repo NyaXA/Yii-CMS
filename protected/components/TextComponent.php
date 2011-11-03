@@ -6,11 +6,13 @@ class TextComponent extends  CApplicationComponent
     {
         if  (mb_strlen($text, 'utf-8') <= $length) return $text;
 
+        $text = strip_tags($text);
+
         $pos = mb_strpos($text, ' ', $length, 'utf-8');
 
         if ($pos == false) return $text;
 
-        return trim(mb_substr(html_entity_decode(strip_tags($text), ENT_NOQUOTES, 'utf-8'), 0, $pos, 'utf-8'), '., -:;') . $tail;
+        return trim(mb_substr(html_entity_decode($text, ENT_NOQUOTES, 'utf-8'), 0, $pos, 'utf-8'), '., -:;') . $tail;
     }
 
 
