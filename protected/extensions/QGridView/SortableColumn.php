@@ -4,14 +4,15 @@ class SortableColumn extends CDataColumn
     public $cssClass = null;
     public $headerText = null;
     public $value = 3;
-    public $assetsUrl;
-    public $movePositionBaseUrl;
+    public $assets;
 
     public function init()
     {
         parent::init();
 
-        $this->assetsUrl = Yii::app()->getAssetManager()->publish(Yii::getPathOfAlias('ext.QGridView.assets'));
+        $this->assets = Yii::app()
+            ->getAssetManager()
+            ->publish(Yii::getPathOfAlias('ext.QGridView.assets'));
         $this->registerClientScript();
     }
 
@@ -20,66 +21,21 @@ class SortableColumn extends CDataColumn
      */
     public function registerClientScript()
     {
-        $cs = Yii::app()->getClientScript()->registerScriptFile(
-            $this->assetsUrl.'/jui/jquery.ui.core.min.js', CClientScript::POS_END)->registerScriptFile(
-            $this->assetsUrl.'/jui/jquery.ui.widget.min.js', CClientScript::POS_END)->registerScriptFile(
-            $this->assetsUrl.'/jui/jquery.ui.mouse.min.js', CClientScript::POS_END)->registerScriptFile(
-            $this->assetsUrl.'/jui/jquery.ui.droppable.min.js', CClientScript::POS_END)->registerScriptFile(
-            $this->assetsUrl.'/jui/jquery.ui.draggable.min.js', CClientScript::POS_END);
+        $id    = $this->grid->getId();
+        $url   = Yii::app()->createUrl("/content/helpAdmin/sortable");
+        $model = $this->grid->dataProvider->modelClass;
 
-        if (!$this->movePositionBaseUrl)
-        {
-            $baseUrl = Yii::app()->baseUrl.'/';
-            $c       = Yii::app()->controller;
-            if ($m = $c->module)
-            {
-                $baseUrl .= $m->id.'/';
-            }
-            $baseUrl .= $c->id;
-        }
-        else
-        {
-            $baseUrl = $this->movePositionBaseUrl;
-        }
-        $id = $this->grid->getId();
+        $options = CJavaScript::encode(array(
+            'id'    => $id,
+            'url'   => $url,
+            'model' => $model
+        ));
 
-        $cs->registerScript('draganddrop', '
-            $(document).ready(function()  {
-               $("#'.$id.' tbody tr").live("mouseenter", function() {
-	              var $this = $(this);
-	              if($this.is(":data(draggable)")) return;
-				  $this.draggable({
-				      handle: "'.$id.'",
-	                  helper: "clone",
-	                  opacity: .75,
-	                  refreshPositions: true, // Performance?
-	                  revert: "invalid",
-	                  revertDuration: 300,
-	                  scroll: true
-	              });
-	           });
-               $("#'.$id.' tbody tr").live("mouseenter", function() {
-               		var $this = $(this);
-               		if ($this.is(":data(droppable)")) return;
-				    $(this).droppable({
-	                    drop: function(e, ui) {
-							$("#'.$id.'").addClass("grid-views-loading");
-	                    	$.post(
-		                    	"'.$baseUrl.'/movePosition",
-								{
-		                    		from : $(ui.draggable).attr("id").split("_", 2)[1],
-		                    		to : $(this).attr("id").split("_", 2)[1]
-		                    	},
-		                    	function() {
-		                    		$.fn.yiiGridView.update("'.$id.'");
-		    					}
-		                    );
-	                    },
-	  					hoverClass: "accept",
-	               });
-               });
-            });
-		');
+        Yii::app()
+            ->getClientScript()
+            ->registerCoreScript('jquery.ui')
+            ->registerScriptFile($this->assets.'/sortableCGrid.js')
+            ->registerScript('sort_grid_'.$id, "$('#{$id} > table > tbody').sortableCGrid({$options});");
     }
 
 
@@ -97,6 +53,39 @@ class SortableColumn extends CDataColumn
 
     public function renderDataCellContent()
     {
-        echo "<div class='positioner'><img src='".$this->assetsUrl."/img/hand.png' width='16'></div>";
+        echo "<div class='positioner'><img src='".$this->assets."/img/hand.png' width='16'></div>";
     }
+
+    public function renderDataCell($row)
+    {
+        $data    = $this->grid->dataProvider->data[$row];
+        $options = $this->htmlOptions;
+        $pk      = $this->grid->dataProvider->data[$row]->getPrimaryKey();
+        if ($this->cssClassExpression !== null)
+        {
+            $class = $this->evaluateExpression($this->cssClassExpression, array(
+                'row' => $row,
+                'data'=> $data
+            ));
+            if (isset($options['class']))
+            {
+                $options['class'] .= 'pk '.$class;
+            }
+            else
+            {
+                $options['class'] = $class;
+            }
+        }
+        else
+        {
+            $options['class'] = 'pk';
+        }
+
+        $options['id'] = 'pk_'.$pk;
+
+        echo CHtml::openTag('td', $options);
+        $this->renderDataCellContent($row, $data);
+        echo '</td>';
+    }
+
 }
