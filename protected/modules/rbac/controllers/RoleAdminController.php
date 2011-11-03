@@ -128,7 +128,7 @@ class RoleAdminController extends AdminController
 	}
 	
 	
-	private function loadModel($id) 
+	public function loadModel($id)
 	{
 	    $model = AuthItem::model()->findByPk($id);
 	    if (!$model) 

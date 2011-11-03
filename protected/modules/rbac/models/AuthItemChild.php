@@ -19,7 +19,7 @@ class AuthItemChild extends ActiveRecordModel
 
 	public function tableName()
 	{
-		return 'AuthItemChild';
+		return 'auth_items_childs';
 	}
 
 

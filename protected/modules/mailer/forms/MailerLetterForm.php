@@ -7,7 +7,7 @@ $elements = array(
         'prompt' => 'не выбран'
     ),
     'subject'   => array('type' => 'text'),
-    'text'      => array('type' => 'editor'),
+    'text'      => array('type' => 'application.extensions.tiny_mce.TinyMCE'),
     'users_ids' => array('type' => 'widget', 'widget' => 'UsersCheckboxes')
 );
 

@@ -27,12 +27,12 @@ $elements = array(
     'position'   => array('type' => 'text'),
     'phone'      => array('type' => 'text'),
     'email'      => array('type' => 'text'),
-    'question'   => array('type' => $this->model->scenario == 'ClientSide' ? 'textarea' : 'editor')
+    'question'   => array('type' => $this->model->scenario == 'ClientSide' ? 'textarea' : 'application.extensions.tiny_mce.TinyMCE')
 );
 
 if ($this->model->scenario != 'ClientSide')
 {   
-    $elements['answer']       = array('type' => 'editor');
+    $elements['answer']       = array('type' => 'application.extensions.tiny_mce.TinyMCE');
     $elements['is_published'] = array('type' => 'checkbox');
     
     unset($elements["first_name"]);
