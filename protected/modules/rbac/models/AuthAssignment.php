@@ -19,7 +19,7 @@ class AuthAssignment extends ActiveRecordModel
 
 	public function tableName()
 	{
-		return 'AuthAssignment';
+		return 'auth_assignments';
 	}
 
 

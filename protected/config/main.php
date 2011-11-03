@@ -109,9 +109,9 @@ return array(
         'authManager' => array(
             'class'           => 'CDbAuthManager',
 			'connectionID'    => 'db',     
-            'itemTable'       => 'AuthItem',
-            'assignmentTable' => 'AuthAssignment',
-            'itemChildTable'  => 'AuthItemChild',			  
+            'itemTable'       => 'auth_item',
+            'assignmentTable' => 'auth_assignment',
+            'itemChildTable'  => 'auth_item_child',
 			'defaultRoles'    => array('guest')
         ),
 

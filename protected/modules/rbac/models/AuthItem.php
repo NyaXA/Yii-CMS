@@ -39,7 +39,7 @@ class AuthItem extends ActiveRecordModel
 
 	public function tableName()
 	{
-		return 'AuthItem';
+		return 'auth_items';
 	}
 
 
