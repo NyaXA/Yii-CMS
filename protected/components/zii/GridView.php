@@ -240,21 +240,6 @@ class GridView extends CGridView
         echo '</div>';
     }
 
-
-    public function renderFilter()
-    {
-        if ($this->filter !== null)
-        {
-            echo "<tr class=\"{$this->filterCssClass}\">\n";
-            foreach ($this->columns as $column)
-            {
-                $column->renderFilterCell();
-            }
-            echo "</tr>\n";
-        }
-    }
-
-
     public function registerClientScript()
     {
         parent::registerClientScript();
