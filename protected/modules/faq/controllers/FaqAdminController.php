@@ -1,124 +1,157 @@
 <?php
 
 class FaqAdminController extends AdminController
-{   
-    public static function actionsTitles() 
+{
+    public static function actionsTitles()
     {
         return array(
             "View"   => "Просмотр вопроса",
             "Create" => "Добавление вопроса",
             "Update" => "Редактирование вопроса",
             "Delete" => "Удаление вопроса",
-            "Manage" => "Управление вопросами"
-        );    
+            "Manage" => "Управление вопросами",
+            "SendNotification" => "Отправить уведомление"
+        );
     }
 
 
-	public function actionView($id)
-	{
-		$this->render('view', array(
-			'model' => $this->loadModel($id),
-		));
-	}
+    public function actionView($id)
+    {
+        $this->render('view', array(
+            'model' => $this->loadModel($id),
+        ));
+    }
 
 
-	public function actionCreate()
-	{
-		$model = new Faq;
+    public function actionCreate()
+    {
+        $model = new Faq;
 
-		$form = new BaseForm('faq.FaqForm', $model);
-		
-		$this->performAjaxValidation($model);
+        $form = new BaseForm('faq.FaqForm', $model);
 
-		if(isset($_POST['Faq']))
-		{
-			$model->attributes = $_POST['Faq'];
-			if($model->save())
+        $this->performAjaxValidation($model);
+
+        if (isset($_POST['Faq']))
+        {
+            $model->attributes = $_POST['Faq'];
+            if ($model->save())
             {
-                $this->redirect(array('view', 'id' => $model->id));
+                $this->redirect(array(
+                    'view',
+                    'id' => $model->id
+                ));
             }
-		}
+        }
 
-		$this->render('create', array(
-			'form' => $form,
-		));
-	}
+        $this->render('create', array(
+            'form' => $form,
+        ));
+    }
 
 
-	public function actionUpdate($id)
-	{
-		$model = $this->loadModel($id);
+    public function actionUpdate($id)
+    {
+        $model = $this->loadModel($id);
 
-		$form = new BaseForm('faq.FaqForm', $model);
-		
-		$this->performAjaxValidation($model);
+        $form = new BaseForm('faq.FaqForm', $model);
 
-		if(isset($_POST['Faq']))
-		{
-			$model->attributes = $_POST['Faq'];
-			if($model->save())
+        $this->performAjaxValidation($model);
+
+        if (isset($_POST['Faq']))
+        {
+            $model->attributes = $_POST['Faq'];
+            if ($model->save())
             {
-                $this->redirect(array('view', 'id'=>$model->id));
+                $this->redirect(array(
+                    'view',
+                    'id'=> $model->id
+                ));
             }
-		}
+        }
 
-		$this->render('update', array(
-			'form' => $form,
-		));
-	}
+        $this->render('update', array(
+            'form' => $form,
+        ));
+    }
 
 
-	public function actionDelete($id)
-	{
-		if(Yii::app()->request->isPostRequest)
-		{
-			$this->loadModel($id)->delete();
+    public function actionDelete($id)
+    {
+        if (Yii::app()->request->isPostRequest)
+        {
+            $this
+                ->loadModel($id)
+                ->delete();
 
-			if(!isset($_GET['ajax']))
+            if (!isset($_GET['ajax']))
             {
                 $this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('admin'));
             }
-		}
-		else
+        }
+        else
         {
             throw new CHttpException(400, 'Invalid request. Please do not repeat this request again.');
         }
-	}
+    }
 
 
-	public function actionManage()
-	{
-		$model=new Faq('search');
-		$model->unsetAttributes();
-		if(isset($_GET['Faq']))
+    public function actionManage()
+    {
+        $model = new Faq('search');
+        $model->unsetAttributes();
+        if (isset($_GET['Faq']))
         {
             $model->attributes = $_GET['Faq'];
         }
 
-		$this->render('manage', array(
-			'model' => $model,
-		));
-	}
+        $this->render('manage', array(
+            'model' => $model,
+        ));
+    }
 
 
-	public function loadModel($id)
-	{
-		$model=Faq::model()->findByPk((int) $id);
-		if($model===null)
+    public function loadModel($id)
+    {
+        $model = Faq::model()
+            ->findByPk((int)$id);
+        if ($model === null)
         {
             throw new CHttpException(404, 'The requested page does not exist.');
         }
 
-		return $model;
-	}
+        return $model;
+    }
 
 
-	protected function performAjaxValidation($model)
-	{
-		if(isset($_POST['ajax']) && $_POST['ajax'] === 'faq-form')
-		{
-			echo CActiveForm::validate($model);
-			Yii::app()->end();
-		}
-	}
+    protected function performAjaxValidation($model)
+    {
+        if (isset($_POST['ajax']) && $_POST['ajax'] === 'faq-form')
+        {
+            echo CActiveForm::validate($model);
+            Yii::app()
+                ->end();
+        }
+    }
+
+    public function actionSendNotification($id)
+    {
+        $model = $this->loadModel($id);
+        if (!$model->email)
+        {
+            echo 'Неверный email';
+            Yii::app()->end();
+        }
+
+        $body  = $this->renderPartial('notification', array('model'=> $model), true);
+        $title = 'Отзыв с сайта '.Yii::app()->request->hostInfo;
+        $email = $model->email;
+        Yii::app()
+            ->getModule('mailer')
+            ->sendMail($email, $title, $body, true);
+
+        $model->notification_send = 1;
+        $model->notification_date = date('Y-m-d h:i:s');
+        $model->save();
+        $this->redirect($model->manageUrl);
+    }
 }

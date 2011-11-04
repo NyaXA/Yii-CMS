@@ -42,13 +42,18 @@ class FaqController extends BaseController
             if ($model->save())
             {
                 $form->clear();
-                $done = true;
+                Yii::app()->user->setFlash('faq_form_success', 'Ваш вопрос получен');
+
+                $email = Setting::model()->getValue('feedback_email');
+                $body = $this->renderPartial('email', array('model'=>$model), true);
+                $title = 'Новый вопрос в обратной связи';
+                Yii::app()->getModule('mailer')->sendMail($email, $title, $body);
+
             }
         }
 
         $this->render('create', array(
-            'form' => $form,
-            'done' => isset($done)
+            'form' => $form
         ));
     }
 }
