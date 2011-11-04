@@ -39,14 +39,16 @@ class SortableBehavior extends CActiveRecordBehavior
         return $case;
     }
 
-    public function setDefaultPriority()
+    public function beforeSave()
     {
-        $owner           = $this->getOwner();
-        $model           = $owner
-            ->model()
-            ->mostPriority()
-            ->find();
-        $owner->priority = $model->priority + 1;
+        $model = $this->getOwner();
+
+        if ($model->isNewRecord)
+        {
+            $column         = 'order';
+            $i              = $model->max($column);
+            $model->$column = ++$i;
+        }
     }
 
 
