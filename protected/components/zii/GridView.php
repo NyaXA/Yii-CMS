@@ -18,7 +18,7 @@ class GridView extends CGridView
 
     public $mass_removal = false;
 
-    public $template = '{summary}<br/>{pager}<br/>{items}<br/>{pager}';
+    public $template = '{pagerSelect}{summary}<br/>{pager}<br/>{items}<br/>{pager}';
 
 
     public function init()
@@ -222,62 +222,9 @@ class GridView extends CGridView
         echo "</tr>\n";
     }
 
-
-    public function renderSummary()
+    public function renderPagerSelect()
     {
-        if (($count = $this->dataProvider->getItemCount()) <= 0)
-        {
-            return;
-        }
-
-        echo '<div class="'.$this->summaryCssClass.'">';
-        if ($this->enablePagination)
-        {
-            if (($summaryText = $this->summaryText) === null
-            )
-            {
-                $summaryText = Yii::t('zii', 'Displaying {start}-{end} of {count} result(s).');
-            }
-            $pagination = $this->dataProvider->getPagination();
-            $total      = $this->dataProvider->getTotalItemCount();
-            $start      = $pagination->currentPage * $pagination->pageSize + 1;
-            $end        = $start + $count - 1;
-            if ($end > $total)
-            {
-                $end   = $total;
-                $start = $end - $count + 1;
-            }
-            echo strtr($summaryText, array(
-                '{start}'=> $start,
-                '{end}'  => $end,
-                '{count}'=> $total,
-                '{page}' => $pagination->currentPage + 1,
-                '{pages}'=> $pagination->pageCount,
-            ));
-        }
-        else
-        {
-            if (($summaryText = $this->summaryText) === null)
-            {
-                $summaryText = Yii::t('zii', 'Total {count} result(s).');
-            }
-            echo strtr($summaryText, array(
-                '{count}'=> $count,
-                '{start}'=> 1,
-                '{end}'  => $count,
-                '{page}' => 1,
-                '{pages}'=> 1,
-            ));
-        }
-
-        echo $this->getPagerSelect();
-
-        echo '</div>';
-    }
-
-
-    public function getPagerSelect()
-    {
+        echo '<div class="pager-select">';
         $value = null;
         if (isset(Yii::app()->session[get_class($this->filter)."PerPage"]))
         {
@@ -289,9 +236,8 @@ class GridView extends CGridView
             'model' => get_class($this->filter)
         ));
 
-        $html = "&nbsp; &nbsp;Показывать на странице: {$select}";
-
-        return $html;
+        echo "&nbsp; &nbsp;Показывать на странице: {$select}";
+        echo '</div>';
     }
 
 
