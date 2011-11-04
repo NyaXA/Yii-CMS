@@ -4,21 +4,21 @@ class SortableAction extends CAction
     public function run()
     {
         $model = new $_POST['model'];
-        $field = 'order'; //потом надо будет передавать еще и поле сортировки, если их будет несколько
+        $column = 'order'; //потом надо будет передавать еще и поле сортировки, если их будет несколько
 
         if (isset($_POST['pk']) && is_array($_POST['pk']))
         {
             //это что бы не париться со страницами
             $i = $model
                 ->in('id', $_POST['pk'])
-                ->max($field);
+                ->max($column);
 
             if ($i == 0 || !is_numeric($i)) //если битое значение заполняем все айдишниками
             {
-                $model->fillOrderColumn();
+                $model->fillOrderColumn($column);
             }
 
-            $model->setPositions($_POST['pk'], $field, $i);
+            $model->setPositions($_POST['pk'], $column, $i);
         }
     }
 }

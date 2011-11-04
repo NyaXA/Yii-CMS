@@ -38,7 +38,6 @@ class SortableColumn extends CDataColumn
             ->registerScript('sort_grid_'.$id, "$('#{$id} > table > tbody').sortableCGrid({$options});");
     }
 
-
     protected function renderHeaderCellContent()
     {
         if ($this->headerText != null)

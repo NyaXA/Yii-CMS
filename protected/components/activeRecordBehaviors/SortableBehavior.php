@@ -2,11 +2,11 @@
 class SortableBehavior extends CActiveRecordBehavior
 {
     //заполняем айдишниками
-    public function fillOrderColumn()
+    public function fillOrderColumn($column)
     {
         $model = $this->getOwner();
         $c     = Yii::app()->db->commandBuilder->createSqlCommand(
-            'UPDATE '.$model->tableName().' AS t SET t.order = t.id');
+            "UPDATE ".$model->tableName()." AS t SET t.{$column} = t.id");
         $c->execute();
     }
 
