@@ -122,9 +122,9 @@ $form->attributes['class'] = 'admin_form';
 
     <?php foreach ($elements as $element): ?>
 
+        <p>
         <?php if ($element->type == 'date'): ?>
 
-            <p>
                 <?php echo $form->getActiveFormWidget()->labelEx($form->model, $element->name); ?>
                 <?php echo $form->getActiveFormWidget()->textField($form->model, $element->name, $element->attributes); ?>
                 <?php
@@ -136,10 +136,8 @@ $form->attributes['class'] = 'admin_form';
                 ));
                 ?>
                 <?php echo $form->getActiveFormWidget()->error($form->model, $element->name); ?>
-            </p>
 
         <?php elseif ($element->type == 'multi_select'): ?>
-            <p>
                 <?php echo $form->getActiveFormWidget()->labelEx($form->model, $element->name); ?>
 
                 <?php
@@ -156,11 +154,19 @@ $form->attributes['class'] = 'admin_form';
                     array('multiple' => 'multiple', 'key' => $element->name, 'class' => 'multiselect')
                 );
                 ?>
-            </p>
+
+        <?php elseif ($element->type == 'editor'): ?>
+
+            <?php echo $form->getActiveFormWidget()->labelEx($form->model, $element->name); ?>
+            <?php
+            $element->type = 'application.extensions.tiny_mce.TinyMCE';
+            echo $element->renderInput();
+            ?>
+
+            <?php echo $form->getActiveFormWidget()->error($form->model, $element->name); ?>
 
         <?php elseif ($element->type == 'autocomplete'): ?>
 
-            <p>
                 <?php echo $form->getActiveFormWidget()->labelEx($form->model, $element->name); ?>
 
                 <?php
@@ -178,8 +184,7 @@ $form->attributes['class'] = 'admin_form';
                 ?>
 
                 <?php echo $form->getActiveFormWidget()->error($form->model, $element->name); ?>
-            </p>
-            
+
         <?php elseif ($element->type == "checkbox"): ?>
               
             <div class='checkbox_input'>
@@ -212,15 +217,15 @@ $form->attributes['class'] = 'admin_form';
             </fieldset>
 
         <?php else: ?>
-            <p>
                 <div>
                     <?php echo $element->renderLabel(); ?>
                     <?php echo $element->renderHint(); ?>
                 </div>
 
                 <?php echo $element->renderInput(); ?>
-            </p>
         <?php endif ?>
+        </p>
+
     <?php endforeach ?>
 
     <?php echo $form->renderButtons(); ?>
