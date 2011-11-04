@@ -15,14 +15,18 @@ class WidgetBehavior extends CBehavior
     {
         $component = $this->getOwner();
 
-        //модуль находится на 2 уровня выше и имеет id такое же как название директории
+        //модуль находится в modules и имеет id такой же как название директории
         if ($this->_module_id == null)
         {
-            $c   = new ReflectionClass($component);
-            $dir = pathinfo($c->getFileName(), PATHINFO_DIRNAME);
+            $c = new ReflectionClass($component);
+            $dir = pathinfo($c->getFileName(), PATHINFO_DIRNAME); //путь до нашего виджета
 
-            $arr              = explode(DIRECTORY_SEPARATOR, $dir);
-            $this->_module_id = $arr[count($arr) - 2];
+            $arr = explode(DIRECTORY_SEPARATOR, $dir);
+            while(end($arr) != 'modules')   //получаем название директории с нашим модулем
+            {
+                $module_id = array_pop($arr);
+            }
+            $this->_module_id = $module_id;
         }
 
         return Yii::app()
