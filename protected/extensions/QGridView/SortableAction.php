@@ -18,13 +18,7 @@ class SortableAction extends CAction
                 $model->fillOrderColumn();
             }
 
-            //надо оптимизировать этот цикл
-            foreach ($_POST['pk'] as $item)
-            {
-                $obj         = $model->findByPk($item);
-                $obj->$field = $i--;
-                $obj->save();
-            }
+            $model->setPositions($_POST['pk'], $field, $i);
         }
     }
 }
