@@ -9,11 +9,24 @@
 class WidgetBehavior extends CBehavior
 {
     private $_assets;
+    private $_module_id;
 
     public function getModule()
     {
         $component = $this->getOwner();
-        return Yii::app()->getModule($component->getModuleId());
+
+        //модуль находится на 2 уровня выше и имеет id такое же как название директории
+        if ($this->_module_id == null)
+        {
+            $c   = new ReflectionClass($component);
+            $dir = pathinfo($c->getFileName(), PATHINFO_DIRNAME);
+
+            $arr              = explode(DIRECTORY_SEPARATOR, $dir);
+            $this->_module_id = $arr[count($arr) - 2];
+        }
+
+        return Yii::app()
+            ->getModule($this->_module_id);
     }
 
     /**
