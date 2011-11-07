@@ -1,7 +1,5 @@
 <?php
-
 Yii::import("application.libs.yii.zii.widgets.grid.CGridView");
-
 class GridView extends CGridView
 {
     public $cssFile = null;
