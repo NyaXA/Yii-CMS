@@ -213,10 +213,19 @@ $form->attributes['class'] = 'admin_form';
 
         <?php else: ?>
             <p>
-                <div>
-                    <?php echo $element->renderLabel(); ?>
-                    <?php echo $element->renderHint(); ?>
-                </div>
+
+                    <table cellpadding="0" cellspacing="0" class="label_table">
+                        <tr>
+                            <td>
+                                <?php echo $element->renderLabel(); ?>
+                            </td>
+                            <td class="hint">
+                                <?php if (!empty($element->hint)): ?>
+                                    (<?php echo $element->hint; ?>)
+                                <?php endif ?>
+                            </td>
+                        </tr>
+                    </table>
 
                 <?php echo $element->renderInput(); ?>
             </p>
