@@ -9,7 +9,6 @@ $this->widget('AdminGrid', array(
 	'id'=>'news-grid',
 	'dataProvider' => $model->search(),
 	'filter' => $model,
-	'template' => '{summary}<br/>{pager}<br/>{items}<br/>{pager}',
 	'columns'=>array(
 		'title',
 		array(

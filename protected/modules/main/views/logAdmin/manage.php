@@ -1,10 +1,9 @@
 <?php $this->page_title = 'Просмотр логов'; ?>
 
 <?php
-$this->widget('GridView', array(
+$this->widget('AdminGrid', array(
 	'id' => 'grid',
 	'dataProvider' => $model->search(),
-    'template' => '{summary}<br/>{pager}<br/>{items}<br/>{pager}',
     'filter' => $model,
 	'columns' => array(
 		array('name' => 'message'),

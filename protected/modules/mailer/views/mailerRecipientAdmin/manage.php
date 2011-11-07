@@ -21,11 +21,10 @@ $this->tabs = array(
     'добавить' => $this->createUrl('create')
 );
 
-$this->widget('GridView', array(
+$this->widget('AdminGrid', array(
 	'id' => 'mailer-recipient-grid',
 	'dataProvider' => $model->search(),
 	'filter' => $model,
-	'template' => '{summary}<br/>{pager}<br/>{items}<br/>{pager}',
 	'columns' => array(
 		array('name'   => 'user_id', 'value' => '$data->user->name', 'filter' => false),
         array('header' => 'Роль', 'value' => '$data->user->role->description'),

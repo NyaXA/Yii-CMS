@@ -6,11 +6,10 @@ $this->tabs = array(
     "управление разделами" => $this->createUrl("articleSectionAdmin/manage"),
 );
 
-$this->widget('GridView', array(
+$this->widget('AdminGrid', array(
 	'id'=>'articles-grid',
 	'dataProvider'=>$model->search(),
 	'filter'=>$model,
-	'template' => '{summary}<br/>{pager}<br/>{items}<br/>{pager}',
 	'columns'=>array(
 		'title',
         array(

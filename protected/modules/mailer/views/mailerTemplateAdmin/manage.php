@@ -4,11 +4,10 @@ $this->tabs = array(
     'добавить' => $this->createUrl('create')
 );
 
-$this->widget('GridView', array(
+$this->widget('AdminGrid', array(
 	'id' => 'mailer-template-grid',
 	'dataProvider' => $model->search(),
 	'filter' => $model,
-	'template' => '{summary}<br/>{pager}<br/>{items}<br/>{pager}',
 	'columns' => array(
 		'name',
 		'subject',

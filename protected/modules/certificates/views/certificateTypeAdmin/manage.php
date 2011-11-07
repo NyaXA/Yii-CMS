@@ -4,7 +4,7 @@ $this->tabs = array(
     'добавить тип' => $this->createUrl('create')
 );
 
-$this->widget('GridView', array(
+$this->widget('AdminGrid', array(
 	'id' => 'certificate-type-grid',
 	'dataProvider' => $model->search(),
 	'filter' => $model,

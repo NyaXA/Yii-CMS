@@ -5,7 +5,7 @@ $this->tabs = array(
     "добавить" => $this->createUrl("create"),
 );
 
-$this->widget('GridView', array(
+$this->widget('AdminGrid', array(
 	'id' => 'user-grid',
 	'dataProvider' => $model->search(),
 	'filter' => $model,

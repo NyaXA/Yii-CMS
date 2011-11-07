@@ -12,11 +12,10 @@ function tasksLink($role)
 
 $not_system_role = '!in_array($data->name, AuthItem::$system_roles)';
 
-$this->widget('GridView', array(
+$this->widget('AdminGrid', array(
 	'id' => 'news-grid',
 	'dataProvider' => $model->search(AuthItem::TYPE_ROLE),
 	'filter'   => $model,
-	'template' => '{summary}<br/>{pager}<br/>{items}<br/>{pager}',
     'sortable' => true,
 	'columns'  => array(
         'name',

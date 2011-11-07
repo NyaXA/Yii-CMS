@@ -6,11 +6,10 @@ $this->tabs = array(
     "управление материалами" => $this->createUrl("articleAdmin/manage"),
 );
 
-$this->widget('GridView', array(
+$this->widget('AdminGrid', array(
 	'id'=>'article-section-grid',
 	'dataProvider'=>$model->search(),
 	'filter'=>$model,
-	'template' => '{summary}<br/>{pager}<br/>{items}<br/>{pager}',
 	'columns'=>array(
 		'name',
 		array('name' => 'parent_id', 'value' => '$data->parent ? $data->parent->name : null'),

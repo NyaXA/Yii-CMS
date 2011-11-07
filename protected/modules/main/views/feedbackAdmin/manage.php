@@ -1,11 +1,10 @@
 <?php $this->page_title = 'Управление сообщениями'; ?>
 
 <?php
-$this->widget('GridView', array(
+$this->widget('AdminGrid', array(
 	'id'=>'feedback-grid',
 	'dataProvider'=>$model->search(),
 	'filter'=>$model,
-	'template' => '{summary}<br/>{pager}<br/>{items}<br/>{pager}',
 	'columns'=>array(
 		'first_name',
         'last_name',

@@ -6,11 +6,10 @@ $this->tabs = array(
     "Добавить все операции модулей" => $this->createUrl("addAllOperations")
 );
 
-$this->widget('GridView', array(
+$this->widget('AdminGrid', array(
 	'id' => 'operations-grid',
 	'dataProvider' => $model->search(AuthItem::TYPE_OPERATION),
 	'filter'       => $model,
-	'template'     => '{summary}<br/>{pager}<br/>{items}<br/>{pager}',
 	'columns' => array(
         array(
             'name'  => 'name',

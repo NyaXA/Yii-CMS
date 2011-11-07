@@ -5,11 +5,10 @@ $this->tabs = array(
     "добавить раздел" => $this->createUrl("create")
 );
 
-$this->widget('GridView', array(
+$this->widget('AdminGrid', array(
 	'id'=>'faq-section-grid',
 	'dataProvider'=>$model->search(),
 	'filter'=>$model,
-    'template' => '{summary}<br/>{pager}<br/>{items}<br/>{pager}',
 	'columns'=>array(
 		'name',
 		array('name' => 'is_published', 'value' => '$data->is_published ? \'Да\':\'Нет\''),

@@ -5,11 +5,10 @@ $this->tabs = array(
 	'добавить меню' => $this->createUrl('create')
 );
 
-$this->widget('GridView', array(
+$this->widget('AdminGrid', array(
 	'id' => 'menu-grid',
 	'dataProvider' => $model->search(),
 	'filter' => $model,
-	'template' => '{summary}<br/>{pager}<br/>{items}<br/>{pager}',
 	'columns'=>array(
 		'name',
 		array('name' => 'is_visible', 'value' => '$data->is_visible ? \'Да\' : \'Нет\''),

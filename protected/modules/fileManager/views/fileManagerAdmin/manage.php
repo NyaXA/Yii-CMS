@@ -49,7 +49,7 @@ function getFileLink($data)
 }
 
 
-$this->widget('GridView', array(
+$this->widget('AdminGrid', array(
     'id' => 'fileManager-grid',
     'dataProvider' => $model->search(),
     'filter' => $model,

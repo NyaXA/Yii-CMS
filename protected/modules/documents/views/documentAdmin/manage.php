@@ -5,11 +5,10 @@ $this->tabs = array(
     "добавить документ" => $this->createUrl('create')
 );
 
-$this->widget('GridView', array(
+$this->widget('AdminGrid', array(
 	'id'=>'document-grid',
 	'dataProvider'=>$model->search(),
 	'filter'=>$model,
-	'template' => '{summary}<br/>{pager}<br/>{items}<br/>{pager}',
 	'columns'=>array(
 		'name',
 		array('name' => 'is_published', 'value' => '$data->is_published ? "Да" : "Нет"'),

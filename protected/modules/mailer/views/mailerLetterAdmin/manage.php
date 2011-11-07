@@ -36,11 +36,10 @@ $this->tabs = array(
     'создать рассылку' => $this->createUrl('create')
 );
 
-$this->widget('GridView', array(
+$this->widget('AdminGrid', array(
 	'id' => 'mailer-letter-grid',
 	'dataProvider' => $model->search(),
 	'filter' => $model,
-	'template' => '{summary}<br/>{pager}<br/>{items}<br/>{pager}',
 	'columns' => array(
         'date_create',
 		array('name' => 'subject', 'value' => '$data->template ? $data->template->subject : $data->subject'),
