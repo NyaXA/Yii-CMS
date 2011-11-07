@@ -225,6 +225,7 @@ $form->attributes['class'] = 'admin_form';
                         </td>
                     </tr>
                 </table>
+                <?php echo $element->renderError(); ?>
                 <?php echo $element->renderInput(); ?>
             </p>
         <?php endif ?>
