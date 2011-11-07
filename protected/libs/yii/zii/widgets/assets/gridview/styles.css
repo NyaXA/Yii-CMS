@@ -98,9 +98,13 @@
 .grid-view .summary
 {
 	margin: 0 0 5px 0;
-	text-align: right;
+    float: right;
 }
-
+.grid-view .pager-select
+{
+    margin: 0 0 0 5px;
+    float: right;
+}
 .grid-view .pager
 {
 	margin: 5px 0 0 0;

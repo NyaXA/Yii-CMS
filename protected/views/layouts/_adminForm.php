@@ -179,16 +179,16 @@ $form->attributes['class'] = 'admin_form';
 
                 <?php echo $form->getActiveFormWidget()->error($form->model, $element->name); ?>
             </p>
-            
+
         <?php elseif ($element->type == "checkbox"): ?>
-              
+
             <div class='checkbox_input'>
                 <?php echo $element->renderInput(); ?>
-            </div>  
-              
-            <div class='checkbox_label'>  
+            </div>
+
+            <div class='checkbox_label'>
                 <?php echo $element->renderLabel(); ?>
-            </div>    
+            </div>
             <br clear="all" />
 
         <?php elseif ($element->type == "widget"): ?>
@@ -213,20 +213,18 @@ $form->attributes['class'] = 'admin_form';
 
         <?php else: ?>
             <p>
-
-                    <table cellpadding="0" cellspacing="0" class="label_table">
-                        <tr>
-                            <td>
-                                <?php echo $element->renderLabel(); ?>
-                            </td>
-                            <td class="hint">
-                                <?php if (!empty($element->hint)): ?>
-                                    (<?php echo $element->hint; ?>)
-                                <?php endif ?>
-                            </td>
-                        </tr>
-                    </table>
-
+                <table cellpadding="0" cellspacing="0" class="label_table">
+                    <tr>
+                        <td>
+                            <?php echo $element->renderLabel(); ?>
+                        </td>
+                        <td class="hint">
+                            <?php if (!empty($element->hint)): ?>
+                                (<?php echo $element->hint; ?>)
+                            <?php endif ?>
+                        </td>
+                    </tr>
+                </table>
                 <?php echo $element->renderInput(); ?>
             </p>
         <?php endif ?>

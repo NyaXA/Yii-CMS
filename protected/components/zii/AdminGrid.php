@@ -1,7 +1,7 @@
 <?php
-Yii::import('ext.QGridView.CQGridView');
 class AdminGrid extends GridView
 {
-
+    public $pager = array('class'=> 'AdminLinkPager');
+    public $cssFile = "/css/admin/gridview/styles.css";
 
 }

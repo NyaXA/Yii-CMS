@@ -23,7 +23,7 @@ class FileManagerAdminController extends AdminController
 
         $existFiles = FileManager::model()
             ->parent($model_id, $object_id)
-            ->tag($_GET['tag'])
+            ->tag($tag)
             ->findAll();
         $this->sendFilesAsJson($existFiles);
     }

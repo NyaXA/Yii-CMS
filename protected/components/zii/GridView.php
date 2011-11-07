@@ -1,7 +1,5 @@
 <?php
-
 Yii::import("application.libs.yii.zii.widgets.grid.CGridView");
-
 class GridView extends CGridView
 {
     public $cssFile = null;
@@ -18,7 +16,7 @@ class GridView extends CGridView
 
     public $mass_removal = false;
 
-    public $template = '{summary}<br/>{pager}<br/>{items}<br/>{pager}';
+    public $template = '{pagerSelect}{summary}<br/>{pager}<br/>{items}<br/>{pager}';
 
 
     public function init()
@@ -57,15 +55,14 @@ class GridView extends CGridView
         $this->dataProvider->setData($data);
     }
 
-
     /**
      * Добавляет колонки перед последней колонкой
      *
      * @param $configs конфиги для колонок
      */
-    public function addColumns($configs)
+    public function addColumns($configs, $pos = 0)
     {
-        $last_index = count($this->columns) - 1;
+        $last_index = $pos >= 0 ? $pos : count($this->columns) + $pos;
         $configs[]  = $this->columns[$last_index];
         array_splice($this->columns, $last_index, 1, $configs);
     }
@@ -74,9 +71,9 @@ class GridView extends CGridView
      * Добавляет колонку перед последней колонкой
      * @param $config конфиг колонки
      */
-    public function addColumn($config)
+    public function addColumn($config, $pos = 0)
     {
-        $last_index = count($this->columns) - 1;
+        $last_index = $pos >= 0 ? $pos : count($this->columns) + $pos;
         $configs    = array(
             $config,
             $this->columns[$last_index]
@@ -91,7 +88,7 @@ class GridView extends CGridView
             $this->addColumn(array(
                 'class' => 'ext.QGridView.SortableColumn',
                 'header'=> 'Сортировка'
-            ));
+            ), -1);
         }
 
         if ($this->order_links)
@@ -102,10 +99,23 @@ class GridView extends CGridView
                 'value' => 'GridView::orderLinks($data)',
                 'type'  => 'raw'
 
+            ), -1);
+        }
+
+        if ($this->mass_removal)
+        {
+            $this->addColumn(array(
+                'class'               => 'CCheckBoxColumn',
+                'header'              => "<input type='checkbox' class='object_checkboxes'>",
+                'checkBoxHtmlOptions' => array(
+                    'object_id'=> '{$data->primarykey}',
+                    'class'    => 'object_checkbox'
+                )
             ));
         }
         parent::initColumns();
     }
+
 
     public static function orderLinks($data)
     {
@@ -150,16 +160,12 @@ class GridView extends CGridView
         {
             echo "<thead>\n";
 
-            if ($this->filterPosition === self::FILTER_POS_HEADER) {
+            if ($this->filterPosition === self::FILTER_POS_HEADER)
+            {
                 $this->renderFilter();
             }
 
             echo "<tr>\n";
-
-            if ($this->mass_removal)
-            {
-                echo "<td><input type='checkbox' class='object_checkboxes'></td>";
-            }
 
             foreach ($this->columns as $column)
             {
@@ -168,7 +174,8 @@ class GridView extends CGridView
 
             echo "</tr>\n";
 
-            if ($this->filterPosition === self::FILTER_POS_BODY) {
+            if ($this->filterPosition === self::FILTER_POS_BODY)
+            {
                 $this->renderFilter();
             }
 
@@ -205,11 +212,6 @@ class GridView extends CGridView
             echo '<tr>';
         }
 
-        if ($this->mass_removal)
-        {
-            echo "<td><input type='checkbox' object_id='{$data->primarykey}' class='object_checkbox'></td>";
-        }
-
         foreach ($this->columns as $column)
         {
             $column->renderDataCell($row);
@@ -218,59 +220,9 @@ class GridView extends CGridView
         echo "</tr>\n";
     }
 
-
-    public function renderSummary()
+    public function renderPagerSelect()
     {
-        if (($count = $this->dataProvider->getItemCount()) <= 0) {
-            return;
-        }
-
-        echo '<div class="'.$this->summaryCssClass.'">';
-        if ($this->enablePagination)
-        {
-            if (($summaryText = $this->summaryText) === null
-            ) {
-                $summaryText = Yii::t('zii', 'Displaying {start}-{end} of {count} result(s).');
-            }
-            $pagination = $this->dataProvider->getPagination();
-            $total      = $this->dataProvider->getTotalItemCount();
-            $start      = $pagination->currentPage * $pagination->pageSize + 1;
-            $end        = $start + $count - 1;
-            if ($end > $total)
-            {
-                $end = $total;
-                $start = $end - $count + 1;
-            }
-            echo strtr($summaryText, array(
-                '{start}'=> $start,
-                '{end}'  => $end,
-                '{count}'=> $total,
-                '{page}' => $pagination->currentPage + 1,
-                '{pages}'=> $pagination->pageCount,
-            ));
-        }
-        else
-        {
-            if (($summaryText = $this->summaryText) === null) {
-                $summaryText = Yii::t('zii', 'Total {count} result(s).');
-            }
-            echo strtr($summaryText, array(
-                '{count}'=> $count,
-                '{start}'=> 1,
-                '{end}'  => $count,
-                '{page}' => 1,
-                '{pages}'=> 1,
-            ));
-        }
-
-        echo $this->getPagerSelect();
-
-        echo '</div>';
-    }
-
-
-    public function getPagerSelect()
-    {
+        echo '<div class="pager-select">';
         $value = null;
         if (isset(Yii::app()->session[get_class($this->filter)."PerPage"]))
         {
@@ -278,28 +230,13 @@ class GridView extends CGridView
         }
 
         $select = CHtml::dropDownList("pager_pages", $value, array_combine(range(10, 500, 5), range(10, 500, 5)), array(
-                'class' => 'pager_select',
-                'model' => get_class($this->filter)
-            ));
+            'class' => 'pager_select',
+            'model' => get_class($this->filter)
+        ));
 
-        $html = "&nbsp; &nbsp;Показывать на странице: {$select}";
-
-        return $html;
+        echo "&nbsp; &nbsp;Показывать на странице: {$select}";
+        echo '</div>';
     }
-
-
-    public function renderFilter()
-    {
-        if ($this->filter !== null)
-        {
-            echo "<tr class=\"{$this->filterCssClass}\">\n";
-            foreach ($this->columns as $column) {
-                $column->renderFilterCell();
-            }
-            echo "</tr>\n";
-        }
-    }
-
 
     public function registerClientScript()
     {

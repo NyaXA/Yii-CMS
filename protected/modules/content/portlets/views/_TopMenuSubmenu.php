@@ -15,7 +15,7 @@
          ?>
 
          <li class="<?php echo $class ?>">
-             <a href="<?php echo $this->url($item->href); ?>"><?php echo $item->title; ?></a>
+             <a href="<?php echo $item->href ?>"><?php echo $item->title; ?></a>
          </li>
      <?php } ?>
 </ul>

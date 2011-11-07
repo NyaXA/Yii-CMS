@@ -1,62 +1,54 @@
 <?php
 class SortableBehavior extends CActiveRecordBehavior
 {
-    public function swapPosition($fromId, $toId)
+    //заполняем айдишниками
+    public function fillOrderColumn($column)
     {
-        $owner = $this->getOwner();
-        $from = $owner->model()->findByPk($fromId);
-        $to = $owner->model()->findByPk($toId);
-        $to->scenario = $from->scenario = 'movePosition';
+        $model = $this->getOwner();
+        $c     = Yii::app()->db->commandBuilder->createSqlCommand(
+            "UPDATE ".$model->tableName()." AS t SET t.{$column} = t.id");
+        $c->execute();
+    }
 
-        //swap
-        list($from->priority, $to->priority) = array($to->priority, $from->priority);
-        $transaction = Yii::app()->db->beginTransaction();
-        try {
-            if ($from->save() && $to->save())
-                $transaction->commit();
-            else
-                throw new CException('movePosition error');
+    public function setPositions($ids, $column, $start)
+    {
+        $model = $this->getOwner();
+        $table = $model->tableName();
 
-        } catch (Exception $e) {
-            $transaction->rollBack();
+        $priorities = array();
+        foreach ($ids as $id)
+        {
+            $priorities[$id] = $start--;
         }
+
+        $case = $this->arrToCase('id', $priorities, $model->getTableAlias());
+
+        $c = Yii::app()->db->commandBuilder->createSqlCommand("UPDATE {$table} AS t SET t.{$column} = {$case}");
+        $c->execute();
     }
 
-    public function setPositions($ids, $table, $criteria = null)
+    public function arrToCase($caseParam, $values, $alias)
     {
-        $criteria = $criteria ? $criteria : new CDbCriteria();
-        $owner = $this->getOwner();
-        $pk = $owner->primaryKey();
+        $case = "case $alias.$caseParam ";
+        foreach ($values as $key => $val)
+        {
+            $case .= "when $key then ".$val.' ';
+        }
+        $case .= 'end';
 
-        //last id have 0 priority => revers => first id have 0 priority => flip => every id have their priority
-        $priorities = array_flip(array_reverse($ids));
-        $data = array('priority' => Sql::arrToCase($pk, $priorities));
-
-        $c = Yii::app()->db->commandBuilder
-                ->createUpdateCommand($table, $data, $criteria);
-
-        Y::dump($c->execute());
+        return $case;
     }
 
-    /**
-     * @return CActiveRecord Season
-     */
-    public function mostPriority()
+    public function beforeSave()
     {
-        $owner = $this->getOwner();
-        $alias = $owner->getTableAlias();
-        $owner->getDbCriteria()->mergeWith(array(
-                                                'limit' => 1,
-                                                'order' => $alias . '.priority DESC'
-                                           ));
-        return $owner;
-    }
+        $model = $this->getOwner();
 
-    public function setDefaultPriority()
-    {
-        $owner = $this->getOwner();
-        $model = $owner->model()->mostPriority()->find();
-        $owner->priority = $model->priority + 1;
+        if ($model->isNewRecord)
+        {
+            $column         = 'order';
+            $i              = $model->max($column);
+            $model->$column = ++$i;
+        }
     }
 
 
