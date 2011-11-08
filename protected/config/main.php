@@ -36,6 +36,7 @@ return array(
         $modules_includes,
         array(
             'application.components.*',
+            'application.components.validators.*',
             'application.components.zii.*',
             'application.components.formElements.*',
             'application.components.baseWidgets.*',

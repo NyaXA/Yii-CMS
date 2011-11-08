@@ -29,11 +29,11 @@ class Faq extends ActiveRecordModel
 		    array('first_name, email, lang', 'required', 'on' => 'ClientSide'),
 			array('question', 'required'),
             array('first_name, last_name, patronymic, position','length', 'max' => 40),
-            array('first_name, last_name, patronymic','ruLatAlpha'),
+            array('first_name, last_name, patronymic','RuLatAlphaValidator'),
 			array('section_id, is_published', 'numerical', 'integerOnly'=>true),
 			array('answer, date_create', 'safe'),
             array('company', 'length', 'max' => '80'),
-            array('phone', 'phone'),
+            array('phone', 'PhoneValidator'),
             array('is_published, answer', 'unsafe', 'on' => 'ClientSide'),
             array(
                 'first_name, last_name, patronymic, position, email, company, phone',

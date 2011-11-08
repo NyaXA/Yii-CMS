@@ -2,11 +2,6 @@
 
 abstract class ActiveRecordModel extends CActiveRecord
 {
-    const PATTERN_RULAT_ALPHA_SPACES = '/^[а-яa-z ]+$/ui';
-    const PATTERN_RULAT_ALPHA        = '/^[а-яa-z]+$/ui';
-    const PATTERN_LAT_ALPHA          = '/^[A-Za-z]+$/ui';
-    const PATTERN_PHONE              = '/^\+[1-9]-[0-9]+-[0-9]{7}$/';
-
     const SCENARIO_CREATE = 'create';
     const SCENARIO_UPDATE = 'update';
 
@@ -64,83 +59,6 @@ abstract class ActiveRecordModel extends CActiveRecord
 
         return $labels;
     }
-
-
-    /*VALIDATORS________________________________________________________________________________*/
-    public function city($attr) 
-    {	
-    	$name = trim($this->$attr);
-    	
-    	if (!empty($name)) 
-    	{
-    		if (!is_numeric($name)) 
-    		{
-		    	$city = City::model()->findByAttributes(array('name' => $name));
-		    	if ($city) 
-		    	{
-		    		$this->$attr = $city->id;	
-		    	}   
-		    	else 
-		    	{
-		    		$this->addError($attr, Yii::t('main', 'Город не найден'));
-		    	} 	    		
-    		}
-    	}
-    	else 
-    	{
-    		$this->$attr = null;	
-    	}
-    }
-        
-    
-    public function phone($attr)
-    {
-        if (!empty($this->$attr))
-        {
-            if (!preg_match(self::PATTERN_PHONE, $this->$attr))
-            {
-                $this->addError($attr, Yii::t('main', 'Неверный формат! Пример: +7-903-5492969'));
-            }
-        }
-    }
-	
-    
-    public function latAlpha($attr)
-    {
-        if (!empty($this->$attr))
-        {
-            if (!preg_match(self::PATTERN_LAT_ALPHA, $this->$attr))
-            {
-                $this->addError($attr, Yii::t('main', 'Только латинский алфавит'));
-            }
-        }    
-    }
-    
-	
-    public function ruLatAlpha($attr)
-    {
-        if (!empty($this->$attr))
-        {
-            if (!preg_match(self::PATTERN_RULAT_ALPHA, $this->$attr))
-            {
-                $this->addError($attr, Yii::t('main', 'Только русский или латинский алфавит'));
-            }
-        }
-    }
-
-
-    public function ruLatAlphaSpaces($attr)
-    {
-        if (!empty($this->$attr))
-        {
-            if (!preg_match(self::PATTERN_RULAT_ALPHA_SPACES, $this->$attr))
-            {
-                $this->addError($attr, Yii::t('main', 'Только русский или латинский алфавит с учетом пробелов'));
-            }
-        }
-    }
-    /*___________________________________________________________________________________*/
-
 
     /*MAGIC METHODS______________________________________________________________________*/
     public function __get($name)
