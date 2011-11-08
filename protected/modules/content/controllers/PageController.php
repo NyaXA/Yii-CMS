@@ -38,6 +38,8 @@ class PageController extends BaseController
 
     public function actionMain()
     {
+
+
         $page = Page::model()->published()->findByAttributes(array('url' => '/'));   
 
         if (!$page)

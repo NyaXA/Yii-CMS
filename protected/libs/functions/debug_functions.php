@@ -2,7 +2,9 @@
 
 function p($data)
 {
+    echo '<pre>';
     CVarDumper::dump($data, 1000, false);
+    echo '</pre>';
 }
 
 function v($data)

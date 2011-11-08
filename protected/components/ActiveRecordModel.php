@@ -42,8 +42,11 @@ abstract class ActiveRecordModel extends CActiveRecord
                 'class' => 'application.components.activeRecordBehaviors.TimestampBehavior'
             ),
             'MaxMin' => array(
-                'class'=> 'application.components.activeRecordBehaviors.MaxMinBehavior'
+                'class' => 'application.components.activeRecordBehaviors.MaxMinBehavior'
             ),
+            'Scopes' => array(
+                'class' => 'application.components.activeRecordBehaviors.ScopesBehavior'
+            )
         );
     }
 
@@ -184,52 +187,7 @@ abstract class ActiveRecordModel extends CActiveRecord
 
 
     /*SCOPES_____________________________________________________________________________*/
-    public function scopes()
-    {
-        $alias = $this->getTableAlias();
-        return array(
-           'published' => array('condition' => $alias.'.is_published = 1'),
-           'ordered'   => array('order' => $alias.'.`order`'),
-           'last'      => array('order' => $alias.'.date_create DESC')
-        );
-    }
 
-
-	public function limit($num)
-	{
-	    $this->getDbCriteria()->mergeWith(array(
-	        'limit' => $num,
-	    ));
-
-	    return $this;
-	}
-
-    public function offset($num)
-    {
-        $this->getDbCriteria()->mergeWith(array(
-            'offset' => $num,
-        ));
-
-        return $this;
-    }
-
-    public function in($row, $values)
-    {
-        $this->getDbCriteria()->addInCondition($row, $values);
-        return $this;
-    }
-
-	public function notEqual($param, $value)
-	{
-	    $this->getDbCriteria()->mergeWith(array(
-	        'condition' => "`{$param}` != '{$value}'",
-	    ));
-
-	    return $this;
-	}
-
-
-    /*___________________________________________________________________________________*/
 
 
     public function meta()

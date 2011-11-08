@@ -27,7 +27,7 @@ class Page extends ActiveRecordModel
     public function behaviors()
     {
         $behaviors = parent::behaviors();
-        $behaviors[] = array(
+        $behaviors['MetaTag'] = array(
             'class' => 'application.components.activeRecordBehaviors.MetaTagBehavior'
         );
         return $behaviors;
