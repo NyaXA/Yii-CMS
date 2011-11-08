@@ -109,9 +109,9 @@ return array(
         'authManager' => array(
             'class'           => 'CDbAuthManager',
 			'connectionID'    => 'db',     
-            'itemTable'       => 'auth_item',
-            'assignmentTable' => 'auth_assignment',
-            'itemChildTable'  => 'auth_item_child',
+            'itemTable'       => 'auth_items',
+            'assignmentTable' => 'auth_assignments',
+            'itemChildTable'  => 'auth_items_childs',
 			'defaultRoles'    => array('guest')
         ),
 
@@ -130,16 +130,7 @@ return array(
 
         'preload'=>array('log'),
 
-//        'log'=>array(
-//            'class'=>'CLogRouter',
-//            'routes'=>array(
-//                array(
-//                    'class'=>'CWebLogRoute',
-//                    'levels'=>'profile',
-//                    'enabled'=>true,
-//                ),
-//            ),
-//        ),
+        'onBeginRequest' => array('ModuleUrlManager', 'collectRules'),
 	),
 
 	'params'=>array(

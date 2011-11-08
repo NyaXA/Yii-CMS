@@ -81,13 +81,13 @@ class AuthItem extends ActiveRecordModel
 		    'operations' => array(
                 self::MANY_MANY,
                 'AuthItem',
-                'AuthItemChild(parent, child)',
+                'auth_items_childs(parent, child)',
                 'condition' => 'type = "' . self::TYPE_OPERATION . '"'
             ),
             'tasks' => array(
                 self::MANY_MANY,
                 'AuthItem',
-                'AuthItemChild(parent, child)',
+                'auth_items_childs(parent, child)',
                 'condition' => 'type = "' . self::TYPE_TASK . '"'
             ),
             'assignments' => array(self::HAS_MANY, 'AuthAssignment', 'itemname'),

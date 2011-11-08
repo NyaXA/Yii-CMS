@@ -130,16 +130,18 @@ abstract class BaseController extends CController
             return true;
         }
 
-
-        if ($auth_item->task)
+        if ($auth_item->tasks)
         {
-            if ($auth_item->task->allow_for_all)
+            foreach ($auth_item->tasks as $task)
             {
-                return true;
-            }
-            elseif (Yii::app()->user->checkAccess($auth_item->task->name))
-            {
-                return true;
+                if ($task->allow_for_all)
+                {
+                    return true;
+                }
+                elseif (Yii::app()->user->checkAccess($task->name))
+                {
+                    return true;
+                }
             }
         }
         else
