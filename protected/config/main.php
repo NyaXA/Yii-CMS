@@ -29,7 +29,6 @@ return array(
     'language' => 'ru',
 	'basePath' => dirname(__FILE__).DIRECTORY_SEPARATOR.'..',
 	'name'     => '',
-
 	'preload'=>array('log'),
 
 	'import'=> array_merge(
@@ -129,7 +128,10 @@ return array(
                 ),
         ),
 
-        'preload'=>array('log'),
+        'preload' => array('log'),
 	),
+    'params'  => array(
+        'save_site_actions' => false
+    )
 );
 

@@ -47,7 +47,12 @@ abstract class BaseController extends CController
             $this->forbidden();
         }
 
-        $this->_setTitleAndSaveSiteAction($action);
+        if (isset(Yii::app()->params->save_site_actions) && Yii::app()->params->save_site_actions)
+        {
+            MainModule::saveSiteAction();
+        }
+
+        $this->setTitle($action);
         $this->_setMetaTags($action);
 
         return true;
@@ -74,7 +79,7 @@ abstract class BaseController extends CController
     }
 
 
-    private function _setTitleAndSaveSiteAction($action)
+    public function setTitle($action)
     {
         $action_titles = call_user_func(array(get_class($action->controller), 'actionsTitles'));
 
@@ -86,25 +91,6 @@ abstract class BaseController extends CController
         $title = $action_titles[ucfirst($action->id)];
 
         $this->page_title = $title;
-
-        $site_action = new SiteAction();
-        $site_action->title      = $title;
-        $site_action->module     = $action->controller->module->id;
-        $site_action->controller = $action->controller->id;
-        $site_action->action     = $action->id;
-
-        if (!Yii::app()->user->isGuest)
-        {
-            $site_action->user_id = Yii::app()->user->id;
-        }
-
-        $object_id = $this->request->getParam('id');
-        if ($object_id)
-        {
-            $site_action->object_id = $object_id;
-        }
-
-        $site_action->save();
     }
 
 
