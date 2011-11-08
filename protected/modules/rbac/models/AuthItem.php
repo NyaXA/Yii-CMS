@@ -108,8 +108,9 @@ class AuthItem extends ActiveRecordModel
 
     public function getTask()
     {
-        $sql = "SELECT * FROM AuthItem
-                         WHERE name = (SELECT parent FROM AuthItemChild WHERE child = '" . $this->name . "')";
+        $subtable = AuthItemChild::model()->tableName();
+        $sql = "SELECT * FROM {$this->tableName()}
+                         WHERE name = (SELECT parent FROM {$subtable} WHERE child = '" . $this->name . "')";
 
         return $this->findBySql($sql);
     }
