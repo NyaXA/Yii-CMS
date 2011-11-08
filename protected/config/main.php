@@ -131,11 +131,5 @@ return array(
 
         'preload'=>array('log'),
 	),
-
-	'params'=>array(
-		'adminEmail'=>'artem-moscow@yandex.ru.com',
-	),
-
-    'language' => 'ru',
 );
 

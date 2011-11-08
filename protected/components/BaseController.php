@@ -41,9 +41,8 @@ abstract class BaseController extends CController
 
     public function beforeAction($action)
     {
-        $item_name = AuthItem::constructName($action->controller->id, $action->id);
-
-        if (!$this->checkAccess($item_name))
+        $item_name = AuthItem::constructName(Yii::app()->controller->id, $action->id);
+        if (!RbacModule::isAllow($item_name))
         {
             $this->forbidden();
         }
@@ -108,53 +107,6 @@ abstract class BaseController extends CController
         $site_action->save();
     }
 
-    
-    public function checkAccess($item_name)
-    {
-        //Если суперпользователь, то разрешено все
-        if (isset(Yii::app()->user->role) && Yii::app()->user->role == AuthItem::ROLE_ROOT)
-        {
-            return true;
-        }
-
-        $auth_item = AuthItem::model()->findByPk($item_name);
-
-        if (!$auth_item)
-        {
-            Yii::log('Задача $item_name не найдена!');
-            return false;
-        }
-
-        if ($auth_item->allow_for_all)
-        {
-            return true;
-        }
-
-        if ($auth_item->tasks)
-        {
-            foreach ($auth_item->tasks as $task)
-            {
-                if ($task->allow_for_all)
-                {
-                    return true;
-                }
-                elseif (Yii::app()->user->checkAccess($task->name))
-                {
-                    return true;
-                }
-            }
-        }
-        else
-        {
-            if (Yii::app()->user->checkAccess($auth_item->name))
-            {
-                return true;
-            }
-        }
-
-       return false;
-    }
-   
 
     public function url($route, $params = array(), $ampersand = '&')
     {

@@ -60,7 +60,7 @@ abstract class ActiveRecordModel extends CActiveRecord
         return $labels;
     }
 
-    /*MAGIC METHODS______________________________________________________________________*/
+
     public function __get($name)
 	{
         try
@@ -101,11 +101,6 @@ abstract class ActiveRecordModel extends CActiveRecord
             }
         }
     }
-    /*___________________________________________________________________________________*/
-
-
-    /*SCOPES_____________________________________________________________________________*/
-
 
 
     public function meta()

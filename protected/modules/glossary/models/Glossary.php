@@ -198,7 +198,7 @@ class Glossary extends ActiveRecordModel
 
     public function getContent()
     {
-        if (Yii::app()->controller->checkAccess('GlossaryAdmin_Update'))
+        if (RbacModule::isAllow('GlossaryAdmin_Update'))
         {
             $this->text .= "<br/> <a href='/glossary/glossaryAdmin/update/id/{$this->id}' class='admin_link'>Редактировать</a>";
         }
