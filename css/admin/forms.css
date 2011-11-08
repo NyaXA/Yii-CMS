@@ -252,10 +252,18 @@ label {
     margin-right: 10px;
     vertical-align: middle;
     display:block;
-    float: left;
 }
 
 
 .hint {
-    padding-bottom: 7px;
+    padding-bottom: 10px;
+}
+
+.label_table td{
+    padding: 0 !important;
+    border: 0 !important;
+}
+
+.label_table {
+    margin: 0 0 4px 0 !important;
 }
