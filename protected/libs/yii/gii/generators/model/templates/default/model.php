@@ -31,7 +31,7 @@ class <?php echo $modelClass; ?> extends <?php echo $this->baseClass."\n"; ?>
 
     public function name()
     {
-        return 'Имя модели';
+        return 'РњРѕРґРµР»СЊ <?php echo $modelClass; ?>';
     }
 
 
