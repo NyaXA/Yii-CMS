@@ -115,18 +115,18 @@ return array(
 			'defaultRoles'    => array('guest')
         ),
 
-        'log'=>array(
-                'class'=>'CLogRouter',
-                'routes'=>array(
-                    array(
-                        'class'        => 'DbLogRoute',
-                        'levels'       => 'error, warning, info',
-                        'connectionID' => 'db',
-                        'logTableName' => 'log',
-                        'enabled'      => true
-                    )
-                ),
-        ),
+//        'log'=>array(
+//                'class'=>'CLogRouter',
+//                'routes'=>array(
+//                    array(
+//                        'class'        => 'DbLogRoute',
+//                        'levels'       => 'error, warning, info',
+//                        'connectionID' => 'db',
+//                        'logTableName' => 'log',
+//                        'enabled'      => true
+//                    )
+//                ),
+//        ),
 
         'preload' => array('log'),
 	),

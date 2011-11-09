@@ -4,13 +4,14 @@ $this->tabs = array(
     'добавить' => $this->createUrl('create')
 );
 
-$this->widget('GridView', array(
+$this->widget('AdminGrid', array(
 	'id' => 'banner-grid',
 	'dataProvider' => $model->search(),
-	'filter' => $model,
+	'filter'   => $model,
+    'sortable' =>true,
 	'columns' => array(
 		array('name' => 'name'),
-		array('name' => 'url'),
+		array('name' => 'url', 'value' => '$data->href'),
 		array('name' => 'is_active', 'value' => '$data->is_active ? "Да" : "Нет"'),
 		array('name' => 'date_start'),
 		array('name' => 'date_end'),

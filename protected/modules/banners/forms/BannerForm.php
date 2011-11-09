@@ -1,5 +1,8 @@
 <?php
+
 $this->model->roles = array_keys(CHtml::listData($this->model->roles, 'name', 'description'));
+
+$pages = Page::model()->published()->findAll("", array('order' => 'title'));
 
 return array(
     'activeForm' => array(
@@ -15,15 +18,30 @@ return array(
     ),
     'elements' => array(
         'name' => array('type' => 'text'),
-        'url' => array('type' => 'text'),
+        'page_id' => array(
+            'type'   => 'dropdownlist',
+            'prompt' => 'нет',
+            'items'  => CHtml::listData($pages, 'id', 'title')
+        ),
+        'url' => array('type' => 'text', 'hint' => 'например: http://website.ru'),
         'image' => array('type' => 'file'),
         'roles' => array(
-            'type'  => 'application.extensions.emultiselect.EMultiSelect',
-            'items' => CHtml::listData(AuthItem::model()->roles, 'name', 'description')
+            'type'  => 'multi_select',
+            'items' => CHtml::listData(AuthItem::model()->roles, 'name', 'description'),
         ),
+
         'is_active' => array('type' => 'checkbox'),
+        'date_active' => array(
+            'type' => 'checkbox',
+            'label' => 'Активировать по заданной дате',
+            'checked' => (bool) $this->model->date_active || $this->model->date_start || $this->model->date_end
+        ),
         'date_start' => array('type' => 'date'),
         'date_end' => array('type' => 'date'),
+        'src' => array(
+            'type'  => 'hidden',
+            'value' => $this->model->render(true)
+        )
 
     ),
     'buttons' => array(

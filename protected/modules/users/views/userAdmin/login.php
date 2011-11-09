@@ -32,7 +32,7 @@
     <table cellpadding="0" cellspacing="0" class="ltable">
         <tr>
             <td>
-                <?php echo CHtml::submitButton('Войти', array('class' => 'submit')); ?> &nbsp;
+                <?php echo CHtml::submitButton('Войти', array('class' => 'submit', 'id' => 'User_submit')); ?> &nbsp;
             </td>
             <td>
                 <?php echo $form->checkbox($model, 'remember_me'); ?>
