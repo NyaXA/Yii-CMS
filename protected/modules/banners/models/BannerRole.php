@@ -19,7 +19,7 @@ class BannerRole extends ActiveRecordModel
 
     public function name()
     {
-        return 'Имя модели';
+        return 'Р РѕР»Рё Р±Р°РЅРµСЂР°';
     }
 
 

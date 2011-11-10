@@ -19,12 +19,15 @@ class LinkPager extends CLinkPager
     {
         if ($hidden)
         {
-            $class .= ' '.self::CSS_HIDDEN_PAGE;
-        }
-        else
-        {
-            $class .= ' '.self::CSS_SELECTED_PAGE;
-            $label = '['.$label.']';
+            if ($hidden)
+            {
+                $class .= ' '.self::CSS_HIDDEN_PAGE;
+            }
+            else
+            {
+                $class .= ' '.self::CSS_SELECTED_PAGE;
+                $label = '['.$label.']';
+            }
         }
         if ($selected)
         {

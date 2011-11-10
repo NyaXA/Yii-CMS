@@ -25,6 +25,12 @@ class Action extends ActiveRecordModel
 	}
 
 
+    public function name()
+    {
+        return 'Мероприятия';
+    }
+
+
 	public function rules()
 	{
 		return array(

@@ -91,7 +91,7 @@ class Article extends ActiveRecordModel
 
     public function getContent()
     {
-        if (Yii::app()->controller->checkAccess('ArticleAdmin_Update'))
+        if (RbacModule::isAllow('ArticleAdmin_Update'))
         {
             $this->text.= "<br/> <a href='{$this->updateUrl}' class='admin_link'>Редактировать</a>";
         }

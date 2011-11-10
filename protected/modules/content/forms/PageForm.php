@@ -9,7 +9,7 @@ return array(
     ),
     'elements' => array(
         'title'        => array('type' => 'text'),
-        'url'          => array('type' => 'InputWithPreview', 'attributes'=>array('pattern'=>'/page/{value}')),
+        'url'          => array('type' => 'text'),
         'text'         => array('type' => 'application.extensions.tiny_mce.TinyMCE'),
         'is_published' => array('type' => 'checkbox'),
         'meta_tags'    => array('type' => 'widget', 'widget' => 'MetaTagSubForm')

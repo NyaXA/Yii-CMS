@@ -5,7 +5,10 @@ class BannersSidebar extends Portlet
 {
     public function renderContent()
     {
-        $cond = 'is_active = 1 AND id IN (SELECT banner_id FROM banners_roles WHERE role = "' . Yii::app()->user->role . '")';
+        $cond = 'is_active = 1 AND id IN (
+                    SELECT banner_id FROM banners_roles WHERE role = "' . Yii::app()->user->role . '"
+                )
+                ORDER BY priority';
 
         $banners = Banner::model()->findAll($cond);
 

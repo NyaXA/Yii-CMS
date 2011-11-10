@@ -41,14 +41,18 @@ abstract class BaseController extends CController
 
     public function beforeAction($action)
     {
-        $item_name = AuthItem::constructName($action->controller->id, $action->id);
-
-        if (!$this->checkAccess($item_name))
+        $item_name = AuthItem::constructName(Yii::app()->controller->id, $action->id);
+        if (!RbacModule::isAllow($item_name))
         {
             $this->forbidden();
         }
 
-        $this->_setTitleAndSaveSiteAction($action);
+        if (isset(Yii::app()->params->save_site_actions) && Yii::app()->params->save_site_actions)
+        {
+            MainModule::saveSiteAction();
+        }
+
+        $this->setTitle($action);
         $this->_setMetaTags($action);
 
         return true;
@@ -63,19 +67,26 @@ abstract class BaseController extends CController
         }
 
         $id = $this->request->getParam("id");
-
-        $class = ucfirst(str_replace('Admin', '', $action->controller->id));
-        $model = new $class;
-        $model = $model->model()->findByPk($id);
-
-        if ($model)
+        if ($id)
         {
-            Yii::app()->metaTags->set($model);
+            $class = ucfirst(str_replace('Admin', '', $action->controller->id));
+
+            $meta_tag = MetaTag::model()->findByAttributes(array(
+                'model_id'  => $class,
+                'object_id' => $id
+            ));
+
+            if ($meta_tag)
+            {
+                $this->meta_title       = $meta_tag->title;
+                $this->meta_keywords    = $meta_tag->keywords ;
+                $this->meta_description = $meta_tag->description;
+            }
         }
     }
 
 
-    private function _setTitleAndSaveSiteAction($action)
+    public function setTitle($action)
     {
         $action_titles = call_user_func(array(get_class($action->controller), 'actionsTitles'));
 
@@ -87,72 +98,8 @@ abstract class BaseController extends CController
         $title = $action_titles[ucfirst($action->id)];
 
         $this->page_title = $title;
-
-        $site_action = new SiteAction();
-        $site_action->title      = $title;
-        $site_action->module     = $action->controller->module->id;
-        $site_action->controller = $action->controller->id;
-        $site_action->action     = $action->id;
-
-        if (!Yii::app()->user->isGuest)
-        {
-            $site_action->user_id = Yii::app()->user->id;
-        }
-
-        $object_id = $this->request->getParam('id');
-        if ($object_id)
-        {
-            $site_action->object_id = $object_id;
-        }
-
-        $site_action->save();
     }
 
-    
-    public function checkAccess($item_name)
-    {
-        //Если суперпользователь, то разрешено все
-        if (isset(Yii::app()->user->role) && Yii::app()->user->role == AuthItem::ROLE_ROOT)
-        {
-            return true;
-        }
-
-        $auth_item = AuthItem::model()->findByPk($item_name);
-
-        if (!$auth_item)
-        {
-            Yii::log('Задача $item_name не найдена!');
-            return false;
-        }
-
-        if ($auth_item->allow_for_all)
-        {
-            return true;
-        }
-
-
-        if ($auth_item->task)
-        {
-            if ($auth_item->task->allow_for_all)
-            {
-                return true;
-            }
-            elseif (Yii::app()->user->checkAccess($auth_item->task->name))
-            {
-                return true;
-            }
-        }
-        else
-        {
-            if (Yii::app()->user->checkAccess($auth_item->name))
-            {
-                return true;
-            }
-        }
-
-       return false;
-    }
-   
 
     public function url($route, $params = array(), $ampersand = '&')
     {

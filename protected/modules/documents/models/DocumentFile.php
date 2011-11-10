@@ -19,6 +19,12 @@ class DocumentFile extends ActiveRecordModel
 	}
 
 
+    public function name()
+    {
+        return 'Файлы документа';
+    }
+
+
 	public function rules()
 	{
 		return array(

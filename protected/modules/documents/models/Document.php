@@ -17,6 +17,12 @@ class Document extends ActiveRecordModel
 	}
 
 
+    public function name()
+    {
+        return 'Документы';
+    }
+
+
 	public function rules()
 	{
 		return array(
@@ -67,7 +73,7 @@ class Document extends ActiveRecordModel
 
     public function getContent()
     {
-        if (Yii::app()->controller->checkAccess('DocumentAdmin_Update'))
+        if (RbacModule::isAllow('DocumentAdmin_Update'))
         {
             $this->desc.= "<br/><a href='/documents/DocumentAdmin/update/id/{$this->id}' class='admin_link'>Редактировать</a>";
         }

@@ -141,7 +141,7 @@ class News extends ActiveRecordModel
 
     public function getContent()
     {
-        if (Yii::app()->controller->checkAccess('NewsAdmin_Update'))
+        if (RbacModule::isAllow('NewsAdmin_Update'))
         {
             $this->text.= "<br/> <a href='{$this->updateUrl}' class='admin_link'>Редактировать</a>";
         }

@@ -29,7 +29,7 @@ class Language extends ActiveRecordModel
 			array('id, name', 'required'),
 		    array('id', 'unique', 'className' => 'Language', 'attributeName' => 'id'),
 		    array('name', 'unique', 'className' => 'Language', 'attributeName' => 'name'),
-			array('id', 'latAlpha'),
+			array('id', 'LatAlphaValidator'),
 			array('id', 'length', 'max' => 2),
 			array('name', 'length', 'max' => 15),
 

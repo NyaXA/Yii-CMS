@@ -5,10 +5,11 @@ $this->tabs = array(
     'редактировать'       => $this->createUrl('update', array('id' => $model->id))
 );
 
-$this->widget('DetailView', array(
+$this->widget('application.components.DetailView', array(
 	'data' => $model,
 	'attributes' => array(
 		array('name' => 'name'),
+        array('name' => 'page_id', 'value' => $model->page ? $model->page->title : null),
         array('name' => 'url'),
 		array('name' => 'is_active', 'value' => $model->is_active ? "Да" : "Нет"),
 		array('name' => 'date_start'),
@@ -24,6 +25,6 @@ $this->widget('DetailView', array(
             'type'  => 'raw'
         ),
 	),
-));
+)); 
 
 

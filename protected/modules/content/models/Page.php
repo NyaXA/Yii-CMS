@@ -27,7 +27,7 @@ class Page extends ActiveRecordModel
     public function behaviors()
     {
         $behaviors = parent::behaviors();
-        $behaviors[] = array(
+        $behaviors['MetaTag'] = array(
             'class' => 'application.components.activeRecordBehaviors.MetaTagBehavior'
         );
         return $behaviors;
@@ -108,7 +108,7 @@ class Page extends ActiveRecordModel
     {
     	$content = $this->text;
 
-        if (Yii::app()->controller->checkAccess('PageAdmin_Update'))
+        if (RbacModule::isAllow('PageAdmin_Update'))
         {
             $content.= "<br/><a href='/content/pageAdmin/update/id/{$this->id}' class='admin_link'>Редактировать</a>";
         }

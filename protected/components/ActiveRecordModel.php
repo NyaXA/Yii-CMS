@@ -2,11 +2,6 @@
 
 abstract class ActiveRecordModel extends CActiveRecord
 {
-    const PATTERN_RULAT_ALPHA_SPACES = '/^[а-яa-z ]+$/ui';
-    const PATTERN_RULAT_ALPHA        = '/^[а-яa-z]+$/ui';
-    const PATTERN_LAT_ALPHA          = '/^[A-Za-z]+$/ui';
-    const PATTERN_PHONE              = '/^\+[1-9]-[0-9]+-[0-9]{7}$/';
-
     const SCENARIO_CREATE = 'create';
     const SCENARIO_UPDATE = 'update';
 
@@ -42,8 +37,11 @@ abstract class ActiveRecordModel extends CActiveRecord
                 'class' => 'application.components.activeRecordBehaviors.TimestampBehavior'
             ),
             'MaxMin' => array(
-                'class'=> 'application.components.activeRecordBehaviors.MaxMinBehavior'
+                'class' => 'application.components.activeRecordBehaviors.MaxMinBehavior'
             ),
+            'Scopes' => array(
+                'class' => 'application.components.activeRecordBehaviors.ScopesBehavior'
+            )
         );
     }
 
@@ -63,83 +61,6 @@ abstract class ActiveRecordModel extends CActiveRecord
     }
 
 
-    /*VALIDATORS________________________________________________________________________________*/
-    public function city($attr) 
-    {	
-    	$name = trim($this->$attr);
-    	
-    	if (!empty($name)) 
-    	{
-    		if (!is_numeric($name)) 
-    		{
-		    	$city = City::model()->findByAttributes(array('name' => $name));
-		    	if ($city) 
-		    	{
-		    		$this->$attr = $city->id;	
-		    	}   
-		    	else 
-		    	{
-		    		$this->addError($attr, Yii::t('main', 'Город не найден'));
-		    	} 	    		
-    		}
-    	}
-    	else 
-    	{
-    		$this->$attr = null;	
-    	}
-    }
-        
-    
-    public function phone($attr)
-    {
-        if (!empty($this->$attr))
-        {
-            if (!preg_match(self::PATTERN_PHONE, $this->$attr))
-            {
-                $this->addError($attr, Yii::t('main', 'Неверный формат! Пример: +7-903-5492969'));
-            }
-        }
-    }
-	
-    
-    public function latAlpha($attr)
-    {
-        if (!empty($this->$attr))
-        {
-            if (!preg_match(self::PATTERN_LAT_ALPHA, $this->$attr))
-            {
-                $this->addError($attr, Yii::t('main', 'Только латинский алфавит'));
-            }
-        }    
-    }
-    
-	
-    public function ruLatAlpha($attr)
-    {
-        if (!empty($this->$attr))
-        {
-            if (!preg_match(self::PATTERN_RULAT_ALPHA, $this->$attr))
-            {
-                $this->addError($attr, Yii::t('main', 'Только русский или латинский алфавит'));
-            }
-        }
-    }
-
-
-    public function ruLatAlphaSpaces($attr)
-    {
-        if (!empty($this->$attr))
-        {
-            if (!preg_match(self::PATTERN_RULAT_ALPHA_SPACES, $this->$attr))
-            {
-                $this->addError($attr, Yii::t('main', 'Только русский или латинский алфавит с учетом пробелов'));
-            }
-        }
-    }
-    /*___________________________________________________________________________________*/
-
-
-    /*MAGIC METHODS______________________________________________________________________*/
     public function __get($name)
 	{
         try
@@ -149,23 +70,15 @@ abstract class ActiveRecordModel extends CActiveRecord
         catch (CException $e)
         {
             $method_name = StringHelper::underscoreToCamelcase($name);
+            $method_name = 'get' . ucfirst($method_name);
 
-            if (method_exists($this, 'get' . ucfirst($method_name)))
+            if (method_exists($this, $method_name))
             {
-                return $this->$method_name;
+                return $this->$method_name();
             }
             else
             {
-                $attr = StringHelper::camelCaseToUnderscore($name);
-                if (mb_substr($attr, 0, 4) == 'get_')
-                {
-                    $attr = mb_substr($attr, 4);
-                }
-
-                $attr = get_class($this) . '.' .$attr;
-
-
-                throw new CException('Не определено свойство ' . $attr);
+                throw new CException($e->getMessage());
             }
         }
 	}
@@ -188,56 +101,6 @@ abstract class ActiveRecordModel extends CActiveRecord
             }
         }
     }
-    /*___________________________________________________________________________________*/
-
-
-    /*SCOPES_____________________________________________________________________________*/
-    public function scopes()
-    {
-        $alias = $this->getTableAlias();
-        return array(
-           'published' => array('condition' => $alias.'.is_published = 1'),
-           'ordered'   => array('order' => $alias.'.`order`'),
-           'last'      => array('order' => $alias.'.date_create DESC')
-        );
-    }
-
-
-	public function limit($num)
-	{
-	    $this->getDbCriteria()->mergeWith(array(
-	        'limit' => $num,
-	    ));
-
-	    return $this;
-	}
-
-    public function offset($num)
-    {
-        $this->getDbCriteria()->mergeWith(array(
-            'offset' => $num,
-        ));
-
-        return $this;
-    }
-
-    public function in($row, $values, $operator='AND')
-    {
-        $this->getDbCriteria()->addInCondition($row, $values, $operator);
-        return $this;
-    }
-
-	public function notEqual($param, $value)
-	{
-	    $this->getDbCriteria()->mergeWith(array(
-	        'condition' => "`{$param}` != '{$value}'",
-	    ));
-
-	    return $this;
-	}
-
-
-    /*___________________________________________________________________________________*/
 
 
     public function meta()
@@ -254,73 +117,6 @@ abstract class ActiveRecordModel extends CActiveRecord
         }
       
         return $meta;
-    }
-
-    
-    public function changeOrder($id, $order)
-    {
-        $sql = "SELECT COUNT(id) AS count_ids
-                       FROM " . $this->tableName() . "
-                       GROUP BY `order` HAVING count_ids > 1";
-
-        $need_fix_table = Yii::app()->db->createCommand($sql)->execute();
-        if ($need_fix_table)
-        {
-            $sorted_objects = array();
-
-            $objects = $this->findAll(array('order' => '`order`'));
-            foreach ($objects as $ind => $object)
-            {
-                $object->order = $ind;
-                $object->save();
-            }
-        }
-
-        $object = $this->findByPk($id);
-        if (!$object)
-        {
-            return;
-        }
-
-        $criteria = new CDbCriteria();
-        $criteria->addCondition('id != ' . $object->id);
-
-        if ($object->parent_id)
-        {
-            $criteria->addCondition('parent_id = ' . $object->parent_id);
-        }
-        else
-        {
-            $criteria->addCondition('parent_id IS NULL');
-        }
-
-        if ($order == 'up')
-        {
-            $criteria->addCondition('`order` < ' . $object->order);
-            $criteria->order = '`order` DESC';
-        }
-        else
-        {
-            $criteria->addCondition('`order` > ' . $object->order);
-            $criteria->order = '`order`';
-        }
-
-        $neighbor_object = $this->find($criteria);
-
-        if (!$neighbor_object)
-        {
-            return;
-        }
-
-        $object_order = $object->order;
-
-        $object->order = $neighbor_object->order;
-        $object->save(false);
-
-        $neighbor_object->order = $object_order;
-        $neighbor_object->save(false);
-
-        return true;
     }
 
 

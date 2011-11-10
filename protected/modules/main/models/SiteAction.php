@@ -27,11 +27,11 @@ class SiteAction extends ActiveRecordModel
 	{
 		return array(
 			array('title, module, controller, action', 'required'),
-			array('user_id, object_id', 'length', 'max' => 11),
+			array('user_id', 'length', 'max' => 11),
 			array('title', 'length', 'max' => 200),
 			array('module, controller, action', 'length', 'max' => 50),
 
-			array('id, user_id, object_id, title, module, controller, action, date_create', 'safe', 'on' => 'search'),
+			array('id, user_id, title, module, controller, action, date_create', 'safe', 'on' => 'search'),
 		);
 	}
 
@@ -48,7 +48,6 @@ class SiteAction extends ActiveRecordModel
 	{
 		$criteria = new CDbCriteria;
 		$criteria->compare('id', $this->id, true);
-		$criteria->compare('object_id', $this->object_id, true);
 		$criteria->compare('title', $this->title, true);
 		$criteria->compare('module', $this->module, true);
 		$criteria->compare('controller', $this->controller, true);

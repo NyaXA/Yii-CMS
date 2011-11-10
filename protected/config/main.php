@@ -29,13 +29,13 @@ return array(
     'language' => 'ru',
 	'basePath' => dirname(__FILE__).DIRECTORY_SEPARATOR.'..',
 	'name'     => '',
-
 	'preload'=>array('log'),
 
 	'import'=> array_merge(
         $modules_includes,
         array(
             'application.components.*',
+            'application.components.validators.*',
             'application.components.zii.*',
             'application.components.formElements.*',
             'application.components.baseWidgets.*',
@@ -92,7 +92,7 @@ return array(
                 '<lang:[a-z]{2}>/activateAccount/<code:.*>/<email:.*>' => 'users/user/activateAccount',
         		'<lang:[a-z]{2}>/activateAccountRequest' => 'users/user/activateAccountRequest',
         		'<lang:[a-z]{2}>/changePasswordRequest'  => 'users/user/changePasswordRequest',
-				'<lang:[a-z]{2}>/changePassword/<code:.*>/<email:.*>' => 'users/user/changePassword',        
+				'<lang:[a-z]{2}>/changePassword/<code:.*>/<email:.*>' => 'users/user/changePassword',
         		'admin/login' => 'users/userAdmin/login',
 
                 '<lang:[a-z]{2}>/news/<id:\d+>' => 'news/news/view',
@@ -116,41 +116,27 @@ return array(
 			'connectionID'    => 'db',     
             'itemTable'       => 'auth_items',
             'assignmentTable' => 'auth_assignments',
-            'itemChildTable'  => 'auth_item_childs',
+            'itemChildTable'  => 'auth_items_childs',
 			'defaultRoles'    => array('guest')
         ),
 
-        'log'=>array(
-                'class'=>'CLogRouter',
-                'routes'=>array(
-                    array(
-                        'class'        => 'DbLogRoute',
-                        'levels'       => 'error, warning, info',
-                        'connectionID' => 'db',
-                        'logTableName' => 'log',
-                        'enabled'      => true
-                    )
-                ),
-        ),
-
-        'preload'=>array('log'),
-
 //        'log'=>array(
-//            'class'=>'CLogRouter',
-//            'routes'=>array(
-//                array(
-//                    'class'=>'CWebLogRoute',
-//                    'levels'=>'profile',
-//                    'enabled'=>true,
+//                'class'=>'CLogRouter',
+//                'routes'=>array(
+//                    array(
+//                        'class'        => 'DbLogRoute',
+//                        'levels'       => 'error, warning, info',
+//                        'connectionID' => 'db',
+//                        'logTableName' => 'log',
+//                        'enabled'      => true
+//                    )
 //                ),
-//            ),
 //        ),
-	),
 
-	'params'=>array(
-		'adminEmail'=>'artem-moscow@yandex.ru.com',
+        'preload' => array('log'),
 	),
-
-    'language' => 'ru',
+    'params'  => array(
+        'save_site_actions' => false
+    )
 );
 

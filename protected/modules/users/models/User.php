@@ -125,7 +125,7 @@ class User extends ActiveRecordModel
                 'on' => array(self::SCENARIO_REGISTRATION)
             ),
             array('first_name, last_name, patronymic','length', 'max' => 40),
-            array('first_name, last_name, patronymic','ruLatAlpha'),
+            array('first_name, last_name, patronymic','RuLatAlphaValidator'),
             array(
                 'birthdate, gender',
                 'required',
@@ -180,7 +180,7 @@ class User extends ActiveRecordModel
                     self::SCENARIO_CREATE
                 )
             ),
-            array('phone', 'phone'),
+            array('phone', 'PhoneValidator'),
             array(
                 'birthdate',
                 'date',
