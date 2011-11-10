@@ -67,14 +67,21 @@ abstract class BaseController extends CController
         }
 
         $id = $this->request->getParam("id");
-
-        $class = ucfirst(str_replace('Admin', '', $action->controller->id));
-        $model = new $class;
-        $model = $model->model()->findByPk($id);
-
-        if ($model)
+        if ($id)
         {
-            Yii::app()->metaTags->set($model);
+            $class = ucfirst(str_replace('Admin', '', $action->controller->id));
+
+            $meta_tag = MetaTag::model()->findByAttributes(array(
+                'model_id'  => $class,
+                'object_id' => $id
+            ));
+
+            if ($meta_tag)
+            {
+                $this->meta_title       = $meta_tag->title;
+                $this->meta_keywords    = $meta_tag->keywords ;
+                $this->meta_description = $meta_tag->description;
+            }
         }
     }
 

@@ -187,11 +187,15 @@ class AppManager
                 continue;
             }
 
-            $module_class = new ucfirst($module_dir) . 'Module';
+            $module_class = ucfirst($module_dir) . 'Module';
 
-            if (!$module_class->active)
+            if (array_key_exists('active', $params))
             {
-                continue;
+                $active_attr = new ReflectionProperty($module_class, 'active');
+                if ($active_attr->getValue() !== $params['active'])
+                {
+                    continue;
+                }
             }
 
             $models_dir = MODULES_PATH . $module_dir . '/models';
@@ -208,25 +212,22 @@ class AppManager
                     continue;
                 }
 
-                $model_class = new str_replace('.php', null, $model_file);
+                $model_class = str_replace('.php', null, $model_file);
+
+                $model = ActiveRecordModel::model($model_class);
 
                 if (isset($params['meta_tags']))
                 {
-                    $behaviors = $model_class->behaviors();
+                    $behaviors = $model->behaviors();
                     $behaviors = ArrayHelper::extract($behaviors, 'class');
 
                     if (!in_array('application.components.activeRecordBehaviors.MetaTagBehavior', $behaviors))
                     {
                         continue;
                     }
-
-                    if (!property_exists($model_class, 'meta_tags'))
-                    {
-                        continue;
-                    }
                 }
 
-                $result[$model_class] = $model_class->name();
+                $result[$model_class] = $model->name();
             }
         }
 

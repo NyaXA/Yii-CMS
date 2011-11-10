@@ -17,6 +17,12 @@ class Document extends ActiveRecordModel
 	}
 
 
+    public function name()
+    {
+        return 'Документы';
+    }
+
+
 	public function rules()
 	{
 		return array(
