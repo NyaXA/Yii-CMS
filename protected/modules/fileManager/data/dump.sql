@@ -1,20 +1,12 @@
 
---
--- Структура таблицы `files`
---
-
-CREATE TABLE IF NOT EXISTS `files` (
+CREATE TABLE IF NOT EXISTS `file_manager` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-  `name` varchar(100) NOT NULL,
-  `tag` varchar(100) DEFAULT NULL,
-  `has_watermark` tinyint(1) unsigned NOT NULL,
-  `title` text,
-  `descr` text,
-  `extension` varchar(5) NOT NULL,
-  `mimeType` varchar(100) NOT NULL,
-  `idParent` int(11) NOT NULL,
-  `typeParent` varchar(100) NOT NULL,
-  `order` int(110) unsigned NOT NULL,
+  `object_id` varchar(100) DEFAULT NULL COMMENT 'ID объекта',
+  `model_id` varchar(100) DEFAULT NULL COMMENT 'Модель',
+  `name` varchar(100) NOT NULL COMMENT 'Файл',
+  `tag` varchar(100) DEFAULT NULL COMMENT 'Тег',
+  `title` text COMMENT 'Название',
+  `descr` text COMMENT 'Описание',
+  `order` int(11) unsigned NOT NULL COMMENT 'Порядок',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=150 ;
-
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=9 ;
