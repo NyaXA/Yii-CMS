@@ -1,7 +1,8 @@
 (function($)
 {
-    $.fn.tipInput = function(text)
+    $.fn.tipInput = function()
     {
+        var text = $(this).val();
         $(this)
             .blur(function()
             {

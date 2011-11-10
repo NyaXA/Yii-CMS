@@ -48,6 +48,11 @@ return array(
 	'modules' => $modules,
 
 	'components' => array(
+        'assetManager' => array(
+            'class' => 'system.web.CAssetManager',
+            'newDirMode' => 0755,
+            'newFileMode' => 0644
+        ),
         'session' => array(
             'autoStart'=> true
         ),

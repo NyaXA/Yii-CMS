@@ -7,13 +7,6 @@
  */
 class TipInput extends InputWidget
 {
-    public $text;
-
-    public function getModuleId()
-    {
-        return 'content';
-    }
-
     public function init()
     {
         parent::init();
@@ -26,7 +19,7 @@ class TipInput extends InputWidget
         Yii::app()->clientScript
             ->registerScriptFile($this->assets.'/js/plugins/TipInput/tipinput.js')
             ->registerScript($this->id.'_tipInput', "
-                $('#{$this->id}').tipInput('{$this->text}');
+                $('#{$this->id}').tipInput();
             ");
     }
 
