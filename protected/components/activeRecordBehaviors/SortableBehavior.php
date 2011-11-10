@@ -29,6 +29,7 @@ class SortableBehavior extends CActiveRecordBehavior
 
     public function arrToCase($caseParam, $values, $alias)
     {
+        CDbCriteria::
         $case = "case $alias.$caseParam ";
         foreach ($values as $key => $val)
         {

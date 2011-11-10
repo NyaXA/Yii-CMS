@@ -221,9 +221,9 @@ abstract class ActiveRecordModel extends CActiveRecord
         return $this;
     }
 
-    public function in($row, $values)
+    public function in($row, $values, $operator='AND')
     {
-        $this->getDbCriteria()->addInCondition($row, $values);
+        $this->getDbCriteria()->addInCondition($row, $values, $operator);
         return $this;
     }
 
