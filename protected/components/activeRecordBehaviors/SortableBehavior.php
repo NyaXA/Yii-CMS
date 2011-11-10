@@ -7,6 +7,7 @@ class SortableBehavior extends CActiveRecordBehavior
         $model = $this->getOwner();
         $c     = Yii::app()->db->commandBuilder->createSqlCommand(
             "UPDATE ".$model->tableName()." AS t SET t.{$column} = t.id");
+
         $c->execute();
     }
 
@@ -21,23 +22,9 @@ class SortableBehavior extends CActiveRecordBehavior
             $priorities[$id] = $start--;
         }
 
-        $case = $this->arrToCase('id', $priorities, $model->getTableAlias());
-
+        $case = SqlHelper::arrToCase('id', $priorities, $model->getTableAlias());
         $c = Yii::app()->db->commandBuilder->createSqlCommand("UPDATE {$table} AS t SET t.{$column} = {$case}");
         $c->execute();
-    }
-
-    public function arrToCase($caseParam, $values, $alias)
-    {
-        CDbCriteria::
-        $case = "case $alias.$caseParam ";
-        foreach ($values as $key => $val)
-        {
-            $case .= "when $key then ".$val.' ';
-        }
-        $case .= 'end';
-
-        return $case;
     }
 
     public function beforeSave()
@@ -51,6 +38,5 @@ class SortableBehavior extends CActiveRecordBehavior
             $model->$column = ++$i;
         }
     }
-
 
 }
