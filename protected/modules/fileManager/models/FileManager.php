@@ -2,7 +2,7 @@
 
 class FileManager extends ActiveRecordModel
 {
-    const UPLOAD_PATH = 'upload/fileManager/';
+    const UPLOAD_PATH  = 'upload/fileManager/';
     const FILE_POSTFIX = '';
 
     public $extension;
@@ -52,11 +52,11 @@ class FileManager extends ActiveRecordModel
 
     public function behaviors()
     {
-        return array(
+        return CMap::mergeArray(parent::behaviors(), array(
             'sortable' => array(
                 'class' => 'application.components.activeRecordBehaviors.SortableBehavior'
             )
-        );
+        ));
     }
 
     public function parent($model_id, $id)
@@ -163,7 +163,8 @@ class FileManager extends ActiveRecordModel
         $folder = Yii::app()
             ->getModule('fileManager')
             ->assetsUrl().'/img/fileIcons/';
-        if ($this->isImage) {
+        if ($this->isImage)
+        {
             $name = 'image';
         }
         elseif ($this->isSound)
@@ -299,12 +300,14 @@ class FileManager extends ActiveRecordModel
     public function getSrc($realFile = false)
     {
         $src = Yii::app()->baseUrl;
-        if ($this->isImage) {
+        if ($this->isImage)
+        {
             $src = '/'.self::UPLOAD_PATH.$this->name;
         }
         elseif ($this->isSound)
         {
-            if ($realFile) {
+            if ($realFile)
+            {
                 $src .= Yii::app()
                     ->getModule('fileManager')
                     ->assetsUrl().'/img/mp3.png';
