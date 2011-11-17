@@ -16,30 +16,30 @@ abstract class ActiveRecordModel extends CActiveRecord
 
 
     public function behaviors()
-    {   
+    {
         return array(
-            'LangCondition' => array(
+            'LangCondition'  => array(
                 'class' => 'application.components.activeRecordBehaviors.LangConditionBehavior'
             ),
-            'NullValue' => array(
+            'NullValue'      => array(
                 'class' => 'application.components.activeRecordBehaviors.NullValueBehavior'
             ),
             'UserForeignKey' => array(
                 'class' => 'application.components.activeRecordBehaviors.UserForeignKeyBehavior'
             ),
-            'UploadFile' => array(
+            'UploadFile'     => array(
                 'class' => 'application.components.activeRecordBehaviors.UploadFileBehavior'
             ),
-            'DateFormat' => array(
+            'DateFormat'     => array(
                 'class' => 'application.components.activeRecordBehaviors.DateFormatBehavior'
             ),
-            'Timestamp' => array(
+            'Timestamp'      => array(
                 'class' => 'application.components.activeRecordBehaviors.TimestampBehavior'
             ),
-            'MaxMin' => array(
+            'MaxMin'         => array(
                 'class' => 'application.components.activeRecordBehaviors.MaxMinBehavior'
             ),
-            'Scopes' => array(
+            'Scopes'         => array(
                 'class' => 'application.components.activeRecordBehaviors.ScopesBehavior'
             )
         );
@@ -62,15 +62,14 @@ abstract class ActiveRecordModel extends CActiveRecord
 
 
     public function __get($name)
-	{
+    {
         try
         {
             return parent::__get($name);
-        }
-        catch (CException $e)
+        } catch (CException $e)
         {
             $method_name = StringHelper::underscoreToCamelcase($name);
-            $method_name = 'get' . ucfirst($method_name);
+            $method_name = 'get'.ucfirst($method_name);
 
             if (method_exists($this, $method_name))
             {
@@ -81,7 +80,28 @@ abstract class ActiveRecordModel extends CActiveRecord
                 throw new CException($e->getMessage());
             }
         }
-	}
+    }
+
+    public function __set($name, $val)
+    {
+        try
+        {
+            return parent::__set($name, $val);
+        } catch (CException $e)
+        {
+            $method_name = StringHelper::underscoreToCamelcase($name);
+            $method_name = 'set'.ucfirst($method_name);
+
+            if (method_exists($this, $method_name))
+            {
+                return $this->$method_name($val);
+            }
+            else
+            {
+                throw new CException($e->getMessage());
+            }
+        }
+    }
 
 
     public function __toString()
@@ -106,16 +126,16 @@ abstract class ActiveRecordModel extends CActiveRecord
     public function meta()
     {
         $meta = Yii::app()->db
-                          ->cache(1000)
-                          ->createCommand("SHOW FUll columns FROM " . $this->tableName())
-                          ->queryAll();
-        
+            ->cache(1000)
+            ->createCommand("SHOW FUll columns FROM ".$this->tableName())
+            ->queryAll();
+
         foreach ($meta as $ind => $field_data)
         {
             $meta[$field_data["Field"]] = $field_data;
             unset($meta[$ind]);
         }
-      
+
         return $meta;
     }
 
@@ -128,13 +148,15 @@ abstract class ActiveRecordModel extends CActiveRecord
 
         foreach ($objects as $object)
         {
-            if ($object->id == $id) continue;
+            if ($object->id == $id) {
+                continue;
+            }
 
-            $result[$object->$value] = str_repeat("_", $spaces) . $object->$name;
+            $result[$object->$value] = str_repeat("_", $spaces).$object->$name;
 
             if ($object->childs)
             {
-                $spaces+=2;
+                $spaces += 2;
 
                 $result = $this->optionsTree($name, $id, $result, $value, $spaces, $object->id);
             }

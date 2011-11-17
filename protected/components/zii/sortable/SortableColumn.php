@@ -22,7 +22,7 @@ class SortableColumn extends CDataColumn
     public function registerClientScript()
     {
         $id    = $this->grid->getId();
-        $url   = Yii::app()->createUrl("/content/helpAdmin/sortable");
+        $url   = Yii::app()->createUrl("/main/helpAdmin/sortable");
         $model = $this->grid->dataProvider->modelClass;
 
         $options = CJavaScript::encode(array(

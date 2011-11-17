@@ -86,7 +86,7 @@ class GridView extends CGridView
         if ($this->sortable)
         {
             $this->addColumn(array(
-                'class' => 'ext.QGridView.SortableColumn',
+                'class' => 'application.component.zii.sortable.SortableColumn',
                 'header'=> 'Сортировка'
             ), -1);
         }

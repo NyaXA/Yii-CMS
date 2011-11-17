@@ -17,7 +17,7 @@ class HelpAdminController extends AdminController
     {
         return array(
             'sortable' => array(
-                'class' => 'ext.QGridView.SortableAction',
+                'class' => 'application.component.zii.sortable.SortableAction',
             )
         );
     }

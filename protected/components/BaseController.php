@@ -103,6 +103,14 @@ abstract class BaseController extends CController
 
     public function url($route, $params = array(), $ampersand = '&')
     {
+        /*
+        Как насчет сократить до такого?
+        if (mb_strpos($route, 'Admin') === false && !isset($params['lang']))
+        {
+            $params['lang'] = Yii::app()->language;
+        }
+         */
+
         $url_prefix = Yii::app()->language;
 
         if (mb_strpos($route, 'Admin') !== false)
