@@ -12,8 +12,8 @@ abstract class Portlet extends CPortlet
     public function behaviors()
     {
         return array(
-            'Widget' => array(
-                'class' => 'application.components.behaviors.WidgetBehavior'
+            'CoomponentInModule' => array(
+                'class' => 'application.components.behaviors.ComponentInModuleBehavior'
             )
         );
     }

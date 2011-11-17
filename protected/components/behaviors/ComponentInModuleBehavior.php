@@ -2,11 +2,10 @@
 /**
  * Содержит в себе часто используемые функции. Такие, как:
  * 1. getAssets - Получение assets родительского модуля
- * 2. TODO: getSettings - Получение необходимых настроек (надо ли?)
- * 3. getModule - Получение родительского модуля
- * 4. url - алиас BaseController::url()
+ * 2. getModule - Получение родительского модуля
+ * 3. url - алиас BaseController::url()
  */
-class WidgetBehavior extends CBehavior
+class ComponentInModuleBehavior extends CBehavior
 {
     private $_assets;
     private $_module_id;

@@ -17,8 +17,8 @@ abstract class JuiInputWidget extends CJuiInputWidget
     public function behaviors()
     {
         return array(
-            'Widget' => array(
-                'class' => 'application.components.behaviors.WidgetBehavior'
+            'CoomponentInModule' => array(
+                'class' => 'application.components.behaviors.ComponentInModuleBehavior'
             )
         );
     }
