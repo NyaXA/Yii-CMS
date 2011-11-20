@@ -21,10 +21,15 @@ class GridView extends CGridView
 
     public function init()
     {
+        $this->attachBehaviors($this->behaviors());
         parent::init();
         $this->formatDateValues();
     }
 
+    public function behaviors()
+    {
+        return array();
+    }
 
     public function formatDateValues()
     {
@@ -86,7 +91,7 @@ class GridView extends CGridView
         if ($this->sortable)
         {
             $this->addColumn(array(
-                'class' => 'application.component.zii.sortable.SortableColumn',
+                'class' => 'ext.QGridView.SortableColumn',
                 'header'=> 'Сортировка'
             ), -1);
         }
@@ -98,7 +103,6 @@ class GridView extends CGridView
                 'header'=> 'Порядок',
                 'value' => 'GridView::orderLinks($data)',
                 'type'  => 'raw'
-
             ), -1);
         }
 
@@ -107,8 +111,8 @@ class GridView extends CGridView
             $this->addColumn(array(
                 'class'               => 'CCheckBoxColumn',
                 'header'              => "<input type='checkbox' class='object_checkboxes'>",
+                'selectableRows'   => 2,
                 'checkBoxHtmlOptions' => array(
-                    'object_id'=> '{$data->primarykey}',
                     'class'    => 'object_checkbox'
                 )
             ));
@@ -136,7 +140,7 @@ class GridView extends CGridView
     {
         if ($this->dataProvider->getItemCount() > 0 || $this->showTableOnEmpty)
         {
-            echo "<table class='' sortable='{$this->sortable}' mass_removal='{$this->mass_removal}' cellpadding='0' cellspacing='0' width='100%'>\n";
+            echo "<table class='{$this->itemsCssClass}' sortable='{$this->sortable}' mass_removal='{$this->mass_removal}' cellpadding='0' cellspacing='0' width='100%'>\n";
             $this->renderTableHeader();
             $this->renderTableBody();
             $this->renderTableFooter();
@@ -241,6 +245,6 @@ class GridView extends CGridView
     public function registerClientScript()
     {
         parent::registerClientScript();
-        Yii::app()->clientScript->registerScriptFile($this->baseScriptUrl.'/gridview.js', CClientScript::POS_END, true);
+        Yii::app()->clientScript->registerScriptFile('/css/admin/gridview/gridview.js', CClientScript::POS_END, true);
     }
 }
