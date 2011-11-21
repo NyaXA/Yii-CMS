@@ -8,13 +8,13 @@
     <title></title>
 
     <style type="text/css" media="all">
-        /*@import url("/css/admin/style.css");*/
-        /*@import url("/css/admin/jquery.wysiwyg.css");*/
-        /*@import url("/css/admin/facebox.css");*/
-        /*@import url("/css/admin/visualize.css");*/
-        /*@import url("/css/admin/date_input.css");*/
-        /*@import url("/css/admin/messages.css");*/
-        /*@import url("/css/admin/forms.css");*/
+            /*@import url("/css/admin/style.css");*/
+            /*@import url("/css/admin/jquery.wysiwyg.css");*/
+            /*@import url("/css/admin/facebox.css");*/
+            /*@import url("/css/admin/visualize.css");*/
+            /*@import url("/css/admin/date_input.css");*/
+            /*@import url("/css/admin/messages.css");*/
+            /*@import url("/css/admin/forms.css");*/
     </style>
 
     <link href="/css/admin/style.css" type="text/css" rel="stylesheet"/>
@@ -31,12 +31,11 @@
     $cs->registerCoreScript('jquery');
     $cs->registerCoreScript('jquery.ui');
     $cs->registerScriptFile('/js/plugins/jquery.slidingmessage/jquery.slidingmessage.min.js');
-    
-//    $cs->registerScriptFile('/js/plugins/jquery-loadmask-0.4/jquery.loadmask.min.js');
-//    $cs->registerScriptFile('/js/plugins/jquery-loadmask-0.4/loadmask.js');
-//    $cs->registerCssFile('/js/plugins/jquery-loadmask-0.4/jquery.loadmask.css');
+
+    $cs->registerScriptFile('/js/plugins/blockUI/blockUI.js');
+    $cs->registerScriptFile('/js/plugins/blockUI/loaders.js');
     ?>
-	
+
 </head>
 <body>
 <div id="hld">
@@ -62,28 +61,28 @@
 
                 <?php
                 $modules = AppManager::getModulesData(true);
-                $module  = get_class(Yii::app()->controller->module);
+                $module = get_class(Yii::app()->controller->module);
 
                 $title = $modules[$module]["name"];
 
                 if ($this->page_title)
                 {
-                    $title.= " :: " . $this->page_title;
+                    $title .= " :: ".$this->page_title;
                 }
                 ?>
 
                 <h2><?php echo $title; ?></h2>
 
                 <?php if ($this->tabs): ?>
-                    <?php $class = "nobg"; ?>
-                    <ul class="tabs">
-                        <?php foreach ($this->tabs as $title => $href): ?>
-                            <li class="<?php echo $class ?>">
-                                <a href="<?php echo $href; ?>"><?php echo $title; ?></a>
-                            </li>
-                            <?php $class = ""; ?>
-                        <?php endforeach ?>
-                    </ul>
+                <?php $class = "nobg"; ?>
+                <ul class="tabs">
+                    <?php foreach ($this->tabs as $title => $href): ?>
+                    <li class="<?php echo $class ?>">
+                        <a href="<?php echo $href; ?>"><?php echo $title; ?></a>
+                    </li>
+                    <?php $class = ""; ?>
+                    <?php endforeach ?>
+                </ul>
                 <?php endif; ?>
 
             </div>
@@ -97,6 +96,7 @@
 
         <div id="footer">
             <p class="left"><a href="#">cms-name.com</a></p>
+
             <p class="right">разработчик Остапец Артем v1.0</p>
         </div>
     </div>
