@@ -81,8 +81,7 @@ function enableMassRemoval()
                 return false;
             }
 
-            //			showLoader();
-
+            blockUI();
             var grid_id = $('.grid-view').attr('id');
 
             $checkboxes.each(function ()
@@ -98,8 +97,8 @@ function enableMassRemoval()
 
             $(document).ajaxStop(function ()
             {
+                unblockUI();
                 $.fn.yiiGridView.update(grid_id);
-                //				hideLoader();
                 $(this).unbind('ajaxStop');
             });
         }

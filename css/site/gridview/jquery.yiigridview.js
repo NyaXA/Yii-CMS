@@ -179,6 +179,7 @@
 					var id='#'+v;
 					$(id).replaceWith($(id,'<div>'+data+'</div>'));
 				});
+
 				if(settings.afterAjaxUpdate !== undefined)
 					settings.afterAjaxUpdate(id, data);
 				$('#'+id).removeClass(settings.loadingClass);
