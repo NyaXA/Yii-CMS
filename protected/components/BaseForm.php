@@ -247,6 +247,11 @@ class BaseForm extends CForm
 
     function formatDateAttributes()
     {
+        if (!$this->model)
+        {
+            return false;
+        }
+
         $model = $this->model;
 
         foreach ($model->attributes as $attr => $value)

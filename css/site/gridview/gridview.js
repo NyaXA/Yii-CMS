@@ -1,8 +1,8 @@
-$(function ()
+$(function()
 {
     initFiltersLink();
 
-    $('.pager_select').live('change', function ()
+    $('.pager_select').live('change', function()
     {
         var params = '/model/' + $(this).attr('model') + '/per_page/' + $(this).val() + '/back_url/' + $("#back_url").val();
         location.href = '/main/mainAdmin/SessionPerPage' + params;
@@ -29,7 +29,7 @@ function initFiltersLink()
         return false;
     }
 
-    $('.filters input').each(function ()
+    $('.filters input').each(function()
     {
         if ($(this).val())
         {
@@ -37,13 +37,13 @@ function initFiltersLink()
         }
     });
 
-    $('.grid-view th').each(function ()
+    $('.grid-view th').each(function()
     {
         if ($(this).html() == '&nbsp;')
         {
             $(this).html("<a href='' class='filters_link'>фильтры</a>");
 
-            $('.filters_link').click(function ()
+            $('.filters_link').click(function()
             {
                 $(this).parents('table:eq(0)').find('.filters').slideToggle();
                 return false;
@@ -55,9 +55,9 @@ function initFiltersLink()
 
 function makeSortable()
 {
-    var fixHelper = function (e, ui)
+    var fixHelper = function(e, ui)
     {
-        ui.children().each(function ()
+        ui.children().each(function()
         {
             $(this).width($(this).width());
         });
@@ -70,7 +70,7 @@ function makeSortable()
 
 function enableMassRemoval()
 {
-    $('#mass_remove_button').on('click', function ()
+    $('#mass_remove_button').on('click', function()
     {
         var $checkboxes = $('.object_checkbox:checked');
 
@@ -84,7 +84,7 @@ function enableMassRemoval()
             blockUI();
             var grid_id = $('.grid-view').attr('id');
 
-            $checkboxes.each(function ()
+            $checkboxes.each(function()
             {
                 var action = $(this).parents('tr:eq(0)').find('.delete').attr('href');
 
@@ -95,7 +95,7 @@ function enableMassRemoval()
                 });
             });
 
-            $(document).ajaxStop(function ()
+            $(document).ajaxStop(function()
             {
                 unblockUI();
                 $.fn.yiiGridView.update(grid_id);
