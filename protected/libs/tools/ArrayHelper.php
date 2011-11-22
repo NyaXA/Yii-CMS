@@ -6,7 +6,7 @@
  * Time: 22:45
  * To change this template use File | Settings | File Templates.
  */
- 
+
 class ArrayHelper
 {
     public function extract($array_of_arrays, $key, $value = null)
@@ -52,5 +52,30 @@ class ArrayHelper
         }
 
         return $result;
+    }
+
+    /**
+     * аналог array_splice для ассоциативных массивов
+     * можно задавать, как количество элементов для удаления, так и до какого ключа удалять(включительно)
+     *
+     * @static
+     *
+     * @param      $array
+     * @param      $key    ключ
+     * @param      $length количество элементво для удаления или ключ
+     * @param bool $preserve_keys
+     *
+     * @return array
+     */
+    public static function slice_assoc($array, $key, $length, $preserve_keys = true)
+    {
+        $offset = array_search($key, array_keys($array));
+
+        if (is_string($length))
+        {
+            $length = array_search($length, array_keys($array)) - $offset;
+        }
+
+        return array_slice($array, $offset, $length, $preserve_keys);
     }
 }
