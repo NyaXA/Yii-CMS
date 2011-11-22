@@ -53,7 +53,7 @@ class UploadFileBehavior extends CActiveRecordBehavior
                 {
                 	if (!$model->isNewRecord)
                 	{	
-                		$model->$param = $model->findByPk($model->primaryKey)->$param;
+                		$model->$param = $model->model()->findByPk($model->primaryKey)->$param;
                 	}
                 }
             }
