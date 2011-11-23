@@ -208,8 +208,8 @@ abstract class BaseController extends CController
      */
     public function t($dictionary, $alias, $params = array(), $source = null, $language = null)
     {
-        $file = StringHelper::underscoreToCamelcase($this->getModelClass());
-        return Yii::t(get_class($this->module).'.'.$file.'_'.$dictionary, $alias, $params, $source, $language);
+        $file_prefix = StringHelper::camelCaseToUnderscore($this->getModelClass());
+        return Yii::t(get_class($this->module).'.'.$file_prefix.'_'.$dictionary, $alias, $params, $source, $language);
     }
 
 }
