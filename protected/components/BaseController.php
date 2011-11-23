@@ -2,7 +2,7 @@
 
 abstract class BaseController extends CController
 {
-	public $layout='//layouts/main';
+    public $layout = '//layouts/main';
 
     public $page_title;
 
@@ -15,33 +15,31 @@ abstract class BaseController extends CController
     public $crumbs = array();
 
     abstract public static function actionsTitles();
-    
-    
-    public function init() 
+
+    public function init()
     {
         parent::init();
         $this->_initLanguage();
     }
 
-
     private function _initLanguage()
     {
-		if(isset($_GET['lang']))
-		{
-			Yii::app()->setLanguage($_GET['lang']);
-			Yii::app()->session['language'] = $_GET['lang'];
-		}
+        if (isset($_GET['lang']))
+        {
+            Yii::app()->setLanguage($_GET['lang']);
+            Yii::app()->session['language'] = $_GET['lang'];
+        }
 
-		if (!isset(Yii::app()->session['language']) || Yii::app()->session['language'] != Yii::app()->language)
-		{
-			Yii::app()->session['language'] = Yii::app()->language;
-		}
+        if (!isset(Yii::app()->session['language']) || Yii::app()->session['language'] != Yii::app()->language)
+        {
+            Yii::app()->session['language'] = Yii::app()->language;
+        }
     }
-
 
     public function beforeAction($action)
     {
         $item_name = AuthItem::constructName(Yii::app()->controller->id, $action->id);
+
         if (!RbacModule::isAllow($item_name))
         {
             $this->forbidden();
@@ -61,7 +59,7 @@ abstract class BaseController extends CController
 
     private function _setMetaTags($action)
     {
-        if ($action->id != 'view' || $action->controller instanceof AdminController)
+        if ($action->id != 'view' || $this instanceof AdminController)
         {
             return false;
         }
@@ -69,7 +67,7 @@ abstract class BaseController extends CController
         $id = $this->request->getParam("id");
         if ($id)
         {
-            $class = ucfirst(str_replace('Admin', '', $action->controller->id));
+            $class = $this->getModelClass();
 
             $meta_tag = MetaTag::model()->findByAttributes(array(
                 'model_id'  => $class,
@@ -79,20 +77,27 @@ abstract class BaseController extends CController
             if ($meta_tag)
             {
                 $this->meta_title       = $meta_tag->title;
-                $this->meta_keywords    = $meta_tag->keywords ;
+                $this->meta_keywords    = $meta_tag->keywords;
                 $this->meta_description = $meta_tag->description;
             }
         }
     }
 
+    private function getModelClass()
+    {
+        return ucfirst(str_replace('Admin', '', $this->id));
+    }
 
     public function setTitle($action)
     {
-        $action_titles = call_user_func(array(get_class($action->controller), 'actionsTitles'));
+        $action_titles = call_user_func(array(
+            get_class($action->controller),
+            'actionsTitles'
+        ));
 
         if (!isset($action_titles[ucfirst($action->id)]))
         {
-            throw new CHttpException('Не найден заголовок для дейсвия ' . ucfirst($action->id));
+            throw new CHttpException('Не найден заголовок для дейсвия '.ucfirst($action->id));
         }
 
         $title = $action_titles[ucfirst($action->id)];
@@ -103,29 +108,7 @@ abstract class BaseController extends CController
 
     public function url($route, $params = array(), $ampersand = '&')
     {
-        /*
-        Как насчет сократить до такого?
-        if (mb_strpos($route, 'Admin') === false && !isset($params['lang']))
-        {
-            $params['lang'] = Yii::app()->language;
-        }
-         */
-
-        $url_prefix = Yii::app()->language;
-
-        if (mb_strpos($route, 'Admin') !== false)
-        {
-            $url_prefix = null;
-        }
-
         $url = $this->createUrl($route, $params, $ampersand);
-
-        if ($url_prefix)
-        {
-            $url = '/' . $url_prefix . $url;
-        }
-
-        $url = str_replace('//', '/', $url);
 
         return $url;
     }
@@ -135,7 +118,7 @@ abstract class BaseController extends CController
      */
     protected function pageNotFound()
     {
-        throw new CHttpException(404,'Страница не найдена!');
+        throw new CHttpException(404, 'Страница не найдена!');
     }
 
     /**
@@ -160,6 +143,15 @@ abstract class BaseController extends CController
                 </div>";
     }
 
+    protected function performAjaxValidation($model)
+    {
+        if (isset($_POST['ajax']))
+        {
+            echo CActiveForm::validate($model);
+            Yii::app()->end();
+        }
+    }
+
     /**
      * Возвращает модель по атрибуту и удовлетворяющую скоупам,
      * или выбрасывает 404
@@ -173,9 +165,7 @@ abstract class BaseController extends CController
      */
     public function loadModel($value, $scopes = array(), $attribute = null)
     {
-        $class = ucfirst(str_replace('Admin', '',$this->id));
-        $model = new $class;
-        $model = $model->model();
+        $model = call_user_func($this->getModelClass().'::model');
 
         foreach ($scopes as $scope)
         {
@@ -203,15 +193,23 @@ abstract class BaseController extends CController
 
     /**
      * Обертка для Yii::t, выполняет перевод по словарям текущего модуля.
+     * Так же перевод осуществляется по словорям с префиксом {modelId},
+     * где modelId - приведенная к нижнему регистру база имени контроллера
+     *
+     * Например: для контроллера ProductInfoAdminController, находящегося в модуле ProductsModule
+     * перевод будет осуществляться по словарю ProductsModule.product_info_{первый параметр метода}
      *
      * @param string $dictionary словарь
      * @param string $alias      фраза для перевода
+     * @param array  $params
+     * @param string $language
      *
-     * @return string перевод
+     * @return string переводa
      */
-    public function t($dictionary, $alias, $params=array(), $source=array(), $language=null)
+    public function t($dictionary, $alias, $params = array(), $source = null, $language = null)
     {
-        return Yii::t(get_class($this->module).'.'.$dictionary, $alias, $params, $source, $language);
+        $file = StringHelper::underscoreToCamelcase($this->getModelClass());
+        return Yii::t(get_class($this->module).'.'.$file.'_'.$dictionary, $alias, $params, $source, $language);
     }
 
 }
