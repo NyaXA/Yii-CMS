@@ -12,13 +12,11 @@ if ($element->type == 'date')
 }
 elseif ($element->type == 'editor')
 {
-    echo $form->getActiveFormWidget()->labelEx($form->model, $element->name);
     $this->widget('application.extensions.tiny_mce.TinyMCE', array(
         //                'editorTemplate' => 'full',
         'model'     => $form->model,
         'attribute' => $element->name,
     ));
-    echo $form->getActiveFormWidget()->error($form->model, $element->name);
 }
 elseif ($element->type == 'multi_select')
 {
