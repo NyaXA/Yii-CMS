@@ -12,7 +12,7 @@ return array(
         'url'          => array('type' => 'text'),
         'text'         => array('type' => 'application.extensions.tiny_mce.TinyMCE'),
         'is_published' => array('type' => 'checkbox'),
-        'meta_tags'    => array('type' => 'widget', 'widget' => 'MetaTagSubForm')
+        'meta_tags'    => array('type' => 'MetaTagSubForm')
     ),
     'buttons' => array(
         'submit' => array('type' => 'submit', 'value' => 'сохранить')
