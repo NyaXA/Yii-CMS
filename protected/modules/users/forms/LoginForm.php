@@ -7,4 +7,6 @@ $form['elements'] = array(
     'password' => $form['elements']['password']
 );
 
+$form['action'] = Yii::app()->controller->url('/users/user/login');
+
 return $form;
