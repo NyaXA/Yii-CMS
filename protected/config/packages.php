@@ -22,15 +22,6 @@ return array(
             'admin_form.js'
         ),
         'depends' => array('jquery')
-    ),
-    'products'   => array(
-        'baseUrl' => 'js/packages/products/',
-        'js'      => array(
-            'cart.js',
-            'product.js'
-        ),
-        'depends' => array('jquery')
-    ),
-
+    )
 );
 
