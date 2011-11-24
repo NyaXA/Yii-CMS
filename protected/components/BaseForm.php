@@ -54,8 +54,7 @@ class BaseForm extends CForm
         if (!($this->parent instanceof self))
         {
             $id = $this->activeForm['id'];
-            Yii::app()->clientScript->registerPackage($this->side.'Form')->registerScript(
-                $id.'_baseForm', "$('#{$id}').{$this->side}Form()");
+            Yii::app()->clientScript->registerPackage($this->side.'Form')->registerScript($id.'_baseForm',"$('#{$id}').{$this->side}Form()");
         }
 
         if ($this->_clear)
@@ -86,17 +85,12 @@ class BaseForm extends CForm
 
         if (!($this->getParent() instanceof self))
         {
+            $id = $this->activeForm['id'];
             if ($this->side == 'admin')
             {
                 $this->attributes['class'] = 'admin_form';
+                return $this->getParent()->msg('Поля отмеченные * обязательны.', 'info').$output;
             }
-            else
-            {
-                $id = $this->activeForm['id'];
-                Yii::app()->clientScript->registerScript($id.'_tipForm', "$('#{$id}').tipInput()");
-            }
-
-            return $this->getParent()->msg('Поля отмеченные * обязательны.', 'info').$output;
         }
 
         return $output;
@@ -162,11 +156,8 @@ class BaseForm extends CForm
             $tpl = '_form';
         }
 
-        if (isset($element->htmlOptions))
-        {
-            $element->htmlOptions['data-label'] = $element->label;
-            $element->htmlOptions['data-hint']  = $element->hint;
-        }
+        $element->attributes['data-label'] = $element->label;
+        $element->attributes['data-hint']  = $element->hint;
 
         $class = $element->type;
         if (isset($element->attributes['parentClass']))
@@ -201,7 +192,7 @@ class BaseForm extends CForm
                     'type'  => 'button',
                     'value' => 'Отмена',
                     'url'   => Yii::app()->controller->createUrl('manage'),
-                    'class' => 'back_button'
+                    'class' => 'back_button submit small'
                 ));
             }
         }
