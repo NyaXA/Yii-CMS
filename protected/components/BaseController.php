@@ -20,6 +20,10 @@ abstract class BaseController extends CController
     {
         parent::init();
         $this->_initLanguage();
+        if (YII_DEBUG)
+        {
+            Yii::app()->clientScript->registerPackage('debug');
+        }
     }
 
     private function _initLanguage()

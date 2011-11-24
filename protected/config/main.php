@@ -56,20 +56,7 @@ return array(
         ),
         'clientScript' => array(
             'class'    => 'CClientScript',
-            'packages' => array(
-                'clientForm' => array(
-                    'baseUrl'=> '/js/site/packages/clientForm/',
-                    'js'     => array(
-                        'deserialize/jquery.deserialize.js',
-                        'formWizard/jquery.form.wizard.js',
-                        'formWizard/cmsUI.form.wizard.js',
-                        'grewForm/grewForm.js',
-                        'jStorage/jquery.json.js',
-                        'jStorage/jStorage.js',
-                        'tipInput/tipinput.js'
-                    ),
-                )
-            )
+            'packages' => require_once('packages.php')
         ),
         'session'      => array(
             'autoStart'=> true

@@ -51,8 +51,12 @@ class BaseForm extends CForm
 
     public function __toString()
     {
-        Yii::app()->clientScript->registerPackage($this->side.'Form');
-
+        if (!($this->parent instanceof self))
+        {
+            $id = $this->activeForm['id'];
+            Yii::app()->clientScript->registerPackage($this->side.'Form')->registerScript(
+                $id.'_baseForm', "$('#{$id}').{$this->side}Form()");
+        }
 
         if ($this->_clear)
         {
@@ -92,9 +96,7 @@ class BaseForm extends CForm
                 Yii::app()->clientScript->registerScript($id.'_tipForm', "$('#{$id}').tipInput()");
             }
 
-            return $this
-                ->getParent()
-                ->msg('Поля отмеченные * обязательны.', 'info').$output;
+            return $this->getParent()->msg('Поля отмеченные * обязательны.', 'info').$output;
         }
 
         return $output;
@@ -104,9 +106,7 @@ class BaseForm extends CForm
     {
         if (is_string($element))
         {
-            if (($e = $this[$element]) === null && ($e = $this
-                ->getButtons()
-                ->itemAt($element)) === null
+            if (($e = $this[$element]) === null && ($e = $this->getButtons()->itemAt($element)) === null
             )
             {
                 return $element;

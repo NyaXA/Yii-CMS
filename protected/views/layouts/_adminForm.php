@@ -3,6 +3,7 @@ echo $form->getActiveFormWidget()->labelEx($form->model, $element->name);
 
 if ($element->type == 'date')
 {
+    $model_class = get_class($form->model);
     echo $form->getActiveFormWidget()->textField($form->model, $element->name, $element->attributes);
     $this->widget('application.extensions.calendar.SCalendar', array(
         'inputField' => "{$model_class}_{$element->name}",
