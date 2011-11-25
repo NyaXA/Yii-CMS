@@ -2,10 +2,10 @@
 -- version 3.3.7
 -- http://www.phpmyadmin.net
 --
--- Хост: localhost
--- Время создания: Ноя 09 2011 г., 19:35
--- Версия сервера: 5.1.54
--- Версия PHP: 5.3.5-1ubuntu7.2
+-- Host: localhost
+-- Generation Time: Nov 25, 2011 at 07:31 PM
+-- Server version: 5.1.54
+-- PHP Version: 5.3.5-1ubuntu7.3
 
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 
@@ -16,13 +16,13 @@ SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 /*!40101 SET NAMES utf8 */;
 
 --
--- База данных: `yii_cms`
+-- Database: `yii_cms`
 --
 
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `actions`
+-- Table structure for table `actions`
 --
 
 CREATE TABLE IF NOT EXISTS `actions` (
@@ -39,14 +39,14 @@ CREATE TABLE IF NOT EXISTS `actions` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 --
--- Дамп данных таблицы `actions`
+-- Dumping data for table `actions`
 --
 
 
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `actions_files`
+-- Table structure for table `actions_files`
 --
 
 CREATE TABLE IF NOT EXISTS `actions_files` (
@@ -59,14 +59,14 @@ CREATE TABLE IF NOT EXISTS `actions_files` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 --
--- Дамп данных таблицы `actions_files`
+-- Dumping data for table `actions_files`
 --
 
 
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `articles`
+-- Table structure for table `articles`
 --
 
 CREATE TABLE IF NOT EXISTS `articles` (
@@ -83,7 +83,7 @@ CREATE TABLE IF NOT EXISTS `articles` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
 
 --
--- Дамп данных таблицы `articles`
+-- Dumping data for table `articles`
 --
 
 INSERT INTO `articles` (`id`, `lang`, `section_id`, `title`, `text`, `date`, `date_create`) VALUES
@@ -92,7 +92,7 @@ INSERT INTO `articles` (`id`, `lang`, `section_id`, `title`, `text`, `date`, `da
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `articles_sections`
+-- Table structure for table `articles_sections`
 --
 
 CREATE TABLE IF NOT EXISTS `articles_sections` (
@@ -109,7 +109,7 @@ CREATE TABLE IF NOT EXISTS `articles_sections` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
 
 --
--- Дамп данных таблицы `articles_sections`
+-- Dumping data for table `articles_sections`
 --
 
 INSERT INTO `articles_sections` (`id`, `lang`, `parent_id`, `name`, `date_create`, `in_sidebar`) VALUES
@@ -118,7 +118,7 @@ INSERT INTO `articles_sections` (`id`, `lang`, `parent_id`, `name`, `date_create
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `auth_assignments`
+-- Table structure for table `auth_assignments`
 --
 
 CREATE TABLE IF NOT EXISTS `auth_assignments` (
@@ -131,7 +131,7 @@ CREATE TABLE IF NOT EXISTS `auth_assignments` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Дамп данных таблицы `auth_assignments`
+-- Dumping data for table `auth_assignments`
 --
 
 INSERT INTO `auth_assignments` (`itemname`, `userid`, `bizrule`, `data`) VALUES
@@ -142,7 +142,7 @@ INSERT INTO `auth_assignments` (`itemname`, `userid`, `bizrule`, `data`) VALUES
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `auth_items`
+-- Table structure for table `auth_items`
 --
 
 CREATE TABLE IF NOT EXISTS `auth_items` (
@@ -156,7 +156,7 @@ CREATE TABLE IF NOT EXISTS `auth_items` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Дамп данных таблицы `auth_items`
+-- Dumping data for table `auth_items`
 --
 
 INSERT INTO `auth_items` (`name`, `type`, `description`, `bizrule`, `data`, `allow_for_all`) VALUES
@@ -380,7 +380,7 @@ INSERT INTO `auth_items` (`name`, `type`, `description`, `bizrule`, `data`, `all
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `auth_items_childs`
+-- Table structure for table `auth_items_childs`
 --
 
 CREATE TABLE IF NOT EXISTS `auth_items_childs` (
@@ -391,7 +391,7 @@ CREATE TABLE IF NOT EXISTS `auth_items_childs` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Дамп данных таблицы `auth_items_childs`
+-- Dumping data for table `auth_items_childs`
 --
 
 INSERT INTO `auth_items_childs` (`parent`, `child`) VALUES
@@ -524,7 +524,27 @@ INSERT INTO `auth_items_childs` (`parent`, `child`) VALUES
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `banners`
+-- Table structure for table `auth_objects`
+--
+
+CREATE TABLE IF NOT EXISTS `auth_objects` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `object_id` int(11) unsigned NOT NULL COMMENT 'Объект',
+  `model_id` varchar(50) NOT NULL COMMENT 'Модель',
+  `role` varchar(64) NOT NULL COMMENT 'Роль',
+  PRIMARY KEY (`id`),
+  KEY `role` (`role`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=28 ;
+
+--
+-- Dumping data for table `auth_objects`
+--
+
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `banners`
 --
 
 CREATE TABLE IF NOT EXISTS `banners` (
@@ -542,14 +562,14 @@ CREATE TABLE IF NOT EXISTS `banners` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=20 ;
 
 --
--- Дамп данных таблицы `banners`
+-- Dumping data for table `banners`
 --
 
 
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `banners_roles`
+-- Table structure for table `banners_roles`
 --
 
 CREATE TABLE IF NOT EXISTS `banners_roles` (
@@ -562,14 +582,14 @@ CREATE TABLE IF NOT EXISTS `banners_roles` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=121 ;
 
 --
--- Дамп данных таблицы `banners_roles`
+-- Dumping data for table `banners_roles`
 --
 
 
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `certificates_groups`
+-- Table structure for table `certificates_groups`
 --
 
 CREATE TABLE IF NOT EXISTS `certificates_groups` (
@@ -581,7 +601,7 @@ CREATE TABLE IF NOT EXISTS `certificates_groups` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=14 ;
 
 --
--- Дамп данных таблицы `certificates_groups`
+-- Dumping data for table `certificates_groups`
 --
 
 INSERT INTO `certificates_groups` (`id`, `name`, `date_create`) VALUES
@@ -598,7 +618,7 @@ INSERT INTO `certificates_groups` (`id`, `name`, `date_create`) VALUES
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `certificates_types`
+-- Table structure for table `certificates_types`
 --
 
 CREATE TABLE IF NOT EXISTS `certificates_types` (
@@ -610,7 +630,7 @@ CREATE TABLE IF NOT EXISTS `certificates_types` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=10 ;
 
 --
--- Дамп данных таблицы `certificates_types`
+-- Dumping data for table `certificates_types`
 --
 
 INSERT INTO `certificates_types` (`id`, `name`, `date_create`) VALUES
@@ -627,7 +647,7 @@ INSERT INTO `certificates_types` (`id`, `name`, `date_create`) VALUES
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `cities`
+-- Table structure for table `cities`
 --
 
 CREATE TABLE IF NOT EXISTS `cities` (
@@ -638,7 +658,7 @@ CREATE TABLE IF NOT EXISTS `cities` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=22 ;
 
 --
--- Дамп данных таблицы `cities`
+-- Dumping data for table `cities`
 --
 
 INSERT INTO `cities` (`id`, `name`) VALUES
@@ -660,7 +680,7 @@ INSERT INTO `cities` (`id`, `name`) VALUES
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `countries`
+-- Table structure for table `countries`
 --
 
 CREATE TABLE IF NOT EXISTS `countries` (
@@ -671,7 +691,7 @@ CREATE TABLE IF NOT EXISTS `countries` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=352 ;
 
 --
--- Дамп данных таблицы `countries`
+-- Dumping data for table `countries`
 --
 
 INSERT INTO `countries` (`id`, `name`) VALUES
@@ -957,7 +977,7 @@ INSERT INTO `countries` (`id`, `name`) VALUES
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `documents`
+-- Table structure for table `documents`
 --
 
 CREATE TABLE IF NOT EXISTS `documents` (
@@ -973,14 +993,14 @@ CREATE TABLE IF NOT EXISTS `documents` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 --
--- Дамп данных таблицы `documents`
+-- Dumping data for table `documents`
 --
 
 
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `documents_files`
+-- Table structure for table `documents_files`
 --
 
 CREATE TABLE IF NOT EXISTS `documents_files` (
@@ -994,14 +1014,14 @@ CREATE TABLE IF NOT EXISTS `documents_files` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 --
--- Дамп данных таблицы `documents_files`
+-- Dumping data for table `documents_files`
 --
 
 
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `faq`
+-- Table structure for table `faq`
 --
 
 CREATE TABLE IF NOT EXISTS `faq` (
@@ -1026,14 +1046,14 @@ CREATE TABLE IF NOT EXISTS `faq` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 --
--- Дамп данных таблицы `faq`
+-- Dumping data for table `faq`
 --
 
 
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `faq_sections`
+-- Table structure for table `faq_sections`
 --
 
 CREATE TABLE IF NOT EXISTS `faq_sections` (
@@ -1047,14 +1067,14 @@ CREATE TABLE IF NOT EXISTS `faq_sections` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 --
--- Дамп данных таблицы `faq_sections`
+-- Dumping data for table `faq_sections`
 --
 
 
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `feedback`
+-- Table structure for table `feedback`
 --
 
 CREATE TABLE IF NOT EXISTS `feedback` (
@@ -1072,7 +1092,7 @@ CREATE TABLE IF NOT EXISTS `feedback` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=17 ;
 
 --
--- Дамп данных таблицы `feedback`
+-- Dumping data for table `feedback`
 --
 
 INSERT INTO `feedback` (`id`, `first_name`, `last_name`, `patronymic`, `company`, `position`, `phone`, `email`, `comment`, `date_create`) VALUES
@@ -1096,7 +1116,7 @@ INSERT INTO `feedback` (`id`, `first_name`, `last_name`, `patronymic`, `company`
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `file_manager`
+-- Table structure for table `file_manager`
 --
 
 CREATE TABLE IF NOT EXISTS `file_manager` (
@@ -1112,7 +1132,7 @@ CREATE TABLE IF NOT EXISTS `file_manager` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=12 ;
 
 --
--- Дамп данных таблицы `file_manager`
+-- Dumping data for table `file_manager`
 --
 
 INSERT INTO `file_manager` (`id`, `object_id`, `model_id`, `name`, `tag`, `title`, `descr`, `order`) VALUES
@@ -1131,7 +1151,7 @@ INSERT INTO `file_manager` (`id`, `object_id`, `model_id`, `name`, `tag`, `title
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `languages`
+-- Table structure for table `languages`
 --
 
 CREATE TABLE IF NOT EXISTS `languages` (
@@ -1142,7 +1162,7 @@ CREATE TABLE IF NOT EXISTS `languages` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Дамп данных таблицы `languages`
+-- Dumping data for table `languages`
 --
 
 INSERT INTO `languages` (`id`, `name`) VALUES
@@ -1152,7 +1172,7 @@ INSERT INTO `languages` (`id`, `name`) VALUES
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `log`
+-- Table structure for table `log`
 --
 
 CREATE TABLE IF NOT EXISTS `log` (
@@ -1165,14 +1185,14 @@ CREATE TABLE IF NOT EXISTS `log` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 --
--- Дамп данных таблицы `log`
+-- Dumping data for table `log`
 --
 
 
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `mailer_fields`
+-- Table structure for table `mailer_fields`
 --
 
 CREATE TABLE IF NOT EXISTS `mailer_fields` (
@@ -1187,7 +1207,7 @@ CREATE TABLE IF NOT EXISTS `mailer_fields` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=11 ;
 
 --
--- Дамп данных таблицы `mailer_fields`
+-- Dumping data for table `mailer_fields`
 --
 
 INSERT INTO `mailer_fields` (`id`, `code`, `name`, `value`) VALUES
@@ -1203,7 +1223,7 @@ INSERT INTO `mailer_fields` (`id`, `code`, `name`, `value`) VALUES
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `mailer_letters`
+-- Table structure for table `mailer_letters`
 --
 
 CREATE TABLE IF NOT EXISTS `mailer_letters` (
@@ -1217,7 +1237,7 @@ CREATE TABLE IF NOT EXISTS `mailer_letters` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=6 ;
 
 --
--- Дамп данных таблицы `mailer_letters`
+-- Dumping data for table `mailer_letters`
 --
 
 INSERT INTO `mailer_letters` (`id`, `template_id`, `subject`, `text`, `date_create`) VALUES
@@ -1226,7 +1246,7 @@ INSERT INTO `mailer_letters` (`id`, `template_id`, `subject`, `text`, `date_crea
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `mailer_recipients`
+-- Table structure for table `mailer_recipients`
 --
 
 CREATE TABLE IF NOT EXISTS `mailer_recipients` (
@@ -1242,7 +1262,7 @@ CREATE TABLE IF NOT EXISTS `mailer_recipients` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=11 ;
 
 --
--- Дамп данных таблицы `mailer_recipients`
+-- Dumping data for table `mailer_recipients`
 --
 
 INSERT INTO `mailer_recipients` (`id`, `letter_id`, `user_id`, `status`, `date_create`) VALUES
@@ -1252,7 +1272,7 @@ INSERT INTO `mailer_recipients` (`id`, `letter_id`, `user_id`, `status`, `date_c
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `mailer_templates`
+-- Table structure for table `mailer_templates`
 --
 
 CREATE TABLE IF NOT EXISTS `mailer_templates` (
@@ -1267,14 +1287,14 @@ CREATE TABLE IF NOT EXISTS `mailer_templates` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 --
--- Дамп данных таблицы `mailer_templates`
+-- Dumping data for table `mailer_templates`
 --
 
 
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `mailer_templates_recipients`
+-- Table structure for table `mailer_templates_recipients`
 --
 
 CREATE TABLE IF NOT EXISTS `mailer_templates_recipients` (
@@ -1288,14 +1308,14 @@ CREATE TABLE IF NOT EXISTS `mailer_templates_recipients` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 --
--- Дамп данных таблицы `mailer_templates_recipients`
+-- Dumping data for table `mailer_templates_recipients`
 --
 
 
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `menu`
+-- Table structure for table `menu`
 --
 
 CREATE TABLE IF NOT EXISTS `menu` (
@@ -1306,7 +1326,7 @@ CREATE TABLE IF NOT EXISTS `menu` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=7 ;
 
 --
--- Дамп данных таблицы `menu`
+-- Dumping data for table `menu`
 --
 
 INSERT INTO `menu` (`id`, `name`, `is_visible`) VALUES
@@ -1315,7 +1335,7 @@ INSERT INTO `menu` (`id`, `name`, `is_visible`) VALUES
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `menu_links`
+-- Table structure for table `menu_links`
 --
 
 CREATE TABLE IF NOT EXISTS `menu_links` (
@@ -1340,7 +1360,7 @@ CREATE TABLE IF NOT EXISTS `menu_links` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=14 ;
 
 --
--- Дамп данных таблицы `menu_links`
+-- Dumping data for table `menu_links`
 --
 
 INSERT INTO `menu_links` (`id`, `lang`, `parent_id`, `page_id`, `menu_id`, `title`, `url`, `user_role`, `not_user_role`, `order`, `is_visible`) VALUES
@@ -1359,7 +1379,7 @@ INSERT INTO `menu_links` (`id`, `lang`, `parent_id`, `page_id`, `menu_id`, `titl
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `meta_tags`
+-- Table structure for table `meta_tags`
 --
 
 CREATE TABLE IF NOT EXISTS `meta_tags` (
@@ -1376,7 +1396,7 @@ CREATE TABLE IF NOT EXISTS `meta_tags` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=9 ;
 
 --
--- Дамп данных таблицы `meta_tags`
+-- Dumping data for table `meta_tags`
 --
 
 INSERT INTO `meta_tags` (`id`, `object_id`, `model_id`, `title`, `keywords`, `description`, `date_create`, `date_update`) VALUES
@@ -1388,7 +1408,7 @@ INSERT INTO `meta_tags` (`id`, `object_id`, `model_id`, `title`, `keywords`, `de
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `news`
+-- Table structure for table `news`
 --
 
 CREATE TABLE IF NOT EXISTS `news` (
@@ -1407,7 +1427,7 @@ CREATE TABLE IF NOT EXISTS `news` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=14 ;
 
 --
--- Дамп данных таблицы `news`
+-- Dumping data for table `news`
 --
 
 INSERT INTO `news` (`id`, `lang`, `user_id`, `title`, `text`, `photo`, `state`, `date`, `date_create`) VALUES
@@ -1421,7 +1441,7 @@ INSERT INTO `news` (`id`, `lang`, `user_id`, `title`, `text`, `photo`, `state`, 
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `pages`
+-- Table structure for table `pages`
 --
 
 CREATE TABLE IF NOT EXISTS `pages` (
@@ -1437,7 +1457,7 @@ CREATE TABLE IF NOT EXISTS `pages` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=18 ;
 
 --
--- Дамп данных таблицы `pages`
+-- Dumping data for table `pages`
 --
 
 INSERT INTO `pages` (`id`, `lang`, `title`, `url`, `text`, `is_published`, `date_create`) VALUES
@@ -1450,7 +1470,7 @@ INSERT INTO `pages` (`id`, `lang`, `title`, `url`, `text`, `is_published`, `date
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `pages_blocks`
+-- Table structure for table `pages_blocks`
 --
 
 CREATE TABLE IF NOT EXISTS `pages_blocks` (
@@ -1467,7 +1487,7 @@ CREATE TABLE IF NOT EXISTS `pages_blocks` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=6 ;
 
 --
--- Дамп данных таблицы `pages_blocks`
+-- Dumping data for table `pages_blocks`
 --
 
 INSERT INTO `pages_blocks` (`id`, `lang`, `title`, `name`, `text`, `date_create`) VALUES
@@ -1479,7 +1499,7 @@ INSERT INTO `pages_blocks` (`id`, `lang`, `title`, `name`, `text`, `date_create`
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `settings`
+-- Table structure for table `settings`
 --
 
 CREATE TABLE IF NOT EXISTS `settings` (
@@ -1496,7 +1516,7 @@ CREATE TABLE IF NOT EXISTS `settings` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=25 ;
 
 --
--- Дамп данных таблицы `settings`
+-- Dumping data for table `settings`
 --
 
 INSERT INTO `settings` (`id`, `module_id`, `code`, `name`, `value`, `element`, `hidden`) VALUES
@@ -1522,7 +1542,7 @@ INSERT INTO `settings` (`id`, `module_id`, `code`, `name`, `value`, `element`, `
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `site_actions`
+-- Table structure for table `site_actions`
 --
 
 CREATE TABLE IF NOT EXISTS `site_actions` (
@@ -1538,14 +1558,14 @@ CREATE TABLE IF NOT EXISTS `site_actions` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 --
--- Дамп данных таблицы `site_actions`
+-- Dumping data for table `site_actions`
 --
 
 
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `users`
+-- Table structure for table `users`
 --
 
 CREATE TABLE IF NOT EXISTS `users` (
@@ -1569,7 +1589,7 @@ CREATE TABLE IF NOT EXISTS `users` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=19 ;
 
 --
--- Дамп данных таблицы `users`
+-- Dumping data for table `users`
 --
 
 INSERT INTO `users` (`id`, `first_name`, `last_name`, `patronymic`, `email`, `phone`, `password`, `birthdate`, `gender`, `status`, `activate_code`, `activate_date`, `password_recover_code`, `password_recover_date`, `date_create`) VALUES
@@ -1580,7 +1600,7 @@ INSERT INTO `users` (`id`, `first_name`, `last_name`, `patronymic`, `email`, `ph
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `ymarket_brands`
+-- Table structure for table `ymarket_brands`
 --
 
 CREATE TABLE IF NOT EXISTS `ymarket_brands` (
@@ -1591,7 +1611,7 @@ CREATE TABLE IF NOT EXISTS `ymarket_brands` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=138 ;
 
 --
--- Дамп данных таблицы `ymarket_brands`
+-- Dumping data for table `ymarket_brands`
 --
 
 INSERT INTO `ymarket_brands` (`id`, `name`) VALUES
@@ -1736,7 +1756,7 @@ INSERT INTO `ymarket_brands` (`id`, `name`) VALUES
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `ymarket_crons`
+-- Table structure for table `ymarket_crons`
 --
 
 CREATE TABLE IF NOT EXISTS `ymarket_crons` (
@@ -1753,7 +1773,7 @@ CREATE TABLE IF NOT EXISTS `ymarket_crons` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
 
 --
--- Дамп данных таблицы `ymarket_crons`
+-- Dumping data for table `ymarket_crons`
 --
 
 INSERT INTO `ymarket_crons` (`id`, `name`, `method`, `is_active`, `priority`, `interval`, `date_of`) VALUES
@@ -1763,7 +1783,7 @@ INSERT INTO `ymarket_crons` (`id`, `name`, `method`, `is_active`, `priority`, `i
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `ymarket_ips`
+-- Table structure for table `ymarket_ips`
 --
 
 CREATE TABLE IF NOT EXISTS `ymarket_ips` (
@@ -1776,7 +1796,7 @@ CREATE TABLE IF NOT EXISTS `ymarket_ips` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=32 ;
 
 --
--- Дамп данных таблицы `ymarket_ips`
+-- Dumping data for table `ymarket_ips`
 --
 
 INSERT INTO `ymarket_ips` (`id`, `ip`, `last_date_use`, `date_create`) VALUES
@@ -1815,7 +1835,7 @@ INSERT INTO `ymarket_ips` (`id`, `ip`, `last_date_use`, `date_create`) VALUES
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `ymarket_pages`
+-- Table structure for table `ymarket_pages`
 --
 
 CREATE TABLE IF NOT EXISTS `ymarket_pages` (
@@ -1830,7 +1850,7 @@ CREATE TABLE IF NOT EXISTS `ymarket_pages` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=28 ;
 
 --
--- Дамп данных таблицы `ymarket_pages`
+-- Dumping data for table `ymarket_pages`
 --
 
 INSERT INTO `ymarket_pages` (`id`, `section_id`, `url`, `num`, `date_create`, `date_parse`) VALUES
@@ -1865,7 +1885,7 @@ INSERT INTO `ymarket_pages` (`id`, `section_id`, `url`, `num`, `date_create`, `d
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `ymarket_products`
+-- Table structure for table `ymarket_products`
 --
 
 CREATE TABLE IF NOT EXISTS `ymarket_products` (
@@ -1881,7 +1901,7 @@ CREATE TABLE IF NOT EXISTS `ymarket_products` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1811 ;
 
 --
--- Дамп данных таблицы `ymarket_products`
+-- Dumping data for table `ymarket_products`
 --
 
 INSERT INTO `ymarket_products` (`id`, `brand_id`, `name`, `image`, `desc_html`, `date_create`, `date_update`) VALUES
@@ -1919,7 +1939,7 @@ INSERT INTO `ymarket_products` (`id`, `brand_id`, `name`, `image`, `desc_html`, 
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `ymarket_sections`
+-- Table structure for table `ymarket_sections`
 --
 
 CREATE TABLE IF NOT EXISTS `ymarket_sections` (
@@ -1941,7 +1961,7 @@ CREATE TABLE IF NOT EXISTS `ymarket_sections` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
 
 --
--- Дамп данных таблицы `ymarket_sections`
+-- Dumping data for table `ymarket_sections`
 --
 
 INSERT INTO `ymarket_sections` (`id`, `name`, `yandex_name`, `url`, `all_models_url`, `brands_url`, `breadcrumbs`, `date_create`, `date_update`, `date_brand_update`, `date_pages_parse`) VALUES
@@ -1952,7 +1972,7 @@ INSERT INTO `ymarket_sections` (`id`, `name`, `yandex_name`, `url`, `all_models_
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `ymarket_sections_rels`
+-- Table structure for table `ymarket_sections_rels`
 --
 
 CREATE TABLE IF NOT EXISTS `ymarket_sections_rels` (
@@ -1966,7 +1986,7 @@ CREATE TABLE IF NOT EXISTS `ymarket_sections_rels` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=176 ;
 
 --
--- Дамп данных таблицы `ymarket_sections_rels`
+-- Dumping data for table `ymarket_sections_rels`
 --
 
 INSERT INTO `ymarket_sections_rels` (`id`, `section_id`, `object_id`, `object_type`) VALUES
@@ -2147,109 +2167,115 @@ INSERT INTO `ymarket_sections_rels` (`id`, `section_id`, `object_id`, `object_ty
 (172, 3, 137, 'brand');
 
 --
--- Ограничения внешнего ключа сохраненных таблиц
+-- Constraints for dumped tables
 --
 
 --
--- Ограничения внешнего ключа таблицы `actions`
+-- Constraints for table `actions`
 --
 ALTER TABLE `actions`
   ADD CONSTRAINT `actions_ibfk_1` FOREIGN KEY (`lang`) REFERENCES `languages` (`id`) ON DELETE SET NULL ON UPDATE CASCADE;
 
 --
--- Ограничения внешнего ключа таблицы `actions_files`
+-- Constraints for table `actions_files`
 --
 ALTER TABLE `actions_files`
   ADD CONSTRAINT `actions_files_ibfk_1` FOREIGN KEY (`action_id`) REFERENCES `actions` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Ограничения внешнего ключа таблицы `articles`
+-- Constraints for table `articles`
 --
 ALTER TABLE `articles`
   ADD CONSTRAINT `articles_ibfk_1` FOREIGN KEY (`lang`) REFERENCES `languages` (`id`) ON DELETE SET NULL ON UPDATE CASCADE,
   ADD CONSTRAINT `articles_ibfk_2` FOREIGN KEY (`section_id`) REFERENCES `articles_sections` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Ограничения внешнего ключа таблицы `articles_sections`
+-- Constraints for table `articles_sections`
 --
 ALTER TABLE `articles_sections`
   ADD CONSTRAINT `articles_sections_ibfk_1` FOREIGN KEY (`parent_id`) REFERENCES `articles_sections` (`id`) ON DELETE SET NULL ON UPDATE CASCADE,
   ADD CONSTRAINT `articles_sections_ibfk_2` FOREIGN KEY (`lang`) REFERENCES `languages` (`id`) ON DELETE SET NULL ON UPDATE CASCADE;
 
 --
--- Ограничения внешнего ключа таблицы `auth_assignments`
+-- Constraints for table `auth_assignments`
 --
 ALTER TABLE `auth_assignments`
   ADD CONSTRAINT `auth_assignments_ibfk_1` FOREIGN KEY (`itemname`) REFERENCES `auth_items` (`name`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `auth_assignments_ibfk_2` FOREIGN KEY (`userid`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Ограничения внешнего ключа таблицы `auth_items_childs`
+-- Constraints for table `auth_items_childs`
 --
 ALTER TABLE `auth_items_childs`
   ADD CONSTRAINT `auth_items_childs_ibfk_1` FOREIGN KEY (`parent`) REFERENCES `auth_items` (`name`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `auth_items_childs_ibfk_2` FOREIGN KEY (`child`) REFERENCES `auth_items` (`name`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Ограничения внешнего ключа таблицы `banners`
+-- Constraints for table `auth_objects`
+--
+ALTER TABLE `auth_objects`
+  ADD CONSTRAINT `auth_objects_ibfk_1` FOREIGN KEY (`role`) REFERENCES `auth_items` (`name`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `banners`
 --
 ALTER TABLE `banners`
   ADD CONSTRAINT `banners_ibfk_1` FOREIGN KEY (`page_id`) REFERENCES `pages` (`id`) ON DELETE SET NULL ON UPDATE CASCADE;
 
 --
--- Ограничения внешнего ключа таблицы `banners_roles`
+-- Constraints for table `banners_roles`
 --
 ALTER TABLE `banners_roles`
   ADD CONSTRAINT `banners_roles_ibfk_2` FOREIGN KEY (`role`) REFERENCES `auth_items` (`name`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `banners_roles_ibfk_1` FOREIGN KEY (`banner_id`) REFERENCES `banners` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Ограничения внешнего ключа таблицы `documents`
+-- Constraints for table `documents`
 --
 ALTER TABLE `documents`
   ADD CONSTRAINT `documents_ibfk_1` FOREIGN KEY (`lang`) REFERENCES `languages` (`id`) ON DELETE SET NULL ON UPDATE CASCADE;
 
 --
--- Ограничения внешнего ключа таблицы `documents_files`
+-- Constraints for table `documents_files`
 --
 ALTER TABLE `documents_files`
   ADD CONSTRAINT `documents_files_ibfk_1` FOREIGN KEY (`document_id`) REFERENCES `documents` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Ограничения внешнего ключа таблицы `faq`
+-- Constraints for table `faq`
 --
 ALTER TABLE `faq`
   ADD CONSTRAINT `faq_ibfk_1` FOREIGN KEY (`lang`) REFERENCES `languages` (`id`) ON DELETE SET NULL ON UPDATE CASCADE,
   ADD CONSTRAINT `faq_ibfk_2` FOREIGN KEY (`section_id`) REFERENCES `faq_sections` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Ограничения внешнего ключа таблицы `faq_sections`
+-- Constraints for table `faq_sections`
 --
 ALTER TABLE `faq_sections`
   ADD CONSTRAINT `faq_sections_ibfk_1` FOREIGN KEY (`lang`) REFERENCES `languages` (`id`) ON DELETE SET NULL ON UPDATE CASCADE;
 
 --
--- Ограничения внешнего ключа таблицы `mailer_letters`
+-- Constraints for table `mailer_letters`
 --
 ALTER TABLE `mailer_letters`
   ADD CONSTRAINT `mailer_letters_ibfk_1` FOREIGN KEY (`template_id`) REFERENCES `mailer_templates` (`id`) ON DELETE SET NULL ON UPDATE CASCADE;
 
 --
--- Ограничения внешнего ключа таблицы `mailer_recipients`
+-- Constraints for table `mailer_recipients`
 --
 ALTER TABLE `mailer_recipients`
   ADD CONSTRAINT `mailer_recipients_ibfk_1` FOREIGN KEY (`letter_id`) REFERENCES `mailer_letters` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `mailer_recipients_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Ограничения внешнего ключа таблицы `mailer_templates_recipients`
+-- Constraints for table `mailer_templates_recipients`
 --
 ALTER TABLE `mailer_templates_recipients`
   ADD CONSTRAINT `mailer_templates_recipients_ibfk_1` FOREIGN KEY (`template_id`) REFERENCES `mailer_templates` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `mailer_templates_recipients_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Ограничения внешнего ключа таблицы `menu_links`
+-- Constraints for table `menu_links`
 --
 ALTER TABLE `menu_links`
   ADD CONSTRAINT `menu_links_ibfk_1` FOREIGN KEY (`parent_id`) REFERENCES `menu_links` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
@@ -2260,44 +2286,44 @@ ALTER TABLE `menu_links`
   ADD CONSTRAINT `menu_links_ibfk_6` FOREIGN KEY (`lang`) REFERENCES `languages` (`id`) ON DELETE SET NULL ON UPDATE CASCADE;
 
 --
--- Ограничения внешнего ключа таблицы `news`
+-- Constraints for table `news`
 --
 ALTER TABLE `news`
   ADD CONSTRAINT `news_ibfk_1` FOREIGN KEY (`lang`) REFERENCES `languages` (`id`) ON DELETE SET NULL ON UPDATE CASCADE,
   ADD CONSTRAINT `news_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Ограничения внешнего ключа таблицы `pages`
+-- Constraints for table `pages`
 --
 ALTER TABLE `pages`
   ADD CONSTRAINT `pages_ibfk_1` FOREIGN KEY (`lang`) REFERENCES `languages` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Ограничения внешнего ключа таблицы `pages_blocks`
+-- Constraints for table `pages_blocks`
 --
 ALTER TABLE `pages_blocks`
   ADD CONSTRAINT `pages_blocks_ibfk_1` FOREIGN KEY (`lang`) REFERENCES `languages` (`id`) ON DELETE SET NULL ON UPDATE CASCADE;
 
 --
--- Ограничения внешнего ключа таблицы `site_actions`
+-- Constraints for table `site_actions`
 --
 ALTER TABLE `site_actions`
   ADD CONSTRAINT `site_actions_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Ограничения внешнего ключа таблицы `ymarket_pages`
+-- Constraints for table `ymarket_pages`
 --
 ALTER TABLE `ymarket_pages`
   ADD CONSTRAINT `ymarket_pages_ibfk_1` FOREIGN KEY (`section_id`) REFERENCES `ymarket_sections` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Ограничения внешнего ключа таблицы `ymarket_products`
+-- Constraints for table `ymarket_products`
 --
 ALTER TABLE `ymarket_products`
   ADD CONSTRAINT `barnd_fk` FOREIGN KEY (`brand_id`) REFERENCES `ymarket_brands` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Ограничения внешнего ключа таблицы `ymarket_sections_rels`
+-- Constraints for table `ymarket_sections_rels`
 --
 ALTER TABLE `ymarket_sections_rels`
   ADD CONSTRAINT `section_fk` FOREIGN KEY (`section_id`) REFERENCES `ymarket_sections` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
