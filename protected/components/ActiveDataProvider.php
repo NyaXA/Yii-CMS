@@ -30,7 +30,6 @@ class ActiveDataProvider extends CActiveDataProvider
         parent::__construct($modelClass, $config);
     }
 
-
     public function getCriteria()
     {
         $criteria = parent::getCriteria();

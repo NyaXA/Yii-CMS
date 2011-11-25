@@ -41,7 +41,7 @@ class BaseForm extends CForm
         if (is_string($alias))
         {
             $alias = self::getFullAlias($alias);
-            return require(Yii::getPathOfAlias($alias).'.php');
+            return require(Yii::getPathOfAlias($alias) . '.php');
         }
         else
         {
@@ -54,14 +54,15 @@ class BaseForm extends CForm
         if (!($this->parent instanceof self))
         {
             $id = $this->activeForm['id'];
-            Yii::app()->clientScript->registerPackage($this->side.'Form')->registerScript($id.'_baseForm',"$('#{$id}').{$this->side}Form()");
+            Yii::app()->clientScript->registerPackage($this->side . 'Form')->registerScript(
+                $id . '_baseForm', "$('#{$id}').{$this->side}Form()");
         }
 
         if ($this->_clear)
         {
             Yii::app()->clientScript->registerScript('clearForm', '$(function()
                 {
-                    $(":input","#'.$this->activeForm['id'].'")
+                    $(":input","#' . $this->activeForm['id'] . '")
                         .not(":button, :submit, :reset, :hidden")
                         .val("")
                         .removeAttr("checked")
@@ -72,7 +73,7 @@ class BaseForm extends CForm
         try
         {
             return parent::__toString();
-        } catch (CException $e)
+        } catch (Exception $e)
         {
             Y::dump($e->getMessage());
             Y::dump($e->getTrace());
@@ -89,7 +90,7 @@ class BaseForm extends CForm
             if ($this->side == 'admin')
             {
                 $this->attributes['class'] = 'admin_form';
-                return $this->getParent()->msg('Поля отмеченные * обязательны.', 'info').$output;
+                return $this->getParent()->msg('Поля отмеченные * обязательны.', 'info') . $output;
             }
         }
 
@@ -117,7 +118,7 @@ class BaseForm extends CForm
             {
                 if ($element->type === 'hidden')
                 {
-                    return "<div style=\"visibility:hidden\">\n".$element->render()."</div>\n";
+                    return "<div style=\"visibility:hidden\">\n" . $element->render() . "</div>\n";
                 }
                 else
                 {
@@ -126,7 +127,7 @@ class BaseForm extends CForm
             }
             else if ($element instanceof CFormButtonElement)
             {
-                return $element->render()."\n";
+                return $element->render() . "\n";
             }
             else
             {
@@ -162,12 +163,12 @@ class BaseForm extends CForm
         $class = $element->type;
         if (isset($element->attributes['parentClass']))
         {
-            $class .= ' '.$element->attributes['parentClass'];
+            $class .= ' ' . $element->attributes['parentClass'];
         }
 
         $res = CHtml::openTag('dl', array('class'=> $class));
         $res .= CHtml::openTag('dd');
-        $res .= Yii::app()->controller->renderPartial('application.views.layouts.'.$tpl, array(
+        $res .= Yii::app()->controller->renderPartial('application.views.layouts.' . $tpl, array(
             'element' => $element,
             'form'    => $this
         ), true);
@@ -184,17 +185,16 @@ class BaseForm extends CForm
 
     public function renderButtons()
     {
-        if (!($this->getParent() instanceof self) && !$this->buttons->itemAt('back'))
+        if (!($this->getParent() instanceof self) && !$this->buttons->itemAt('back') &&
+            $this->cancel_button_show && $this->side == 'admin'
+        )
         {
-            if ($this->cancel_button_show)
-            {
-                $this->buttons->add("back", array(
-                    'type'  => 'button',
-                    'value' => 'Отмена',
-                    'url'   => Yii::app()->controller->createUrl('manage'),
-                    'class' => 'back_button submit small'
-                ));
-            }
+            $this->buttons->add("back", array(
+                'type'  => 'button',
+                'value' => 'Отмена',
+                'url'   => Yii::app()->controller->createUrl('manage'),
+                'class' => 'back_button submit small'
+            ));
         }
 
         return parent::renderButtons();
@@ -211,7 +211,8 @@ class BaseForm extends CForm
             {
                 $length = mb_strlen($button->value, 'utf-8');
 
-                $class = isset($button->attributes['class']) ? $button->attributes['class']." submit" : "submit";
+                $class = isset($button->attributes['class']) ?
+                    $button->attributes['class'] . " submit" : "submit";
 
                 if ($length > 11)
                 {
