@@ -66,12 +66,12 @@
 
 .grid-view table.items tr.selected
 {
-	background: #BCE774;
+	background: #AAA;
 }
 
 .grid-view table.items tr:hover
 {
-	background: #ECFBD4;
+	background: #AAF;
 }
 
 .grid-view .link-column img
@@ -135,4 +135,52 @@
 
 .filters {
     display: none;
+}
+
+
+
+.ui-sortable-placeholder{
+    background: #AAA;
+}
+
+
+
+.block table {
+    text-align: left;
+    margin-bottom: 15px;
+}
+
+.block table tr.even td {
+    background: #fbfbfb;
+}
+
+.block table tr td,
+.block table tr th {
+    border-bottom: 1px solid #ddd;
+    padding: 10px;
+    line-height: normal;
+    text-align: left;
+}
+
+.block table tr th.headerSortUp {
+    color: #333;
+    background: url(/images/admin/sortd.gif) 95% center no-repeat;
+}
+
+.block table tr th.headerSortDown {
+    color: #333;
+    background: url(/images/admin/sorta.gif) 95% center no-repeat;
+}
+
+.block table tr td.delete {
+    text-align: right;
+    font-size: 11px;
+}
+
+.block table tr td.delete a {
+    color: #666;
+}
+
+.block table tr td.delete a:hover {
+    color: #dd0000;
 }
