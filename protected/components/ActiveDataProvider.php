@@ -1,5 +1,4 @@
 <?php
- 
 class ActiveDataProvider extends CActiveDataProvider
 {
     const PAGE_SIZE = 10;
@@ -8,7 +7,9 @@ class ActiveDataProvider extends CActiveDataProvider
     {
         if (!isset($config['pagination']['pageSize']))
         {
-            if (isset(Yii::app()->session[$modelClass . "PerPage"]) && mb_substr(Yii::app()->controller->id, -5) == 'Admin')
+            if (isset(Yii::app()->session[$modelClass . "PerPage"]) &&
+                Yii::app()->controller instanceof AdminController
+            )
             {
                 $page_size = Yii::app()->session[$modelClass . "PerPage"];
             }
@@ -19,7 +20,7 @@ class ActiveDataProvider extends CActiveDataProvider
                 $page_size = $reflection->getConstant('PAGE_SIZE');
                 if (!$page_size)
                 {
-                    $page_size = self::PAGE_SIZE;;
+                    $page_size = self::PAGE_SIZE;
                 }
             }
 
@@ -30,23 +31,17 @@ class ActiveDataProvider extends CActiveDataProvider
     }
 
 
-	public function getCriteria()
-	{
+    public function getCriteria()
+    {
         $criteria = parent::getCriteria();
-
-        $class = new $this->modelClass;
-        $meta  = $class->model()->meta();
-
-//          only PHP 5.3
-//        $class = $this->modelClass;
-//        $model = $class::model();
-//        $meta  = $model->meta();
+        $meta  = call_user_func($this->modelClass.'::model')->meta();
 
         if (isset($meta['lang']))
         {
             $criteria->addCondition("lang = '" . Yii::app()->language . "'");
         }
 
-		return $criteria;
-	}
+        return $criteria;
+    }
+
 }
