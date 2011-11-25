@@ -164,4 +164,17 @@ abstract class ActiveRecordModel extends CActiveRecord
 
         return $result;
     }
+
+
+    public function authObject()
+    {
+        $object_ids = AuthObject::model()->getObjectsIds(
+            get_class($this),
+            Yii::app()->user->role
+        );
+
+        $criteria = $this->getDbCriteria();
+        $criteria->addInCondition('id', $object_ids);
+        return $this;
+    }
 }
