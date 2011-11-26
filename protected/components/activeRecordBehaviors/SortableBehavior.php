@@ -23,7 +23,8 @@ class SortableBehavior extends CActiveRecordBehavior
         }
 
         $case = SqlHelper::arrToCase('id', $priorities, $model->getTableAlias());
-        $c = Yii::app()->db->commandBuilder->createSqlCommand("UPDATE {$table} AS t SET t.{$column} = {$case}");
+        $in = SqlHelper::in('id', $ids, $model->getTableAlias());
+        $c = Yii::app()->db->commandBuilder->createSqlCommand("UPDATE {$table} AS t SET t.{$column} = {$case} WHERE {$in})");
         $c->execute();
     }
 
