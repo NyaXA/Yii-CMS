@@ -33,7 +33,7 @@ class ActiveDataProvider extends CActiveDataProvider
     public function getCriteria()
     {
         $criteria = parent::getCriteria();
-        $meta  = call_user_func($this->modelClass.'::model')->meta();
+        $meta  = CActiveRecord::model($this->modelClass)->meta();
 
         if (isset($meta['lang']))
         {

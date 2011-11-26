@@ -169,7 +169,7 @@ abstract class BaseController extends CController
      */
     public function loadModel($value, $scopes = array(), $attribute = null)
     {
-        $model = call_user_func($this->getModelClass().'::model');
+        $model = CActiveRecord::model($this->getModelClass());
 
         foreach ($scopes as $scope)
         {
