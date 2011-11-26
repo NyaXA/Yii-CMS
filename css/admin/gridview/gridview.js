@@ -1,110 +1,136 @@
-$(function()
+(function($)
 {
-    initFiltersLink();
+    $.widget('CmsUI.grid', {
+        _version:0.1,
 
-    $('.pager_select').live('change', function()
-    {
-        var params = '/model/' + $(this).attr('model') + '/per_page/' + $(this).val() + '/back_url/' + $("#back_url").val();
-        location.href = '/main/mainAdmin/SessionPerPage' + params;
-    });
-
-    //    if ($('.grid-view table').attr('sortable'))
-    //    {
-    //        makeSortable();
-    //    }
-
-    if ($('.grid-view table').attr('mass_removal'))
-    {
-        enableMassRemoval();
-    }
-});
-
-
-function initFiltersLink()
-{
-    var inputs_count = $('.filters input[type=text]').length;
-
-    if (inputs_count == 0)
-    {
-        return false;
-    }
-
-    $('.filters input').each(function()
-    {
-        if ($(this).val())
+        version:function()
         {
-            $(this).parents('table:eq(0)').find('.filters').slideToggle();
-        }
-    });
+            return this._version
+        },
 
-    $('.grid-view th').each(function()
-    {
-        if ($(this).html() == '&nbsp;')
+        // default options
+        options:{
+        },
+        _create:function()
         {
-            $(this).html("<a href='' class='filters_link'>фильтры</a>");
+            var self = this,
+                id = self.element.attr('id');
 
-            $('.filters_link').click(function()
+            var func = self.element.yiiGridView.settings[id].afterAjaxUpdate;
+            self.element.yiiGridView.settings[id].afterAjaxUpdate = function(id, data)
             {
-                $(this).parents('table:eq(0)').find('.filters').slideToggle();
-                return false;
+                if (func != undefined)
+                {
+                    func(id, data);
+                }
+                self.element = $('#' + id); //because yiiGridView make replaceWith on our element
+                self._initEvents();
+            };
+            self._initEvents();
+        },
+        _initEvents:function()
+        {
+
+            var self = this;
+            self._initSwitchPageSize();
+            self._initFilters();
+
+            if ($('.grid-view table').attr('mass_removal'))
+            {
+                self._initMassRemoval();
+            }
+        },
+        _initMassRemoval:function()
+        {
+            var self = this;
+            $('#mass_remove_button').on('click', function()
+            {
+                var $checkboxes = $('.object_checkbox:checked', self.element);
+
+                if ($checkboxes.length > 0)
+                {
+                    if (!confirm('Вы уверены, что хотите удалить отмеченные элементы?'))
+                    {
+                        return false;
+                    }
+
+                    blockUI();
+                    var grid_id = self.element.attr('id');
+
+                    $checkboxes.each(function()
+                    {
+                        var action = $(this).closest('tr').find('.delete').attr('href');
+
+                        $.fn.yiiGridView.update(grid_id, {
+                            type:'POST',
+                            url:action,
+                            success:null
+                        });
+                    });
+
+                    $(document).ajaxStop(function()
+                    {
+                        unblockUI();
+                        $.fn.yiiGridView.update(grid_id);
+                        $(this).unbind('ajaxStop');
+                    });
+                }
+                else
+                {
+                    showMsg('Отметьте элементы!');
+                }
             });
-        }
-    });
-}
-
-
-function makeSortable()
-{
-    var fixHelper = function(e, ui)
-    {
-        ui.children().each(function()
+        },
+        _initSwitchPageSize:function()
         {
-            $(this).width($(this).width());
-        });
-        return ui;
-    };
+            var self = this;
+            $('.pager_select', self.element).on('change', self.element, function()
+            {
+                var params = '/model/' + $(this).attr('model') + '/per_page/' + $(this).val() + '/back_url/' + $("#back_url").val();
+                location.href = '/main/mainAdmin/SessionPerPage' + params;
+            });
 
-    $(".grid-view tbody").sortable({helper:fixHelper}).disableSelection();
-}
-
-
-function enableMassRemoval()
-{
-    $('#mass_remove_button').on('click', function()
-    {
-        var $checkboxes = $('.object_checkbox:checked');
-
-        if ($checkboxes.length > 0)
+        },
+        _initFilters:function()
         {
-            if (!confirm('Вы уверены, что хотите удалить отмеченные элементы?'))
+            var self = this;
+            var inputs = $('.filters input', self.element), //TODO: what with dropdownlist???
+                inputs_count = inputs.length;
+
+            if (inputs_count == 0)
             {
                 return false;
             }
 
-            blockUI();
-            var grid_id = $('.grid-view').attr('id');
-
-            $checkboxes.each(function()
+            var show_filters = false;
+            inputs.each(function()
             {
-                var action = $(this).parents('tr:eq(0)').find('.delete').attr('href');
-
-                $.fn.yiiGridView.update(grid_id, {
-                    type:'POST',
-                    url:action,
-                    success:null
-                });
+                if ($(this).val())
+                {
+                    show_filters = true;
+                }
             });
 
-            $(document).ajaxStop(function()
+            if (show_filters)
             {
-                unblockUI();
-                $.fn.yiiGridView.update(grid_id);
-                $(this).unbind('ajaxStop');
+                $('.filters:first', self.element).slideToggle();
+            }
+
+            $('th', self.element).each(function()
+            {
+                if ($(this).html() == '&nbsp;')
+                {
+                    $(this).html("<a href='' class='filters_link'>фильтры</a>");
+                }
             });
-        }
-        else
-        {
-            showMsg('Отметьте элементы!');
+
+            $('.filters_link', self.element).click(function()
+            {
+                $('.filters', self.element).slideToggle();
+                return false;
+            });
         }
     });
-}
+})(jQuery);
+
+
