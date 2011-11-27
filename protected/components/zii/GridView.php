@@ -1,5 +1,5 @@
 <?php
-Yii::import("application.libs.yii.zii.widgets.grid.CGridView");
+Yii::import("zii.widgets.grid.CGridView");
 class GridView extends CGridView
 {
     public $cssFile = null;
@@ -15,6 +15,8 @@ class GridView extends CGridView
     public $sortable = false;
 
     public $mass_removal = false;
+
+    public $jsPlugin = 'grid';
 
     public $template = '{pagerSelect}{summary}<br/>{pager}<br/>{items}<br/>{pager}';
 
@@ -111,7 +113,7 @@ class GridView extends CGridView
             $this->addColumn(array(
                 'class'               => 'CCheckBoxColumn',
                 'header'              => "<input type='checkbox' class='object_checkboxes'>",
-                'selectableRows'   => 2,
+                'selectableRows'      => 2,
                 'checkBoxHtmlOptions' => array(
                     'class'    => 'object_checkbox'
                 )
@@ -120,18 +122,17 @@ class GridView extends CGridView
         parent::initColumns();
     }
 
-
     public static function orderLinks($data)
     {
         $class = get_class($data);
 
-        return "<a href='/main/mainAdmin/changeOrder/id/{$data->id}/order/up/class/{$class}/from/".
-            base64_encode($_SERVER["REQUEST_URI"])."' />
+        return "<a href='/main/mainAdmin/changeOrder/id/{$data->id}/order/up/class/{$class}/from/" .
+            base64_encode($_SERVER["REQUEST_URI"]) . "' />
                     <img src='/images/admin/icons/arrow_up.png' border='0' />
                 </a>
                 &nbsp;
-                <a href='/main/mainAdmin/changeOrder/id/{$data->id}/order/down/class/{$class}/from/".
-            base64_encode($_SERVER["REQUEST_URI"])."' />
+                <a href='/main/mainAdmin/changeOrder/id/{$data->id}/order/down/class/{$class}/from/" .
+            base64_encode($_SERVER["REQUEST_URI"]) . "' />
                     <img src='/images/admin/icons/arrow_down.png' border='0'  />
                 </a>";
     }
@@ -140,7 +141,7 @@ class GridView extends CGridView
     {
         if ($this->dataProvider->getItemCount() > 0 || $this->showTableOnEmpty)
         {
-            echo "<table class='{$this->itemsCssClass}' sortable='{$this->sortable}' mass_removal='{$this->mass_removal}' cellpadding='0' cellspacing='0' width='100%'>\n";
+            echo "<table class='{$this->itemsCssClass}' cellpadding='0' cellspacing='0' width='100%'>\n";
             $this->renderTableHeader();
             $this->renderTableBody();
             $this->renderTableFooter();
@@ -157,59 +158,20 @@ class GridView extends CGridView
         }
     }
 
-
-    public function renderTableHeader()
-    {
-        if (!$this->hideHeader)
-        {
-            echo "<thead>\n";
-
-            if ($this->filterPosition === self::FILTER_POS_HEADER)
-            {
-                $this->renderFilter();
-            }
-
-            echo "<tr>\n";
-
-            foreach ($this->columns as $column)
-            {
-                $column->renderHeaderCell();
-            }
-
-            echo "</tr>\n";
-
-            if ($this->filterPosition === self::FILTER_POS_BODY)
-            {
-                $this->renderFilter();
-            }
-
-            echo "</thead>\n";
-        }
-        else if ($this->filter !== null &&
-            ($this->filterPosition === self::FILTER_POS_HEADER || $this->filterPosition === self::FILTER_POS_BODY)
-        )
-        {
-            echo "<thead>\n";
-            $this->renderFilter();
-            echo "</thead>\n";
-        }
-    }
-
-
     public function renderTableRow($row)
     {
         $data = $this->dataProvider->data[$row];
 
         if ($this->rowCssClassExpression !== null)
         {
-            echo '<tr class="'.$this->evaluateExpression($this->rowCssClassExpression, array(
+            echo '<tr class="' . $this->evaluateExpression($this->rowCssClassExpression, array(
                 'row' => $row,
                 'data'=> $data
-            )).'">';
+            )) . '">';
         }
         else if (is_array($this->rowCssClass) && ($n = count($this->rowCssClass)) > 0)
         {
-            echo '<tr class="'.$this->rowCssClass[$row % $n].'">';
+            echo '<tr class="' . $this->rowCssClass[$row % $n] . '">';
         }
         else
         {
@@ -228,9 +190,9 @@ class GridView extends CGridView
     {
         echo '<div class="pager-select">';
         $value = null;
-        if (isset(Yii::app()->session[get_class($this->filter)."PerPage"]))
+        if (isset(Yii::app()->session[get_class($this->filter) . "PerPage"]))
         {
-            $value = Yii::app()->session[get_class($this->filter)."PerPage"];
+            $value = Yii::app()->session[get_class($this->filter) . "PerPage"];
         }
 
         $select = CHtml::dropDownList("pager_pages", $value, array_combine(range(10, 500, 5), range(10, 500, 5)), array(
@@ -242,9 +204,27 @@ class GridView extends CGridView
         echo '</div>';
     }
 
+    /**
+     * Изначально регистрируются 2 плагина gridBase и grid
+     * Если установить значение свойства jsPlugin, то подключится так же плагин /css/admin/gridview/{$this->jsPlugin}.js
+     * И на сам grid будет инициализироват плагин с названием из jsPlugin
+     */
     public function registerClientScript()
     {
         parent::registerClientScript();
-        Yii::app()->clientScript->registerScriptFile('/css/admin/gridview/gridview.js', CClientScript::POS_END, true);
+        $cs = Yii::app()->clientScript;
+        $cs->registerScriptFile('/js/plugins/gridview/gridBase.js');
+        $cs->registerScriptFile("/js/plugins/gridview/grid.js");
+
+        if ($this->jsPlugin != 'grid')
+        {
+            $cs->registerScriptFile("/js/plugins/gridview/{$this->jsPlugin}.js");
+        }
+        $options = CJavaScript::encode(array(
+            'mass_removal' => $this->mass_removal
+        ));
+        $cs->registerScript($this->getId() . 'CmsUI', "
+            $('#{$this->getId()}').{$this->jsPlugin}({$options});
+        ");
     }
 }
