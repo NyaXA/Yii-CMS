@@ -157,8 +157,8 @@ class BaseForm extends CForm
             $tpl = '_form';
         }
 
-        $element->attributes['data-label'] = $element->label;
-        $element->attributes['data-hint']  = $element->hint;
+//        $element->attributes['data-label'] = $element->label;
+//        $element->attributes['data-hint']  = $element->hint;
 
         $class = $element->type;
         if (isset($element->attributes['parentClass']))
