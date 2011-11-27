@@ -227,5 +227,13 @@ class GridView extends CGridView
         $cs->registerScript($this->getId() . 'CmsUI', "
             $('#{$this->getId()}').{$this->jsPlugin}({$options});
         ");
+
+        $this->onRegisterScript(new CEvent);
     }
+
+    public function onRegisterScript($event)
+    {
+        $this->raiseEvent('onRegisterScript', $event);
+    }
+
 }
