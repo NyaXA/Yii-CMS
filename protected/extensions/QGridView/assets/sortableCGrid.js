@@ -55,11 +55,7 @@
                         url:options.url,
                         type:"POST",
                         data:({pk:arr, model:options.model}),
-                        dataType:"json",
-                        success:function(msg)
-                        {
-                            table.yiiGridView.update(id);
-                        }
+                        dataType:"json"
                     });
                 }
             }).disableSelection();
