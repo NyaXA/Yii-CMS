@@ -54,8 +54,10 @@ class BaseForm extends CForm
         if (!($this->parent instanceof self))
         {
             $id = $this->activeForm['id'];
-            Yii::app()->clientScript->registerPackage($this->side . 'Form')->registerScript(
-                $id . '_baseForm', "$('#{$id}').{$this->side}Form()");
+            if ($this->side == 'client') {
+                Yii::app()->clientScript->registerPackage('clientForm')->registerScript(
+                    $id . '_baseForm', "$('#{$id}').clientForm()");
+            }
         }
 
         if ($this->_clear)
@@ -75,7 +77,7 @@ class BaseForm extends CForm
             return parent::__toString();
         } catch (Exception $e)
         {
-            Y::dump($e->getMessage());
+            //Y::dump($e->getMessage());
             Y::dump($e->getTrace());
         }
     }
@@ -157,8 +159,7 @@ class BaseForm extends CForm
             $tpl = '_form';
         }
 
-//        $element->attributes['data-label'] = $element->label;
-//        $element->attributes['data-hint']  = $element->hint;
+//        $element->attributesadminForm['data-hint']  = $element->hint;
 
         $class = $element->type;
         if (isset($element->attributes['parentClass']))
