@@ -10,18 +10,21 @@ class SortableColumn extends CDataColumn
     {
         parent::init();
 
-        $this->assets = Yii::app()
-            ->getAssetManager()
-            ->publish(Yii::getPathOfAlias('ext.QGridView.assets'));
-        $this->registerClientScript();
+        $this->assets = Yii::app()->getAssetManager()->publish(Yii::getPathOfAlias('ext.QGridView.assets'));
+
+        $this->grid->onRegisterScript = array(
+            $this,
+            'registerScript'
+        );
     }
 
     /**
      * Registers necessary client scripts.
      */
-    public function registerClientScript()
+    public function registerScript()
     {
-        $id    = $this->grid->getId();
+        $id = $this->grid->getId();
+
         $url   = Yii::app()->createUrl("/main/helpAdmin/sortable");
         $model = $this->grid->dataProvider->modelClass;
 
@@ -30,12 +33,11 @@ class SortableColumn extends CDataColumn
             'url'   => $url,
             'model' => $model
         ));
+        $assets  = Yii::app()->getAssetManager()->publish(Yii::getPathOfAlias('ext.QGridView.assets'));
 
-        Yii::app()
-            ->getClientScript()
-            ->registerCoreScript('jquery.ui')
-            ->registerScriptFile($this->assets.'/sortableCGrid.js')
-            ->registerScript('sort_grid_'.$id, "$('#{$id} > table > tbody').sortableCGrid({$options});");
+        Yii::app()->getClientScript()->registerCoreScript('jquery.ui')->registerScriptFile(
+            $assets . '/sortableCGrid.js')->registerScript(
+            'sort_grid_' . $id, "$('#{$id}').sortableGrid({$options});");
     }
 
     protected function renderHeaderCellContent()
@@ -52,7 +54,7 @@ class SortableColumn extends CDataColumn
 
     public function renderDataCellContent()
     {
-        echo "<div class='positioner'><img src='".$this->assets."/img/hand.png' width='16'></div>";
+        echo "<div class='positioner'><img src='" . $this->assets . "/img/hand.png' width='16'></div>";
     }
 
     public function renderDataCell($row)
@@ -68,7 +70,7 @@ class SortableColumn extends CDataColumn
             ));
             if (isset($options['class']))
             {
-                $options['class'] .= 'pk '.$class;
+                $options['class'] .= 'pk ' . $class;
             }
             else
             {
@@ -80,7 +82,7 @@ class SortableColumn extends CDataColumn
             $options['class'] = 'pk';
         }
 
-        $options['id'] = 'pk_'.$pk;
+        $options['id'] = 'pk_' . $pk;
 
         echo CHtml::openTag('td', $options);
         $this->renderDataCellContent($row, $data);

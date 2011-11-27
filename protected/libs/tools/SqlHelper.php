@@ -15,6 +15,6 @@ class SqlHelper
 
     public static function in($field, $values, $alias)
     {
-        return $alias . $field . ' IN ' . implode(',', $values);
+        return $alias . '.' . $field . ' IN (' . implode(',', $values) . ')';
     }
 }
