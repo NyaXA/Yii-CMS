@@ -207,7 +207,8 @@ class GridView extends CGridView
     /**
      * Изначально регистрируются 2 плагина gridBase и grid
      * Если установить значение свойства jsPlugin, то подключится так же плагин /css/admin/gridview/{$this->jsPlugin}.js
-     * И на сам grid будет инициализироват плагин с названием из jsPlugin
+     * И на сам grid будет
+     * инициализироват плагин с названием из jsPlugin
      */
     public function registerClientScript()
     {
