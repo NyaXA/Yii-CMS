@@ -16,7 +16,7 @@ if (!function_exists('get_called_class'))
             }
             $lines      = file($bt[$l]['file']);
             $callerLine = $lines[$bt[$l]['line'] - 1];
-            preg_match('/([a-zA-Z0-9\_]+)::'.$bt[$l]['function'].'/', $callerLine, $matches);
+            preg_match('/([a-zA-Z0-9\_]+)::' . $bt[$l]['function'] . '/', $callerLine, $matches);
             if (!isset($matches[1]))
             {
                 $matches[1] = NULL;
@@ -43,4 +43,18 @@ if (function_exists('lcfirst') === false)
         return $str;
     }
 
+}
+
+if (!function_exists('array_replace'))
+{
+    function array_replace()
+    {
+        $array = array();
+        $n     = func_num_args();
+        while ($n-- > 0)
+        {
+            $array += func_get_arg($n);
+        }
+        return $array;
+    }
 }

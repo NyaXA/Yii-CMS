@@ -235,5 +235,4 @@ class GridView extends CGridView
     {
         $this->raiseEvent('onRegisterScript', $event);
     }
-
 }
