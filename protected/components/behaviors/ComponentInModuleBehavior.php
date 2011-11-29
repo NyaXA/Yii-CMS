@@ -1,11 +1,11 @@
 <?php
 /**
  * Содержит в себе часто используемые функции. Такие, как:
- * 1. getAssets - Получение assets родительского модуля
- * 2. getModule - Получение родительского модуля
+ * 1. getAssets - Получение assets родительского модуля. Если компонент не в модуле, вернет baseUrl
+ * 2. getModule - Получение родительского модуля. Если компонент не в модуле, вернет null
  * 3. url - алиас BaseController::url()
  */
-class ComponentInModuleBehavior extends CBehavior
+class ComponentBehavior extends CBehavior
 {
     private $_assets;
     private $_module_id;
@@ -23,9 +23,15 @@ class ComponentInModuleBehavior extends CBehavior
             $arr = explode(DIRECTORY_SEPARATOR, $dir);
             while(end($arr) != 'modules')   //получаем название директории с нашим модулем
             {
-                $module_id = array_pop($arr);
+                $last_segment = array_pop($arr);
+                if ($last_segment == 'protected')
+                {
+                    $last_segment = null;
+                    break;
+                }
             }
-            $this->_module_id = $module_id;
+
+            $this->_module_id = $last_segment;
         }
 
         return Yii::app()
@@ -54,9 +60,14 @@ class ComponentInModuleBehavior extends CBehavior
     {
         if ($this->_assets === null)
         {
-            $component = $this->getOwner();
-            //check settings
-            $this->_assets = $this->module->assetsUrl();
+            if ($this->module === null)
+            {
+                $this->_assets = Yii::app()->baseUrl;
+            }
+            else
+            {
+                $this->_assets = $this->module->assetsUrl();
+            }
         }
 
         return $this->_assets;
