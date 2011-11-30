@@ -35,7 +35,8 @@ class News extends ActiveRecordModel
     {
         $behaviors = parent::behaviors();
         $behaviors['FileManager'] = array(
-            'class' => 'application.components.activeRecordBehaviors.FileManagerBehavior'
+            'class' => 'application.components.activeRecordBehaviors.AttachmentBehavior',
+            'attached_class' => 'FileManager'
         );
         $behaviors['MetaTagBehavior'] = array(
             'class' => 'application.components.activeRecordBehaviors.MetaTagBehavior'

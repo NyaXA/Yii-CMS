@@ -1,105 +1,42 @@
-
 <?php
-echo $form->renderBegin();
+echo $form->getActiveFormWidget()->labelEx($form->model, $element->name);
 
-$model_class = get_class($form->model);
-$elements    = $form->getElements();
-?>
+if ($element->name == 'captcha')
+{
+    echo $form->getActiveFormWidget()->error($form->model, 'captcha');
+    echo CHtml::activeTextField($form->model, 'captcha', array('data-label' => $label));
+    $this->widget('CCaptcha');
 
-<?php foreach ($elements as $element): ?>
-<?php
-    $class = isset($element->attributes['class']) ? $element->attributes['class'] : '';
-
-    $ext_class = '';
-
-    switch ($element->type)
+}
+else if ($element->type == 'date')
+{
+    $model_class = get_class($form->model);
+    echo $form->getActiveFormWidget()->textField($form->model, $element->name, $element->attributes);
+    $this->widget('application.extensions.calendar.SCalendar', array(
+        'inputField' => "{$model_class}_{$element->name}",
+        'ifFormat'   => '%d.%m.%Y',
+        'language'   => 'ru-UTF'
+    ));
+}
+else
+{
+    if ($element->type == 'file')
     {
-        case 'text':
-        case 'password':
-            $ext_class = 'text';
-            break;
-
-        case 'date':
-            $ext_class                       = 'text date_picker';
-            $element->attributes['readonly'] = true;
-            break;
-    }
-
-    if ($ext_class)
-    {
-        $class .= ' '.$ext_class;
-    }
-
-    $element->attributes['class'] = $class;
-
-    $error = $element->renderError();
-    ?>
-
-<?php if ($element->type == 'hidden'): ?>
-    <?php echo $element->renderInput(); ?>
-    <?php else: ?>
-    <?php
-        $label = $element->label;
-        if ($element->required)
-        {
-            $label .= '('.Yii::t('main', 'обязательное поле').')';
-        }
-        $element->attribute['data-label'] = $label;
         ?>
+    <input id="file_fake" type="text" readonly="readonly" data-label="<?php echo $label ?>"/>
+    <span class="attach" title="Выбрать файл">
+        <input type="button" class="file_select_btn" value=""/>
+    </span>
+    <?php
+    }
 
-    <dl>
-        <dd class="<?php echo $element->type ?>">
-            <?php
-            if ($element->type == 'date')
-            {
-                echo $form
-                    ->getActiveFormWidget()
-                    ->textField($form->model, $element->name, $element->attributes);
-                $this->widget('application.extensions.calendar.SCalendar', array(
-                    'inputField' => "{$model_class}_{$element->name}",
-                    'ifFormat'   => '%d.%m.%Y',
-                    'language'   => 'ru-UTF'
-                ));
-                echo $form
-                    ->getActiveFormWidget()
-                    ->error($form->model, $element->name);
-            }
-            elseif ($element->name == 'captcha')
-            {
-                $this->widget('application.extensions.recaptcha.EReCaptcha', array(
-                    'model'      => $form->model,
-                    'attribute'  => 'captcha',
-                    'theme'      => 'red',
-                    'language'   => 'ru_Ru',
-                    'publicKey'  => '6LcsjsMSAAAAAG5GLiFpNi5R80_tg6v3NndjyuVh'
-                ));
-                echo $form
-                    ->getActiveFormWidget()
-                    ->error($form->model, 'captcha');
-            }
-            else
-            {
-                if ($error)
-                {
-                    echo $error;
-                }
-                echo $element->renderInput();
+//    if ($element->type == 'dropdownlist')
+//    {
+//        $element->items[''] = $label;
+//    }
 
-            }
-            ?>
-        </dd>
-    </dl>
-    <?php endif; ?>
+    echo $element->renderInput();
 
-<?php endforeach ?>
-
-<dl>
-    <dd>
-        <?php echo $form->renderButtons(); ?>
-    </dd>
-</dl>
-
-<?php echo $form->renderEnd(); ?>
-
-<?php Yii::app()->clientScript->registerPackage('clientForm'); ?>
-
+}
+echo $form->getActiveFormWidget()->error($form->model, $element->name);
+?>

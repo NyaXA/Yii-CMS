@@ -159,7 +159,6 @@ class BaseForm extends CForm
             $tpl = '_form';
         }
 
-//        $element->attributesadminForm['data-hint']  = $element->hint;
 
         $class = $element->type;
         if (isset($element->attributes['parentClass']))
@@ -169,7 +168,8 @@ class BaseForm extends CForm
 
         $res = CHtml::openTag('dl', array('class'=> $class));
         $res .= CHtml::openTag('dd');
-        $res .= CHtml::label($element->label, CHtml::resolveName($this->model, $element->name));
+//        $element->attributesadminForm['data-hint']  = $element->hint;
+
         $res .= Yii::app()->controller->renderPartial('application.views.layouts.' . $tpl, array(
             'element' => $element,
             'form'    => $this

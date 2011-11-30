@@ -5,7 +5,7 @@
  * 2. getModule - Получение родительского модуля. Если компонент не в модуле, вернет null
  * 3. url - алиас BaseController::url()
  */
-class ComponentBehavior extends CBehavior
+class ComponentInModuleBehavior extends CBehavior
 {
     private $_assets;
     private $_module_id;
