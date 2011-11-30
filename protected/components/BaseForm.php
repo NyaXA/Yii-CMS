@@ -169,6 +169,7 @@ class BaseForm extends CForm
 
         $res = CHtml::openTag('dl', array('class'=> $class));
         $res .= CHtml::openTag('dd');
+        $res .= CHtml::label($element->label, CHtml::resolveName($this->model, $element->name));
         $res .= Yii::app()->controller->renderPartial('application.views.layouts.' . $tpl, array(
             'element' => $element,
             'form'    => $this

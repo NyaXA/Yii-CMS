@@ -12,8 +12,10 @@ return array(
         'js'      => array(
             'grewForm/grewForm.js',
             'tipInput/tipinput.js',
+            'inFieldLabel/jquery.infieldlabel.js',
             'clientForm.js',
         ),
+        'css'     => array('form.css'),
         'depends' => array('jquery')
     ),
     'adminForm'  => array(

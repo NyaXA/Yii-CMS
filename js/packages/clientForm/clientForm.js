@@ -5,6 +5,7 @@
         var self = $(this);
 
         self.tipInput();
+        $('label').inFieldLabels();
     }
 
 })(jQuery);
