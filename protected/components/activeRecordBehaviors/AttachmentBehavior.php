@@ -1,4 +1,5 @@
 <?php
+
 class AttachmentBehavior extends CActiveRecordBehavior
 {
     public $attached_model;

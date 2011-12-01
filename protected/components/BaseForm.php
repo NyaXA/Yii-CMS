@@ -77,8 +77,7 @@ class BaseForm extends CForm
             return parent::__toString();
         } catch (Exception $e)
         {
-            //Y::dump($e->getMessage());
-            Y::dump($e->getTrace());
+            Yii::app()->handleException($e);
         }
     }
 
