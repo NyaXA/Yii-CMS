@@ -1,6 +1,6 @@
 <?php
 
-class MetaTagSubForm extends Portlet
+class MetaTags extends InputWidget
 {
     public $model;
 
