@@ -8,7 +8,7 @@ return array(
 	'elements' => array(
 		'title' => array('type' => 'text'),
 		'name'  => array('type' => 'text'),
-		'text'  => array('type' => 'application.extensions.tiny_mce.TinyMCE')
+		'text'  => array('type' => 'editor')
 	),
 	'buttons' => array(
 		'submit' => array('type' => 'submit', 'value' => 'Сохранить')
