@@ -36,7 +36,7 @@ class News extends ActiveRecordModel
         return CMap::mergeArray(parent::behaviors(), array(
             'FileManager'     => array(
                 'class'          => 'application.components.activeRecordBehaviors.AttachmentBehavior',
-                'attached_class' => 'FileManager'
+                'attached_model' => 'FileManager'
             ),
             'MetaTagBehavior' => array(
                 'class' => 'application.components.activeRecordBehaviors.MetaTagBehavior'

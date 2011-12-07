@@ -14,7 +14,8 @@ class Article extends ActiveRecordModel
     {
         $behaviors = parent::behaviors();
         $behaviors['FileManager'] = array(
-            'class' => 'application.components.activeRecordBehaviors.FileManagerBehavior'
+            'class' => 'application.components.activeRecordBehaviors.AttachmentBehavior',
+            'attached_model' => 'FileManager'
         );
 
         return $behaviors;
