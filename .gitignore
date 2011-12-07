@@ -4,3 +4,4 @@
 .project
 .settings/
 .upload/fileManager
+.protected/config/development.php
