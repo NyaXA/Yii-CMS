@@ -9,40 +9,24 @@ class HelpAdminController extends AdminController
     public static function actionsTitles()
     {
         return array(
-            'Sortable'      => 'Изменение позиции',
-            'SaveAttribute' => 'Сохранение Атрибута'
+            'Sortable'         => 'Изменение позиции',
+            'ManyManySortable' => 'Изменение позиции для отношений ManyMany',
+            'SaveAttribute'    => 'Сохранение Атрибута'
         );
     }
 
     public function actions()
     {
         return array(
-            'sortable' => array(
-                'class' => 'application.components.zii.sortable.SortableAction',
+            'sortable'         => array(
+                'class' => 'ext.sortable.SortableAction',
+            ),
+            'manyManySortable' => array(
+                'class' => 'ext.sortable.ManyManySortableAction',
+            ),
+            'saveAttribute'    => array(
+                'class' => 'main.components.SaveAttributeAction',
             )
         );
-    }
-
-    /**
-     * сохраняет 1 атрибут модели, все параметры передаются через POST
-     */
-    public function actionSaveAttribute()
-    {
-        $model = call_user_func($_POST['model'].'::model')->findByPk($_POST['id']);
-        if (isset($_POST['attributes']))
-        {
-            $model->attributes = $_POST['attributes'];
-        }
-        $attribute         = $_POST['attribute'];
-        $model->$attribute = $_POST['value'];
-
-        if ($model->save(true, array($attribute)))
-        {
-            echo $model->$attribute;
-        }
-        else
-        {
-            echo $model->getError($attribute);
-        }
     }
 }

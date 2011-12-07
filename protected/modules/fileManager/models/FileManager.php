@@ -54,7 +54,7 @@ class FileManager extends ActiveRecordModel
     {
         return CMap::mergeArray(parent::behaviors(), array(
             'sortable' => array(
-                'class' => 'application.components.activeRecordBehaviors.SortableBehavior'
+                'class' => 'ext.sortable.SortableBehavior'
             )
         ));
     }

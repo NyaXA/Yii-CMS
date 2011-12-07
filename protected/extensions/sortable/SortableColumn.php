@@ -4,13 +4,14 @@ class SortableColumn extends CDataColumn
     public $cssClass = null;
     public $headerText = null;
     public $value = 3;
-    public $assets;
+    public $assets = 'ext.sortable.assets.sortable';
+
 
     public function init()
     {
         parent::init();
 
-        $this->assets = Yii::app()->getAssetManager()->publish(Yii::getPathOfAlias('ext.QGridView.assets'));
+        $this->assets = Yii::app()->getAssetManager()->publish(Yii::getPathOfAlias($this->assets));
 
         $this->grid->onRegisterScript = array(
             $this,
@@ -33,10 +34,9 @@ class SortableColumn extends CDataColumn
             'url'   => $url,
             'model' => $model
         ));
-        $assets  = Yii::app()->getAssetManager()->publish(Yii::getPathOfAlias('ext.QGridView.assets'));
 
         Yii::app()->getClientScript()->registerCoreScript('jquery.ui')->registerScriptFile(
-            $assets . '/sortableCGrid.js')->registerScript(
+            $this->assets . '/sortableGrid.js')->registerScript(
             'sort_grid_' . $id, "$('#{$id}').sortableGrid({$options});");
     }
 

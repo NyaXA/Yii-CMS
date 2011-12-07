@@ -13,12 +13,16 @@ class GridView extends CGridView
     public $buttons = null;
 
     public $sortable = false;
+    public $many_many_sortable = false;
+    public $cat_id = false;
+
+    public $_pocket;
 
     public $mass_removal = false;
 
     public $jsPlugin = 'grid';
 
-    public $template = '{pagerSelect}{summary}<br/>{pager}<br/>{items}<br/>{pager}';
+    public $template = '{pagerSelect}{summary}<br/>{pager}<br/>{pocket}{items}<br/>{pager}';
 
 
     public function init()
@@ -90,10 +94,18 @@ class GridView extends CGridView
 
     public function initColumns()
     {
+        if ($this->many_many_sortable)
+        {
+            $this->addColumn(array(
+                'class' => 'ext.sortable.ManyManySortableColumn',
+                'header'=> 'Сортировка'
+            ), -1);
+        }
+
         if ($this->sortable)
         {
             $this->addColumn(array(
-                'class' => 'ext.QGridView.SortableColumn',
+                'class' => 'ext.sortable.SortableColumn',
                 'header'=> 'Сортировка'
             ), -1);
         }
@@ -128,12 +140,12 @@ class GridView extends CGridView
 
         return "<a href='/main/mainAdmin/changeOrder/id/{$data->id}/order/up/class/{$class}/from/" .
             base64_encode($_SERVER["REQUEST_URI"]) . "' />
-                    <img src='/images/admin/icons/arrow_up.png' border='0' />
+                    <img src='/img/admin/icons/arrow_up.png' border='0' />
                 </a>
                 &nbsp;
                 <a href='/main/mainAdmin/changeOrder/id/{$data->id}/order/down/class/{$class}/from/" .
             base64_encode($_SERVER["REQUEST_URI"]) . "' />
-                    <img src='/images/admin/icons/arrow_down.png' border='0'  />
+                    <img src='/img/admin/icons/arrow_down.png' border='0'  />
                 </a>";
     }
 
@@ -158,32 +170,55 @@ class GridView extends CGridView
         }
     }
 
-    public function renderTableRow($row)
+    public function renderPocket()
     {
-        $data = $this->dataProvider->data[$row];
+        if ($this->many_many_sortable)
+        {
+            $save = $this->dataProvider->getData(true);
+            $this->dataProvider->setData($this->_pocket);
+            $data = $this->_pocket;
+            $n    = count($data);
+            echo "<tbody class=\"pct sortt\">\n";
 
-        if ($this->rowCssClassExpression !== null)
-        {
-            echo '<tr class="' . $this->evaluateExpression($this->rowCssClassExpression, array(
-                'row' => $row,
-                'data'=> $data
-            )) . '">';
+            echo '<tr id="pct_empty"><td colspan="' . count($this->columns) . '">';
+            echo CHtml::tag('span', array('class'=> 'empty'), "Буфер обмена<br/>
+                                Перетащите товара в данную область, что бы перенести ее на другую страницу данного раздела Панели управления.");
+            echo "</td></tr>\n";
+
+            if ($n > 0)
+            {
+                foreach ($data as $row=> $info)
+                {
+                    $this->renderTableRow($row, $info);
+                }
+            }
+            echo "</tbody>\n";
+            $this->dataProvider->setData($save);
         }
-        else if (is_array($this->rowCssClass) && ($n = count($this->rowCssClass)) > 0)
+
+    }
+
+    public function renderTableBody()
+    {
+        $data = $this->dataProvider->getData(true);
+
+        $n = count($data);
+        echo "<tbody class=\"sc sortt\">\n";
+
+        if ($n > 0)
         {
-            echo '<tr class="' . $this->rowCssClass[$row % $n] . '">';
+            foreach ($data as $row=> $info)
+            {
+                $this->renderTableRow($row, $info);
+            }
         }
         else
         {
-            echo '<tr>';
+            echo '<tr><td colspan="' . count($this->columns) . '">';
+            $this->renderEmptyText();
+            echo "</td></tr>\n";
         }
-
-        foreach ($this->columns as $column)
-        {
-            $column->renderDataCell($row);
-        }
-
-        echo "</tr>\n";
+        echo "</tbody>\n";
     }
 
     public function renderPagerSelect()
@@ -207,14 +242,13 @@ class GridView extends CGridView
     /**
      * Изначально регистрируются 2 плагина gridBase и grid
      * Если установить значение свойства jsPlugin, то подключится так же плагин /css/admin/gridview/{$this->jsPlugin}.js
-     * И на сам grid будет
-     * инициализироват плагин с названием из jsPlugin
+     * И на сам grid будет инициализироват плагин с названием из jsPlugin
      */
     public function registerClientScript()
     {
         parent::registerClientScript();
         $cs = Yii::app()->clientScript;
-        $cs->registerScriptFile('/js/plugins/gridview/gridBase.js');
+        $cs->registerCoreScript('jquery.ui');
         $cs->registerScriptFile("/js/plugins/gridview/grid.js");
 
         if ($this->jsPlugin != 'grid')

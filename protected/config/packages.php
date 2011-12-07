@@ -1,13 +1,13 @@
 <?php
-return array(
-    'debug'      => array(
+$packages = array(
+    'debug'           => array(
         'baseUrl' => 'js/packages/debug/',
         'js'      => array(
             'debug.js',
         ),
         'depends' => array('jquery')
     ),
-    'clientForm' => array(
+    'clientForm'      => array(
         'baseUrl' => 'js/packages/clientForm/',
         'js'      => array(
             'grewForm/grewForm.js',
@@ -18,12 +18,18 @@ return array(
         'css'     => array('form.css'),
         'depends' => array('jquery')
     ),
-    'adminForm'  => array(
-        'baseUrl' => 'js/admin/',
+    'adminBaseClasses'=> array(
+        'baseUrl' => 'js/packages/adminBaseClasses',
         'js'      => array(
-            'admin_form.js'
+            'buttonSet.js',
+            'gridBase.js'
         ),
-        'depends' => array('jquery')
-    )
+        'depends' => array(
+            'jquery',
+            'jquery.ui'
+        )
+    ),
+
 );
 
+return $packages;

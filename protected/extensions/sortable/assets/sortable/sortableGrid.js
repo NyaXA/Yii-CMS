@@ -32,17 +32,7 @@
                 id = options.id,
                 table = self.element.find('tbody:first');
 
-            table.sortable({
-                axis:"y",
-                containment:"parent",
-                cursor:"pointer",
-                items:'tr',
-                delay:100,
-                distance:5,
-                handle:".positioner",
-                forcePlaceholderSize:true,
-                forceHelperSize:true,
-                tolerance:"pointer",
+            table.sortable($.extend(self.defaultSortable, {
                 update:function(event, ui)
                 {
                     var arr = [];
@@ -55,10 +45,14 @@
                         url:options.url,
                         type:"POST",
                         data:({pk:arr, model:options.model}),
-                        dataType:"json"
+                        dataType:"json",
+                        success:function(msg)
+                        {
+                            table.yiiGridView.update(id);
+                        }
                     });
                 }
-            }).disableSelection();
+            }));
         }
     });
 
