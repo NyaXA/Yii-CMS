@@ -21,7 +21,8 @@ require_once(LIBRARY_PATH.'functions/php_5_3_functions.php');
 $session = new CHttpSession;
 $session->open();
 
-$config = PROTECTED_PATH . '/config/' . getenv("APP_ENV") . '.php';
+$config = $_SERVER['REMOTE_ADDR'] == '127.0.0.1' ? 'development' : 'production';
+$config = PROTECTED_PATH . '/config/' . $config . '.php';
 
 Yii::createWebApplication($config)->run();
 

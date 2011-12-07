@@ -139,6 +139,9 @@ return array(
 //        ),
 
         'preload'      => array('log'),
+        'cache' => array(
+            'class'=>'system.caching.CFileCache',
+        ),
     ),
     'params'     => array(
         'save_site_actions' => false
