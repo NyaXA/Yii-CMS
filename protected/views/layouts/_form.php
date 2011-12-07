@@ -39,4 +39,5 @@ else
 
 }
 echo $form->getActiveFormWidget()->error($form->model, $element->name);
+
 ?>
