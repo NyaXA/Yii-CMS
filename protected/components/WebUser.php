@@ -4,17 +4,24 @@ class WebUser extends CWebUser
 {
     private $_model = null;
 
+    private static $_role;
+
 
     public function getRole()
     {	
-        if($user = $this->getModel())
+        if (self::$_role == null)
         {
-            return $user->role->name;
+            if($user = $this->getModel())
+            {
+                self::$_role = $user->role->name;
+            }
+            else
+            {
+                self::$_role = AuthItem::ROLE_GUEST;
+            }
         }
-        else 
-        {	
-        	return AuthItem::ROLE_GUEST;
-        }
+
+        return self::$_role;
     }
 
 

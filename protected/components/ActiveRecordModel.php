@@ -125,15 +125,22 @@ abstract class ActiveRecordModel extends CActiveRecord
 
     public function meta()
     {
-        $meta = Yii::app()->db
-            ->cache(1000)
-            ->createCommand("SHOW FUll columns FROM ".$this->tableName())
-            ->queryAll();
+        $cache_var = 'Meta_' . $this->tableName();
 
-        foreach ($meta as $ind => $field_data)
+        $meta = Yii::app()->cache->get($cache_var);
+        if ($meta === false)
         {
-            $meta[$field_data["Field"]] = $field_data;
-            unset($meta[$ind]);
+            $meta = Yii::app()->db
+                              ->createCommand("SHOW FUll columns FROM " . $this->tableName())
+                              ->queryAll();
+
+            foreach ($meta as $ind => $field_data)
+            {
+                $meta[$field_data["Field"]] = $field_data;
+                unset($meta[$ind]);
+            }
+
+            Yii::app()->cache->set($cache_var, $meta, 3600);
         }
 
         return $meta;
