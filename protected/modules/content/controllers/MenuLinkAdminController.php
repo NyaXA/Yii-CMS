@@ -56,15 +56,15 @@ class MenuLinkAdminController extends AdminController
 
             $buttons = "&nbsp;&nbsp;&nbsp;&nbsp;
                         <a href='" . $this->createUrl('create', array('menu_id' => $link->menu_id, 'parent_id' => $link->id)) . "'>
-                            <img border='0' src='/images/icons/add.png' />
-                        </a>            
+                            <img border='0' src='/img/icons/add.png' />
+                        </a>
             			&nbsp;
                         <a href='" . $this->createUrl('update', array('id' => $link->id)) . "'>
-                            <img border='0' src='/images/icons/update.png' />
+                            <img border='0' src='/img/icons/update.png' />
                         </a>
                         &nbsp;
                         <a href='' class='delete_menu_link' link_id='{$link->id}'>
-                            <img border='0' src='/images/icons/delete.png' />
+                            <img border='0' src='/img/icons/delete.png' />
                         </a>
                         ";
 

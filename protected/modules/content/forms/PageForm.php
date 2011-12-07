@@ -12,7 +12,7 @@ return array(
         'url'          => array('type' => 'text'),
         'text'         => array('type' => 'editor'),
         'is_published' => array('type' => 'checkbox'),
-        'meta_tags'    => array('type' => 'MetaTags')
+        'meta_tags'    => array('type' => 'MetaTagsForm')
     ),
     'buttons' => array(
         'submit' => array('type' => 'submit', 'value' => 'сохранить')

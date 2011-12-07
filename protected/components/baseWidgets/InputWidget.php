@@ -1,4 +1,5 @@
 <?php
+Yii::import('zii.widgets.jui.CJuiInputWidget');
 abstract class InputWidget extends CInputWidget
 {
     public $name;

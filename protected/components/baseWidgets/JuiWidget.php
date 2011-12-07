@@ -1,4 +1,5 @@
 <?php
+Yii::import('zii.widgets.jui.CJuiWidget');
 abstract class JuiWidget extends CJuiWidget
 {
     public function init()
