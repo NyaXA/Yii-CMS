@@ -22,7 +22,7 @@ abstract class BaseController extends CController
         $this->_initLanguage();
         if (YII_DEBUG)
         {
-            Yii::app()->clientScript->registerPackage('debug');
+            Yii::app()->clientScript->registerScriptFiles('/js/plugins/debug.js');
         }
     }
 

@@ -16,7 +16,6 @@ abstract class AdminController extends BaseController
         }
 
         $this->initTabs();
-        Yii::app()->clientScript->registerPackage('adminBaseClasses');
         //$this->initAssets();
     }
 

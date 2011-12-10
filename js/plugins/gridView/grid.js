@@ -13,7 +13,6 @@
         },
         _create:function()
         {
-
             this.parent()._create.call(this);
         },
         _initHandlers:function()

@@ -47,6 +47,45 @@
         },
         _initHandlers:function()  //there run functions for initialize some event handlers
         {
+        },
+
+
+        //default settings for plugins
+        //default options for sortable
+        defaultSortable:{
+            axis:"y",
+            revert:true,
+            cursor:"pointer",
+            items:'tr',
+            delay:100,
+            distance:5,
+            opacity:0.8,
+            handle:".positioner",
+            forcePlaceholderSize:true,
+            forceHelperSize:true,
+            helper:function(e, ui)
+            {
+                ui.children().each(function()
+                {
+                    $(this).width($(this).width());
+                });
+                return ui;
+            },
+            tolerance:"pointer",
+            placeholder:'placeholder',
+            //            helper:'clone',
+            start:function(event, ui)
+            {
+                ui.placeholder.html("<td colspan='100%'>&nbsp;</td>");
+            }
+        },
+
+        defaultJeditable:{
+            indicator:'<img src=\'/images/admin/ajax-loader.gif\'>',
+            tooltip:'Клик для редактирования...',
+            event:'click',
+            style:'inherit',
+            width:'50px'
         }
     });
 })(jQuery);

@@ -120,13 +120,13 @@
 			// The for attribute on the label must contain the ID
 			// of the input or textarea element
 			var for_attr = $(this).attr('for');
-			if( !for_attr ) return; // Nothing to attach, since the for field wasn't used
-			
+            if( !for_attr ) return; // Nothing to attach, since the for field wasn't used
+
 			// Find the referenced input or textarea element
 			var $field = $(
-				"input[name='" + for_attr + "'][type='text']," +
-				"input[name='" + for_attr + "'][type='password']," +
-				"textarea[name='" + for_attr + "']"
+				"input#" + for_attr + "[type='text']," +
+				"input#" + for_attr + "[type='password']," +
+				"textarea#" + for_attr
 				);
 
 			if( $field.length == 0) return; // Again, nothing to attach
