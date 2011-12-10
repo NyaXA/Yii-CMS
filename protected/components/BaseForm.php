@@ -55,8 +55,16 @@ class BaseForm extends CForm
         {
             $id = $this->activeForm['id'];
             if ($this->side == 'client') {
-                Yii::app()->clientScript->registerPackage('clientForm')->registerScript(
-                    $id . '_baseForm', "$('#{$id}').clientForm()");
+                Yii::app()->clientScript
+                    ->registerScriptFile('/js/plugins/clientForm/inFieldLabel/jquery.infieldlabel.js')
+                    ->registerScriptFile('/js/plugins/clientForm/inFieldLabel/clientForm.js')
+                    ->registerCssFile('/js/plugins/clientForm/inFieldLabel/form.css')
+                    ->registerScript($id . '_baseForm', "$('#{$id}').clientForm()");
+            }
+            else
+            {
+                Yii::app()->clientScript
+                    ->registerScriptFile('/js/plugins/adminForm/buttonSet.js');
             }
         }
 
@@ -100,6 +108,7 @@ class BaseForm extends CForm
 
     public function renderElement($element)
     {
+
         if (is_string($element))
         {
             if (($e = $this[$element]) === null && ($e = $this->getButtons()->itemAt($element)) === null
@@ -112,7 +121,6 @@ class BaseForm extends CForm
                 $element = $e;
             }
         }
-
         if ($element->getVisible())
         {
             if ($element instanceof CFormInputElement)
@@ -158,6 +166,7 @@ class BaseForm extends CForm
             $tpl = '_form';
         }
 
+//        $element->attributesadminForm['data-hint']  = $element->hint;
 
         $class = $element->type;
         if (isset($element->attributes['parentClass']))
@@ -167,8 +176,6 @@ class BaseForm extends CForm
 
         $res = CHtml::openTag('dl', array('class'=> $class));
         $res .= CHtml::openTag('dd');
-//        $element->attributesadminForm['data-hint']  = $element->hint;
-
         $res .= Yii::app()->controller->renderPartial('application.views.layouts.' . $tpl, array(
             'element' => $element,
             'form'    => $this
@@ -246,7 +253,6 @@ class BaseForm extends CForm
         }
 
         $model = $this->model;
-
         foreach ($model->attributes as $attr => $value)
         {
             if (Yii::app()->dater->isDbDate($value))
