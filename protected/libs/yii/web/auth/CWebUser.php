@@ -210,7 +210,6 @@ class CWebUser extends CApplicationComponent implements IWebUser
 		if($this->beforeLogin($id,$states,false))
 		{
 			$this->changeIdentity($id,$identity->getName(),$states);
-
 			if($duration>0)
 			{
 				if($this->allowAutoLogin)
