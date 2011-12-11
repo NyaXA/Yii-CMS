@@ -59,7 +59,7 @@ class News extends ActiveRecordModel
         );
     }
 
-
+public $roles;
     public function rules()
     {
         return array(
@@ -76,7 +76,7 @@ class News extends ActiveRecordModel
                 'tooLarge'   => 'Максимальный размер файла 2.5 Мб'
             ),
             array(
-                'meta_tags',
+                'meta_tags, roles',
                 'safe',
                 'on' => array(
                     self::SCENARIO_CREATE,
