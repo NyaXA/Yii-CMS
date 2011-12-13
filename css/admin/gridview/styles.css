@@ -104,7 +104,7 @@
 
 
 .ui-sortable-placeholder{
-    background: #AAA;
+    background: url('/images/admin/placeholder.png');
 }
 
 

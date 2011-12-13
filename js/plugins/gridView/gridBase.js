@@ -72,7 +72,6 @@
                 return ui;
             },
             tolerance:"pointer",
-            placeholder:'placeholder',
             //            helper:'clone',
             start:function(event, ui)
             {
