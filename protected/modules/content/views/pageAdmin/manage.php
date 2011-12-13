@@ -9,6 +9,7 @@ $this->widget('AdminGrid', array(
 	'id' => 'page-grid',
 	'dataProvider' => $model->search(),
 	'filter' => $model,
+    'sortable' => true,
 	'columns' => array(
 		array(
 			'name' => 'title',

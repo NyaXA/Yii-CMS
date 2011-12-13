@@ -2,6 +2,9 @@
 
 class AppManager
 {
+    private static $_modules_client_menu;
+
+
     public static function getModulesData($active = null, $check_allowed_links = false)
     {
         $modules = array();
@@ -232,6 +235,32 @@ class AppManager
         }
 
         return $result;
+    }
+
+
+    public static function getModulesClientMenu()
+    {
+        if (!self::$_modules_client_menu)
+        {
+
+            $modules = self::getModulesData(true);
+
+            foreach ($modules as $module)
+            {
+                if (method_exists($module['class'], 'clientMenu'))
+                {
+                    $client_menu = call_user_func(array($module['class'], 'clientMenu'));
+                    if (is_array($client_menu))
+                    {
+                        $modules_urls = array_merge($modules_urls, $client_menu);
+                    }
+                }
+            }
+
+            self::$_modules_client_menu = array_flip($modules_urls);
+        }
+
+        return self::$_modules_client_menu;
     }
 }
 

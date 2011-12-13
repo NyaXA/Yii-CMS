@@ -25,6 +25,12 @@ class WebUser extends CWebUser
     }
 
 
+    public static function setRole($role)
+    {
+        self::$_role = $role;
+    }
+
+
     public function isRootRole()
     {
         if($user = $this->getModel())

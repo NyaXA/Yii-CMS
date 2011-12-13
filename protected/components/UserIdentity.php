@@ -57,6 +57,8 @@ class UserIdentity extends CUserIdentity
 
         if (!$this->errorCode && $admin_panel)
         {
+            WebUser::setRole($user->role);
+
             if (!RbacModule::isAllow('Admin_Main'))
             {
                 Yii::app()->user->logout();

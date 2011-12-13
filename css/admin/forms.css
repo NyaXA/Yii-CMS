@@ -32,12 +32,13 @@ input.text{
     font-family:           "Lucida Grande", Verdana, sans-serif;
     font-size:             14px;
     color:                 #333;
-    padding:               3px;
+    padding:               7px;
     -webkit-border-radius: 3px;
     -moz-border-radius:    3px;
     border-radius:         3px;
     outline:               none;
     vertical-align:        middle;
+    /*height: 26px;*/
 }
 
 input.text.medium{
@@ -52,7 +53,7 @@ input.text.date_picker{
     width:         100px;
     padding-right: 36px;
     cursor:        pointer;
-    background:    url(/img/admin/cal.jpg) center right no-repeat;
+    background:    url(/images/admin/cal.jpg) center right no-repeat;
 }
 
 textarea{
@@ -90,11 +91,11 @@ input.checkbox{
     -webkit-border-radius: 3px;
     -moz-border-radius:    3px;
     border-radius:         3px;
-    background:            url('/img/admin/sdd.jpg') center right no-repeat;
+    background:            url('/images/admin/sdd.jpg') center right no-repeat;
 }
 
 .cmf-skinned-select:hover{
-    background: url('/img/admin/sdd_.jpg') center right no-repeat;
+    background: url('/images/admin/sdd_.jpg') center right no-repeat;
 }
 
 div.cmf-skinned-text{
@@ -122,7 +123,7 @@ div.cmf-skinned-text{
 }
 
 .fileupload #uploadmsg.loading{
-    background:   url(/img/admin/ajax-loader.gif) center left no-repeat;
+    background:   url(/images/admin/ajax-loader.gif) center left no-repeat;
     width:        30px;
     padding-left: 20px;
 }
@@ -162,7 +163,7 @@ input.submit{
     width:          85px;
     height:         30px;
     line-height:    30px;
-    background:     url(/img/admin/btns.gif) top center no-repeat;
+    background:     url(/images/admin/btns.gif) top center no-repeat;
     border:         0;
     font-family:    "Titillium800", "Trebuchet MS", Arial, sans-serif;
     font-size:      14px;
@@ -176,7 +177,7 @@ input.submit{
 }
 
 input.submit:hover{
-    background:  url(/img/admin/btns_.gif) top center no-repeat;
+    background:  url(/images/admin/btns_.gif) top center no-repeat;
     text-shadow: 1px 1px 0 #b55f10;
 }
 
@@ -190,37 +191,37 @@ input.submit.tiny{
     font-size:      12px;
     font-weight:    bold;
     text-transform: none;
-    background:     url(/img/admin/tiny.gif) top center no-repeat;
+    background:     url(/images/admin/tiny.gif) top center no-repeat;
 }
 
 input.submit.tiny.red{
-    background: url(/img/admin/tiny_red.gif) top center no-repeat;
+    background: url(/images/admin/tiny_red.gif) top center no-repeat;
 }
 
 input.submit.tiny:hover{
-    background: url(/img/admin/tiny_.gif) top center no-repeat;
+    background: url(/images/admin/tiny_.gif) top center no-repeat;
 }
 
 input.submit.mid{
     width:      115px;
-    background: url(/img/admin/btnm.gif) top center no-repeat;
+    background: url(/images/admin/btnm.gif) top center no-repeat;
 }
 
 input.submit.mid:hover{
-    background: url(/img/admin/btnm_.gif) top center no-repeat;
+    background: url(/images/admin/btnm_.gif) top center no-repeat;
 }
 
 input.submit.long{
     width:      165px;
-    background: url(/img/admin/btnb.gif) top center no-repeat;
+    background: url(/images/admin/btnb.gif) top center no-repeat;
 }
 
 input.submit.long:hover{
-    background: url(/img/admin/btnb_.gif) top center no-repeat;
+    background: url(/images/admin/btnb_.gif) top center no-repeat;
 }
 
 input.back_button.submit.small{
-    background: url(/img/admin/btns_red.gif) top center no-repeat;
+    background: url(/images/admin/btns_red.gif) top center no-repeat;
 }
 
 .form .editor{
@@ -317,4 +318,8 @@ form .multiselect-wrapper{
 form .multiselect-wrapper .text
 {
     /*border: none;*/
+}
+
+dl {
+   margin-bottom:13px !important;	
 }

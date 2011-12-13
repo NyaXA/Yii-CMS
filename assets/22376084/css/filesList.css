@@ -1,0 +1,15 @@
+.file-list {margin: 10px 0; clear: both;}
+    .file-list .header {font-weight: bold;}
+    .file-list .files {}
+    .file-list .file{padding: 5px 0 0 0;}
+    .file-list .icon{width: 40px; display: table-cell;}
+    .file-list .link{width: 400px; display: table-cell; vertical-align: middle;}
+    .file-list .link a{
+        vertical-align: middle;
+        color:#166FB4;
+        font-weight: bold;
+        text-decoration: underline;
+    }
+    .file-list .link a:hover{
+        text-decoration: none;
+    }
