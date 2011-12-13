@@ -8,6 +8,7 @@ class BaseForm extends CForm
 
     public $cancel_button_show = true;
 
+
     public function __construct($config, $model = null, $parent = null)
     {
         if (Yii::app()->controller instanceof AdminController)
@@ -30,11 +31,13 @@ class BaseForm extends CForm
         $this->formatDateAttributes();
     }
 
+
     public static function getFullAlias($alias)
     {
         list($module, $form) = explode(".", $alias, 2);
         return "application.modules.{$module}.forms.{$form}";
     }
+
 
     public static function getFormConfig($alias)
     {
@@ -49,22 +52,23 @@ class BaseForm extends CForm
         }
     }
 
+
     public function __toString()
     {
         if (!($this->parent instanceof self))
         {
             $id = $this->activeForm['id'];
-            if ($this->side == 'client') {
+            if ($this->side == 'client')
+            {
                 Yii::app()->clientScript
                     ->registerScriptFile('/js/plugins/clientForm/inFieldLabel/jquery.infieldlabel.js')
                     ->registerScriptFile('/js/plugins/clientForm/inFieldLabel/clientForm.js')
-                    ->registerCssFile('/js/plugins/clientForm/inFieldLabel/form.css')
-                    ->registerScript($id . '_baseForm', "$('#{$id}').clientForm()");
+                    ->registerCssFile('/js/plugins/clientForm/inFieldLabel/form.css')->registerScript(
+                    $id . '_baseForm', "$('#{$id}').clientForm()");
             }
             else
             {
-                Yii::app()->clientScript
-                    ->registerScriptFile('/js/plugins/adminForm/buttonSet.js');
+                Yii::app()->clientScript->registerScriptFile('/js/plugins/adminForm/buttonSet.js');
             }
         }
 
@@ -89,6 +93,7 @@ class BaseForm extends CForm
         }
     }
 
+
     public function renderBody()
     {
         $output = parent::renderBody();
@@ -106,6 +111,7 @@ class BaseForm extends CForm
         return $output;
     }
 
+
     public function renderElement($element)
     {
 
@@ -121,44 +127,48 @@ class BaseForm extends CForm
                 $element = $e;
             }
         }
-        if ($element->getVisible())
+        //        if ($element->getVisible())
+        //        {
+        if ($element instanceof CFormInputElement)
         {
-            if ($element instanceof CFormInputElement)
+            if ($element->type === 'hidden')
             {
-                if ($element->type === 'hidden')
-                {
-                    return "<div style=\"visibility:hidden\">\n" . $element->render() . "</div>\n";
-                }
-                else
-                {
-                    return $this->_renderElement($element);
-                }
-            }
-            else if ($element instanceof CFormButtonElement)
-            {
-                return $element->render() . "\n";
+                return "<div style=\"visibility:hidden\">\n" . $element->render() . "</div>\n";
             }
             else
             {
-                return $element->render();
+                return $this->_renderElement($element);
             }
         }
-        return '';
+        else if ($element instanceof CFormButtonElement)
+        {
+            return $element->render() . "\n";
+        }
+        else
+        {
+            return $element->render();
+        }
+        //        }
+        //        return '';
     }
+
 
     private function _renderElement($element)
     {
         if ($element instanceof self)
         {
+            $this->_addAdminClasses($element);
             return $element->render();
         }
 
         if ($this->side == 'admin')
         {
+            $this->_addAdminClasses($element);
             $tpl = '_adminForm';
         }
         elseif ($this->side = 'client')
         {
+            $this->_addClientClasses($element);
             $tpl = '_form';
         }
         else
@@ -166,7 +176,7 @@ class BaseForm extends CForm
             $tpl = '_form';
         }
 
-//        $element->attributesadminForm['data-hint']  = $element->hint;
+        //        $element->attributesadminForm['data-hint']  = $element->hint;
 
         $class = $element->type;
         if (isset($element->attributes['parentClass']))
@@ -178,7 +188,7 @@ class BaseForm extends CForm
         $res .= CHtml::openTag('dd');
         $res .= Yii::app()->controller->renderPartial('application.views.layouts.' . $tpl, array(
             'element' => $element,
-            'form'    => $this
+            'form'    => $element->parent
         ), true);
         $res .= CHtml::closeTag('dd');
         $res .= CHtml::closeTag('dl');
@@ -186,10 +196,38 @@ class BaseForm extends CForm
         return $res;
     }
 
+
+    private function _addAdminClasses(&$element)
+    {
+        $class = $element->type;
+        switch ($element->type)
+        {
+            case 'date':
+                $class .= ' text date_picker';
+                break;
+            case 'password':
+                $class .= ' text';
+                break;
+            case 'dropdownlist':
+                $class .= ' cmf-skinned-select';
+                break;
+            default:
+                ;
+        }
+        $element->attributes['class'] = $class;
+    }
+
+    private function _addClientClasses(&$element)
+    {
+
+    }
+
+
     public function clear()
     {
         $this->_clear = true;
     }
+
 
     public function renderButtons()
     {
@@ -245,6 +283,7 @@ class BaseForm extends CForm
         }
     }
 
+
     function formatDateAttributes()
     {
         if (!$this->model)
@@ -263,6 +302,7 @@ class BaseForm extends CForm
 
         $this->model = $model;
     }
+
 
     //недоделанные функции
     function renderHint($element)
