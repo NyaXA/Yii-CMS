@@ -32,10 +32,12 @@ class GridView extends CGridView
         $this->formatDateValues();
     }
 
+
     public function behaviors()
     {
         return array();
     }
+
 
     public function formatDateValues()
     {
@@ -47,8 +49,7 @@ class GridView extends CGridView
                 if (Yii::app()->dater->isDbDate($value))
                 {
                     if (in_array($value, array(
-                        '0000-00-00 00:00:00',
-                        '0000-00-00'
+                        '0000-00-00 00:00:00', '0000-00-00'
                     ))
                     )
                     {
@@ -58,13 +59,14 @@ class GridView extends CGridView
                     {
                         $item->$attr = Yii::app()->dater->readableFormat($value);
                     }
-
                 }
             }
+
         }
 
         $this->dataProvider->setData($data);
     }
+
 
     /**
      * Добавляет колонки перед последней колонкой
@@ -78,6 +80,7 @@ class GridView extends CGridView
         array_splice($this->columns, $last_index, 1, $configs);
     }
 
+
     /**
      * Добавляет колонку перед последней колонкой
      * @param $config конфиг колонки
@@ -86,11 +89,11 @@ class GridView extends CGridView
     {
         $last_index = $pos >= 0 ? $pos : count($this->columns) + $pos;
         $configs    = array(
-            $config,
-            $this->columns[$last_index]
+            $config, $this->columns[$last_index]
         );
         array_splice($this->columns, $last_index, 1, $configs);
     }
+
 
     public function initColumns()
     {
@@ -134,6 +137,7 @@ class GridView extends CGridView
         parent::initColumns();
     }
 
+
     public static function orderLinks($data)
     {
         $class = get_class($data);
@@ -148,6 +152,7 @@ class GridView extends CGridView
                     <img src='/img/admin/icons/arrow_down.png' border='0'  />
                 </a>";
     }
+
 
     public function renderItems()
     {
@@ -169,6 +174,7 @@ class GridView extends CGridView
             $this->renderEmptyText();
         }
     }
+
 
     public function renderPocket()
     {
@@ -198,10 +204,11 @@ class GridView extends CGridView
 
     }
 
+
     public function renderTableBody()
     {
-        $data = $this->dataProvider->getData(true);
-
+        $data = $this->dataProvider->getData();
+        
         $n = count($data);
         echo "<tbody class=\"sc sortt\">\n";
 
@@ -221,6 +228,7 @@ class GridView extends CGridView
         echo "</tbody>\n";
     }
 
+
     public function renderPagerSelect()
     {
         echo '<div class="pager-select">';
@@ -239,6 +247,7 @@ class GridView extends CGridView
         echo '</div>';
     }
 
+
     /**
      * Изначально регистрируются 2 плагина gridBase и grid
      * Если установить значение свойства jsPlugin, то подключится так же плагин /css/admin/gridview/{$this->jsPlugin}.js
@@ -249,6 +258,7 @@ class GridView extends CGridView
         parent::registerClientScript();
         $cs = Yii::app()->clientScript;
         $cs->registerCoreScript('jquery.ui');
+        $cs->registerScriptFile("/js/plugins/gridview/gridBase.js");
         $cs->registerScriptFile("/js/plugins/gridview/grid.js");
 
         if ($this->jsPlugin != 'grid')
@@ -264,6 +274,7 @@ class GridView extends CGridView
 
         $this->onRegisterScript(new CEvent);
     }
+
 
     public function onRegisterScript($event)
     {
