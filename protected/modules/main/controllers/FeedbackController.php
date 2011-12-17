@@ -15,15 +15,11 @@ class FeedbackController extends BaseController
         $model = new Feedback;
         $form  = new BaseForm('main.FeedbackForm', $model);
 
-        if(isset($_POST['ajax']) && $_POST['ajax'] == 'feedback-form')
-        {
-             echo CActiveForm::validate($model);
-             Yii::app()->end();
-        }
+        $this->performAjaxValidation($model);
 
-        if (isset($_POST['Feedback']))
+        if ($form->submitted('submit'))
         {
-            $model->attributes = $_POST['Feedback'];
+            $model = $form->model;
             if ($model->save())
             {
                 Yii::app()->user->setFlash('feedback_done', Yii::t('MainModule.main', 'Сообщение успешно отправлено!'));

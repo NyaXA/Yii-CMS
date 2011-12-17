@@ -27,7 +27,7 @@ $this->widget('DetailView', array(
 		'date',
 		'date_create',
         array(
-            'name'  => 'Мета-теги',
+            'header'  => 'Мета-теги',
             'value' => MetaTag::model()->html($model->id, get_class($model)),
             'type'  => 'raw'
         ),

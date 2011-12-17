@@ -196,11 +196,6 @@ class Banner extends ActiveRecordModel
 
     public function beforeSave()
     {
-        if ($this->isNewRecord)
-        {
-            $this->setDefaultPriority();
-        }
-
         return parent::beforeSave();
     }
 }

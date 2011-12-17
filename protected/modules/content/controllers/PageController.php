@@ -1,18 +1,18 @@
 <?php
- 
+
 class PageController extends BaseController
-{   
-    public static function actionsTitles() 
+{
+    public static function actionsTitles()
     {
         return array(
             "View" => "Просмотр страницы",
             "Main" => "Главная страница"
         );
-    }    
-    
-    
+    }
+
+
     public function actionView()
-    {       
+    {
         $id = $this->request->getParam("id");
         if ($id)
         {
@@ -24,29 +24,21 @@ class PageController extends BaseController
         }
         else
         {
-            $url = $this->request->getParam("url");
+            $url  = $this->request->getParam("url");
             $page = Page::model()->published()->findByAttributes(array("url" => $url));
             if (!$page)
             {
                 $this->pageNotFound();
             }
         }
-		
+
         $this->render("view", array("page" => $page));
     }
 
 
     public function actionMain()
     {
-
-
-        $page = Page::model()->published()->findByAttributes(array('url' => '/'));   
-
-        if (!$page)
-        {
-            return;
-        }
-
+        $page = $this->loadModel('/', array('published'), 'url');
         $this->render('view', array('page' => $page));
-    }  
+    }
 }
