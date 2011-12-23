@@ -4,7 +4,6 @@ class FileManagerAdminController extends AdminController
     public static function actionsTitles()
     {
         return array(
-            "UpdateAttr"   => "Редактирование файла",
             "Upload"       => "Загрузка файлов",
             "SavePriority" => "Сортировка",
             "Delete"       => "Удаление файла",
@@ -68,13 +67,14 @@ class FileManagerAdminController extends AdminController
         foreach ((array)$files as $file)
         {
             $res[] = array(
-                'name'          => $file->title,
+                'title'         => $file->title,
+                'descr'         => $file->descr,
                 'size'          => $file->size,
                 'url'           => $file->src,
                 'thumbnail_url' => $file->src,
                 'delete_url'    => $file->deleteUrl,
                 'delete_type'   => "GET",
-                'edit_link'     => UploadHtml::editableLink('Редактировать', $file, 'title', 'fileManagerAdmin/updateAttr', array('class'=> 'thumb-edit')),
+                'edit_link'     => CHtml::link('<img width="16" height="16" src="/images/admin/editable.gif" style="display: inline-block;" />', $this->createUrl('/main/helpAdmin/saveAttribute'), array('class'=> 'thumb-edit')),
                 'id'            => 'File_'.$file->id
             );
         }
@@ -100,37 +100,17 @@ class FileManagerAdminController extends AdminController
         $files = new FileManager('sort');
 
         $case = SqlHelper::arrToCase('id', array_flip($ids), 't');
-        $c    = Yii::app()->db->commandBuilder->createSqlCommand("UPDATE {$files->tableName()} AS t SET t.order = {$case}");
+        $arr  = implode(',', $ids);
+        $c    = Yii::app()->db->commandBuilder->createSqlCommand("UPDATE {$files->tableName()} AS t SET t.order = {$case} WHERE t.id IN ({$arr})");
         $c->execute();
     }
 
 
     public function actionDelete()
     {
-        $model = $this
+        $this
             ->loadModel()
             ->delete();
-    }
-
-
-    public function actionUpdateAttr()
-    {
-        $model = $this->loadModel();
-
-        $model->scenario = 'update';
-
-        $this->performAjaxValidation($model);
-
-        if (isset($_POST[get_class($model)]))
-        {
-            $attr         = $_GET['attr'];
-            $model->$attr = $_POST[get_class($model)][$attr];
-
-            if ($model->save())
-            {
-                echo $model->$_GET['attr'];
-            }
-        }
     }
 
     public function loadModel()

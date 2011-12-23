@@ -62,13 +62,16 @@ class BaseForm extends CForm
             {
                 Yii::app()->clientScript
                     ->registerScriptFile('/js/plugins/clientForm/inFieldLabel/jquery.infieldlabel.js')
-                    ->registerScriptFile('/js/plugins/clientForm/inFieldLabel/clientForm.js')
-                    ->registerCssFile('/js/plugins/clientForm/inFieldLabel/form.css')->registerScript(
+                    ->registerScriptFile('/js/plugins/clientForm/clientForm.js')
+                    ->registerCssFile('/js/plugins/clientForm/form.css')->registerScript(
                     $id . '_baseForm', "$('#{$id}').clientForm()");
             }
             else
             {
-                Yii::app()->clientScript->registerScriptFile('/js/plugins/adminForm/buttonSet.js');
+                Yii::app()->clientScript->registerScriptFile('/js/admin/admin_form.js')
+                    ->registerScriptFile('/js/plugins/adminForm/buttonSet.js')
+                    ->registerScriptFile('/js/plugins/adminForm/tooltips/jquery.atooltip.js')
+                    ->registerCssFile('/js/plugins/adminForm/tooltips/atooltip.css');
             }
         }
 
@@ -217,6 +220,7 @@ class BaseForm extends CForm
         $element->attributes['class'] = $class;
     }
 
+
     private function _addClientClasses(&$element)
     {
 
@@ -317,7 +321,5 @@ class BaseForm extends CForm
         }
 
     }
-
-    //нужно еще добавить вывод городов
 
 }

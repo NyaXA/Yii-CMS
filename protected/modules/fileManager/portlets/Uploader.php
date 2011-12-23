@@ -6,6 +6,7 @@ class Uploader extends CJuiWidget
 {
     public $model;
     public $id;
+    public $title;
 
     public $data_type; //image, sound, video, document
 

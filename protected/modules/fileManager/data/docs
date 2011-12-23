@@ -9,11 +9,11 @@ upload_class - работа с изображениями - ресайз, кро
 Модели:
 1) File:
 Общий принцип работы - есть 3 поля в БД по которым определяется хозяин файла:
-    typeParent - имя модели, которой принадлежит файл, например News
-    idParent - id модели, которой принадлежит файл.
+    model_id - имя модели, которой принадлежит файл, например News
+    object_id - id модели, которой принадлежит файл.
     tag - у одной новости могут быть файлы с разными тегами, например before/after. (я даю имена тегам такие же как и релейшнам в родительских классах)
-            пример релейшна: 'images' => array(self::HAS_MANY, 'Files', 'idParent',
-                                    'condition' => "typeParent='".get_class($this)."' AND images.tag='images'",
+            пример релейшна: 'images' => array(self::HAS_MANY, 'Files', 'object_id',
+                                    'condition' => "model_id='".get_class($this)."' AND images.tag='images'",
                                     'order' => 'images.`order` DESC'
                                 ),
     

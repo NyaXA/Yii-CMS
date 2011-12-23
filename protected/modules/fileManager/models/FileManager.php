@@ -2,7 +2,7 @@
 
 class FileManager extends ActiveRecordModel
 {
-    const UPLOAD_PATH  = 'upload/fileManager/';
+    const UPLOAD_PATH  = 'upload/fileManager';
     const FILE_POSTFIX = '';
 
     public $extension;
@@ -52,21 +52,18 @@ class FileManager extends ActiveRecordModel
 
     public function behaviors()
     {
-        return CMap::mergeArray(parent::behaviors(), array(
-            'sortable' => array(
-                'class' => 'ext.sortable.SortableBehavior'
-            )
-        ));
+        return array( //            'sortable' => array(
+//                'class' => 'application.components.activeRecordBehaviors.SortableBehavior'
+//            )
+        );
     }
 
     public function parent($model_id, $id)
     {
         $alias = $this->getTableAlias();
-        $this
-            ->getDbCriteria()
-            ->mergeWith(array(
-            'condition' => $alias.'.model_id="'.$model_id.'" AND '.$alias.'.object_id="'.$id.'"',
-            'order'     => $alias.'.order DESC'
+        $this->getDbCriteria()->mergeWith(array(
+            'condition' => "$alias.model_id='$model_id' AND $alias.object_id='$id'",
+            'order'     => "$alias.order DESC"
         ));
         return $this;
     }
@@ -74,10 +71,8 @@ class FileManager extends ActiveRecordModel
     public function tag($tag)
     {
         $alias = $this->getTableAlias();
-        $this
-            ->getDbCriteria()
-            ->mergeWith(array(
-            'condition' => $alias.'.tag="'.$tag.'"'
+        $this->getDbCriteria()->mergeWith(array(
+            'condition' => "$alias.tag='$tag'"
         ));
         return $this;
     }
@@ -160,9 +155,7 @@ class FileManager extends ActiveRecordModel
 
     public function getIcon()
     {
-        $folder = Yii::app()
-            ->getModule('fileManager')
-            ->assetsUrl().'/img/fileIcons/';
+        $folder = Yii::app()->getModule('fileManager')->assetsUrl() . '/img/fileIcons/';
         if ($this->isImage)
         {
             $name = 'image';
@@ -183,7 +176,7 @@ class FileManager extends ActiveRecordModel
         {
             $name = 'archive';
         }
-        elseif (is_file('.'.$folder.$this->extension.'.png'))
+        elseif (is_file('.' . $folder . $this->extension . '.png'))
         {
             $name = $this->extension;
         }
@@ -191,14 +184,14 @@ class FileManager extends ActiveRecordModel
         {
             $name = 'any';
         }
-        return CHtml::image($folder.$name.'.png', '', array('height' => 24));
+        return CHtml::image($folder . $name . '.png', '', array('height' => 24));
     }
 
 
     public function getHandler($field = false)
     {
         Yii::import('upload.extensions.upload.Upload');
-        $param = $field ? $_FILES[$field] : self::UPLOAD_PATH.$this->name;
+        $param = $field ? $_FILES[$field] : self::UPLOAD_PATH . $this->name;
         return new Upload($param);
     }
 
@@ -212,7 +205,6 @@ class FileManager extends ActiveRecordModel
         return true;
     }
 
-
     public static function str2url($str)
     {
         $str = self::rus2translit($str); // переводим в транслит
@@ -221,7 +213,6 @@ class FileManager extends ActiveRecordModel
         $str = trim($str, "-"); // удаляем начальные и конечные '-'
         return $str;
     }
-
 
     public function setExtraProperties($field, &$handler, $options)
     {
@@ -240,28 +231,16 @@ class FileManager extends ActiveRecordModel
         }
     }
 
-    private function beforeSaveOnServer()
-    {
-        $this->title = '';
-
-        if (!is_dir(self::UPLOAD_PATH))
-        {
-            mkdir(self::UPLOAD_PATH, 0777);
-        }
-    }
-
-
     public function saveFile()
     {
-        $this->beforeSaveOnServer();
-
-        $file = CUploadedFile::getInstanceByName('file');
-
-        $file_name = FileSystem::getUniqFileName($file->name, self::UPLOAD_PATH);
-
-        if ($file->saveAs(self::UPLOAD_PATH.$file_name))
+        $file      = CUploadedFile::getInstanceByName('file');
+        $file_name = Yii::app()->text->translit($file->name);
+        $file_name = FileSystem::vaultResolveCollision(self::UPLOAD_PATH, $file_name);
+        $new_file  = self::UPLOAD_PATH . '/' . $file_name;
+        if ($file->saveAs('./' . $new_file))
         {
-            $this->name = $file_name;
+            list($this->path, $this->name) = FileSystem::moveToVault($new_file, self::UPLOAD_PATH, true);
+            $this->title = $this->name;
             $this->fill();
             return true;
         }
@@ -277,7 +256,7 @@ class FileManager extends ActiveRecordModel
      */
     public function getFormatSize()
     {
-        $file = self::UPLOAD_PATH.$this->name;
+        $file = self::UPLOAD_PATH . $this->name;
         $size = $this->size;
 
         $metrics[0] = 'bytes';
@@ -292,33 +271,14 @@ class FileManager extends ActiveRecordModel
             $size /= 1024;
         }
 
-        $ret = round($size, 1)." ".(isset($metrics[$metric]) ? $metrics[$metric] : '??');
+        $ret = round($size, 1) . " " . (isset($metrics[$metric]) ? $metrics[$metric] : '??');
         return $ret;
     }
 
 
-    public function getSrc($realFile = false)
+    public function getSrc()
     {
-        $src = Yii::app()->baseUrl;
-        if ($this->isImage)
-        {
-            $src = '/'.self::UPLOAD_PATH.$this->name;
-        }
-        elseif ($this->isSound)
-        {
-            if ($realFile)
-            {
-                $src .= Yii::app()
-                    ->getModule('fileManager')
-                    ->assetsUrl().'/img/mp3.png';
-            }
-            else
-            {
-                $src .= substr(self::UPLOAD_PATH.$this->name, 1);
-            }
-        }
-
-        return $src;
+        return Yii::app()->baseUrl . '/' . $this->path . '/' . $this->name;
     }
 
 
@@ -328,15 +288,13 @@ class FileManager extends ActiveRecordModel
         $this->fill();
     }
 
-
     public function fill()
     {
-        $file       = self::UPLOAD_PATH.$this->name;
-        $this->size = (
-            $file && is_file($file)) ? filesize($file) : NULL; //$this->formatSize($this->basePath.$this->name);
+        $file            = $this->path . '/' . $this->name;
+        $this->size      = ($file &&
+            is_file($file)) ? filesize($file) : NULL; //$this->formatSize($this->basePath.$this->name);
         $this->extension = pathinfo($this->name, PATHINFO_EXTENSION);
     }
-
 
     public function getNameWithoutExt()
     {
@@ -349,16 +307,13 @@ class FileManager extends ActiveRecordModel
         return strtr($name, $params);
     }
 
-
     public function beforeSave()
     {
         if (parent::beforeSave())
         {
             if ($this->isNewRecord)
             {
-                $model       = FileManager::model()
-                    ->parent($this->model_id, $this->object_id)
-                    ->limit(1)
+                $model = FileManager::model()->parent($this->model_id, $this->object_id)->limit(1)
                     ->find();
                 $this->order = $model ? $model->order + 1 : 1;
                 $this->title;
@@ -377,9 +332,11 @@ class FileManager extends ActiveRecordModel
     {
         if (parent::beforeDelete())
         {
-            if (is_file(self::UPLOAD_PATH.$this->name))
+            if (is_file(self::UPLOAD_PATH . $this->name))
             {
-                FileSystem::deleteFileWithSimilarNames(self::UPLOAD_PATH, $this->name);
+                FileSystem::deleteFileWithSimilarNames(self::UPLOAD_PATH . '/crop', $this->name);
+                FileSystem::deleteFileWithSimilarNames(self::UPLOAD_PATH . '/watermark', $this->name);
+                @unlink('./' . self::UPLOAD_PATH . $this->name);
             }
 
             return true;
@@ -413,14 +370,8 @@ class FileManager extends ActiveRecordModel
     }
 
 
-    public function getPath()
-    {
-        return $_SERVER['DOCUMENT_ROOT'].self::UPLOAD_PATH.$this->name;
-    }
-
-
     public function getUrl()
     {
-        return "http://".$_SERVER["HTTP_HOST"]."/".self::UPLOAD_PATH.$this->name;
+        return "http://" . $_SERVER["HTTP_HOST"] . "/" . self::UPLOAD_PATH . $this->name;
     }
 }

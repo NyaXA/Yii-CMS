@@ -103,8 +103,8 @@
 }
 
 
-.ui-sortable-placeholder{
-    background: url('/images/admin/placeholder.png');
+.placeholder{
+    background: url(/img/admin/placeholder.png);
 }
 
 

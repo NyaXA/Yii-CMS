@@ -1,74 +1,101 @@
 <?php
-echo $form->getActiveFormWidget()->labelEx($form->model, $element->name);
+$only_on_new_record = array('alias');
+if (!$form->model->isNewRecord && in_array($element->type, $only_on_new_record))
+{
+    return '';
+}
 
-if ($element->type == 'date')
+$no_label            = array('MetaTags', 'file_manager');
+if (!in_array($element->type, $no_label))
 {
-    $model_class = get_class($form->model);
-    echo $form->getActiveFormWidget()->textField($form->model, $element->name, $element->attributes);
-    $this->widget('application.extensions.calendar.SCalendar', array(
-        'inputField' => "{$model_class}_{$element->name}",
-        'ifFormat'   => '%d.%m.%Y',
-        'language'   => 'ru-UTF'
-    ));
+    echo $element->renderHint();
+    echo $form->getActiveFormWidget()->labelEx($form->model, $element->name);
 }
-elseif ($element->type == 'editor')
-{
-    $this->widget('application.extensions.tiny_mce.TinyMCE', array(
-        //                'editorTemplate' => 'full',
-        'model'     => $form->model,
-        'attribute' => $element->name,
-    ));
-}
-elseif ($element->type == 'multi_select')
-{
-    $this->widget('application.extensions.emultiselect.EMultiSelect');
-    echo $form->getActiveFormWidget()->dropdownlist($form->model, $element->name, $element->items, array(
-        'multiple' => 'multiple',
-        'key'      => $element->name,
-        'class'    => 'multiselect'
-    ));
-}
-elseif ($element->type == 'autocomplete')
-{
-    $this->widget('CAutoComplete', array(
-        'name'       => $element->name,
-        'attribute'  => $element->name,
-        'model'      => $form->model,
-        'url'        => array($element->url),
-        'minChars'   => 2,
-        'delay'      => 500,
-        'matchCase'  => false,
-        'htmlOptions'=> array(
-            'size'  => '40',
-            'class' => 'text'
-        )
-    ));
 
-}
-elseif ($element->type == 'file_manager')
+//input widgets
+switch ($element->type)
 {
-    ?>
-
-<fieldset>
-    <legend>Файлы:</legend>
-
-    <?php
-    $this->widget('fileManager.portlets.Uploader', array(
-        'model'       => $form->model,
-        'id'          => 'uploader',
-        'data_type'   => 'any',
-        'maxFileSize' => 10 * 1000 * 1000,
-        'tag'         => 'files'
-    ));
-    ?>
-</fieldset>
-
-<?php
+    case 'checkbox':
+        $element->type = 'main.components.IphoneCheckbox';
+        break;
+    case 'multi_autocomplete':
+        $element->type = 'products.portlets.MultiAutocomplete';
+        break;
+    case 'alias':
+        $element->type  = 'main.components.AliasField';
+        $element->class = 'text';
+        break;
 }
-else
+
+//widgets
+switch ($element->type)
 {
-    echo $element->renderInput();
+    case 'date':
+        $model_class = get_class($form->model);
+        echo $form->getActiveFormWidget()->textField($form->model, $element->name, $element->attributes);
+        $this->widget('application.extensions.calendar.SCalendar', array(
+            'inputField' => "{$model_class}_{$element->name}",
+            'ifFormat'   => '%d.%m.%Y',
+            'language'   => 'ru-UTF'
+        ));
+        break;
+    case 'editor':
+        $this->widget('application.extensions.tiny_mce.TinyMCE', array(
+            //                'editorTemplate' => 'full',
+            'model'     => $form->model,
+            'attribute' => $element->name,
+        ));
+        break;
+    case 'multi_select':
+        $this->widget('application.extensions.emultiselect.EMultiSelect');
+
+        echo $form->getActiveFormWidget()->dropdownlist($form->model, $element->name, $element->items, array(
+            'multiple' => 'multiple',
+            'key'      => isset($element->key) ? $element->key : 'id',
+            'class'    => 'multiselect'
+        ));
+
+        break;
+    case 'autocomplete':
+        $this->widget('CAutoComplete', array(
+            'name'       => $element->name,
+            'attribute'  => $element->name,
+            'model'      => $form->model,
+            'url'        => array($element->url),
+            'minChars'   => 2,
+            'delay'      => 500,
+            'matchCase'  => false,
+            'htmlOptions'=> array(
+                'size'  => '40',
+                'class' => 'text'
+            )
+        ));
+        break;
+    case 'file_manager':
+        $id    = isset($element->id) ? $element->id : 'uploader' . $element->attributes['tag'];
+        $title = isset($element->attributes['title']) ? $element->attributes['title'] : 'Файлы';
+        Yii::app()->clientScript->registerScript("{$id}_checker", '
+            $("#' . $id . '_checker").click(function(){$(this).siblings(".uploader").slideToggle(); return false;});
+        ');
+        echo CHtml::link($title, "#", array(
+            'id'    => $id . '_checker',
+            'class' => 'fieldset-checker'
+        ));
+        $this->widget('fileManager.portlets.Uploader', array(
+            'model'       => $form->model,
+            'id'          => $id,
+            'data_type'   => $element->attributes['data_type'],
+            'maxFileSize' => 10 * 1000 * 1000,
+            'tag'         => $element->attributes['tag'],
+            'title'       => $title
+        ));
+        break;
+
+    default:
+        echo $element->renderInput();
+        break;
 }
+
 echo $form->getActiveFormWidget()->error($form->model, $element->name);
 ?>
 

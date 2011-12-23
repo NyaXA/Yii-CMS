@@ -4,12 +4,13 @@ class FileList extends ListView
     public $model;
     public $tag;
     public $header = 'Файлы для скачивания';
-
+    public $emptyText = '';
+    
     public $items;
     public $template = "{header}\n{items}";
 
     public $enablePagination = false;
-    public $itemView ='fileManager.portlets.views.fileListItem';
+    public $itemView ='fileManager.portlets.views.filesListItem';
 
     public $htmlOptions = array(
         'class' => 'file-list'
@@ -32,6 +33,9 @@ class FileList extends ListView
 
     public function renderHeader()
     {
-        echo CHtml::tag('div', array('class' => 'header'), $this->header);
+        if($this->items)
+        {
+            echo CHtml::tag('div', array('class' => 'header'), $this->header);
+        }
     }
 }

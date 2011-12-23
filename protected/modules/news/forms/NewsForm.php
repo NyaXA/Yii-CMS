@@ -11,7 +11,7 @@ return array(
             'type'  => 'text',
             'class' => 'big'
         ),
-        'text'  => array('type' => 'application.extensions.tiny_mce.TinyMCE'),
+        'text'  => array('type' => 'editor'),
         'photo' => array('type' => 'file'),
         'state' => array(
             'type'  => 'dropdownlist',
@@ -19,15 +19,14 @@ return array(
         ),
         'date'  => array('type' => 'date'),
         'meta'  => array(
-            'type'   => 'widget',
-            'widget' => 'MetaTagSubForm'
+            'type'   => 'MetaTags'
         ),
-        'files' => array('type' => 'file_manager'),
-        'roles' => array(
-            'type'  => 'multi_select',
-            'items' => array('1'=>1, '3'=>4)
+        'files' => array(
+            'type'      => 'file_manager',
+            'tag'       => 'file',
+            'data_type' => 'any',
+            'title' => 'Файлы для скачивания'
         ),
-
     ),
     'buttons'    => array(
         'submit' => array(

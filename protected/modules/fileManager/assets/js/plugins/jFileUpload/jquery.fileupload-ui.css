@@ -41,7 +41,7 @@
 }
 
 .fileupload-buttonbar {
-  padding: 0.2em 0.4em;
+  padding: 0 0 0.2em 0;
 }
 
 .fileupload-buttonbar .ui-button {
@@ -105,7 +105,9 @@
 /*.drop-zone-hover{border-color: #090; font-weight: bold; font-size: 16px}*/
 .uploader{margin-top: 10px}
     .uploader .name{width: 300px; overflow: hidden;}
-.fileupload-buttonbar{margin: 5px}
 .watermark{position:relative; top:-10px; left:10px; width: 65px; display: block; padding: 0; margin: 0;}
 .watermark a{width:16px;height:16px;display:block;position:absolute;background-repeat: no-repeat;}
 
+.editable_wrapper{position: relative;}
+.thumb-edit{position: absolute; right:-5px; top: -4px;}
+.editable_wrapper *{display: inline}

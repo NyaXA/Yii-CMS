@@ -10,20 +10,7 @@
         Перетащите сюда файлы
     </div>
     <div class="fileupload-content">
-        <table class="files">
-            <tbody></tbody>
-        </table>
+        <table class="files"><tbody></tbody></table>
         <div class="fileupload-progressbar"></div>
     </div>
 </div>
-
-<script type="text/javascript">
-$(function()
-{
-    $('.submit').click(function()
-    {
-        $('.admin_form').submit();
-    });
-});
-</script>
-

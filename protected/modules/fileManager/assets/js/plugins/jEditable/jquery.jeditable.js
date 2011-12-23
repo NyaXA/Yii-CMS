@@ -282,7 +282,8 @@
                 } else if ('submit' == settings.onblur) {
                     input.blur(function(e) {
                         /* Prevent double submit if submit was clicked. */
-                        t = setTimeout(function() {
+                          t = setTimeout(function() {
+
                             form.submit();
                         }, 200);
                     });
@@ -544,7 +545,7 @@
         width      : 'auto',
         height     : 'auto',
         event      : 'click.editable',
-        onblur     : 'cancel',
+        onblur     : 'submit',
         loadtype   : 'GET',
         loadtext   : 'Loading...',
         placeholder: 'Click to edit',

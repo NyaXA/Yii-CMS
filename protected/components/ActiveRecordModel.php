@@ -69,7 +69,7 @@ abstract class ActiveRecordModel extends CActiveRecord
         } catch (CException $e)
         {
             $method_name = StringHelper::underscoreToCamelcase($name);
-            $method_name = 'get'.ucfirst($method_name);
+            $method_name = 'get' . ucfirst($method_name);
 
             if (method_exists($this, $method_name))
             {
@@ -82,6 +82,7 @@ abstract class ActiveRecordModel extends CActiveRecord
         }
     }
 
+
     public function __set($name, $val)
     {
         try
@@ -90,7 +91,7 @@ abstract class ActiveRecordModel extends CActiveRecord
         } catch (CException $e)
         {
             $method_name = StringHelper::underscoreToCamelcase($name);
-            $method_name = 'set'.ucfirst($method_name);
+            $method_name = 'set' . ucfirst($method_name);
 
             if (method_exists($this, $method_name))
             {
@@ -107,10 +108,7 @@ abstract class ActiveRecordModel extends CActiveRecord
     public function __toString()
     {
         $attributes = array(
-            'name',
-            'title',
-            'description',
-            'id'
+            'name', 'title', 'description', 'id'
         );
 
         foreach ($attributes as $attribute)
@@ -123,6 +121,52 @@ abstract class ActiveRecordModel extends CActiveRecord
     }
 
 
+    /*___________________________________________________________________________________*/
+
+
+    /*SCOPES_____________________________________________________________________________*/
+    public function scopes()
+    {
+        $alias = $this->getTableAlias();
+        return array(
+            'published' => array('condition' => $alias . '.is_published = 1'),
+            'ordered'   => array('order' => $alias . '.`order`'),
+            'last'      => array('order' => $alias . '.date_create DESC')
+        );
+    }
+
+
+    public function limit($num)
+    {
+        $this->getDbCriteria()->mergeWith(array(
+            'limit' => $num,
+        ));
+
+        return $this;
+    }
+
+
+    public function offset($num)
+    {
+        $this->getDbCriteria()->mergeWith(array(
+            'offset' => $num,
+        ));
+
+        return $this;
+    }
+
+
+    public function notEqual($param, $value)
+    {
+        $alias = $this->getTableAlias();
+        $this->getDbCriteria()->mergeWith(array(
+            'condition' => $alias . ".`{$param}` != '{$value}'",
+        ));
+
+        return $this;
+    }
+
+
     public function meta()
     {
         $cache_var = 'Meta_' . $this->tableName();
@@ -130,9 +174,7 @@ abstract class ActiveRecordModel extends CActiveRecord
         $meta = Yii::app()->cache->get($cache_var);
         if ($meta === false)
         {
-            $meta = Yii::app()->db
-                              ->createCommand("SHOW FUll columns FROM " . $this->tableName())
-                              ->queryAll();
+            $meta = Yii::app()->db->createCommand("SHOW FUll columns FROM " . $this->tableName())->queryAll();
 
             foreach ($meta as $ind => $field_data)
             {
@@ -155,11 +197,12 @@ abstract class ActiveRecordModel extends CActiveRecord
 
         foreach ($objects as $object)
         {
-            if ($object->id == $id) {
+            if ($object->id == $id)
+            {
                 continue;
             }
 
-            $result[$object->$value] = str_repeat("_", $spaces).$object->$name;
+            $result[$object->$value] = str_repeat("_", $spaces) . $object->$name;
 
             if ($object->childs)
             {
@@ -175,10 +218,7 @@ abstract class ActiveRecordModel extends CActiveRecord
 
     public function authObject()
     {
-        $object_ids = AuthObject::model()->getObjectsIds(
-            get_class($this),
-            Yii::app()->user->role
-        );
+        $object_ids = AuthObject::model()->getObjectsIds(get_class($this), Yii::app()->user->role);
 
         $criteria = $this->getDbCriteria();
         $criteria->addInCondition('id', $object_ids);
