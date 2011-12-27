@@ -1,15 +1,17 @@
 <?php
+$activeForm = $form->getActiveFormWidget();
+
 $only_on_new_record = array('alias');
 if (!$form->model->isNewRecord && in_array($element->type, $only_on_new_record))
 {
     return '';
 }
 
-$no_label            = array('MetaTags', 'file_manager');
+$no_label = array('MetaTags', 'file_manager');
 if (!in_array($element->type, $no_label))
 {
     echo $element->renderHint();
-    echo $form->getActiveFormWidget()->labelEx($form->model, $element->name);
+    echo $activeForm->labelEx($form->model, $element->name);
 }
 
 //input widgets
@@ -32,24 +34,23 @@ switch ($element->type)
 {
     case 'date':
         $model_class = get_class($form->model);
-        echo $form->getActiveFormWidget()->textField($form->model, $element->name, $element->attributes);
-        $this->widget('application.extensions.calendar.SCalendar', array(
+        echo $activeForm->textField($form->model, $element->name, $element->attributes);
+        $this->widget('ext.calendar.SCalendar', array(
             'inputField' => "{$model_class}_{$element->name}",
             'ifFormat'   => '%d.%m.%Y',
             'language'   => 'ru-UTF'
         ));
         break;
     case 'editor':
-        $this->widget('application.extensions.tiny_mce.TinyMCE', array(
+        $this->widget('ext.tiny_mce.TinyMCE', array(
             //                'editorTemplate' => 'full',
             'model'     => $form->model,
             'attribute' => $element->name,
         ));
         break;
     case 'multi_select':
-        $this->widget('application.extensions.emultiselect.EMultiSelect');
-
-        echo $form->getActiveFormWidget()->dropdownlist($form->model, $element->name, $element->items, array(
+        $this->widget('ext.emultiselect.EMultiSelect', $element->attributes);
+        echo $activeForm->dropdownlist($form->model, $element->name, $element->items, array(
             'multiple' => 'multiple',
             'key'      => isset($element->key) ? $element->key : 'id',
             'class'    => 'multiselect'
@@ -96,7 +97,7 @@ switch ($element->type)
         break;
 }
 
-echo $form->getActiveFormWidget()->error($form->model, $element->name);
+echo $activeForm->error($form->model, $element->name);
 ?>
 
 
