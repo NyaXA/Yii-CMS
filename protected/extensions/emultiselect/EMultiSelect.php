@@ -3,7 +3,7 @@
  * EMultiSelect class file.
  *
  * PHP Version 5.1
- * 
+ *
  * @category Vencidi
  * @package  Widget
  * @author   Loren <wiseloren@yiiframework.com>
@@ -23,11 +23,14 @@ Yii::import('zii.widgets.jui.CJuiWidget');
  * @link     http://www.vencidi.com/ Vencidi
  * @since    3.0
  */
-class EMultiSelect extends CJuiWidget
+class EMultiSelect extends JuiWidget
 {
     public $sortable = true;
     public $searchable = true;
-    public $height = '200px';
+    public $height = '175px';
+    public $onchange;
+    public $class;
+
 
     /**
      * Run not used...
@@ -38,6 +41,7 @@ class EMultiSelect extends CJuiWidget
     {
 
     }
+
 
     /**
      * Initializes everything
@@ -50,6 +54,7 @@ class EMultiSelect extends CJuiWidget
         $this->registerScripts();
     }
 
+
     /**
      * Registers the JS and CSS Files
      *
@@ -58,39 +63,26 @@ class EMultiSelect extends CJuiWidget
     protected function registerScripts()
     {
         parent::registerCoreScripts();
-        $basePath=Yii::getPathOfAlias('application.extensions.emultiselect.assets');
+        $basePath = Yii::getPathOfAlias('ext.emultiselect.assets');
+        $baseUrl  = Yii::app()->getAssetManager()->publish($basePath);
 
-        $baseUrl = Yii::app()->getAssetManager()->publish($basePath);
-      
-        $cs=Yii::app()->getClientScript();
+        $cs = Yii::app()->getClientScript();
         $cs->registerCssFile($baseUrl . '/' . 'ui.multiselect.css');
 
-        $this->scriptUrl=$baseUrl;
+        $this->scriptUrl = $baseUrl;
         $this->registerScriptFile('ui.multiselect.js');
 
-        $params = array();
-        if ($this->sortable) {
-            $params[] = "sortable:true";
-        } else {
-            $params[] = "sortable:false";
-        }
+        $parameters = CJavaScript::encode(array(
+            'sortable'     => $this->sortable,
+            'searchable'   => $this->searchable,
+            'height'       => $this->height,
+            'onchange'     => $this->onchange
+        ));
 
-        if ($this->searchable) {
-            $params[] = "searchable:true";
-        } else {
-            $params[] = "searchable:false";
-        }
-
-        $params[]= "height: '{$this->height}'";
-
-        $parameters = '{' .implode(',', $params). '}';
-
-        Yii::app()->clientScript->registerScript(
-            'EMultiSelect',
-            '$(".multiselect").multiselect('. $parameters .');',
-            CClientScript::POS_READY
-        );
+        $cs->registerScript('EMultiSelect',
+            '$(".multiselect").multiselect(' . $parameters . ');', CClientScript::POS_READY);
 
     }
 }
+
 ?>

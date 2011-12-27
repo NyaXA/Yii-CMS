@@ -54,25 +54,27 @@ $.widget('cmsUI.fileupload', $.blueimpUI.fileupload, {
     {
         this.element.delegate('.thumb-edit', 'click', function()
         {
-
-            var self = $(this),
-                item = self.closest('td'),
+            var link = $(this),
+                item = link.closest('td'),
                 field = $('.editable', item),
-                action = self.attr('href'),
+                action = link.attr('href'),
                 options = {
                     type:field.data('editable-type'),
                     rows:3,
                     cols:20,
                     submitdata:{
-                        id:self.closest('tr').attr('id').split('_')[1],
+                        id:link.closest('tr').attr('id').split('_')[1],
                         model:'FileManager',
                         attribute:field.data('attr')
                     },
                     onblur:'submit',
-                    callback:function() {self.css({display:'inline'})}
+                    callback:function()
+                    {
+                        link.css({display:'inline'})
+                    }
                 };
 
-            self.hide();
+            link.hide();
             field.editable(action, options).click();
 
             return false;
