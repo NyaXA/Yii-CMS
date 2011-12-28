@@ -40,6 +40,7 @@
             	result = result.replace(regExp, o.urlSeparator);
                 result = result.slice(0, 35);
             	$destination.val(result);
+                $destination.trigger('change');
             })
         });
     };
