@@ -3,9 +3,9 @@
 $elements = array(
     'name'      => array('type' => 'text'),
     'subject'   => array('type' => 'text'),
-    'text'      => array('type' => 'application.extensions.tiny_mce.TinyMCE'),
+    'text'      => array('type' => 'editor'),
     //'is_basic'  => array('type' => 'checkbox'),
-    'users_ids' => array('type' => 'widget', 'widget' => 'UsersCheckboxes'),
+//    'users_ids' => array('type' => 'UsersCheckboxes'),
 );
 
 if (!Yii::app()->user->isRootRole())

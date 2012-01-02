@@ -7,8 +7,8 @@ $elements = array(
         'prompt' => 'не выбран'
     ),
     'subject'   => array('type' => 'text'),
-    'text'      => array('type' => 'application.extensions.tiny_mce.TinyMCE'),
-    'users_ids' => array('type' => 'widget', 'widget' => 'UsersCheckboxes')
+    'text'      => array('type' => 'editor'),
+//    'users_ids' => array('type' => 'UsersCheckboxes')
 );
 
 if ($this->model->scenario == 'with_template' || $this->model->template)

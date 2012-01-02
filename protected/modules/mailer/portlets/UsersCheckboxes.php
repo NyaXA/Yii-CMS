@@ -1,6 +1,6 @@
 <?php
  
-class UsersCheckboxes extends Portlet
+class UsersCheckboxes extends InputWidget
 {	
 	public $model;
 	
