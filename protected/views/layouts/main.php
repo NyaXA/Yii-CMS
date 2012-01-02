@@ -3,8 +3,8 @@
 <head>
     <title><?php echo $this->meta_title; ?></title>
 
-    <meta name="description" content="<?php echo $this->meta_description ?>" />
-    <meta name="keywords" content="<?php echo $this->meta_keywords ?>" />
+    <meta name="description" content="<?php echo $this->meta_description ?>"/>
+    <meta name="keywords" content="<?php echo $this->meta_keywords ?>"/>
 
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 
@@ -19,6 +19,14 @@
     $cs->registerScriptFile('/js/site/cuf_run.js');
     $cs->registerScriptFile('/js/site/radius.js');
     ?>
+
+    <script type="text/javascript">
+        window.onerror = function(msg) //for selenium testing
+        {
+            $("body").attr("jserror", msg);
+        };
+    </script>
+
 </head>
 <body>
 <div class="main">
@@ -29,12 +37,14 @@
             </div>
             <div class="logo">
                 <h1>
-                    <a href="/">YII <small>CMS</small></a>
+                    <a href="/">YII
+                        <small>CMS</small>
+                    </a>
                 </h1>
             </div>
 
             <?php $this->widget('LanguageSwitcher'); ?>
-            
+
             <div class="clr"></div>
         </div>
     </div>

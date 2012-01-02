@@ -16,11 +16,10 @@ class AdminPanelTest extends WebTestCase
 
             foreach ($module["admin_menu"] as $title => $url)
             {
-                $msg = "Ошибка на странице " . $url;
-
                 $this->open($url);
-                $this->assertFalse($this->isTextPresent('Error'), $msg);
-                $this->assertFalse($this->isTextPresent('Exception'), $msg);
+                $this->assertFalse($this->isTextPresent('Error'), "Error on page " . $url);
+                $this->assertFalse($this->isTextPresent('Exception'), "Exception on page " . $url);
+                $this->assertElementNotPresent('//body[@jserror]', "Javascript error on page " . $url);
             }
         }
     }
@@ -31,6 +30,6 @@ class AdminPanelTest extends WebTestCase
         $this->open('/admin/login');
         $this->type('User_email', 'admin@ya.ru');
         $this->type('User_password', '123456');
-        $this->click("User_submit");
+        $this->submitAndWait("user-login-form");
     }
 }

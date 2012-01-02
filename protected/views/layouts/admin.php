@@ -36,6 +36,13 @@
     $cs->registerScriptFile('/js/plugins/blockUI/loaders.js');
     ?>
 
+    <script type="text/javascript">
+        window.onerror = function(msg) //for selenium testing
+        {
+            $("body").attr("jserror", msg);
+        };
+    </script>
+
 </head>
 <body>
 <div id="hld">
