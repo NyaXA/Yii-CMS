@@ -31,15 +31,15 @@ class AppManager
 
             if ($active !== null)
             {
-            	if (!array_key_exists('active', $vars))
-            	{
-        			continue;
-            	}
+                if (!array_key_exists('active', $vars))
+                {
+                    continue;
+                }
 
-				if ($active && !$vars['active'])
-				{
-					continue;
-				}
+                if ($active && !$vars['active'])
+                {
+                    continue;
+                }
             }
 
             $module = array(
@@ -122,7 +122,9 @@ class AppManager
             $methods = $reflection->getMethods(ReflectionMethod::IS_PUBLIC);
             foreach ($methods as $method)
             {
-                if (in_array($method->name, array('actionsTitles', 'actions')) || mb_substr($method->name, 0, 6, 'utf-8') != 'action')
+                if (in_array($method->name, array('actionsTitles', 'actions')) ||
+                    mb_substr($method->name, 0, 6, 'utf-8') != 'action'
+                )
                 {
                     continue;
                 }
@@ -131,11 +133,11 @@ class AppManager
 
                 $action_name = str_replace('Controller', '', $class) . '_' . $action;
 
-				$title = isset($actions_titles[$action]) ? $actions_titles[$action] : "";
-				if ($title && $use_admin_prefix && strpos($action_name, "Admin_") !== false)
-				{
-					$title.= " (админка)";
-				}
+                $title = isset($actions_titles[$action]) ? $actions_titles[$action] : "";
+                if ($title && $use_admin_prefix && strpos($action_name, "Admin_") !== false)
+                {
+                    $title .= " (админка)";
+                }
 
                 $actions[$action_name] = $title;
             }
@@ -216,8 +218,15 @@ class AppManager
                 }
 
                 $model_class = str_replace('.php', null, $model_file);
-
-                $model = ActiveRecordModel::model($model_class);
+                $class       = new ReflectionClass($model_class);
+                if ($class->isSubclassOf('ActiveRecordModel'))
+                {
+                    $model = ActiveRecordModel::model($model_class);
+                }
+                else
+                {
+                    continue;
+                }
 
                 if (isset($params['meta_tags']))
                 {
