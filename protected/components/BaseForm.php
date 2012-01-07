@@ -8,7 +8,6 @@ class BaseForm extends CForm
 
     public $cancel_button_show = true;
 
-
     public function __construct($config, $model = null, $parent = null)
     {
         if (Yii::app()->controller instanceof AdminController)
@@ -55,12 +54,14 @@ class BaseForm extends CForm
 
     public function __toString()
     {
+        $cs = Yii::app()->clientScript;
+
         if (!($this->parent instanceof self))
         {
             $id = $this->activeForm['id'];
             if ($this->side == 'client')
             {
-                Yii::app()->clientScript
+                $cs
                     ->registerScriptFile('/js/plugins/clientForm/inFieldLabel/jquery.infieldlabel.js')
                     ->registerScriptFile('/js/plugins/clientForm/clientForm.js')
                     ->registerCssFile('/js/plugins/clientForm/form.css')->registerScript(
@@ -68,16 +69,20 @@ class BaseForm extends CForm
             }
             else
             {
-                Yii::app()->clientScript->registerScriptFile('/js/admin/admin_form.js')
+                $cs
+                    ->registerScriptFile('/js/admin/admin_form.js')
+                    ->registerScriptFile('/js/admin/admin_form.js')
                     ->registerScriptFile('/js/plugins/adminForm/buttonSet.js')
                     ->registerScriptFile('/js/plugins/adminForm/tooltips/jquery.atooltip.js')
-                    ->registerCssFile('/js/plugins/adminForm/tooltips/atooltip.css');
+                    ->registerCssFile('/js/plugins/adminForm/tooltips/atooltip.css')
+                    ->registerScriptFile('/js/plugins/adminForm/chosen/chosen.jquery.js')
+                    ->registerCssFile('/js/plugins/adminForm/chosen/chosen.css');;
             }
         }
 
         if ($this->_clear)
         {
-            Yii::app()->clientScript->registerScript('clearForm', '$(function()
+            $cs->registerScript('clearForm', '$(function()
                 {
                     $(":input","#' . $this->activeForm['id'] . '")
                         .not(":button, :submit, :reset, :hidden")
@@ -103,7 +108,6 @@ class BaseForm extends CForm
 
         if (!($this->getParent() instanceof self))
         {
-            $id = $this->activeForm['id'];
             if ($this->side == 'admin')
             {
                 $this->attributes['class'] = 'admin_form';
@@ -117,7 +121,6 @@ class BaseForm extends CForm
 
     public function renderElement($element)
     {
-
         if (is_string($element))
         {
             if (($e = $this[$element]) === null && ($e = $this->getButtons()->itemAt($element)) === null
@@ -321,5 +324,7 @@ class BaseForm extends CForm
         }
 
     }
+
+//нужно еще добавить вывод городов
 
 }

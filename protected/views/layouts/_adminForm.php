@@ -1,17 +1,16 @@
 <?php
-$activeForm = $form->getActiveFormWidget();
-
+$active_form = $form->getActiveFormWidget();
 $only_on_new_record = array('alias');
 if (!$form->model->isNewRecord && in_array($element->type, $only_on_new_record))
 {
     return '';
 }
 
-$no_label = array('MetaTags', 'file_manager');
+$no_label            = array('MetaTags', 'file_manager');
 if (!in_array($element->type, $no_label))
 {
     echo $element->renderHint();
-    echo $activeForm->labelEx($form->model, $element->name);
+    echo $active_form->labelEx($form->model, $element->name);
 }
 
 //input widgets
@@ -27,6 +26,10 @@ switch ($element->type)
         $element->type  = 'main.components.AliasField';
         $element->class = 'text';
         break;
+    case 'chosen':
+        $element->type  = 'dropdownlist';
+        $element->class = 'chosen';
+        break;
 }
 
 //widgets
@@ -34,7 +37,7 @@ switch ($element->type)
 {
     case 'date':
         $model_class = get_class($form->model);
-        echo $activeForm->textField($form->model, $element->name, $element->attributes);
+        echo $active_form->textField($form->model, $element->name, $element->attributes);
         $this->widget('ext.calendar.SCalendar', array(
             'inputField' => "{$model_class}_{$element->name}",
             'ifFormat'   => '%d.%m.%Y',
@@ -50,12 +53,11 @@ switch ($element->type)
         break;
     case 'multi_select':
         $this->widget('ext.emultiselect.EMultiSelect', $element->attributes);
-        echo $activeForm->dropdownlist($form->model, $element->name, $element->items, array(
+        echo $active_form->dropdownlist($form->model, $element->name, $element->items, array(
             'multiple' => 'multiple',
             'key'      => isset($element->key) ? $element->key : 'id',
             'class'    => 'multiselect'
         ));
-
         break;
     case 'autocomplete':
         $this->widget('CAutoComplete', array(
@@ -97,7 +99,7 @@ switch ($element->type)
         break;
 }
 
-echo $activeForm->error($form->model, $element->name);
+echo $active_form->error($form->model, $element->name);
 ?>
 
 

@@ -6,7 +6,7 @@
  *
  * Добавляет disabled поле в форму, автоматически заполняемую текстом из поля $source, транслитерируя
  * перед этим текст из поля $source. Нетекстовые символы и прочий мусор удаляются
- * В поле $source можно указать просто имя атрибута источника
+ * Обязательный параметр `source` - имя атрибута источника
  *
  * Render input and input[type=hidden], because jquery.serialize ignore disabled inputs
  *
@@ -26,23 +26,15 @@ class AliasField extends InputWidget
         CHtml::resolveNameID($this->model, $this->source, $attrs);
 
         $options = CJavaScript::encode(array(
+            'source' => $attrs['id'],
             'destination'  => $this->id,
             'urlSeparator' => $this->divider,
         ));
-        $id      = $attrs['id'];
-        Yii::app()->clientScript->registerScriptFile('/js/plugins/adminForm/alias/jquery.synctranslit.js')
-            ->registerScript($this->id . '_iphone_checkbox', "
-                var title = $('#{$id}'),
-                    alias = $('#{$this->id}');
-                title.syncTranslit($options);
-                alias.change(function() {
-                    $('#{$this->id}_hidden').val($('#{$this->id}').val());
-                });
-                alias.siblings('.change_alias').click(function(){
-                    $(this).hide();
-                    alias.removeAttr('disabled');
-                    return false;
-                });
+        Yii::app()->clientScript
+            ->registerScriptFile('/js/plugins/adminForm/alias/jquery.synctranslit.js')
+            ->registerScriptFile('/js/plugins/adminForm/alias/alias.js')
+            ->registerScript($this->id . '_iphone_checkbox', "$('#{$this->id}').alias({$options});
+
             ");
     }
 
@@ -51,11 +43,13 @@ class AliasField extends InputWidget
     {
         echo CHtml::hiddenField($this->name, '', array(
             'id'=> $this->id . '_hidden'
-        )); //because disabled elements no serialize
+        )); //beckause disabled elements no serialize
         echo CHtml::activeTextField($this->model, $this->attribute, array(
-            'class'   => $this->class,
+            'class'   => 'text',
             'disabled'=> 'disabled'
         ));
-        echo CHtml::link(CHtml::image('/img/admin/editable.gif', '', array('height'=> 16)), '#', array('class'=> 'change_alias'));
+        echo CHtml::link(CHtml::image('/images/admin/editable.gif', '', array('height'=> 16)), '#', array('class'=> 'change_alias'));
+        echo CHtml::link('Сохранить', '#', array('class'=> 'save_alias'));
+        echo '<div class="alias_preloader" ></div>';
     }
 }

@@ -9,15 +9,20 @@ $(document).ready(function()
     {
         var self = $(this),
             label = self.siblings('label:first'),
-
             a = $('<a class="hint" href="#">')
                 .aToolTip({
                     clickIt:true,
                     tipContent:self.html()
                 });
+
+        self.hide();
         self.replaceWith(a);
     });
 
+    $('.chosen').chosen({
+        no_results_text:"Выберите один из вариантов",
+        allow_single_deselect:true
+    });
 
     /**
      * Help to add validation to new field in form, ex: add field by ajax.
