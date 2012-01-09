@@ -46,19 +46,21 @@ class GridView extends CGridView
         {
             foreach ($item as $attr => $value)
             {
-                if (Yii::app()->dater->isDbDate($value))
+                if (!Yii::app()->dater->isDbDate($value))
                 {
-                    if (in_array($value, array(
-                        '0000-00-00 00:00:00', '0000-00-00'
-                    ))
-                    )
-                    {
-                        $item->$attr = null;
-                    }
-                    else
-                    {
-                        $item->$attr = Yii::app()->dater->readableFormat($value);
-                    }
+                    continue;
+                }
+
+                $no_values = array('0000-00-00 00:00:00', '0000-00-00');
+                $new_value = in_array($value, $no_values) ? null : Yii::app()->dater->readableFormat($value);
+
+                if (is_array($item))
+                {
+                    $item[$attr] = $new_value;
+                }
+                else
+                {
+                    $item->$attr = $new_value;
                 }
             }
 
@@ -208,7 +210,7 @@ class GridView extends CGridView
     public function renderTableBody()
     {
         $data = $this->dataProvider->getData();
-        
+
         $n = count($data);
         echo "<tbody class=\"sc sortt\">\n";
 

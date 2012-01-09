@@ -26,19 +26,22 @@ class FileSystem
 
     public static function deleteDirRecursive($dir_name)
     {
-        if (!is_dir($dir_name)) {
+        if (!is_dir($dir_name))
+        {
             return false;
         }
 
         $dir_handle = opendir($dir_name);
 
-        if (!$dir_handle) {
+        if (!$dir_handle)
+        {
             return false;
         }
 
         while (($file = readdir($dir_handle)) !== false)
         {
-            if ($file == "." or $file == "..") {
+            if ($file == "." or $file == "..")
+            {
                 continue;
             }
 
@@ -65,11 +68,13 @@ class FileSystem
 
         foreach ($dir_files as $dir_file)
         {
-            if ($dir_file == '.' || $dir_file == '..' || $dir_file == $file) {
+            if ($dir_file == '.' || $dir_file == '..' || $dir_file == $file)
+            {
                 continue;
             }
 
-            if (strpos($dir_file, $file) !== false) {
+            if (strpos($dir_file, $file) !== false)
+            {
                 $similar_files[] = $dir_file;
             }
         }
@@ -194,6 +199,49 @@ class FileSystem
             $file = rand(0, 10) . $file;
         }
         return $file;
+    }
+
+
+    /*SCOPES_____________________________________________________________________________*/
+    public function scopes()
+    {
+        $alias = $this->getTableAlias();
+        return array(
+            'published' => array('condition' => $alias . '.is_published = 1'),
+            'ordered'   => array('order' => $alias . '.`order`'),
+            'last'      => array('order' => $alias . '.date_create DESC')
+        );
+    }
+
+
+    public function limit($num)
+    {
+        $this->getDbCriteria()->mergeWith(array(
+            'limit' => $num,
+        ));
+
+        return $this;
+    }
+
+
+    public function offset($num)
+    {
+        $this->getDbCriteria()->mergeWith(array(
+            'offset' => $num,
+        ));
+
+        return $this;
+    }
+
+
+    public function notEqual($param, $value)
+    {
+        $alias = $this->getTableAlias();
+        $this->getDbCriteria()->mergeWith(array(
+            'condition' => $alias . ".`{$param}` != '{$value}'",
+        ));
+
+        return $this;
     }
 
 }
