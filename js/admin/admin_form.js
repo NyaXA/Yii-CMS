@@ -19,7 +19,7 @@ $(document).ready(function()
         self.replaceWith(a);
     });
 
-    $('.chosen').chosen({
+    $('.chosen select').chosen({
         no_results_text:"Выберите один из вариантов",
         allow_single_deselect:true
     });
