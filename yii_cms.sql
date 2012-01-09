@@ -1598,7 +1598,7 @@ CREATE TABLE IF NOT EXISTS `users` (
 INSERT INTO `users` (`id`, `first_name`, `last_name`, `patronymic`, `email`, `phone`, `password`, `birthdate`, `gender`, `status`, `activate_code`, `activate_date`, `password_recover_code`, `password_recover_date`, `date_create`) VALUES
 (1, 'Иван', 'Иванов', 'Васильевич', 'admin@ya.ru', '+7-965-1935233', 'e10adc3949ba59abbe56e057f20f883e', '2003-05-20', 'man', 'active', '070a63ae33af0eb7986992e774dc53e8', '2011-05-21 13:18:39', NULL, NULL, '2011-05-19 03:25:50'),
 (17, 'Артем', 'Остапец', 'Игоревич', 'artem-moscow@yandex.ru', '+7-903-5492969', '813107300f254c3a072c17066c15a22a', '2011-09-25', 'man', 'new', '7533c7b47ed8206d6913e6d271b23ec3', NULL, NULL, NULL, '2011-09-22 20:19:48'),
-(19, 'Алексей', 'Шаров', NULL, 'www.pismeco@gmail.com', '', '827ccb0eea8a706c4c34a16891f84e7b', '0000-00-00', '', 'active', '827ccb0eea8a706c4c34a16891f84e7b', '0000-00-00 00:00:00', '', '0000-00-00 00:00:00', '2011-11-11 16:17:20');
+(19, 'Алексей', 'Шаров', NULL, 'www.pismeco@gmail.com', '', '827ccb0eea8a706c4c34a16891f84e7b', '0000-00-00', '', 'active', '827ccb0eea8a706c4c34a16891f84e7b', '0000-00-00 00:00:00', '', '0000-00-00 00:00:00', '2011-11-11 16:17:20'),
 (18, 'os', 'art', 'igr', 'artemostapetc@gmail.com', NULL, '813107300f254c3a072c17066c15a22a', NULL, 'man', 'new', NULL, NULL, NULL, NULL, '2011-09-30 15:23:57');
 
 -- --------------------------------------------------------
