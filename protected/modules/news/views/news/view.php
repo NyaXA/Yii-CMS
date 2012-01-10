@@ -22,7 +22,7 @@ if ($model->photo)
 <br clear='all' />
 
 <?php $this->widget('fileManager.portlets.FileList', array(
-    'model' => $news,
+    'model' => $model,
     'tag' => 'files'
 )) ?>
 
