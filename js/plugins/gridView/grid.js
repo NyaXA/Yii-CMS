@@ -82,7 +82,7 @@
         _initFilters:function()
         {
             var self = this;
-            var inputs = $('.filters input', self.element), //TODO: what with dropdownlist???
+            var inputs = $('.filters input, .filters select', self.element), //TODO: what with dropdownlist???
                 inputs_count = inputs.length;
 
             if (inputs_count == 0)
