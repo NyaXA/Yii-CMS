@@ -110,12 +110,10 @@
 		loadingClass: 'loading',
 		filterClass: 'filters',
 		tableClass: 'items',
-		selectableRows: 1,
+		selectableRows: 1
 		// updateSelector: '#id .pager a, '#id .grid thead th a',
 		// beforeAjaxUpdate: function(id) {},
-		afterAjaxUpdate: function(id, data) {
-            initFiltersLink();
-        }
+		// afterAjaxUpdate: function(id, data) {},
 		// selectionChanged: function(id) {},
 	};
 
