@@ -15,25 +15,24 @@ class MetaTagAdminController extends AdminController
         );
     }
 
-        
-	public function actionView($id)
-	{
-		$this->render('view', array(
-			'model' => $this->loadModel($id),
-		));
-	}
+
+    public function actionView($id)
+    {
+        $this->render('view', array(
+            'model' => $this->loadModel($id),
+        ));
+    }
 
 
-	public function actionCreate()
-	{
-		$model = new MetaTag;
-		
-		$form = new BaseForm('main.MetaTagForm', $model);
-		
-		// $this->performAjaxValidation($model);
+    public function actionCreate()
+    {
+        $model = new MetaTag;
 
-		if(isset($_POST['MetaTag']))
-		{
+        $form = new BaseForm('main.MetaTagForm', $model);
+
+        $this->performAjaxValidation($model);
+        if ($form->submitted('submit'))
+        {
             if (isset($_POST['MetaTag']['id']) && is_numeric($_POST['MetaTag']['id']))
             {
                 $meta_tag = MetaTag::model()->findByPk($_POST['MetaTag']['id']);
@@ -43,95 +42,78 @@ class MetaTagAdminController extends AdminController
                 }
             }
 
-			$model->attributes = $_POST['MetaTag'];
-			if($model->save())
+            $model->attributes = $_POST['MetaTag'];
+            if ($model->save())
             {
-                $this->redirect(array('view', 'id' => $model->id));
+                $this->redirect(array(
+                    'view',
+                    'id' => $model->id
+                ));
             }
-		}
+        }
 
-		$this->render('create', array(
-			'form' => $form,
-		));
-	}
+        $this->render('create', array(
+            'form' => $form,
+        ));
+    }
 
 
-	public function actionUpdate($id)
-	{
-		$model = $this->loadModel($id);
+    public function actionUpdate($id)
+    {
+        $model = $this->loadModel($id);
 
-		$form = new BaseForm('main.MetaTagForm', $model);
+        $form = new BaseForm('main.MetaTagForm', $model);
 
-		// $this->performAjaxValidation($model);
-
-		if(isset($_POST['MetaTag']))
-		{
-			$model->attributes = $_POST['MetaTag'];
-			if($model->save())
+        $this->performAjaxValidation($model);
+        if ($form->submitted('submit'))
+        {
+            $model = $form->model;
+            if ($model->save())
             {
-                $this->redirect(array('view', 'id' => $model->id));
+                $this->redirect(array(
+                    'view',
+                    'id' => $model->id
+                ));
             }
-		}
+        }
 
-		$this->render('update', array(
-			'form' => $form,
-		));
-	}
+        $this->render('update', array(
+            'form' => $form,
+        ));
+    }
 
 
-	public function actionDelete($id)
-	{
-		if(Yii::app()->request->isPostRequest)
-		{
-			$this->loadModel($id)->delete();
+    public function actionDelete($id)
+    {
+        if (Yii::app()->request->isPostRequest)
+        {
+            $this->loadModel($id)->delete();
 
-			if(!isset($_GET['ajax']))
+            if (!isset($_GET['ajax']))
             {
                 $this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('admin'));
             }
-		}
-		else
+        }
+        else
         {
             throw new CHttpException(400, 'Invalid request. Please do not repeat this request again.');
         }
-	}
+    }
 
 
-	public function actionManage()
-	{
-		$model=new MetaTag('search');
-		$model->unsetAttributes();
-		if(isset($_GET['MetaTag']))
+    public function actionManage()
+    {
+        $model = new MetaTag('search');
+        $model->unsetAttributes();
+        if (isset($_GET['MetaTag']))
         {
             $model->attributes = $_GET['MetaTag'];
         }
 
-		$this->render('manage', array(
-			'model' => $model,
-		));
-	}
-
-
-	public function loadModel($id)
-	{
-		$model = MetaTag::model()->findByPk((int) $id);
-		if($model === null)
-        {
-            $this->pageNotFound();
-        }
-
-		return $model;
-	}
-
-
-	protected function performAjaxValidation($model)
-	{
-		if(isset($_POST['ajax']) && $_POST['ajax'] === 'meta-tag-form')
-		{
-			echo CActiveForm::validate($model);
-			Yii::app()->end();
-		}
-	}
+        $this->render('manage', array(
+            'model' => $model,
+        ));
+    }
 
 
     public function actionGetModelObjects($model_id)
@@ -139,7 +121,7 @@ class MetaTagAdminController extends AdminController
         $result = array();
         $model  = $model_id::model();
 
-        $criteria = new CDbCriteria;
+        $criteria            = new CDbCriteria;
         $criteria->condition = " id NOT IN (
             SELECT object_id FROM " . MetaTag::tableName() . "
                    WHERE model_id = '" . $model_id . "'
@@ -149,7 +131,7 @@ class MetaTagAdminController extends AdminController
 
         foreach ($objects as $i => $object)
         {
-            $result[$object->id] = (string) $object;
+            $result[$object->id] = (string)$object;
         }
 
         echo CJSON::encode($result);
@@ -158,12 +140,10 @@ class MetaTagAdminController extends AdminController
 
     public function actionGetMetaTagData($model_id, $object_id, $tag)
     {
-        echo CJSON::encode(
-            MetaTag::model()->findByAttributes(array(
-                'model_id'  => $model_id,
-                'object_id' => $object_id,
-                'tag'       => $tag
-            ))
-        );
+        echo CJSON::encode(MetaTag::model()->findByAttributes(array(
+            'model_id'  => $model_id,
+            'object_id' => $object_id,
+            'tag'       => $tag
+        )));
     }
 }

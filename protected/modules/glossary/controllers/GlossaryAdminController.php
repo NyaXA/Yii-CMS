@@ -2,7 +2,7 @@
 
 class GlossaryAdminController extends AdminController
 {
-    public static function actionsTitles() 
+    public static function actionsTitles()
     {
         return array(
             "View"   => "Просмотр статьи",
@@ -13,113 +13,99 @@ class GlossaryAdminController extends AdminController
         );
     }
 
-	public function actionView($id)
-	{   
-		$this->render('view', array(
-			'model' => $this->loadModel($id),
-		));
-	}
 
-	public function actionCreate()
-	{
-		$model = new Glossary;
-		
-		$form = new BaseForm('glossary.GlossaryForm', $model);
-		
-		// $this->performAjaxValidation($model);
+    public function actionView($id)
+    {
+        $this->render('view', array(
+            'model' => $this->loadModel($id),
+        ));
+    }
 
-		if(isset($_POST[get_class($model)]))
-		{
-			$model->attributes = $_POST[get_class($model)];
-			if($model->save())
+
+    public function actionCreate()
+    {
+        $model = new Glossary;
+
+        $form = new BaseForm('glossary.GlossaryForm', $model);
+
+        $this->performAjaxValidation($model);
+        if ($form->submitted('submit'))
+        {
+            $model = $form->model;
+            if ($model->save())
             {
-                $this->redirect(array('view', 'id' => $model->id));
+                $this->redirect(array(
+                    'view',
+                    'id' => $model->id
+                ));
             }
-		}
-		else 
-		{
-			$model->date = date("d.m.Y");
-		}
+        }
+        else
+        {
+            $model->date = date("d.m.Y");
+        }
 
-		$this->render('create', array(
-			'form' => $form,
-		));
-	}
+        $this->render('create', array(
+            'form' => $form,
+        ));
+    }
 
 
-	public function actionUpdate($id)
-	{
-		$model = $this->loadModel($id);
+    public function actionUpdate($id)
+    {
+        $model = $this->loadModel($id);
 
-		$form = new BaseForm('glossary.GlossaryForm', $model);
+        $form = new BaseForm('glossary.GlossaryForm', $model);
 
-		// $this->performAjaxValidation($model);
-
-		if(isset($_POST[get_class($model)]))
-		{
-			$model->attributes = $_POST[get_class($model)];
-			if($model->save())
+        $this->performAjaxValidation($model);
+        if ($form->submitted('submit'))
+        {
+            $model = $form->model;
+            if ($model->save())
             {
-                $this->redirect(array('view', 'id'=>$model->id));
+                $this->redirect(array(
+                    'view',
+                    'id'=> $model->id
+                ));
             }
-		}
+        }
 
-		$this->render('update', array(
-			'form' => $form,
-		));
-	}
+        $this->render('update', array(
+            'form' => $form,
+        ));
+    }
 
 
-	public function actionDelete($id)
-	{
-		if(Yii::app()->request->isPostRequest)
-		{
-			$this->loadModel($id)->delete();
+    public function actionDelete($id)
+    {
+        if (Yii::app()->request->isPostRequest)
+        {
+            $this->loadModel($id)->delete();
 
-			if(!isset($_GET['ajax']))
+            if (!isset($_GET['ajax']))
             {
                 $this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('admin'));
             }
-		}
-		else
+        }
+        else
         {
             throw new CHttpException(400, 'Invalid request. Please do not repeat this request again.');
         }
-	}
+    }
 
-	public function actionManage()
-	{
-		$model = new Glossary('search');
-		$model->unsetAttributes();
-		if(isset($_GET[get_class($model)]))
+
+    public function actionManage()
+    {
+        $model = new Glossary('search');
+        $model->unsetAttributes();
+        if (isset($_GET[get_class($model)]))
         {
             $model->attributes = $_GET[get_class($model)];
         }
-        
-		$this->render('manage', array(
-			'model' => $model,
-		));
-	}
 
+        $this->render('manage', array(
+            'model' => $model,
+        ));
+    }
 
-	public function loadModel($id)
-	{
-		$model = Glossary::model()->findByPk((int) $id);
-		if($model === null)
-        {
-            $this->pageNotFound();
-        }
-
-		return $model;
-	}
-
-
-	protected function performAjaxValidation($model)
-	{
-		if(isset($_POST['ajax']))
-		{
-			echo CActiveForm::validate($model);
-			Yii::app()->end();
-		}
-	}
 }

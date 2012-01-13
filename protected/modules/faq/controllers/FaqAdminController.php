@@ -5,11 +5,11 @@ class FaqAdminController extends AdminController
     public static function actionsTitles()
     {
         return array(
-            "View"   => "Просмотр вопроса",
-            "Create" => "Добавление вопроса",
-            "Update" => "Редактирование вопроса",
-            "Delete" => "Удаление вопроса",
-            "Manage" => "Управление вопросами",
+            "View"             => "Просмотр вопроса",
+            "Create"           => "Добавление вопроса",
+            "Update"           => "Редактирование вопроса",
+            "Delete"           => "Удаление вопроса",
+            "Manage"           => "Управление вопросами",
             "SendNotification" => "Отправить уведомление"
         );
     }
@@ -30,10 +30,9 @@ class FaqAdminController extends AdminController
         $form = new BaseForm('faq.FaqForm', $model);
 
         $this->performAjaxValidation($model);
-
-        if (isset($_POST['Faq']))
+        if ($form->submitted('submit'))
         {
-            $model->attributes = $_POST['Faq'];
+            $model = $form->model;
             if ($model->save())
             {
                 $this->redirect(array(
@@ -56,10 +55,9 @@ class FaqAdminController extends AdminController
         $form = new BaseForm('faq.FaqForm', $model);
 
         $this->performAjaxValidation($model);
-
-        if (isset($_POST['Faq']))
+        if ($form->submitted('submit'))
         {
-            $model->attributes = $_POST['Faq'];
+            $model = $form->model;
             if ($model->save())
             {
                 $this->redirect(array(
@@ -79,9 +77,7 @@ class FaqAdminController extends AdminController
     {
         if (Yii::app()->request->isPostRequest)
         {
-            $this
-                ->loadModel($id)
-                ->delete();
+            $this->loadModel($id)->delete();
 
             if (!isset($_GET['ajax']))
             {
@@ -109,30 +105,6 @@ class FaqAdminController extends AdminController
         ));
     }
 
-
-    public function loadModel($id)
-    {
-        $model = Faq::model()
-            ->findByPk((int)$id);
-        if ($model === null)
-        {
-            throw new CHttpException(404, 'The requested page does not exist.');
-        }
-
-        return $model;
-    }
-
-
-    protected function performAjaxValidation($model)
-    {
-        if (isset($_POST['ajax']) && $_POST['ajax'] === 'faq-form')
-        {
-            echo CActiveForm::validate($model);
-            Yii::app()
-                ->end();
-        }
-    }
-
     public function actionSendNotification($id)
     {
         $model = $this->loadModel($id);
@@ -143,11 +115,9 @@ class FaqAdminController extends AdminController
         }
 
         $body  = $this->renderPartial('notification', array('model'=> $model), true);
-        $title = 'Отзыв с сайта '.Yii::app()->request->hostInfo;
+        $title = 'Отзыв с сайта ' . Yii::app()->request->hostInfo;
         $email = $model->email;
-        Yii::app()
-            ->getModule('mailer')
-            ->sendMail($email, $title, $body, true);
+        Yii::app()->getModule('mailer')->sendMail($email, $title, $body, true);
 
         $model->notification_send = 1;
         $model->notification_date = date('Y-m-d h:i:s');

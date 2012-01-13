@@ -19,11 +19,10 @@ class MailerFieldAdminController extends AdminController
 		
 		$form = new BaseForm('mailer.MailerFieldForm', $model);
 		
-		// $this->performAjaxValidation($model);
-
-		if(isset($_POST['MailerField']))
-		{
-			$model->attributes = $_POST['MailerField'];
+        $this->performAjaxValidation($model);
+                if ($form->submitted('submit'))
+                {
+                    $model = $form->model;
 			if($model->save())
             {
                 $this->redirect(array('manage'));
@@ -42,11 +41,10 @@ class MailerFieldAdminController extends AdminController
 
 		$form = new BaseForm('mailer.MailerFieldForm', $model);
 
-		// $this->performAjaxValidation($model);
-
-		if(isset($_POST['MailerField']))
-		{
-			$model->attributes = $_POST['MailerField'];
+        $this->performAjaxValidation($model);
+                if ($form->submitted('submit'))
+                {
+                    $model = $form->model;
 			if($model->save())
             {
                 $this->redirect(array('manage'));
@@ -91,25 +89,4 @@ class MailerFieldAdminController extends AdminController
 		));
 	}
 
-
-	public function loadModel($id)
-	{
-		$model = MailerField::model()->findByPk((int) $id);
-		if($model === null)
-        {
-            $this->pageNotFound();
-        }
-
-		return $model;
-	}
-
-
-	protected function performAjaxValidation($model)
-	{
-		if(isset($_POST['ajax']) && $_POST['ajax'] === 'mailer-field-form')
-		{
-			echo CActiveForm::validate($model);
-			Yii::app()->end();
-		}
-	}
 }

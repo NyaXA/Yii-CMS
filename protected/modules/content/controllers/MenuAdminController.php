@@ -1,15 +1,15 @@
 <?php
- 
+
 class MenuAdminController extends AdminController
-{   
-    public static function actionsTitles() 
+{
+    public static function actionsTitles()
     {
         return array(
             "Create" => "Добавление меню",
             "Update" => "Редактирование меню",
             "Manage" => "Управление меню",
             "Delete" => "Удаление меню",
-        );    
+        );
     }
 
 
@@ -19,9 +19,10 @@ class MenuAdminController extends AdminController
 
         $form = new BaseForm('content.MenuForm', $model);
 
-        if (isset($_POST['Menu']))
+        $this->performAjaxValidation($model);
+        if ($form->submitted('submit'))
         {
-            $model->attributes = $_POST['Menu'];
+            $model = $form->model;
             if ($model->validate())
             {
                 $model->save(false);
@@ -31,24 +32,25 @@ class MenuAdminController extends AdminController
 
         $this->render('create', array('form' => $form));
     }
-    
-    
-    public function actionUpdate($id) 
+
+
+    public function actionUpdate($id)
     {
-    	$model = $this->loadModel($id);   	
-    	
-    	$form = new BaseForm('content.MenuForm', $model);
-    	
-    	if (isset($_POST['Menu'])) 
-    	{
-    		$model->attributes = $_POST['Menu'];
-    		if ($model->save()) 
-    		{
-    			$this->redirect($this->createUrl('manage'));
-    		}
-    	}
-    	
-    	$this->render('update', array('form' => $form));
+        $model = $this->loadModel($id);
+
+        $form = new BaseForm('content.MenuForm', $model);
+
+        $this->performAjaxValidation($model);
+        if ($form->submitted('submit'))
+        {
+            $model = $form->model;
+            if ($model->save())
+            {
+                $this->redirect($this->createUrl('manage'));
+            }
+        }
+
+        $this->render('update', array('form' => $form));
     }
 
 
@@ -62,20 +64,9 @@ class MenuAdminController extends AdminController
 
     public function actionDelete($id)
     {
-		$model = $this->loadModel($id)->delete();  
-					
-		$this->redirect($this->createUrl('manage'));
+        $model = $this->loadModel($id)->delete();
+
+        $this->redirect($this->createUrl('manage'));
     }
 
-
-    public function loadModel($id)
-    {
-        $model = Menu::model()->findByPk((int) $id);
-        if ($model === null)
-        {
-            $this->pageNotFound();
-        }
-
-        return $model;
-    }
 }

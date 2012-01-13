@@ -21,10 +21,10 @@ class RoleAdminController extends AdminController
 
 		$form = new BaseForm('rbac.RoleForm', $model);
 
-		if (isset($_POST['AuthItem'])) 
-		{			
+		if (isset($_POST['AuthItem']))
+		{
 			$model->attributes = $_POST['AuthItem'];
-			if ($model->validate()) 
+			if ($model->validate())
 			{
 				$role = Yii::app()->authManager->createRole(
 				    $model->name, 
@@ -60,10 +60,10 @@ class RoleAdminController extends AdminController
         
 		$form = new BaseForm('rbac.RoleForm', $model);
 
-		if (isset($_POST['AuthItem'])) 
-		{			
+		if (isset($_POST['AuthItem']))
+		{
 			$model->attributes = $_POST['AuthItem'];
-			if ($model->validate()) 
+			if ($model->validate())
 			{
                 $role->name        = $model->name;
                 $role->description = $model->description;
@@ -126,16 +126,16 @@ class RoleAdminController extends AdminController
 
 		$this->render('assignment', array('model' => $model));
 	}
-	
-	
+
+
 	public function loadModel($id)
 	{
 	    $model = AuthItem::model()->findByPk($id);
-	    if (!$model) 
+	    if (!$model)
 	    {
 	        $this->pageNotFound();
 	    }
-	    
+
 	    return $model;
 	}
 

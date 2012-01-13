@@ -28,12 +28,11 @@ class FaqSectionAdminController extends AdminController
 		
 		$form = new BaseForm('faq.FaqSectionForm', $model);
 		
-	    $this->performAjaxValidation($model);
-
-		if(isset($_POST['FaqSection']))
-		{
-			$model->attributes = $_POST['FaqSection'];
-			if($model->save())
+        $this->performAjaxValidation($model);
+                if ($form->submitted('submit'))
+                {
+                    $model = $form->model;
+	    	if($model->save())
             {
                 $this->redirect(array('manage'));
             }
@@ -51,11 +50,10 @@ class FaqSectionAdminController extends AdminController
 	
 		$form = new BaseForm('faq.FaqSectionForm', $model);
 		
-		$this->performAjaxValidation($model);
-
-		if(isset($_POST['FaqSection']))
-		{
-			$model->attributes = $_POST['FaqSection'];
+        $this->performAjaxValidation($model);
+                if ($form->submitted('submit'))
+                {
+                    $model = $form->model;
 			if($model->save())
             {
                 $this->redirect(array('manage'));
@@ -100,25 +98,4 @@ class FaqSectionAdminController extends AdminController
 		));
 	}
 
-
-	public function loadModel($id)
-	{
-		$model=FaqSection::model()->findByPk((int) $id);
-		if($model===null)
-        {
-            throw new CHttpException(404, 'The requested page does not exist.');
-        }
-
-		return $model;
-	}
-
-
-	protected function performAjaxValidation($model)
-	{
-		if(isset($_POST['ajax']) && isset($_POST['FaqSection']))
-		{
-			echo CActiveForm::validate($model);
-			Yii::app()->end();
-		}
-	}
 }

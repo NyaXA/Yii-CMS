@@ -68,10 +68,10 @@ class TaskAdminController extends AdminController
 
         $form = new BaseForm('rbac.TaskForm', $model);
         
-        if (isset($_POST['AuthItem'])) 
-        {            
+        if (isset($_POST['AuthItem']))
+        {
             $model->attributes = $_POST['AuthItem'];
-            if ($model->validate()) 
+            if ($model->validate())
             {
 				$task = Yii::app()->authManager->createTask(
 				    $model->name, 
@@ -102,8 +102,8 @@ class TaskAdminController extends AdminController
         
         $form = new BaseForm('rbac.TaskForm', $model);
         
-        if (isset($_POST['AuthItem'])) 
-        { 
+        if (isset($_POST['AuthItem']))
+        {
         	$model->attributes = $_POST['AuthItem'];
     		$model->save();
 
@@ -158,16 +158,16 @@ class TaskAdminController extends AdminController
 	    
 	    $this->render('view', array('model' => $model));    
     }  
-    
-    
+
+
 	public function loadModel($id)
 	{
 	    $model = AuthItem::model()->findByPk($id);
-	    if (!$model) 
+	    if (!$model)
 	    {
 	        $this->pageNotFound();
 	    }
-	    
+
 	    return $model;
 	}
 
