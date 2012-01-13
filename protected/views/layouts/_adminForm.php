@@ -30,20 +30,16 @@ switch ($element->type)
         $element->type  = 'dropdownlist';
         $element->class = 'chosen';
         break;
+    case 'date':
+        $element->type = 'ext.jui.FJuiDatePicker';
+        $element->attributes['options']  = array('dateFormat'=> 'd.m.yy');
+        $element->attributes['language']  = 'ru';
+        break;
 }
 
 //widgets
 switch ($element->type)
 {
-    case 'date':
-        $model_class = get_class($form->model);
-        echo $active_form->textField($form->model, $element->name, $element->attributes);
-        $this->widget('ext.calendar.SCalendar', array(
-            'inputField' => "{$model_class}_{$element->name}",
-            'ifFormat'   => '%d.%m.%Y',
-            'language'   => 'ru-UTF'
-        ));
-        break;
     case 'editor':
         $this->widget('ext.tiny_mce.TinyMCE', array(
             //                'editorTemplate' => 'full',

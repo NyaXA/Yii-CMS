@@ -92,7 +92,7 @@ class Banner extends ActiveRecordModel
     {
         $behaviors = parent::behaviors();
         $behaviors['sortable'] = array(
-            'class'=> 'application.components.activeRecordBehaviors.SortableBehavior'
+            'class'=> 'ext.sortable.SortableBehavior'
         );
         $behaviors['MaxMinBehavior'] = array(
             'class' => 'application.components.activeRecordBehaviors.MaxMinBehavior'

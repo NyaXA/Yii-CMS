@@ -1,3 +1,4 @@
+
 $(function()
 {
     var src = $('#Banner_src').val();
@@ -10,12 +11,11 @@ $(function()
 
     showDatesInputsIfUsed();
 
-    $('#Banner_date_active').click(showDatesInputsIfUsed);
+    $('#Banner_date_active').change(showDatesInputsIfUsed);
 
     var text = "Вы можете задать даты, в которые баннер будет отображаться.<br/>";
         text+= "<b>Дата начала показа</b> - дата с которой баннер будет отображаться на сайте.<br/>";
-        text+= "<b>Дата окончания показа</b> - дата в которую баннер будет скрыт с сайта.<br/><br/>";
-        text+= "Примечание: Дата окончания показа не должна быть раньше даты начала показа.<br/>";
+        text+= "<b>Дата окончания показа</b> - дата в которую баннер будет скрыт с сайта.";
 
     var hint_div = $('<div></div>').css({
         'position'     : 'absolute',
@@ -25,19 +25,22 @@ $(function()
         'padding-left' : '10px'
     }).html(text);
 
-    $('#date_date_start').css('position', 'relative').append(hint_div);
+    $('#Banner_date_start').closest('dl').css('position', 'relative').append(hint_div);
 
     function showDatesInputsIfUsed()
     {
+        var parent = $('#Banner_date_start').closest('dl').add(
+            $('#Banner_date_end').closest('dl')
+        );
+
         if ($('#Banner_date_active').is(':checked'))
         {
-            $('.date_div').show();
+            parent.slideToggle();
         }
         else
         {
             $('#Banner_date_start, #Banner_date_end').val('');
-
-            $('.date_div').hide();
+            parent.slideToggle();
         }
     }
 
@@ -69,4 +72,4 @@ $(function()
         section_text+= "</div>";
 
     $('#Banner_name').after(section_text);
-})
+})(jQuery);

@@ -866,3 +866,13 @@ fieldset legend {
     background: url(/images/icons/arrow_down.png) no-repeat right;
     padding-right: 14px;
 }
+
+
+.ui-datepicker{
+    width:260px;
+    z-index:27 !important;
+}
+
+.placeholder{
+    background: url(/images/admin/placeholder.png);
+}
