@@ -10,7 +10,7 @@ class AliasValidator extends CValidator
         {
             if (!preg_match(self::PATTERN_LAT_ALPHA, $object->$attribute))
             {
-                $this->addError($object, $attribute, Yii::t('main', 'Только латинский алфавит'));
+                $this->addError($object, $attribute, Yii::t('main', 'Для ввода используйте только латинские буквы, цифры и знаки: "-", "_". Использование пробела запрещено.'));
             }
         }
     }

@@ -7,6 +7,6 @@ $form['elements'] = array(
     'password' => $form['elements']['password']
 );
 
-$form['action'] = Yii::app()->controller->url('/users/user/login');
-
+$form['action']                     = Yii::app()->controller->url('/users/user/login');
+$form['buttons']['submit']['value'] = 'Войти';
 return $form;
