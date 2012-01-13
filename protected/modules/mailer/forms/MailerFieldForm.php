@@ -2,17 +2,19 @@
 
 return array(
     'activeForm' => array(
-        'id' => 'mailer-field-form'
+        'id'                   => 'mailer-field-form',
+        'enableAjaxValidation' => true,
     ),
-    'elements' => array(
+    'elements'   => array(
         'code'  => array('type' => 'text'),
         'name'  => array('type' => 'text'),
         'value' => array('type' => 'text'),
     ),
-    'buttons' => array(
+    'buttons'    => array(
         'submit' => array(
             'type'  => 'submit',
-            'value' => $this->model->isNewRecord ? 'создать' : 'сохранить')
+            'value' => $this->model->isNewRecord ? 'создать' : 'сохранить'
+        )
     )
 );
 

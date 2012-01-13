@@ -4,10 +4,6 @@ return array(
 	'activeForm' => array(
 		'class' => 'CActiveForm',
 		'enableAjaxValidation' => true,
-		'clientOptions' => array(
-			'validateOnSubmit' => true,
-			'validateOnChange' => true
-		)	
 	),
 	'elements' => array(
 		'name' => array('type' => 'text'),

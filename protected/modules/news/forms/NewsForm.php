@@ -2,9 +2,10 @@
 
 return array(
     'activeForm' => array(
-        'id'         => 'news-form',
-        'class'      => 'CActiveForm',
-        'htmlOptions'=> array('enctype'=> 'multipart/form-data'),
+        'id'                   => 'news-form',
+        'class'                => 'CActiveForm',
+        'htmlOptions'          => array('enctype'=> 'multipart/form-data'),
+        'enableAjaxValidation' => true,
     ),
     'elements'   => array(
         'title' => array(
@@ -25,7 +26,7 @@ return array(
             'type'      => 'file_manager',
             'tag'       => 'file',
             'data_type' => 'any',
-            'title' => 'Файлы для скачивания'
+            'title'     => 'Файлы для скачивания'
         ),
     ),
     'buttons'    => array(

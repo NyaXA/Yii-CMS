@@ -4,12 +4,7 @@ return array(
 	'activeForm' => array(
 		'id'     => 'feedback-form',
 		'class'  => 'CActiveForm',
-//		'enableAjaxValidation' => true,
-//        'enableClientValidation' => true,
-//		'clientOptions' => array(
-//			'validateOnSubmit' => true,
-//            'validateOnChange' => true
-//		)
+		'enableAjaxValidation' => true,
 	),
 	'elements' => array(
         'last_name'  => array('type' => 'text'),

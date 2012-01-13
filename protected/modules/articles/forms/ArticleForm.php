@@ -2,9 +2,10 @@
 
 return array(
     'activeForm' => array(
-        'id'         => 'article-form',
-        'class'      => 'CActiveForm',
-        'htmlOptions'=> array('enctype'=> 'multipart/form-data'),
+        'id'                   => 'article-form',
+        'class'                => 'CActiveForm',
+        'htmlOptions'          => array('enctype'=> 'multipart/form-data'),
+        'enableAjaxValidation' => true,
     ),
     'elements'   => array(
         'section_id' => array(

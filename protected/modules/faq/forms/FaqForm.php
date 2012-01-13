@@ -1,21 +1,27 @@
 <?php
 
-if ($this->model->scenario == 'ClientSide') 
+if ($this->model->scenario == 'ClientSide')
 {
     $sections = FaqSection::model()->published()->findAll();
 }
-else 
+else
 {
     $sections = FaqSection::model()->findAll();
 }
 
-if (count($sections) == 1) 
+if (count($sections) == 1)
 {
-    $section_id = array('type' => 'hidden', 'value' => $sections[0]->id);
+    $section_id = array(
+        'type'  => 'hidden',
+        'value' => $sections[0]->id
+    );
 }
-else 
-{   
-    $section_id = array('type' => 'dropdownlist', 'items' => CHtml::listData($sections, "id", "name"));
+else
+{
+    $section_id = array(
+        'type'  => 'dropdownlist',
+        'items' => CHtml::listData($sections, "id", "name")
+    );
 }
 
 $elements = array(
@@ -27,14 +33,17 @@ $elements = array(
     'position'   => array('type' => 'text'),
     'phone'      => array('type' => 'text'),
     'email'      => array('type' => 'text'),
-    'question'   => array('type' => $this->model->scenario == 'ClientSide' ? 'textarea' : 'application.extensions.tiny_mce.TinyMCE')
+    'question'   => array(
+        'type' => $this->model->scenario ==
+            'ClientSide' ? 'textarea' : 'application.extensions.tiny_mce.TinyMCE'
+    )
 );
 
 if ($this->model->scenario != 'ClientSide')
-{   
+{
     $elements['answer']       = array('type' => 'application.extensions.tiny_mce.TinyMCE');
     $elements['is_published'] = array('type' => 'checkbox');
-    
+
     unset($elements["first_name"]);
     unset($elements["last_name"]);
     unset($elements["patronymic"]);
@@ -45,12 +54,16 @@ if ($this->model->scenario != 'ClientSide')
 }
 
 return array(
-	'activeForm' => array(
-		'id'    => 'faq-form',
-		'class' => 'CActiveForm',
-	),
-	'elements' => $elements,
-	'buttons'  => array(
-		'submit' => array('type' => 'submit', 'value' => 'Отправить'),
-	)
+    'activeForm' => array(
+        'id'                   => 'faq-form',
+        'class'                => 'CActiveForm',
+        'enableAjaxValidation' => true,
+    ),
+    'elements'   => $elements,
+    'buttons'    => array(
+        'submit' => array(
+            'type'  => 'submit',
+            'value' => 'Отправить'
+        ),
+    )
 );

@@ -16,11 +16,7 @@ if (!Yii::app()->user->isRootRole())
 return array(
     'activeForm' => array(
         'id' => 'mailer-template-form',
-		'enableAjaxValidation' => true,
-		'clientOptions' => array(
-			'validateOnSubmit' => true,
-			'validateOnChange' => true
-		)
+		'enableAjaxValidation' => true
     ),
     'elements' => $elements,
     'buttons' => array(

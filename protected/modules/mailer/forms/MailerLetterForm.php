@@ -21,10 +21,6 @@ return array(
     'activeForm' => array(
         'id' => 'mailer-letter-form',
 		'enableAjaxValidation' => true,
-		'clientOptions' => array(
-			'validateOnSubmit' => true,
-			'validateOnChange' => true
-		)
     ),
     'elements' => $elements,
     'buttons' => array(

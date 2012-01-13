@@ -19,11 +19,7 @@ else
 return array(
     'activeForm' => array(
         'id' => 'meta-tag-form',
-		//'enableAjaxValidation' => true,
-		//'clientOptions' => array(
-		//	'validateOnSubmit' => true,
-		//	'validateOnChange' => true
-		//)
+		'enableAjaxValidation' => true,
     ),
     'elements' => array(
         'model_id' => array(
