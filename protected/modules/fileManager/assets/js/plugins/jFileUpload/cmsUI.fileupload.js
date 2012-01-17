@@ -74,8 +74,7 @@ $.widget('cmsUI.fileupload', $.blueimpUI.fileupload, {
                     }
                 };
 
-            link.hide();
-            field.editable(action, options).click();
+            field.children('span').editable(action, options).click();
 
             return false;
         });

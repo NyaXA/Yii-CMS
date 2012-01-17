@@ -80,8 +80,18 @@ class ArrayHelper
         return array_slice($array, $offset, $length, $preserve_keys);
     }
 
-    public static function markObjects($objects, $keyAttribute)
+
+    /**
+     * @static
+     *
+     * @param Array $objects объекты или массивы
+     * @param String $keyAttribute атрибут который будет выступать в роли ключа
+     *
+     * @return array
+     */
+    public static function markObjects($array, $keyAttribute)
     {
-        return array_combine(ArrayHelper::extract($objects, $keyAttribute), $objects);
+        return array_combine(ArrayHelper::extract($array, $keyAttribute), $array);
     }
+
 }
