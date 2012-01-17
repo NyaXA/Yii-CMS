@@ -95,7 +95,10 @@ class AppManager
         $actions = array();
 
         $controllers_dir = MODULES_PATH . lcfirst(str_replace('Module', '', $module_class)) . '/controllers/';
-
+        if (!file_exists($controllers_dir))
+        {
+            return $actions;
+        }
         $controllers = scandir($controllers_dir);
         foreach ($controllers as $controller)
         {
@@ -117,31 +120,47 @@ class AppManager
                 continue;
             }
 
-            $actions_titles = call_user_func(array($class, 'actionsTitles'));
+            $actions_titles  = call_user_func(array($class, 'actionsTitles'));
+            $controller_name = str_replace('Controller', '', $class);
 
             $methods = $reflection->getMethods(ReflectionMethod::IS_PUBLIC);
             foreach ($methods as $method)
             {
-                if (in_array($method->name, array('actionsTitles', 'actions')) ||
+                if (in_array($method->name, array('actionsTitles')) ||
                     mb_substr($method->name, 0, 6, 'utf-8') != 'action'
                 )
                 {
                     continue;
                 }
 
-                $action = str_replace('action', '', $method->name);
-
-                $action_name = str_replace('Controller', '', $class) . '_' . $action;
-
-                $title = isset($actions_titles[$action]) ? $actions_titles[$action] : "";
-                if ($title && $use_admin_prefix && strpos($action_name, "Admin_") !== false)
+                if (in_array($method->name, array('actions')))
                 {
-                    $title .= " (админка)";
+                    $actions_actions = call_user_func(array($class, 'actions'));
+                    foreach ($actions_actions as $action=> $v)
+                    {
+                        $action      = mb_convert_case($action, MB_CASE_TITLE, 'utf-8');
+                        $action_name = $controller_name . '_' . $action;
+                        $title       = isset($actions_titles[$action]) ? $actions_titles[$action] : "";
+                        if ($title && $use_admin_prefix && strpos($action_name, "Admin_") !== false)
+                        {
+                            $title .= " (админка)";
+                        }
+                        $actions[$action_name] = $title;
+                    }
+                }
+                else
+                {
+                    $action      = str_replace('action', '', $method->name);
+                    $action_name = $controller_name . '_' . $action;
+                    $title       = isset($actions_titles[$action]) ? $actions_titles[$action] : "";
+                    if ($title && $use_admin_prefix && strpos($action_name, "Admin_") !== false)
+                    {
+                        $title .= " (админка)";
+                    }
+                    $actions[$action_name] = $title;
                 }
 
-                $actions[$action_name] = $title;
             }
-
         }
 
         return $actions;

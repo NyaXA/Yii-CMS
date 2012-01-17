@@ -10,9 +10,10 @@ abstract class AdminController extends BaseController
     {
         parent::init();
 
-        if (Yii::app()->user->isGuest && trim($_SERVER['REQUEST_URI'], '/') != 'admin/login')
+        $admin_url = $this->url('users/userAdmin/login');
+        if (Yii::app()->user->isGuest && trim($_SERVER['REQUEST_URI'], '/') != trim($admin_url))
         {
-            $this->redirect('/admin/login');
+            $this->redirect($admin_url);
         }
 
         $this->initTabs();

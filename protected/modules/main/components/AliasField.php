@@ -33,9 +33,7 @@ class AliasField extends InputWidget
         Yii::app()->clientScript
             ->registerScriptFile('/js/plugins/adminForm/alias/jquery.synctranslit.js')
             ->registerScriptFile('/js/plugins/adminForm/alias/alias.js')
-            ->registerScript($this->id . '_iphone_checkbox', "$('#{$this->id}').alias({$options});
-
-            ");
+            ->registerScript($this->id . '_alias', "$('#{$this->id}').alias({$options});");
     }
 
 

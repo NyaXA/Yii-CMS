@@ -2,9 +2,6 @@
 
 class MetaTags extends InputWidget
 {
-    public $model;
-
-
     public function init()
     {
         $class = 'application.components.activeRecordBehaviors.MetaTagBehavior';

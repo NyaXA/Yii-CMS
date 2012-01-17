@@ -40,7 +40,7 @@ class UserAdminController extends AdminController
 
                 if ($identity->authenticate(true))
                 {
-                    $this->redirect("/admin");
+                    $this->redirect($this->url("main/mainAdmin"));
                 }
                 else
                 {
@@ -140,8 +140,7 @@ class UserAdminController extends AdminController
 
                 Implex::refreshXLS(get_class($model));
 
-                $this->redirect(array(
-                    'view',
+                $this->redirect('view',array(
                     'id'=> $model->id
                 ));
             }

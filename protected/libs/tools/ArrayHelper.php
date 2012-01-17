@@ -9,7 +9,7 @@
 
 class ArrayHelper
 {
-    public function extract($array_of_arrays, $key, $value = null)
+    public static function extract($array_of_arrays, $key, $value = null)
     {
         $result = array();
 
@@ -54,6 +54,7 @@ class ArrayHelper
         return $result;
     }
 
+
     /**
      * аналог array_splice для ассоциативных массивов
      * можно задавать, как количество элементов для удаления, так и до какого ключа удалять(включительно)
@@ -77,5 +78,10 @@ class ArrayHelper
         }
 
         return array_slice($array, $offset, $length, $preserve_keys);
+    }
+
+    public static function markObjects($objects, $keyAttribute)
+    {
+        return array_combine(ArrayHelper::extract($objects, $keyAttribute), $objects);
     }
 }

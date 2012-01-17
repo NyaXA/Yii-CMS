@@ -96,9 +96,7 @@ class CrudCode extends CCodeModel
         foreach ($files as $file)
         {
             if (is_file($templatePath . '/' . $file) && CFileHelper::getExtension($file) === 'php' && $file !== 'controller.php') {
-
                 $path = $this->viewPath . DIRECTORY_SEPARATOR . $file;
-
                 if ($file == "adminController.php")
                 {
                     continue;
@@ -106,29 +104,31 @@ class CrudCode extends CCodeModel
 
                 if ($file == "form.php")
                 {
-                    $path = str_replace('\\', '/', $path);
-
-                    $path_params = str_replace(
-                        array("/form.php", MODULES_PATH),
-                        null,
-                        $path
-                    );
-                    
-                    $path_params = explode("/", $path_params);
-
-                    $module_name = $path_params[0];
-                    $model_name  = ucfirst($path_params[2]);
-
-                    $module_dir = MODULES_PATH . $module_name . "/";
-
-                    $forms_dir = $module_dir . "forms/";
-                    if (!is_dir($forms_dir))
-                    {
-                        mkdir($forms_dir);
-                        chmod($forms_dir, 0777);
-                    }
-
-                    $path = $forms_dir . $model_name . "Form.php";
+//                    $path = str_replace('\\', '/', $path);
+//
+//                    $path_params = str_replace(
+//                        array("/form.php", MODULES_PATH),
+//                        null,
+//                        $path
+//                    );
+//
+//                    $path_params = explode("/", $path_params);
+//
+//                    $module_name = $path_params[0];
+//                    $model_name  = ucfirst($path_params[2]);
+//
+//                    $module_dir = MODULES_PATH . $module_name . "/";
+//
+//                    $forms_dir = $module_dir . "forms/";
+//
+//
+//                    if (!is_dir($forms_dir))
+//                    {
+//                        mkdir($forms_dir);
+//                        chmod($forms_dir, 0777);
+//                    }
+//
+//                    $path = $forms_dir . $model_name . "Form.php";
                 }
 
                 $this->files[] = new CCodeFile(
@@ -137,10 +137,8 @@ class CrudCode extends CCodeModel
                 );
             }
         }
-
         $templatePath = $templatePath . "/admin/";
         $viewPath = $this->viewPath . "Admin/";
-
 //        if (!is_dir($viewPath))
 //        {
 //            mkdir($viewPath);
