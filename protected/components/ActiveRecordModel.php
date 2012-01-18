@@ -39,9 +39,6 @@ abstract class ActiveRecordModel extends CActiveRecord
             'MaxMin'         => array(
                 'class' => 'application.components.activeRecordBehaviors.MaxMinBehavior'
             ),
-            'Scopes'         => array(
-                'class' => 'application.components.activeRecordBehaviors.ScopesBehavior'
-            )
         );
     }
 
@@ -153,6 +150,20 @@ abstract class ActiveRecordModel extends CActiveRecord
         ));
 
         return $this;
+    }
+
+
+    public function in($row, $values, $operator = 'AND')
+    {
+        $this->getDbCriteria()->addInCondition($row, $values, $operator);
+        return $this->owner;
+    }
+
+
+    public function notIn($row, $values, $operator = 'AND')
+    {
+        $this->getDbCriteria()->addNotInCondition($row, $values, $operator);
+        return $this->owner;
     }
 
 
