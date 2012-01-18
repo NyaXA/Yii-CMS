@@ -76,7 +76,8 @@
             //            helper:'clone',
             start:function(event, ui)
             {
-                ui.placeholder.html("<td colspan='100%'>&nbsp;</td>");
+                ui.placeholder.html("<td colspan='100%'>&nbsp;</td>"); //fix width
+                ui.placeholder.css('height', ui.item.height());        //fix height when has multiline text
             }
         },
 
