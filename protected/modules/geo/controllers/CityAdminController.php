@@ -17,9 +17,9 @@ class CityAdminController extends AdminController
     {
         $model = new City;
 
+        $this->performAjaxValidation($model);
         $form = new BaseForm('geo.CityForm', $model);
 
-        $this->performAjaxValidation($model);
         if ($form->submitted('submit'))
         {
             $model = $form->model;
@@ -39,9 +39,9 @@ class CityAdminController extends AdminController
     {
         $model = $this->loadModel($id);
 
+        $this->performAjaxValidation($model);
         $form = new BaseForm('geo.CityForm', $model);
 
-        $this->performAjaxValidation($model);
         if ($form->submitted('submit'))
         {
             $model = $form->model;

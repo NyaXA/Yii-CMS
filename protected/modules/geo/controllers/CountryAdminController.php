@@ -17,9 +17,9 @@ class CountryAdminController extends AdminController
     {
         $model = new Country;
 
+        $this->performAjaxValidation($model);
         $form = new BaseForm('geo.CountryForm', $model);
 
-        $this->performAjaxValidation($model);
         if ($form->submitted('submit'))
         {
             $model = $form->model;
@@ -42,9 +42,9 @@ class CountryAdminController extends AdminController
     {
         $model = $this->loadModel($id);
 
+        $this->performAjaxValidation($model);
         $form = new BaseForm('geo.CountryForm', $model);
 
-        $this->performAjaxValidation($model);
         if ($form->submitted('submit'))
         {
             $model = $form->model;

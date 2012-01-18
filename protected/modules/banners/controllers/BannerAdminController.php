@@ -33,23 +33,19 @@ class BannerAdminController extends AdminController
 	{
 		$model = new Banner(Banner::SCENARIO_CREATE);
 
-		if(isset($_POST['Banner']))
-		{
-			$model->attributes  = $_POST['Banner'];
-            $model->date_active = $_POST['Banner']['date_active'];
+        $this->performAjaxValidation($model);
+        $form = new BaseForm('banners.BannerForm', $model);
 
-            if (isset($_POST['Banner']['roles']))
-            {
-                $model->roles = $_POST['Banner']['roles'];
-            }
+        if ($form->submitted('submit'))
+        {
+            $model              = $form->model;
+            $model->date_active = $_POST['Banner']['date_active'];
 
 			if($model->save())
             {
                 $this->redirect(array('view', 'id' => $model->id));
             }
 		}
-
-        $form = new BaseForm('banners.BannerForm', $model);
 
 		$this->render('create', array(
 			'form' => $form,
@@ -62,23 +58,19 @@ class BannerAdminController extends AdminController
 		$model = $this->loadModel($id);
         $model->scenario = Banner::SCENARIO_UPDATE;
 
-		if(isset($_POST['Banner']))
-		{
-			$model->attributes  = $_POST['Banner'];
+        $this->performAjaxValidation($model);
+        $form = new BaseForm('banners.BannerForm', $model);
+
+        if ($form->submitted('submit'))
+        {
+            $model              = $form->model;
             $model->date_active = $_POST['Banner']['date_active'];
 
-            if (isset($_POST['Banner']['roles']))
-            {
-                $model->roles = $_POST['Banner']['roles'];
-            }
-            
 			if($model->save())
             {
                 $this->redirect(array('view', 'id' => $model->id));
             }
 		}
-
-        $form = new BaseForm('banners.BannerForm', $model);
 
 		$this->render('update', array(
 			'form' => $form,
@@ -118,25 +110,4 @@ class BannerAdminController extends AdminController
 		));
 	}
 
-
-	public function loadModel($id)
-	{
-		$model = Banner::model()->findByPk((int) $id);
-		if($model === null)
-        {
-            $this->pageNotFound();
-        }
-
-		return $model;
-	}
-
-
-	protected function performAjaxValidation($model)
-	{
-		if(isset($_POST['ajax']) && $_POST['ajax'] === 'banner-form')
-		{
-			echo CActiveForm::validate($model);
-			Yii::app()->end();
-		}
-	}
 }

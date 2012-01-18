@@ -27,7 +27,6 @@ class ArticleAdminController extends AdminController
         $model = new Article;
 
         $form = new BaseForm('articles.ArticleForm', $model);
-
         $this->performAjaxValidation($model);
 
         if ($form->submitted('submit'))
@@ -53,7 +52,6 @@ class ArticleAdminController extends AdminController
         $model = $this->loadModel($id);
 
         $form = new BaseForm('articles.ArticleForm', $model);
-
         $this->performAjaxValidation($model);
 
         if ($form->submitted('submit'))

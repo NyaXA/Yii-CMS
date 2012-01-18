@@ -28,9 +28,9 @@ class MetaTagAdminController extends AdminController
     {
         $model = new MetaTag;
 
+        $this->performAjaxValidation($model);
         $form = new BaseForm('main.MetaTagForm', $model);
 
-        $this->performAjaxValidation($model);
         if ($form->submitted('submit'))
         {
             if (isset($_POST['MetaTag']['id']) && is_numeric($_POST['MetaTag']['id']))
@@ -62,9 +62,9 @@ class MetaTagAdminController extends AdminController
     {
         $model = $this->loadModel($id);
 
+        $this->performAjaxValidation($model);
         $form = new BaseForm('main.MetaTagForm', $model);
 
-        $this->performAjaxValidation($model);
         if ($form->submitted('submit'))
         {
             $model = $form->model;

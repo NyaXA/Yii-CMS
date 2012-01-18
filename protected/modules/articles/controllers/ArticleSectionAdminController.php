@@ -28,7 +28,6 @@ class ArticleSectionAdminController extends AdminController
         $model = new ArticleSection;
 
         $form = new BaseForm('articles.ArticleSectionForm', $model);
-
         $this->performAjaxValidation($model);
 
         if ($form->submitted('submit'))

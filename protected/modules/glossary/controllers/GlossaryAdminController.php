@@ -26,9 +26,9 @@ class GlossaryAdminController extends AdminController
     {
         $model = new Glossary;
 
+        $this->performAjaxValidation($model);
         $form = new BaseForm('glossary.GlossaryForm', $model);
 
-        $this->performAjaxValidation($model);
         if ($form->submitted('submit'))
         {
             $model = $form->model;
@@ -39,10 +39,6 @@ class GlossaryAdminController extends AdminController
                     'id' => $model->id
                 ));
             }
-        }
-        else
-        {
-            $model->date = date("d.m.Y");
         }
 
         $this->render('create', array(
@@ -55,9 +51,9 @@ class GlossaryAdminController extends AdminController
     {
         $model = $this->loadModel($id);
 
+        $this->performAjaxValidation($model);
         $form = new BaseForm('glossary.GlossaryForm', $model);
 
-        $this->performAjaxValidation($model);
         if ($form->submitted('submit'))
         {
             $model = $form->model;

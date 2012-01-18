@@ -26,7 +26,7 @@ class MenuAdminController extends AdminController
             if ($model->validate())
             {
                 $model->save(false);
-                $this->redirect('/content/menuLinkAdmin/index/menu_id/' . $model->id);
+                $this->redirect(array('/content/menuLinkAdmin/index', 'menu_id'=> $model->id));
             }
         }
 

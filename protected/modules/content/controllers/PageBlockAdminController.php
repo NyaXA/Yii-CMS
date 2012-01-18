@@ -26,9 +26,9 @@ class PageBlockAdminController extends AdminController
     {
         $model = new PageBlock;
 
+        $this->performAjaxValidation($model);
         $form = new BaseForm('content.PageBlockForm', $model);
 
-        $this->performAjaxValidation($model);
         if ($form->submitted('submit'))
         {
             $model = $form->model;
@@ -51,9 +51,9 @@ class PageBlockAdminController extends AdminController
     {
         $model = $this->loadModel($id);
 
+        $this->performAjaxValidation($model);
         $form = new BaseForm('content.PageBlockForm', $model);
 
-        $this->performAjaxValidation($model);
         if ($form->submitted('submit'))
         {
             $model = $form->model;

@@ -35,19 +35,6 @@ class UsersModule extends WebModule
 	}
 
 
-	public function beforeControllerAction($controller, $action)
-	{
-		if(parent::beforeControllerAction($controller, $action))
-		{
-			return true;
-		}
-		else
-        {
-
-        }
-	}
-
-
     public static function adminMenu()
     {
         return array(

@@ -13,80 +13,80 @@ class MailerFieldAdminController extends AdminController
     }
 
 
-	public function actionCreate()
-	{
-		$model = new MailerField;
-		
-		$form = new BaseForm('mailer.MailerFieldForm', $model);
-		
+    public function actionCreate()
+    {
+        $model = new MailerField;
+
         $this->performAjaxValidation($model);
-                if ($form->submitted('submit'))
-                {
-                    $model = $form->model;
-			if($model->save())
+        $form = new BaseForm('mailer.MailerFieldForm', $model);
+
+        if ($form->submitted('submit'))
+        {
+            $model = $form->model;
+            if ($model->save())
             {
                 $this->redirect(array('manage'));
             }
-		}
+        }
 
-		$this->render('create', array(
-			'form' => $form,
-		));
-	}
+        $this->render('create', array(
+            'form' => $form,
+        ));
+    }
 
 
-	public function actionUpdate($id)
-	{
-		$model = $this->loadModel($id);
-
-		$form = new BaseForm('mailer.MailerFieldForm', $model);
+    public function actionUpdate($id)
+    {
+        $model = $this->loadModel($id);
 
         $this->performAjaxValidation($model);
-                if ($form->submitted('submit'))
-                {
-                    $model = $form->model;
-			if($model->save())
+        $form = new BaseForm('mailer.MailerFieldForm', $model);
+
+        if ($form->submitted('submit'))
+        {
+            $model = $form->model;
+            if ($model->save())
             {
                 $this->redirect(array('manage'));
             }
-		}
+        }
 
-		$this->render('update', array(
-			'form' => $form,
-		));
-	}
+        $this->render('update', array(
+            'form' => $form,
+        ));
+    }
 
 
-	public function actionDelete($id)
-	{
-		if(Yii::app()->request->isPostRequest)
-		{
-			$this->loadModel($id)->delete();
+    public function actionDelete($id)
+    {
+        if (Yii::app()->request->isPostRequest)
+        {
+            $this->loadModel($id)->delete();
 
-			if(!isset($_GET['ajax']))
+            if (!isset($_GET['ajax']))
             {
                 $this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('admin'));
             }
-		}
-		else
+        }
+        else
         {
             throw new CHttpException(400, 'Invalid request. Please do not repeat this request again.');
         }
-	}
+    }
 
 
-	public function actionManage()
-	{
-		$model=new MailerField('search');
-		$model->unsetAttributes();
-		if(isset($_GET['MailerField']))
+    public function actionManage()
+    {
+        $model = new MailerField('search');
+        $model->unsetAttributes();
+        if (isset($_GET['MailerField']))
         {
             $model->attributes = $_GET['MailerField'];
         }
 
-		$this->render('manage', array(
-			'model' => $model,
-		));
-	}
+        $this->render('manage', array(
+            'model' => $model,
+        ));
+    }
 
 }

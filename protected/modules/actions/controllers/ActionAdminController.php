@@ -27,8 +27,8 @@ class ActionAdminController extends AdminController
         $model = new Action;
 
         $form = new BaseForm('actions.ActionForm', $model);
-
         $this->performAjaxValidation($model);
+
         if ($form->submitted('submit'))
         {
             $model = $form->model;
@@ -52,8 +52,8 @@ class ActionAdminController extends AdminController
         $model = $this->loadModel($id);
 
         $form = new BaseForm('actions.ActionForm', $model);
-
         $this->performAjaxValidation($model);
+
         if ($form->submitted('submit'))
         {
             $model = $form->model;

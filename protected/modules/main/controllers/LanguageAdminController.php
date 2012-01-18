@@ -17,9 +17,9 @@ class LanguageAdminController extends AdminController
     {
         $model = new Language;
 
+        $this->performAjaxValidation($model);
         $form = new BaseForm('main.LanguageForm', $model);
 
-        $this->performAjaxValidation($model);
         if ($form->submitted('submit'))
         {
             $model = $form->model;
@@ -39,9 +39,9 @@ class LanguageAdminController extends AdminController
     {
         $model = $this->loadModel($id);
 
+        $this->performAjaxValidation($model);
         $form = new BaseForm('main.LanguageForm', $model);
 
-        $this->performAjaxValidation($model);
         if ($form->submitted('submit'))
         {
             $model = $form->model;

@@ -38,13 +38,12 @@ class NewsAdminController extends AdminController
     {
         $model = new News;
 
+        $this->performAjaxValidation($model);
         $form = new BaseForm('news.NewsForm', $model);
 
-        $this->performAjaxValidation($model);
         if ($form->submitted('submit'))
         {
             $model = $form->model;
-
             if ($model->save())
             {
                 $this->redirect(array(
@@ -52,10 +51,6 @@ class NewsAdminController extends AdminController
                     'id' => $model->id
                 ));
             }
-        }
-        else
-        {
-            $model->date = date("d.m.Y");
         }
 
         $this->render('create', array(
@@ -68,9 +63,8 @@ class NewsAdminController extends AdminController
     {
         $model = $this->loadModel($id);
 
-        $form = new BaseForm('news.NewsForm', $model);
-
         $this->performAjaxValidation($model);
+        $form = new BaseForm('news.NewsForm', $model);
 
         if ($form->submitted('submit'))
         {

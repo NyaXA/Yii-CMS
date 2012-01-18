@@ -18,12 +18,11 @@ class CertificateGroupAdminController extends AdminController
 		$model = new CertificateGroup;
 		
 		$form = new BaseForm('certificates.CertificateGroupForm', $model);
-		
-		// $this->performAjaxValidation($model);
+		$this->performAjaxValidation($model);
 
-		if(isset($_POST['CertificateGroup']))
-		{
-			$model->attributes = $_POST['CertificateGroup'];
+        if ($form->submitted('submit'))
+        {
+            $model = $form->model;
 			if($model->save())
             {
                 $this->redirect(array('manage'));
@@ -42,11 +41,11 @@ class CertificateGroupAdminController extends AdminController
 
 		$form = new BaseForm('certificates.CertificateGroupForm', $model);
 
-		// $this->performAjaxValidation($model);
+		$this->performAjaxValidation($model);
 
-		if(isset($_POST['CertificateGroup']))
-		{
-			$model->attributes = $_POST['CertificateGroup'];
+        if ($form->submitted('submit'))
+        {
+            $model = $form->model;
 			if($model->save())
             {
                 $this->redirect(array('manage'));
@@ -89,27 +88,5 @@ class CertificateGroupAdminController extends AdminController
 		$this->render('manage', array(
 			'model' => $model,
 		));
-	}
-
-
-	public function loadModel($id)
-	{
-		$model = CertificateGroup::model()->findByPk((int) $id);
-		if($model === null)
-        {
-            $this->pageNotFound();
-        }
-
-		return $model;
-	}
-
-
-	protected function performAjaxValidation($model)
-	{
-		if(isset($_POST['ajax']) && $_POST['ajax'] === 'certificate-group-form')
-		{
-			echo CActiveForm::validate($model);
-			Yii::app()->end();
-		}
 	}
 }
