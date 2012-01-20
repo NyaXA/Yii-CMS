@@ -5,7 +5,6 @@ $.widget('cmsUI.fileupload', $.blueimpUI.fileupload, {
     },
     _create:function()
     {
-
         $.blueimpUI.fileupload.prototype._create.call(this); //base constructor
 
         this._loadExistingFiles();
@@ -52,30 +51,27 @@ $.widget('cmsUI.fileupload', $.blueimpUI.fileupload, {
     },
     _jeditableInit:function()
     {
-        this.element.delegate('.thumb-edit', 'click', function()
+        this.element.delegate('.editable', 'click', function()
         {
-            var link = $(this),
-                item = link.closest('td'),
-                field = $('.editable', item),
-                action = link.attr('href'),
+            var self = $(this),
+                action = self.data('save-url'),
                 options = {
-                    type:field.data('editable-type'),
+                    name:self.data('attr'),
+                    type:self.data('editable-type'),
                     rows:3,
                     cols:20,
-                    submitdata:{
-                        id:link.closest('tr').attr('id').split('_')[1],
-                        model:'FileManager',
-                        attribute:field.data('attr')
-                    },
-                    onblur:'submit',
-                    callback:function()
-                    {
-                        link.css({display:'inline'})
-                    }
+                    onblur:'ignore',
+                    submit:'<img src="/images/admin/ok_16.png" />',
+                    cancel:'<img src="/images/admin/cancel_16.png" />',
+                    indicator:'<img src="/images/admin/ajax-loader.gif" />',
+                    placeholder:'Кликните для редактирования'
+//                    callback:function()
+//                    {
+//                        self.addClass('editable');
+//                    }
                 };
 
-            field.children('span').editable(action, options).click();
-
+            self.children('span').editable(action, options).click();
             return false;
         });
     },

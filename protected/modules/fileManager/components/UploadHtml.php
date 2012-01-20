@@ -13,10 +13,10 @@ class UploadHtml
     }
 
 
-    public static function editableLink($text, $model, $attr, $url, $htmlOptions=array())
+    public static function editableLink($text, $model, $attr, $url, $htmlOptions=array(), $type='text')
     {
         $name = CHtml::resolveName($model, $attr);
-        $htmlOptions = CMap::mergeArray($htmlOptions, array('name'=>$name));
+        $htmlOptions = CMap::mergeArray($htmlOptions, array('name'=>$name, 'type'=>$type));
         return CHtml::link($text, self::url($url, array('id'=>$model->id, 'attr'=>$attr )), $htmlOptions);
     }
 }

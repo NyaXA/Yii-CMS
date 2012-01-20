@@ -40,8 +40,10 @@ class FileManager extends ActiveRecordModel
     {
         return array(
             array(
-                'nameWithoutExt',
-                'length',
+                'path', 'length',
+                'min'=> 1
+            ), array(
+                'nameWithoutExt', 'length',
                 'min'      => 1,
                 'max'      => 900,
                 'tooShort' => 'Название файла должно быть меньше 1 сим.',
@@ -50,6 +52,7 @@ class FileManager extends ActiveRecordModel
         );
     }
 
+
     public function behaviors()
     {
         return array( //            'sortable' => array(
@@ -57,6 +60,7 @@ class FileManager extends ActiveRecordModel
 //            )
         );
     }
+
 
     public function parent($model_id, $id)
     {
@@ -67,6 +71,7 @@ class FileManager extends ActiveRecordModel
         ));
         return $this;
     }
+
 
     public function tag($tag)
     {
@@ -94,12 +99,7 @@ class FileManager extends ActiveRecordModel
     public function getIsImage()
     {
         return in_array($this->extension, array(
-            'png',
-            'jpeg',
-            'jpg',
-            'tiff',
-            'ief',
-            'gif'
+            'png', 'jpeg', 'jpg', 'tiff', 'ief', 'gif'
         ));
     }
 
@@ -107,8 +107,7 @@ class FileManager extends ActiveRecordModel
     public function getIsSound()
     {
         return in_array($this->extension, array(
-            'wma',
-            'mp3'
+            'wma', 'mp3'
         ));
     }
 
@@ -116,18 +115,7 @@ class FileManager extends ActiveRecordModel
     public function getIsExcel()
     {
         return in_array($this->extension, array(
-            'xl',
-            'xla',
-            'xlb',
-            'xlc',
-            'xld',
-            'xlk',
-            'xll',
-            'xlm',
-            'xls',
-            'xlt',
-            'xlv',
-            'xlw'
+            'xl', 'xla', 'xlb', 'xlc', 'xld', 'xlk', 'xll', 'xlm', 'xls', 'xlt', 'xlv', 'xlw'
         ));
     }
 
@@ -135,9 +123,7 @@ class FileManager extends ActiveRecordModel
     public function getIsWord()
     {
         return in_array($this->extension, array(
-            'doc',
-            'dot',
-            'docx'
+            'doc', 'dot', 'docx'
         ));
     }
 
@@ -145,10 +131,7 @@ class FileManager extends ActiveRecordModel
     public function getIsArchive()
     {
         return in_array($this->extension, array(
-            'zip',
-            'rar',
-            'tar',
-            'gz'
+            'zip', 'rar', 'tar', 'gz'
         ));
     }
 
@@ -160,10 +143,10 @@ class FileManager extends ActiveRecordModel
         {
             $name = 'image';
         }
-        elseif ($this->isSound)
-        {
-            $name = 'sound';
-        }
+//        elseif ($this->isSound)
+//        {
+//            $name = 'sound';
+//        }
         elseif ($this->isExcel)
         {
             $name = 'excel';
@@ -174,9 +157,9 @@ class FileManager extends ActiveRecordModel
         }
         elseif ($this->isArchive)
         {
-            $name = 'archive';
+            $name = 'rar';
         }
-        elseif (is_file('.' . $folder . $this->extension . '.png'))
+        elseif (is_file('.' . $folder . $this->extension . '.jpg'))
         {
             $name = $this->extension;
         }
@@ -184,7 +167,7 @@ class FileManager extends ActiveRecordModel
         {
             $name = 'any';
         }
-        return CHtml::image($folder . $name . '.png', '', array('height' => 24));
+        return CHtml::image($folder . $name . '.jpg', '', array('height' => 48));
     }
 
 
@@ -194,6 +177,7 @@ class FileManager extends ActiveRecordModel
         $param = $field ? $_FILES[$field] : self::UPLOAD_PATH . $this->name;
         return new Upload($param);
     }
+
 
     public function save()
     {
@@ -205,6 +189,7 @@ class FileManager extends ActiveRecordModel
         return true;
     }
 
+
     public static function str2url($str)
     {
         $str = self::rus2translit($str); // переводим в транслит
@@ -213,6 +198,7 @@ class FileManager extends ActiveRecordModel
         $str = trim($str, "-"); // удаляем начальные и конечные '-'
         return $str;
     }
+
 
     public function setExtraProperties($field, &$handler, $options)
     {
@@ -231,11 +217,11 @@ class FileManager extends ActiveRecordModel
         }
     }
 
+
     public function saveFile()
     {
         $file      = CUploadedFile::getInstanceByName('file');
-        $file_name = Yii::app()->text->translit($file->name);
-        $file_name = FileSystem::vaultResolveCollision(self::UPLOAD_PATH, $file_name);
+        $file_name = FileSystem::vaultResolveCollision(self::UPLOAD_PATH, $file->name);
         $new_file  = self::UPLOAD_PATH . '/' . $file_name;
         if ($file->saveAs('./' . $new_file))
         {
@@ -251,18 +237,18 @@ class FileManager extends ActiveRecordModel
         }
     }
 
+
     /**
      * @return string formatted file size
      */
     public function getFormatSize()
     {
-        $file = self::UPLOAD_PATH . $this->name;
         $size = $this->size;
 
-        $metrics[0] = 'bytes';
-        $metrics[1] = 'KB';
-        $metrics[2] = 'MB';
-        $metrics[3] = 'GB';
+        $metrics[0] = 'байт';
+        $metrics[1] = 'кб.';
+        $metrics[2] = 'мб.';
+        $metrics[3] = 'гб.';
         $metric     = 0;
 
         while (floor($size / 1024) > 0)
@@ -276,25 +262,21 @@ class FileManager extends ActiveRecordModel
     }
 
 
-    public function getSrc()
-    {
-        return Yii::app()->baseUrl . '/' . $this->path . '/' . $this->name;
-    }
-
-
     public function afterFind()
     {
         parent::afterFind();
         $this->fill();
     }
 
+
     public function fill()
     {
         $file            = $this->path . '/' . $this->name;
-        $this->size      = ($file &&
-            is_file($file)) ? filesize($file) : NULL; //$this->formatSize($this->basePath.$this->name);
+        $this->size      = is_file($file) ? filesize($file) : NULL; //$this->formatSize($this->basePath.$this->name);
+        $this->size      = $this->getFormatSize();
         $this->extension = pathinfo($this->name, PATHINFO_EXTENSION);
     }
+
 
     public function getNameWithoutExt()
     {
@@ -306,6 +288,7 @@ class FileManager extends ActiveRecordModel
         }
         return strtr($name, $params);
     }
+
 
     public function beforeSave()
     {
@@ -346,14 +329,20 @@ class FileManager extends ActiveRecordModel
     }
 
 
-    public function search()
+    public function search($crit = null)
     {
         $criteria = new CDbCriteria;
         $criteria->compare('object_id', $this->object_id, true);
         $criteria->compare('model_id', $this->model_id, true);
         $criteria->compare('tag', $this->tag, true);
         $criteria->compare('title', $this->title, true);
+        $criteria->compare('descr', $this->descr, true);
         $criteria->compare('order', $this->order);
+
+        if ($crit)
+        {
+            $criteria->mergeWith($crit);
+        }
 
         return new ActiveDataProvider(get_class($this), array(
             'criteria' => $criteria
@@ -365,13 +354,33 @@ class FileManager extends ActiveRecordModel
     {
         if (file_exists($this->path))
         {
-            return file_get_contents($this->path);
+            return file_get_contents($this->path . '/' . $this->name);
         }
     }
 
 
-    public function getUrl()
+    public function getDownloadUrl()
+	{
+		$hash = $this->getHash();
+		return Yii::app()->getController()->createUrl('/fileManager/fileManager/downloadFile', array(
+				'hash' => "{$hash}x{$this->id}",
+			));
+	}
+
+	public function getHash()
+	{
+		return md5($this->object_id . $this->model_id . $this->name . $this->tag);
+	}
+
+
+	public function getHref()
+	{
+        return $this->getDownloadUrl();
+	}
+
+    public function getServerPath()
     {
-        return "http://" . $_SERVER["HTTP_HOST"] . "/" . self::UPLOAD_PATH . $this->name;
+        return $_SERVER['DOCUMENT_ROOT'] . $this->path . '/' . $this->name;
     }
+
 }

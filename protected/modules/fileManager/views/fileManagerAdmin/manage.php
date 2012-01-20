@@ -7,13 +7,13 @@ function getObjectUpdateUrl($object_id, $model)
         return;
     }
 
-    $object = $model::model()->findByPk($object_id);
+    $object = ActiveRecordModel::model($model)->findByPk($object_id);
     if (!$object)
     {
         return;
     }
 
-    return "<a href='" . $object->updateUrl() . "'>перейти</a>";
+    return CHtml::link('перейти', $object->updateUrl());
 }
 
 
@@ -25,7 +25,7 @@ function getFileLink($data)
          {
              $basename = pathinfo($data->path, PATHINFO_BASENAME);
 
-             $path = str_replace($basename, '100x0_' . $basename, $data->path);
+//             $path = str_replace($basename, '100x0_' . $basename, $data->path);
 
              $content = ImageHelper::thumb(
                 FileManager::UPLOAD_PATH,
@@ -40,7 +40,7 @@ function getFileLink($data)
             $content = $data->title;
         }
 
-        return "<a href=\"{$data->url}\">{$content}</a>";
+        return Chtml::link($content, $data->url);
     }
     else
     {
@@ -77,7 +77,7 @@ $this->widget('AdminGrid', array(
         ),
         array(
             'header' => 'Адрес',
-            'value'  => '"<input style=\"width:100%\" type=\"text\" value=\"{$data->url}\">";',
+            'value'  => 'CHtml::textField("name", $data->url, array("style"=>"width:100%;"));',
             'type'   => 'raw',
             'filter' => false
         ),

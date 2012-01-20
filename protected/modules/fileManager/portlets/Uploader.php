@@ -8,7 +8,7 @@ class Uploader extends CJuiWidget
     public $id;
     public $title;
 
-    public $data_type = 'any'; //image, sound, video, document
+    public $data_type; //image, sound, video, document
 
     /*
     *  image: see http://www.verot.net/php_class_upload_samples.htm or comments in Resizer class
@@ -31,7 +31,7 @@ class Uploader extends CJuiWidget
         'image'=>'js:/(\.|\/)(gif|jpeg|png|jpg|tiff)$/i',
         'sound'=>'js:/(\.|\/)(mp3|wav)$/i',
         'any'=>'js:/(\.|\/)(.*)$/i',
-        'video'=>'js:/(\.|\/)(mp3|wav)$/i'
+        'video'=>'js:/(\.|\/)(mp4|flv)$/i'
     );
 
     private static $isTemplatesRender = false;

@@ -10,7 +10,20 @@
         Перетащите сюда файлы
     </div>
     <div class="fileupload-content">
-        <table class="files"><tbody></tbody></table>
+        <table class="files">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>Название</th>
+                    <th>Описание</th>
+                    <th>Сортировка</th>
+                    <th>Размер</th>
+                    <th></th>
+                    <th>Удалить</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
         <div class="fileupload-progressbar"></div>
     </div>
 </div>

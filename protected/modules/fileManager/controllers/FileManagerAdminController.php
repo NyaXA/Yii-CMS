@@ -4,6 +4,7 @@ class FileManagerAdminController extends AdminController
     public static function actionsTitles()
     {
         return array(
+            "UpdateAttr"   => "Редактирование файла",
             "Upload"       => "Загрузка файлов",
             "SavePriority" => "Сортировка",
             "Delete"       => "Удаление файла",
@@ -17,13 +18,10 @@ class FileManagerAdminController extends AdminController
     {
         if ($object_id == 0)
         {
-            $object_id = 'tmp_'.Yii::app()->user->id;
+            $object_id = 'tmp_' . Yii::app()->user->id;
         }
 
-        $existFiles = FileManager::model()
-            ->parent($model_id, $object_id)
-            ->tag($tag)
-            ->findAll();
+        $existFiles = FileManager::model()->parent($model_id, $object_id)->tag($tag)->findAll();
         $this->sendFilesAsJson($existFiles);
     }
 
@@ -32,7 +30,7 @@ class FileManagerAdminController extends AdminController
     {
         if ($object_id == 0)
         {
-            $object_id = 'tmp_'.Yii::app()->user->id;
+            $object_id = 'tmp_' . Yii::app()->user->id;
         }
 
         $model            = new FileManager('insert');
@@ -55,11 +53,12 @@ class FileManagerAdminController extends AdminController
         }
         else
         {
-            echo json_encode(array(
+            echo CJSON::encode(array(
                 'textStatus' => $model->error
             ));
         }
     }
+
 
     private function sendFilesAsJson($files)
     {
@@ -67,15 +66,22 @@ class FileManagerAdminController extends AdminController
         foreach ((array)$files as $file)
         {
             $res[] = array(
-                'title'         => $file->title,
-                'descr'         => $file->descr,
-                'size'          => $file->size,
-                'url'           => $file->src,
-                'thumbnail_url' => $file->src,
-                'delete_url'    => $file->deleteUrl,
-                'delete_type'   => "GET",
-                'edit_link'     => CHtml::link('<img width="16" height="16" src="/images/admin/editable.gif" style="display: inline-block;" />', $this->createUrl('/main/helpAdmin/saveAttribute'), array('class'=> 'thumb-edit')),
-                'id'            => 'File_'.$file->id
+                'title'          => $file['title'] ? $file['title'] : 'Кликните для редактирования',
+                'text'           => $file['descr'] ? $file['descr'] : 'Кликните для редактирования',
+                'size'           => $file['size'],
+                'url'            => $file['href'],
+                'thumbnail_url'  => $file['icon'],
+                'delete_url'     => $file['deleteUrl'],
+                'delete_type'    => "GET",
+                'edit_title_url' => $this->url('/fileManager/fileManagerAdmin/updateAttr', array(
+                    'id'  => $file['id'],
+                    'attr'=> 'title'
+                )),
+                'edit_descr_url' => $this->url('/fileManager/fileManagerAdmin/updateAttr', array(
+                    'id'  => $file['id'],
+                    'attr'=> 'descr'
+                )),
+                'id'             => 'File_' . $file->id,
             );
         }
 
@@ -101,26 +107,43 @@ class FileManagerAdminController extends AdminController
 
         $case = SqlHelper::arrToCase('id', array_flip($ids), 't');
         $arr  = implode(',', $ids);
-        $c    = Yii::app()->db->commandBuilder->createSqlCommand("UPDATE {$files->tableName()} AS t SET t.order = {$case} WHERE t.id IN ({$arr})");
-        $c->execute();
+        $c    = Yii::app()->db->getCommandBuilder()
+            ->createSqlCommand("UPDATE {$files->tableName()} AS t SET t.order = {$case} WHERE t.id IN ({$arr})")
+            ->execute();
     }
 
 
     public function actionDelete()
     {
-        $this
-            ->loadModel()
-            ->delete();
+        $model = $this->loadModel()->delete();
     }
+
+
+    public function actionUpdateAttr()
+    {
+        $model = $this->loadModel();
+
+        $model->scenario = 'update';
+
+        $this->performAjaxValidation($model);
+        $attr = $_GET['attr'];
+        if (isset($_POST[$attr]))
+        {
+            $model->$attr = trim(strip_tags($_POST[$attr]));
+
+            if ($model->save(false))
+            {
+                echo $model->$attr;
+            }
+        }
+    }
+
 
     public function loadModel()
     {
         if (isset($_GET['id']))
         {
-            $condition = '';
-
-            $model = FileManager::model()
-                ->findByPk($_GET['id'], $condition);
+            $model = FileManager::model()->findByPk($_GET['id']);
         }
 
         if ($model === null)
@@ -137,8 +160,7 @@ class FileManagerAdminController extends AdminController
         if (isset($_POST['ajax']))
         {
             print_r(CActiveForm::validate($model));
-            Yii::app()
-                ->end();
+            Yii::app()->end();
         }
     }
 

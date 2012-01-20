@@ -1,4 +1,3 @@
-
 $(function()
 {
     var src = $('#Banner_src').val();
@@ -72,4 +71,4 @@ $(function()
         section_text+= "</div>";
 
     $('#Banner_name').after(section_text);
-})(jQuery);
+});

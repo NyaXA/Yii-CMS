@@ -1,8 +1,8 @@
 <script id="template-upload" type="text/x-jquery-tmpl">
     <tr class="template-upload{{if error}} ui-state-error{{/if}}">
         <td class="preview"></td>
-        <td class="name">${name}</td>
-        <td class="size">${sizef}</td>
+        <td class="title">${title}</td>
+        <td class="descr">${text}</td>
         {{if error}}
         <td class="error" colspan="2">Error:
             {{if error === 'maxFileSize'}}<?php echo Yii::t('FileManagerModule.interface', 'Файл слишком велик') ?>
@@ -16,6 +16,7 @@
         <td class="progress">
             <div></div>
         </td>
+        <td class="size">${sizef}</td>
         <td class="start">
             <button>Start</button>
         </td>
@@ -29,8 +30,8 @@
     <tr id="${id}" class="template-download{{if error}} ui-state-error{{/if}}">
         {{if error}}
         <td></td>
-        <td class="name">${name}</td>
-        <td class="size">${sizef}</td>
+        <td class="{title}">${title}</td>
+        <td class="size">${size}</td>
         <td class="error" colspan="2">Error:
             {{if error === 1}}  <?php echo Yii::t('FileManagerModule.interface', 'Файл превышает размер допустимый сервером (php.ini директива)') ?>
             {{else error === 2}}<?php echo Yii::t('FileManagerModule.interface', 'файл слишком велик (HTML директива)') ?>
@@ -51,24 +52,23 @@
         {{else}}
         <td class="preview">
             {{if thumbnail_url}}
-            <img height="48" src="${thumbnail_url}">
+            {{html thumbnail_url}}
             {{/if}}
         </td>
-        <td>
-            <span class="editable_wrapper">
-                <span class="editable" data-attr="title" data-editable-type="text">${title}</span>
-                {{html edit_link}}
-            </span>
+        <td style="width: 150px;">
+            <div class="title editable" data-attr="title" data-editable-type="text" data-save-url="${edit_title_url}">
+                <span>${title}</span>
+            </div>
         </td>
-        <td class="size">${sizef}</td>
-        <td class="descr">
-            <span class="editable_wrapper">
-                <span class="editable" data-attr="descr" data-editable-type="textarea">${descr}</span>
-                {{html edit_link}}
-            </span>
+        <td style="width: 250px;">
+            <div class="descr editable" data-attr="descr" data-editable-type="textarea" data-save-url="${edit_descr_url}">
+                <span>${text}</span>
+            </div>
         </td>
         <td class="dnd-handler"><img height="20" src="<?php echo $this->assets?>/img/hand.png"/></td>
+        <td class="size">${size}</td>
         {{/if}}
+        <td></td>
         <td class="delete">
             <button data-type="${delete_type}" data-url="${delete_url}">Delete</button>
         </td>

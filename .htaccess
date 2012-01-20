@@ -2,11 +2,6 @@ AddDefaultCharset utf-8
 AddCharset utf-8 .html .css .js .xml .json .rss .atom
 
 
-
-SetEnv APP_ENV development
-#SetEnv APP_ENV production
-
-
 # for FileManager module
 # XSendFile on
 # XSendFileAllowAbove on

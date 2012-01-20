@@ -320,9 +320,12 @@ dl {
     text-decoration: underline;
     display: block;
 }
-.files{
-    margin: 0 !important;
-}
+
+.files{margin: 0 !important;}
+.files .title span, .files .descr span{border-bottom: 1px dashed #48f; cursor: pointer}
+.files .title, .files .descr{min-width:250px; min-height: 50px;}
+.files .title, .files .descr{min-width:250px; min-height: 50px;}
+
 .ui-autocomplete
 {
     max-height: 200px;
@@ -345,3 +348,4 @@ input[disabled] {
 .uploader .editable_wrapper{
     padding: 0 10px 0 0;
 }
+

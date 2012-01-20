@@ -3,7 +3,6 @@
 class AuthObjectBehavior extends CActiveRecordBehavior
 {
     public $roles;
-    
 
     public function afterSave()
     {
