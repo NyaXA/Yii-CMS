@@ -51,6 +51,17 @@ class GridView extends CGridView
                     continue;
                 }
 
+                if (!($column = $this->findColumnByName($attr))) //if hasn't column for it attr
+                {
+                    continue;
+                }
+
+                if ($column->value != null) //if set value of column
+                {
+                    continue;
+                }
+
+
                 $no_values = array('0000-00-00 00:00:00', '0000-00-00');
                 $new_value = in_array($value, $no_values) ? null : Yii::app()->dater->readableFormat($value);
 
@@ -67,6 +78,18 @@ class GridView extends CGridView
         }
 
         $this->dataProvider->setData($data);
+    }
+
+
+    public function findColumnByName($attr)
+    {
+        foreach ($this->columns as $col)
+        {
+            if ($col->name == $attr)
+            {
+                return $col;
+            }
+        }
     }
 
 
