@@ -85,7 +85,7 @@ class GridView extends CGridView
     {
         foreach ($this->columns as $col)
         {
-            if ($col->name == $attr)
+            if (isset($col->name) && $col->name == $attr)
             {
                 return $col;
             }
