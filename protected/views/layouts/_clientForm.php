@@ -5,7 +5,7 @@ if ($element->name == 'captcha')
 {
     echo $form->getActiveFormWidget()->error($form->model, 'captcha');
     echo CHtml::activeTextField($form->model, 'captcha', array('data-label' => $label));
-    $this->widget('CCaptcha');
+    $this->widget('Captcha');
 
 }
 else if ($element->type == 'date')
