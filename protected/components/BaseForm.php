@@ -8,7 +8,6 @@ class BaseForm extends CForm
 
     public $cancel_button_show = true;
 
-
     public function __construct($config, $model = null, $parent = null)
     {
         if ($this->side == null)
@@ -57,7 +56,7 @@ class BaseForm extends CForm
         $function = $func_base_name . ucfirst($this->side);
         if (method_exists($this, $function))
         {
-            call_user_func_array(array($this, $function), &$params);
+            call_user_func_array(array($this, $function), $params);
         }
     }
 
@@ -174,7 +173,7 @@ class BaseForm extends CForm
     {
         if ($element instanceof self)
         {
-            $this->_addAdminClasses($element);
+            $this->_addClassesAdmin($element);
             return $element->render();
         }
 
@@ -199,7 +198,7 @@ class BaseForm extends CForm
     }
 
 
-    private function _addClassesAdmin(&$element)
+    private function _addClassesAdmin($element)
     {
         $data = $element->type;
         $attr = 'class';
@@ -219,6 +218,7 @@ class BaseForm extends CForm
                 ;
         }
         $element->attributes[$attr] = $data;
+        return $element;
     }
 
 
@@ -264,7 +264,7 @@ class BaseForm extends CForm
     }
 
 
-    private function _addAttributesToButtonsAdmin(&$button)
+    private function _addAttributesToButtonsAdmin($button)
     {
         $length = mb_strlen($button->value, 'utf-8');
 
@@ -284,12 +284,13 @@ class BaseForm extends CForm
         }
 
         $button->attributes['class'] = $class;
+        return $button;
     }
 
 
-    private function _addAttributesToButtonsClient(&$button)
+    private function _addAttributesToButtonsClient($button)
     {
-
+        return $button;
     }
 
 
