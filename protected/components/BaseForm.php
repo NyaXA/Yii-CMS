@@ -56,7 +56,7 @@ class BaseForm extends CForm
         $function = $func_base_name . ucfirst($this->side);
         if (method_exists($this, $function))
         {
-            call_user_func_array(array($this, $function), $params);
+            $params = call_user_func_array(array($this, $function), $params);
         }
     }
 
