@@ -16,7 +16,7 @@ class TinyMCE extends CInputWidget
         
 			// Theme options
 			'theme_advanced_buttons1' => "undo,redo,|,bold,italic,underline,strikethrough,sub,sup,|,bullist,numlist,|,charmap,|,justifyleft,justifycenter,justifyright,justifyfull,|,outdent,indent,blockquote,formatselect",
-			'theme_advanced_buttons2' => "image,media,link,unlink,anchor,|,cut,copy,paste,pastetext,pasteword,|,newdocument,pagebreak,|,jaretypograph,visualaid,cleanup,removeformat,|,fullscreen,|,code",
+			'theme_advanced_buttons2' => "image,media,link,unlink,anchor,|,cut,copy,paste,pastetext,pasteword,|,newdocument,pagebreak,|,jaretypograph,visualaid,cleanup,removeformat,|,tablecontrols,fullscreen,|,code",
 			'theme_advanced_buttons3' => "",
 			'theme_advanced_toolbar_location' => "top",
 			'theme_advanced_toolbar_align' => "left",
