@@ -6,7 +6,8 @@ class TinyMCE extends CInputWidget
         'language'=>'ru',
 		'theme'=> "advanced",
         'plugins' => "pagebreak,style,layer,table,save,advhr,advimage,advlink,emotions,iespell,inlinepopups,insertdatetime,preview,media,searchreplace,print,contextmenu,paste,directionality,fullscreen,noneditable,visualchars,nonbreaking,xhtmlxtras,template,wordcount,advlist,autosave,jaretypograph",
-        'convert_urls' => 'false',
+        'convert_urls' => false,
+        'relative_urls' => false,
 		'skin'=> "cirkuit",
 
 		'editorTemplate'=>'full',
