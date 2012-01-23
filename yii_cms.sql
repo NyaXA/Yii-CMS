@@ -1551,6 +1551,7 @@ INSERT INTO `settings` (`id`, `module_id`, `code`, `name`, `value`, `element`, `
 CREATE TABLE IF NOT EXISTS `site_actions` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `user_id` int(11) unsigned DEFAULT NULL COMMENT 'Пользователь',
+  `object_id`  int(11) unsigned NULL COMMENT 'ID объекта',
   `title` varchar(200) NOT NULL COMMENT 'Заголовок',
   `module` varchar(50) NOT NULL COMMENT 'Модуль',
   `controller` varchar(50) NOT NULL COMMENT 'Контроллер',
