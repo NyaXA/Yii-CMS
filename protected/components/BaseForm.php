@@ -8,12 +8,21 @@ class BaseForm extends CForm
 
     public $cancel_button_show = true;
 
+    public $inputElementClass = null;
+
+
     public function __construct($config, $model = null, $parent = null)
     {
         if ($this->side == null)
         {
             $this->side = Yii::app()->controller instanceof AdminController ? 'admin' : 'client';
         }
+
+        if ($this->inputElementClass == null)
+        {
+            $this->inputElementClass = $this->side . 'FormInputElement';
+        }
+
 
         if (is_string($config))
         {
@@ -50,7 +59,7 @@ class BaseForm extends CForm
 
     public function runSideMethod()
     {
-        $params = func_get_args();
+        $params         = func_get_args();
         $func_base_name = array_shift($params);
 
         $function = $func_base_name . ucfirst($this->side);
@@ -177,7 +186,7 @@ class BaseForm extends CForm
             return $element->render();
         }
 
-        $this->runSideMethod('_addClasses',$element);
+        $this->runSideMethod('_addClasses', $element);
 
         $class = $element->type;
         if (isset($element->attributes['parentClass']))

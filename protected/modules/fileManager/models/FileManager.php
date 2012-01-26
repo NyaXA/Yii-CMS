@@ -1,5 +1,4 @@
 <?php
-
 class FileManager extends ActiveRecordModel
 {
     const UPLOAD_PATH  = 'upload/fileManager';
