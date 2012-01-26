@@ -19,9 +19,9 @@ abstract class InputWidget extends CInputWidget
     public function behaviors()
     {
         return array(
-            'CoomponentInModule' => array(
-                'class' => 'application.components.behaviors.ComponentInModuleBehavior'
-            )
+//            'InputWidget' => array(
+//                'class' => 'application.components.behaviors.InputWidgetBehavior'
+//            )
         );
     }
 
