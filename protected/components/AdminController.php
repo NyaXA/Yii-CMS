@@ -11,7 +11,7 @@ abstract class AdminController extends BaseController
         parent::init();
 
         $admin_url = $this->url('/users/userAdmin/login');
-        if (Yii::app()->user->isGuest && trim($_SERVER['REQUEST_URI'], '/') != trim($admin_url))
+        if (Yii::app()->user->isGuest && trim($_SERVER['REQUEST_URI'], '/') != trim($admin_url, '/'))
         {
             $this->redirect($admin_url);
         }
