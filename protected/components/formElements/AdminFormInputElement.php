@@ -45,6 +45,6 @@ class AdminFormInputElement extends CFormInputElement
         {
             $this->type = $this->widgets_path . str_repeat('.' . self::$widgets[$this->type], 2);
         }
-        parent::renderInput();
+        return parent::renderInput();
     }
 }

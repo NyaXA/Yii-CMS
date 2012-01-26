@@ -9,6 +9,7 @@ abstract class Portlet extends CPortlet
         parent::init();
     }
 
+
     public function behaviors()
     {
         return array(

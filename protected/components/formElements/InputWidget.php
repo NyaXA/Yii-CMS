@@ -16,17 +16,20 @@ abstract class InputWidget extends CInputWidget
         parent::init();
     }
 
+
     public function behaviors()
     {
         return array(
-//            'InputWidget' => array(
-//                'class' => 'application.components.behaviors.InputWidgetBehavior'
-//            )
+            'InputWidget' => array(
+                'class' => 'application.components.behaviors.InputWidgetBehavior'
+            )
         );
     }
 
+
     /**
      * Возвращает id виджета, созданный функцией CInputWidget::reloveNameId()
+     *
      * @return mixed
      */
     public function getId()
@@ -34,8 +37,10 @@ abstract class InputWidget extends CInputWidget
         return $this->_id;
     }
 
+
     /**
      * Обязательный метод для $parent {@link CFormElement}, почему его нет Yii я не понял, спрошу у авторов
+     *
      * @return CModel
      */
     public function getModel()
@@ -43,11 +48,12 @@ abstract class InputWidget extends CInputWidget
         return $this->model;
     }
 
+
     public function run()
     {
-        if (in_array($this->type, FormInputElement::$coreTypes))
+        if (in_array($this->type, CFormInputElement::$coreTypes))
         {
-            $el = new FormInputElement(array(
+            $el = new CFormInputElement(array(
                 'type' => $this->type,
                 'name' => $this->attribute
             ), $this);

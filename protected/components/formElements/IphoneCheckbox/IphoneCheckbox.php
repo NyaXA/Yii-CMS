@@ -18,8 +18,8 @@ class IphoneCheckbox extends InputWidget
         ));
 
         Yii::app()->clientScript
-            ->registerScriptFile('/js/plugins/adminForm/checkbox/iphone-style-checkboxes.js')
-            ->registerCssFile('/js/plugins/adminForm/checkbox/style.css')->registerScript(
+            ->registerScriptFile($this->assets . '/iphone-style-checkboxes.js')
+            ->registerCssFile($this->assets . '/style.css')->registerScript(
             $this->id . '_iphone_checkbox', "$('#{$this->id}').iphoneStyle($options);");
     }
 
@@ -32,7 +32,7 @@ class IphoneCheckbox extends InputWidget
             $attributes['checked'] = $this->checked;
         }
 
-        $el = new FormInputElement(array(
+        $el = new CFormInputElement(array(
             'type' => $this->type,
             'name' => $this->attribute,
             'attributes' => $attributes,
