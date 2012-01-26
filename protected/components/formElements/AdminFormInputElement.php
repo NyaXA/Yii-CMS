@@ -29,17 +29,21 @@ class AdminFormInputElement extends CFormInputElement
         )
     );
 
-    public $widgets_folder = 'application.components.formElements';
+    public $widgets_path = 'application.components.formElements';
 
 
     public function renderInput()
     {
         //set default settings
-        $this->attributes = CMap::mergeArray(self::$default_widget_settings[$this->type], $this->attributes);
+        if (isset(self::$default_widget_settings[$this->type]))
+        {
+            $this->attributes = CMap::mergeArray(self::$default_widget_settings[$this->type], $this->attributes);
+        }
 
+        //replace sinonym on full alias
         if (isset(self::$widgets[$this->type]))
         {
-            $this->type = $this->widgets_folder . str_repeat('.' . self::$widgets[$this->type], 2);
+            $this->type = $this->widgets_path . str_repeat('.' . self::$widgets[$this->type], 2);
         }
         parent::renderInput();
     }

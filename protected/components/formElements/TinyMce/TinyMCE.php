@@ -1,5 +1,5 @@
 <?php
-class TinyMCE extends CInputWidget
+class TinyMCE extends   InputWidget
 {
 	public $editorOptions = array();
     private $defaultOptions = array(

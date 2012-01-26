@@ -10,7 +10,20 @@ class Uploader extends CJuiWidget
 
     public $data_type; //image, sound, video, document
 
-    /*
+	public $fields = array(
+		'title' => array(
+			'header' => 'Название',
+			'size' => 150,
+			'type' => 'text',
+		),
+		'descr' => array(
+			'header' => 'Описание',
+			'size' => 250,
+			'type' => 'textarea',
+		),
+	);
+
+	/*
     *  image: see http://www.verot.net/php_class_upload_samples.htm or comments in Resizer class
      * document: nothing yet
      * sound: nothing yet
