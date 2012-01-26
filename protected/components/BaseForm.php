@@ -108,8 +108,9 @@ class BaseForm extends CForm
             ->registerScriptFile('/js/plugins/adminForm/buttonSet.js')
             ->registerScriptFile('/js/plugins/adminForm/tooltips/jquery.atooltip.js')
             ->registerCssFile('/js/plugins/adminForm/tooltips/atooltip.css')
-            ->registerScriptFile('/js/plugins/adminForm/chosen/chosen.jquery.js')
-            ->registerCssFile('/js/plugins/adminForm/chosen/chosen.css');
+//            ->registerScriptFile('/js/plugins/adminForm/chosen/chosen.jquery.js')
+//            ->registerCssFile('/js/plugins/adminForm/chosen/chosen.css')
+        ;
     }
 
 
