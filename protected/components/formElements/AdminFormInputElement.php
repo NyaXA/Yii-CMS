@@ -1,10 +1,17 @@
 <?php
+<<<<<<< HEAD
 class AdminFormInputElement extends BaseFormInputElement
 {
     public static $widgets = array(
         'alias'             => 'AliasField',
         'captcha'           => 'Captcha',
         'chosen'            => 'Chosen',
+=======
+class AdminFormInputElement extends CFormInputElement
+{
+    public static $widgets = array(
+        'alias'             => 'AliasField',
+>>>>>>> origin/master
         'all_in_one_input'  => 'AllInOneInput',
         'multi_select'      => 'EMultiSelect',
         'date'              => 'FJuiDatePicker',

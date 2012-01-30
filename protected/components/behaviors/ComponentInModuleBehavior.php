@@ -10,6 +10,7 @@ class ComponentInModuleBehavior extends CBehavior
     private $_assets;
     private $_module_id;
 
+
     public function getModule()
     {
         $component = $this->getOwner();
@@ -17,11 +18,11 @@ class ComponentInModuleBehavior extends CBehavior
         //модуль находится в modules и имеет id такой же как название директории
         if ($this->_module_id == null)
         {
-            $c = new ReflectionClass($component);
+            $c   = new ReflectionClass($component);
             $dir = pathinfo($c->getFileName(), PATHINFO_DIRNAME); //путь до нашего виджета
 
             $arr = explode(DIRECTORY_SEPARATOR, $dir);
-            while(end($arr) != 'modules')   //получаем название директории с нашим модулем
+            while (end($arr) != 'modules') //получаем название директории с нашим модулем
             {
                 $last_segment = array_pop($arr);
                 if ($last_segment == 'protected')
@@ -33,10 +34,10 @@ class ComponentInModuleBehavior extends CBehavior
 
             $this->_module_id = $last_segment;
         }
-CClientScript::
-        return Yii::app()
-            ->getModule($this->_module_id);
+
+        return Yii::app()->getModule($this->_module_id);
     }
+
 
     /**
      *
@@ -50,6 +51,7 @@ CClientScript::
     {
         return Yii::app()->controller->url($route, $params = array(), $ampersand = '&');
     }
+
 
     /**
      * Возвращает URL до директории assets, модуля, которому принадлежит виджет

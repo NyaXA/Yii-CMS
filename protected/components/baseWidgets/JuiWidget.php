@@ -8,6 +8,7 @@ abstract class JuiWidget extends CJuiWidget
         parent::init();
     }
 
+
     public function behaviors()
     {
         return array(
