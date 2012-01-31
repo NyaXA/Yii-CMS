@@ -13,7 +13,7 @@
             <ul >
                 <?php foreach ($module['admin_menu'] as $title => $url): ?>
                     <li>
-                        <a href="<?php echo $url; ?>"><?php echo $title; ?></a>
+                        <?php echo CHtml::link($title, $url); ?>
                     </li>
                 <?php endforeach ?>
             </ul>

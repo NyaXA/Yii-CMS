@@ -2,6 +2,8 @@
 
 class MetaTagBehavior extends CActiveRecordBehavior
 {
+    public $meta_tags;
+
     public function afterSave($event)
     {
         $attributes = Yii::app()->request->getParam('MetaTag');
