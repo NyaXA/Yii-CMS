@@ -4,14 +4,15 @@ class DateColumn extends CDataColumn
     public $uiDateFormat = 'd.m.yy';
     public $attribute;
 
+
     public function init()
     {
         parent::init();
         $this->uiDateFormat = $this->uiDateFormat ? $this->uiDateFormat : "yy-mm-dd";
-        $this->attribute    = $this->attribute ? $this->attribute : $this->name;
+        $attr               = $this->attribute = $this->attribute ? $this->attribute : $this->name;
 
-        $start        = '_' . $this->attribute . '_start';
-        $end          = '_' . $this->attribute . '_end';
+        $start        = '_' . $attr . '_start';
+        $end          = '_' . $attr . '_end';
         $_GET[$start] = isset($_GET[$start]) ? $_GET[$start] : 'От';
         $_GET[$end]   = isset($_GET[$end]) ? $_GET[$end] : 'До';
 
@@ -22,7 +23,7 @@ class DateColumn extends CDataColumn
             'options'  => array(
                 'dateFormat'=> $this->uiDateFormat
             ),
-            'range'    => 'eval_period'
+            'range'    => $attr . '_diapason'
         ), true);
         $this->filter .= Yii::app()->controller->widget('ext.jui.FJuiDatePicker', array(
             'name'     => $end,
@@ -31,7 +32,7 @@ class DateColumn extends CDataColumn
             'options'  => array(
                 'dateFormat'=> $this->uiDateFormat
             ),
-            'range'    => 'eval_period'
+            'range'    => $attr . '_diapason'
         ), true);
     }
 }
