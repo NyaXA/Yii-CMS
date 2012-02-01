@@ -75,6 +75,7 @@ class DateFormatBehavior extends CActiveRecordBehavior
         {
             $criteria->addCondition($attribute_name . "<'" . date('Y-m-d 23:59:59', $end) . "'");
         }
+        return $criteria;
     }
 
 }
