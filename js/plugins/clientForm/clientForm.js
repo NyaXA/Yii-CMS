@@ -3,12 +3,13 @@
     $.fn.clientForm = function()
     {
         var self = $(this);
-        self.tipInput();
     };
 
 })(jQuery);
 
 $(document).ready(function()
 {
-    $('label').inFieldLabels();
+    $('label').filter(function() {
+        return !($(this).siblings('select, input[type=checkbox], input[type=radio]').length > 0);
+    }).addClass('inFieldLabels').inFieldLabels();
 });
