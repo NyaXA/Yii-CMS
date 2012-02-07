@@ -1,7 +1,7 @@
 <?php
 class DateColumn extends CDataColumn
 {
-    public $uiDateFormat = 'd.m.yy';
+    public $uiDateFormat = 'dd.mm.yy';
     public $attribute;
 
 
