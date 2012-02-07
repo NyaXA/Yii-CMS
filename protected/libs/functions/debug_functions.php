@@ -14,11 +14,6 @@ function v($data)
 
 class Y extends CComponent
 {
-	const PUBLISHED = 1;
-	const NOT_PUBLISHED = 0;
-
-	public static $cat;
-
 	private static $startSkipCount = 0;
 	private static $skipCount = 0;
 
@@ -62,36 +57,4 @@ class Y extends CComponent
 
         Yii::app()->end();
     }
-
-
-    /**
-     * Выводит данные в формате JSON и завершает приложение (применяется в ajax-действиях)
-     * @param string $data данные для вывода
-     */
-    public static function endJson($data)
-    {
-        self::end(CJavaScript::jsonEncode($data));
-    }
-
-	public static function requestType()
-	{
-		return Yii::app()->request->requestType;
-	}
-
-	public static function isPostRequest() {
-		return Yii::app()->request->isPostRequest;
-	}
-
-	public static function isPutRequest() {
-		return Yii::app()->request->isPutRequest;
-	}
-
-	public static function isDeleteRequest() {
-		return Yii::app()->request->isDeleteRequest;
-	}
-
-	public static function isAjaxRequest() {
-		return Yii::app()->request->isAjaxRequest;
-	}
-
 }

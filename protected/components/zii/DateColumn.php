@@ -27,23 +27,20 @@ class DateColumn extends CDataColumn
             ),
             'range'      => $attr . '_diapason'
         );
-
-        //1-st widget
-        $res = CHtml::tag('span', array('style'=> 'float:left'), 'До:');
+        $res = CHtml::tag('span', array('style'=> 'float:left'), 'От:');
         $res .= Yii::app()->controller->widget($widget, CMap::mergeArray($settings, array(
             'name'     => $start,
             'value'    => $_GET[$start],
         )), true);
 
-        $this->filter .= CHtml::tag('div', array('style'=> 'min-width: 115px;'), $res);
+        $this->filter .= CHtml::tag('div', array('style'=>'min-width: 115px;'), $res);
 
-        //2-nd widget
-        $res = CHtml::tag('span', array('style'=> 'float:left'), 'После:');
+        $res = CHtml::tag('span', array('style'=> 'float:left'), 'До:');
         $res .= Yii::app()->controller->widget($widget, CMap::mergeArray($settings, array(
             'name'     => $end,
             'value'    => $_GET[$end],
         )), true);
 
-        $this->filter .= CHtml::tag('div', array('style'=> 'min-width: 115px;'), $res);
+        $this->filter .= CHtml::tag('div', array('style'=>'min-width: 115px;'), $res);
     }
 }
