@@ -17,11 +17,11 @@ $this->widget('AdminGrid', array(
 		'birthdate',
 		array(
 			'name'  => 'gender',
-			'value' => 'User::$gender_list[$data->gender]'
+			'value' => '$data->gender ? User::$gender_list[$data->gender] : $data->gender'
 		),
 		array(
 			'name'  => 'status', 
-            'value' => 'User::$status_list[$data->status]'
+            'value' => '$data->status ? User::$status_list[$data->status] : $data->status'
 		),
 		'phone',
 		array(
