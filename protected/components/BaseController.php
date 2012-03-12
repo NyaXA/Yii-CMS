@@ -200,7 +200,7 @@ abstract class BaseController extends CController
      * Так же перевод осуществляется по словорям с префиксом {modelId},
      * где modelId - приведенная к нижнему регистру база имени контроллера
      *
-     * Например: для контроллера ProductInfoAdminController, находящегося в модуле ProductsModule
+     * Например: для контроллера ProdujctInfoAdminController, находящегося в модуле ProductsModule
      * перевод будет осуществляться по словарю ProductsModule.product_info_{первый параметр метода}
      *
      * @param string $dictionary словарь

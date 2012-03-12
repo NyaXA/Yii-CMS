@@ -29,16 +29,12 @@ class ActionAdminController extends AdminController
         $form = new BaseForm('actions.ActionForm', $model);
         $this->performAjaxValidation($model);
 
-        if ($form->submitted('submit'))
+        if ($form->submitted() && $model->save())
         {
-            $model = $form->model;
-            if ($model->save())
-            {
-                $this->redirect(array(
-                    'view',
-                    'id' => $model->id
-                ));
-            }
+            $this->redirect(array(
+                'view',
+                'id' => $model->id
+            ));
         }
 
         $this->render('create', array(
@@ -54,17 +50,13 @@ class ActionAdminController extends AdminController
         $form = new BaseForm('actions.ActionForm', $model);
         $this->performAjaxValidation($model);
 
-        if ($form->submitted('submit'))
-        {
-            $model = $form->model;
-            if ($model->save())
+        if ($form->submitted() && $model->save())
             {
                 $this->redirect(array(
                     'view',
                     'id'=> $model->id
                 ));
             }
-        }
 
         $this->render('update', array(
             'form' => $form,
@@ -104,13 +96,4 @@ class ActionAdminController extends AdminController
         ));
     }
 
-
-    protected function performAjaxValidation($model)
-    {
-        if (isset($_POST['ajax']) && $_POST['ajax'] === 'action-form')
-        {
-            echo CActiveForm::validate($model);
-            Yii::app()->end();
-        }
-    }
 }

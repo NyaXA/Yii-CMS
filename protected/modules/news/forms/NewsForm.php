@@ -14,20 +14,20 @@ return array(
         ),
         'text'  => array('type' => 'editor'),
         'photo' => array('type' => 'file'),
-        'state' => array(
-            'type'  => 'dropdownlist',
-            'items' => News::$states
-        ),
+//        'state' => array(
+//            'type'  => 'dropdownlist',
+//            'items' => News::$states
+//        ),
         'date'  => array('type' => 'date'),
         'meta'  => array(
             'type'   => 'MetaTags'
         ),
-        'files' => array(
-            'type'      => 'file_manager',
-            'tag'       => 'file',
-            'data_type' => 'any',
-            'title'     => 'Файлы для скачивания'
-        ),
+//        'files' => array(
+//            'type'      => 'file_manager',
+//            'tag'       => 'file',
+//            'data_type' => 'any',
+//            'title'     => 'Файлы для скачивания'
+//        ),
     ),
     'buttons'    => array(
         'submit' => array(
