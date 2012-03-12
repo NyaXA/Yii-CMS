@@ -6,6 +6,11 @@ abstract class InputWidget extends CInputWidget
     public $class; //this field use in _form layout
     public $type = 'text';
 
+    public $form_id;
+
+    public $input_element;
+
+
     protected $_id;
 
     public function init()
@@ -51,19 +56,5 @@ abstract class InputWidget extends CInputWidget
 
     public function run()
     {
-        if (in_array($this->type, CFormInputElement::$coreTypes))
-        {
-            $el = new CFormInputElement(array(
-                'type' => $this->type,
-                'name' => $this->attribute
-            ), $this);
-
-            echo $el->renderInput();
-        }
-        else
-        {
-            // TODO: тут можно дополнительные типы определить, или какой-то общий алгоритм
-        }
-
     }
 }

@@ -1,12 +1,16 @@
 <?php
+Yii::import('zii.widgets.jui.CJuiInputWidget');
 abstract class JuiInputWidget extends CJuiInputWidget
 {
     public $name;
     public $class; //this field use in _form layout
 
+    public $form_id;
+
     protected $_id;
 
-    public $assets = __DIR__;
+    public $input_element;
+
 
     public function init()
     {
@@ -19,7 +23,11 @@ abstract class JuiInputWidget extends CJuiInputWidget
 
     public function behaviors()
     {
-        return array();
+        return array(
+            'InputWidget' => array(
+                'class' => 'application.components.behaviors.InputWidgetBehavior'
+            )
+        );
     }
 
 
@@ -43,4 +51,36 @@ abstract class JuiInputWidget extends CJuiInputWidget
     {
         return $this->model;
     }
+
+
+    public function renderDialog($view, $params = array(), $return = false)
+    {
+        $options = array(
+            'autoOpen'=> true,
+            'width'   => 'auto',
+            'height'  => 'auto',
+            'modal'   => true,
+            'title'   => 'Открыть',
+        );
+
+        if (isset($params['dialogOptions']))
+        {
+            $options = CMap::mergeArray($options, $params['dialogOptions']);
+            unset($params['dialogOptions']);
+        }
+        $js_options = CJavaScript::encode($options);
+
+        // the link that may open the dialog
+        echo CHtml::link($options['title'], '#', array(
+            'onclick'=> "
+            $('#{$this->id}').dialog({$js_options}).bind('dialogclose',function(event) {
+                $(this).dialog('destroy').appendTo('#{$this->form_id}').hide();
+            });
+            return false;
+        ",
+        ));
+
+        return $this->render($view, $params, $return);
+    }
+
 }
